@@ -1,637 +1,360 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>AtoC · A0 Урок 7: Первые</title>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --navy:#0D1B2A;--navy2:#162840;
-  --teal:#00C9A7;--teal2:#00A98F;--tp:#e0faf5;
-  --gold:#FFB830;--gold2:#e09a00;--gp:#fff8e1;
-  --red:#FF4D6D;--rp:#ffe0e6;
-  --green:#06D6A0;--grnp:#e0fdf4;
-  --purple:#845EC2;--pp:#f0ebff;
-  --orange:#FF6B35;--pink:#FF6B9D;
-  --bg:#F2F5FF;--white:#fff;
-  --text:#0D1B2A;--muted:#5a7184;--border:#e2eaf5;
-}
-@keyframes cFall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
-@keyframes bIn{0%{transform:scale(0) rotate(-10deg);opacity:0}60%{transform:scale(1.2)}100%{transform:scale(1);opacity:1}}
-@keyframes sUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
-@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,201,167,.5)}100%{box-shadow:0 0 0 18px rgba(0,201,167,0)}}
-@keyframes streakAnim{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=DM+Mono:wght@400;500&display=swap');
+:root{--nv:#0c1e34;--nv2:#162840;--tl:#00c9a7;--tl2:#00a98f;--tp:#e0faf5;--gd:#ffb830;--gd2:#e09a00;--gp:#fff8e1;--rd:#ff4d6d;--rp:#ffe0e8;--gr:#06d6a0;--grp:#e0fdf4;--pu:#845ec2;--pp:#f0ebff;--bg:#f2f5ff;--wh:#fff;--tx:#0c1e34;--mu:#5a7184;--br:#e2eaf5}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:100px;overflow-x:hidden}
-
+html{scroll-behavior:smooth}
+body{font-family:"Nunito",sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;padding-bottom:90px;overflow-x:hidden}
 /* HEADER */
-.hdr{background:var(--navy);border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:200;padding:0 18px}
-.hdr-in{max-width:720px;margin:0 auto;height:56px;display:flex;align-items:center;justify-content:space-between}
+.hdr{background:var(--nv);border-bottom:3px solid var(--gd);position:sticky;top:0;z-index:200;padding:0 16px}
+.hdr-in{max-width:700px;margin:0 auto;height:54px;display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:8px}
-.logo-b{background:var(--gold);color:var(--navy);font-weight:800;font-size:12px;padding:4px 10px;border-radius:7px}
-.logo-t{color:#fff;font-weight:700;font-size:14px}
-.hdr-r{display:flex;align-items:center;gap:8px}
-.streak{display:flex;align-items:center;gap:4px;background:rgba(255,184,48,.12);border:1px solid rgba(255,184,48,.3);border-radius:20px;padding:4px 10px;font-size:12px;font-weight:700;color:var(--gold);animation:streakAnim 2s infinite}
-.back{color:rgba(255,255,255,.6);font-size:11px;font-weight:600;text-decoration:none;padding:5px 11px;border:1px solid rgba(255,255,255,.15);border-radius:7px}
-.back:hover{background:rgba(255,255,255,.08);color:#fff}
-
-/* TIGER */
-.tiger-wrap{position:fixed;bottom:22px;right:18px;z-index:300;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
-.tiger-btn{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--orange));display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;box-shadow:0 4px 16px rgba(255,184,48,.4);animation:float 3s ease-in-out infinite;border:3px solid #fff;transition:transform .2s}
-.tiger-btn:hover{transform:scale(1.1)}
-.tiger-bbl{background:var(--navy);color:#fff;border-radius:14px 14px 3px 14px;padding:11px 14px;font-size:13px;font-weight:600;max-width:210px;line-height:1.5;box-shadow:0 6px 20px rgba(0,0,0,.25);opacity:0;transform:translateY(8px) scale(.92);transition:all .3s cubic-bezier(.34,1.56,.64,1);pointer-events:none;border:2px solid var(--gold)}
-.tiger-bbl.on{opacity:1;transform:translateY(0) scale(1)}
-.streak-pop{position:fixed;top:72px;left:50%;transform:translateX(-50%) translateY(-14px);background:linear-gradient(135deg,var(--gold),var(--orange));color:#fff;border-radius:14px;padding:10px 22px;font-size:14px;font-weight:800;opacity:0;transition:all .4s cubic-bezier(.34,1.56,.64,1);pointer-events:none;z-index:400;box-shadow:0 6px 20px rgba(255,150,0,.4);white-space:nowrap}
-.streak-pop.on{opacity:1;transform:translateX(-50%) translateY(0)}
-
+.logo-b{background:var(--gd);color:var(--nv);font-weight:900;font-size:12px;padding:4px 10px;border-radius:7px;letter-spacing:.02em}
+.logo-t{color:#fff;font-weight:800;font-size:14px}
+.hdr-r{display:flex;align-items:center;gap:7px}
+.str-b{display:flex;align-items:center;gap:4px;background:rgba(255,184,48,.14);border:1px solid rgba(255,184,48,.3);border-radius:20px;padding:4px 10px;font-size:12px;font-weight:800;color:var(--gd)}
+.bk{color:rgba(255,255,255,.55);font-size:11px;font-weight:700;text-decoration:none;padding:5px 10px;border:1px solid rgba(255,255,255,.15);border-radius:7px}
+.bk:hover{background:rgba(255,255,255,.08);color:#fff}
 /* HERO */
-.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 8% 50%,rgba(0,201,167,.13) 0%,transparent 60%),radial-gradient(ellipse at 92% 15%,rgba(255,184,48,.1) 0%,transparent 50%);pointer-events:none}
-.hero-blob{position:absolute;border-radius:50%;opacity:.07;pointer-events:none}
-.hero-blob:nth-child(1){width:200px;height:200px;background:var(--teal);top:-50px;right:-40px}
-.hero-blob:nth-child(2){width:140px;height:140px;background:var(--gold);bottom:-40px;left:10px}
-.hero-in{position:relative;max-width:720px;margin:0 auto;padding:36px 18px 26px}
-.hero-chips{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
-.chip{font-size:10px;font-weight:700;padding:4px 11px;border-radius:20px;letter-spacing:.06em}
-.chip-teal{background:rgba(0,201,167,.18);border:1px solid rgba(0,201,167,.35);color:#5de8c8}
-.chip-gold{background:rgba(255,184,48,.18);border:1px solid rgba(255,184,48,.35);color:var(--gold)}
-.hero-h{font-size:clamp(21px,5vw,34px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:9px;letter-spacing:-.02em}
-.hero-h .acc{color:var(--gold)}
-.hero-sub{font-size:13px;color:rgba(255,255,255,.58);line-height:1.7;margin-bottom:18px;max-width:500px}
-.eq-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px}
-.eq{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:7px 11px;text-align:center}
-.eq-l{color:rgba(255,255,255,.38);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:2px}
-.eq-v{color:#fff;font-weight:800;font-size:12px;font-family:'DM Mono',monospace}
-.goal{background:rgba(0,201,167,.1);border:1px solid rgba(0,201,167,.22);border-radius:11px;padding:13px 15px;display:flex;gap:9px;align-items:flex-start}
-.goal-i{font-size:18px;flex-shrink:0}
-.goal-t{font-size:12px;color:rgba(255,255,255,.78);line-height:1.6}
-.goal-t strong{color:#5de8c8}
-.pbar-wrap{height:5px;background:rgba(255,255,255,.08)}
-.pbar{height:5px;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width .7s ease;width:0%}
-
+.hero{background:linear-gradient(135deg,var(--nv) 0%,var(--nv2) 100%);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 8% 50%,rgba(0,201,167,.13) 0%,transparent 60%),radial-gradient(ellipse at 92% 15%,rgba(255,184,48,.1) 0%,transparent 50%);pointer-events:none}
+.hero-in{position:relative;max-width:700px;margin:0 auto;padding:30px 16px 22px}
+.chips{display:flex;gap:7px;margin-bottom:11px;flex-wrap:wrap}
+.chip{font-size:10px;font-weight:800;padding:3px 11px;border-radius:20px;letter-spacing:.06em}
+.ct{background:rgba(0,201,167,.18);border:1px solid rgba(0,201,167,.35);color:#5de8c8}
+.cg{background:rgba(255,184,48,.18);border:1px solid rgba(255,184,48,.35);color:var(--gd)}
+.hero-h{font-size:clamp(20px,5vw,32px);font-weight:900;color:#fff;line-height:1.2;margin-bottom:8px;letter-spacing:-.02em}
+.hero-h .ac{color:var(--gd)}
+.hero-s{font-size:13px;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:14px;max-width:500px}
+.eqs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.eq{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:6px 10px;text-align:center}
+.eq-l{color:rgba(255,255,255,.38);font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:2px}
+.eq-v{color:#fff;font-weight:900;font-size:12px;font-family:"DM Mono",monospace}
+.goal{background:rgba(0,201,167,.1);border:1px solid rgba(0,201,167,.22);border-radius:11px;padding:12px 14px;display:flex;gap:9px;align-items:flex-start}
+.goal i{font-size:18px;flex-shrink:0}
+.goal p{font-size:12px;color:rgba(255,255,255,.78);line-height:1.6}
+.goal p strong{color:#5de8c8}
+.pb-w{height:5px;background:rgba(255,255,255,.08)}
+.pb{height:5px;background:linear-gradient(90deg,var(--tl),var(--gd));transition:width .7s ease}
 /* TABS */
-.tabs-wrap{background:#fff;border-bottom:2px solid var(--border);position:sticky;top:56px;z-index:100}
-.tabs{max-width:720px;margin:0 auto;display:flex;overflow-x:auto}
+.tabs-w{background:#fff;border-bottom:2px solid var(--br);position:sticky;top:54px;z-index:100}
+.tabs{max-width:700px;margin:0 auto;display:flex;overflow-x:auto}
 .tabs::-webkit-scrollbar{display:none}
-.tab{padding:13px 16px;font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .2s;flex-shrink:0;letter-spacing:.02em}
-.tab:hover{color:var(--teal)}
-.tab.on{color:var(--teal);border-bottom-color:var(--teal)}
-
+.tab{padding:12px 15px;font-size:11px;font-weight:800;color:var(--mu);cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .2s;flex-shrink:0}
+.tab:hover{color:var(--tl)}
+.tab.on{color:var(--tl);border-bottom-color:var(--tl)}
 /* CONTENT */
-.cnt{max-width:720px;margin:0 auto;padding:24px 18px}
-.sec{display:none;animation:sUp .3s ease}
-.sec.on{display:block}
-
+.cnt{max-width:700px;margin:0 auto;padding:20px 16px}
+.sec{display:none}.sec.on{display:block;animation:sUp .3s ease}
+@keyframes sUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
 /* CARDS */
-.card{background:#fff;border:2px solid var(--border);border-radius:18px;padding:22px;margin-bottom:14px;transition:border-color .2s}
-.card:hover{border-color:var(--teal)}
-.c-title{font-size:15px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:9px;letter-spacing:-.01em}
-.c-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.card{background:#fff;border:2px solid var(--br);border-radius:18px;padding:20px;margin-bottom:13px;transition:border-color .2s}
+.card:hover{border-color:var(--tl)}
+.c-ti{font-size:15px;font-weight:900;margin-bottom:11px;display:flex;align-items:center;gap:8px}
+.ci{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
 .ci-t{background:var(--tp)}.ci-g{background:var(--gp)}.ci-p{background:var(--pp)}.ci-r{background:var(--rp)}
-
-.tip{background:var(--tp);border:1.5px solid rgba(0,201,167,.22);border-radius:11px;padding:13px 15px;margin:12px 0;font-size:13px;line-height:1.7}
-.tip .tip-l{font-weight:800;color:var(--teal2);font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
-.warn{background:var(--gp);border:1.5px solid rgba(255,184,48,.28);border-radius:11px;padding:13px 15px;margin:12px 0;font-size:13px;line-height:1.7}
-.warn .warn-l{font-weight:800;color:var(--gold2);font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
-.er{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px}
+.tip{background:var(--tp);border:1.5px solid rgba(0,201,167,.22);border-radius:11px;padding:12px 14px;margin:11px 0;font-size:13px;line-height:1.7}
+.tip .tl{font-weight:900;color:var(--tl2);font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.warn{background:var(--gp);border:1.5px solid rgba(255,184,48,.28);border-radius:11px;padding:12px 14px;margin:11px 0;font-size:13px;line-height:1.7}
+.warn .wl{font-weight:900;color:var(--gd2);font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.er{display:flex;align-items:flex-start;gap:9px;padding:8px 0;border-bottom:1px solid var(--br);font-size:13px}
 .er:last-child{border-bottom:none}
-.er-en{font-weight:800;color:var(--navy);min-width:150px}
-.er-ru{color:var(--muted)}
-
+.er-e{font-weight:800;color:var(--nv);min-width:150px}
+.er-r{color:var(--mu)}
+.spk{background:none;border:none;cursor:pointer;font-size:14px;padding:1px 3px;transition:transform .15s;vertical-align:middle;margin-left:3px}
+.spk:hover{transform:scale(1.2)}
 /* TABLE */
-.ctable{width:100%;border-collapse:collapse;border-radius:12px;overflow:hidden;margin:12px 0}
-.ctable th{background:var(--navy);color:#fff;padding:11px 14px;text-align:left;font-size:12px;font-weight:600}
-.ctable td{padding:11px 14px;font-size:13px;border-bottom:1px solid var(--border)}
-.ctable tr:last-child td{border-bottom:none}
-.ctable tr:nth-child(even) td{background:#fafbff}
-.ctable .en{font-weight:700;color:var(--navy);font-family:'DM Mono',monospace}
-.ctable .sh{color:var(--teal2);font-family:'DM Mono',monospace}
-.ctable .ru{color:var(--muted)}
-
-/* SENT BUILDER */
-.sbox{background:var(--bg);border:2px solid var(--border);border-radius:12px;padding:16px;margin:12px 0}
-.sb-parts{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:8px}
-.sb-b{padding:7px 13px;border-radius:7px;font-weight:700;font-size:13px}
-.sb-s{background:#dbeafe;color:#1e40af}
-.sb-v{background:var(--tp);color:var(--teal2)}
-.sb-o{background:var(--gp);color:#92400e}
-.sb-r{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:3px}
-.sb-ru{font-size:12px;color:var(--muted)}
-
+.tbl{width:100%;border-collapse:collapse;border-radius:12px;overflow:hidden;margin:11px 0}
+.tbl th{background:var(--nv);color:#fff;padding:10px 13px;text-align:left;font-size:11px;font-weight:700}
+.tbl td{padding:10px 13px;font-size:13px;border-bottom:1px solid var(--br)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:nth-child(even) td{background:#fafbff}
+.tbl .en{font-weight:800;color:var(--nv);font-family:"DM Mono",monospace}
+.tbl .sh{color:var(--tl2);font-family:"DM Mono",monospace}
+/* SENTENCE BOX */
+.sb{background:var(--bg);border:2px solid var(--br);border-radius:11px;padding:14px;margin:11px 0}
+.sb-p{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:7px}
+.sb-b{padding:6px 12px;border-radius:7px;font-weight:800;font-size:13px}
+.sbs{background:#dbeafe;color:#1e40af}
+.sbv{background:var(--tp);color:var(--tl2)}
+.sbo{background:var(--gp);color:#92400e}
+.sb-r{font-size:14px;font-weight:800;color:var(--nv);margin-bottom:3px}
+.sb-ru{font-size:12px;color:var(--mu)}
 /* QUIZ */
-.qcard{background:#fff;border:2px solid var(--border);border-radius:18px;padding:22px;margin-bottom:14px;transition:all .3s}
-.q-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px}
-.q-num{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.q-tag{font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px}
-.qt-g{background:var(--pp);color:var(--purple)}
-.qt-v{background:var(--tp);color:var(--teal2)}
-.q-text{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:14px;line-height:1.5;letter-spacing:-.01em}
-.q-sent{font-size:19px;font-weight:800;text-align:center;padding:13px;background:var(--bg);border-radius:12px;margin-bottom:14px;font-family:'DM Mono',monospace;color:var(--navy);border:2px dashed var(--border)}
-.opts{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.opt{background:var(--bg);border:2px solid var(--border);border-radius:12px;padding:13px 14px;font-size:13px;font-weight:700;font-family:'Sora',sans-serif;color:var(--text);cursor:pointer;text-align:left;transition:all .15s;display:flex;align-items:center;gap:7px}
-.opt:hover:not(:disabled){border-color:var(--teal);background:var(--tp);transform:translateY(-1px)}
+.qc{background:#fff;border:2px solid var(--br);border-radius:18px;padding:20px;margin-bottom:13px}
+.q-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.q-n{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
+.q-t{font-size:10px;font-weight:800;padding:2px 9px;border-radius:20px}
+.tg{background:var(--pp);color:var(--pu)}.tv{background:var(--tp);color:var(--tl2)}
+.q-tx{font-size:15px;font-weight:800;color:var(--nv);margin-bottom:13px;line-height:1.5}
+.q-s{font-size:18px;font-weight:800;text-align:center;padding:12px;background:var(--bg);border-radius:11px;margin-bottom:13px;font-family:"DM Mono",monospace;color:var(--nv);border:2px dashed var(--br)}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.opt{background:var(--bg);border:2px solid var(--br);border-radius:11px;padding:12px 13px;font-size:13px;font-weight:800;font-family:"Nunito",sans-serif;color:var(--tx);cursor:pointer;text-align:left;transition:all .15s;display:flex;align-items:center;gap:6px}
+.opt:hover:not(:disabled){border-color:var(--tl);background:var(--tp);transform:translateY(-1px)}
 .opt:disabled{cursor:default}
-.opt.ok{border-color:var(--green);background:var(--grnp);color:#065f46;animation:pulse .5s ease}
-.opt.no{border-color:var(--red);background:var(--rp);color:#991b1b;animation:shake .4s ease}
-.opt-l{width:24px;height:24px;border-radius:7px;background:rgba(0,0,0,.06);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
-.expl{background:linear-gradient(135deg,var(--tp),#f0fff8);border:1.5px solid rgba(0,201,167,.22);border-radius:11px;padding:13px 15px;margin-top:12px;font-size:13px;line-height:1.7;display:none;animation:sUp .3s ease}
-.expl.on{display:block}
-
+.opt.ok{border-color:var(--gr);background:var(--grp);color:#065f46}
+.opt.no{border-color:var(--rd);background:var(--rp);color:#991b1b;animation:shake .4s ease}
+.ol{width:22px;height:22px;border-radius:6px;background:rgba(0,0,0,.06);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.expl{background:linear-gradient(135deg,var(--tp),#f0fff8);border:1.5px solid rgba(0,201,167,.22);border-radius:11px;padding:12px 14px;margin-top:11px;font-size:13px;line-height:1.7;display:none}
+.expl.on{display:block;animation:sUp .3s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
 /* SCORE */
-.scard{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:22px;padding:38px 26px;text-align:center;display:none;margin-top:18px;border:2px solid rgba(255,184,48,.28)}
-.scard.on{display:block;animation:bIn .5s ease}
-.sc-emoji{font-size:54px;display:block;margin-bottom:10px}
-.sc-num{font-size:50px;font-weight:800;color:var(--gold);font-family:'DM Mono',monospace;line-height:1;margin-bottom:5px}
-.sc-sub{color:rgba(255,255,255,.45);font-size:12px;margin-bottom:18px}
-.sc-bw{background:rgba(255,255,255,.1);border-radius:100px;height:9px;max-width:280px;margin:0 auto 18px;overflow:hidden}
-.sc-b{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width 1.2s ease}
-.sc-msg{color:rgba(255,255,255,.8);font-size:14px;font-weight:600;margin-bottom:22px;line-height:1.6;padding:0 8px}
-.sc-badges{display:flex;justify-content:center;gap:9px;margin-bottom:22px;flex-wrap:wrap}
-.sc-badge{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:11px;padding:9px 14px;font-size:12px;text-align:center}
-.scb-icon{font-size:20px;display:block;margin-bottom:3px}
-.scb-l{color:rgba(255,255,255,.5);font-size:9px;font-weight:600;display:block}
-.scb-v{color:#fff;font-weight:800;font-size:12px}
-.sc-btn{background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff;border:none;border-radius:13px;padding:14px 32px;font-size:14px;font-weight:800;font-family:'Sora',sans-serif;cursor:pointer;transition:all .2s}
-.sc-btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,201,167,.4)}
-
+.sc{background:linear-gradient(135deg,var(--nv),var(--nv2));border-radius:20px;padding:34px 22px;text-align:center;display:none;margin-top:14px;border:2px solid rgba(255,184,48,.25)}
+.sc.on{display:block;animation:sUp .4s ease}
+.sc-em{font-size:50px;display:block;margin-bottom:9px}
+.sc-n{font-size:46px;font-weight:900;color:var(--gd);font-family:"DM Mono",monospace;line-height:1;margin-bottom:5px}
+.sc-sub{color:rgba(255,255,255,.42);font-size:12px;margin-bottom:15px}
+.sc-bw{background:rgba(255,255,255,.1);border-radius:100px;height:8px;max-width:270px;margin:0 auto 15px;overflow:hidden}
+.sc-b{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--tl),var(--gd));transition:width 1.2s ease}
+.sc-m{color:rgba(255,255,255,.78);font-size:14px;font-weight:700;margin-bottom:18px;line-height:1.6;padding:0 8px}
+.sc-bs{display:flex;justify-content:center;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.sc-badge{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:8px 13px;text-align:center}
+.sb-ic{font-size:18px;display:block;margin-bottom:3px}
+.sb-l{color:rgba(255,255,255,.45);font-size:9px;font-weight:700;display:block}
+.sb-v{color:#fff;font-weight:900;font-size:12px}
+.sc-btn{background:linear-gradient(135deg,var(--tl),var(--tl2));color:#fff;border:none;border-radius:12px;padding:13px 28px;font-size:14px;font-weight:900;font-family:"Nunito",sans-serif;cursor:pointer;transition:all .2s}
+.sc-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,201,167,.4)}
 /* VOCAB */
-.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:9px;margin-top:12px}
-.vi{background:var(--bg);border:1.5px solid var(--border);border-radius:11px;padding:11px 13px;transition:all .2s;cursor:default}
-.vi:hover{border-color:var(--teal);transform:translateY(-1px)}
-.vi-en{font-weight:800;font-size:13px;color:var(--navy)}
-.vi-ipa{font-size:10px;color:var(--teal2);font-family:'DM Mono',monospace;margin:2px 0}
-.vi-ru{font-size:11px;color:var(--muted)}
-
-/* TIP CARDS */
-.tc{background:#fff;border:2px solid var(--border);border-left:5px solid var(--teal);border-radius:13px;padding:16px 18px;margin-bottom:12px}
-.tc h4{font-size:13px;font-weight:800;margin-bottom:5px;display:flex;align-items:center;gap:7px}
-.tc p{font-size:12px;color:var(--muted);line-height:1.7}
-.tc.gold{border-left-color:var(--gold)}
-.tc.purple{border-left-color:var(--purple)}
-
+.vg{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:8px;margin-top:11px}
+.vi{background:var(--bg);border:1.5px solid var(--br);border-radius:11px;padding:10px 12px;transition:all .2s}
+.vi:hover{border-color:var(--tl);transform:translateY(-1px)}
+.vi-e{font-weight:900;font-size:13px;color:var(--nv)}
+.vi-i{font-size:10px;color:var(--tl2);font-family:"DM Mono",monospace;margin:2px 0}
+.vi-r{font-size:11px;color:var(--mu)}
+/* TIP CARD */
+.tc{background:#fff;border:2px solid var(--br);border-left:5px solid var(--tl);border-radius:12px;padding:15px 17px;margin-bottom:11px}
+.tc h4{font-size:13px;font-weight:900;margin-bottom:5px;display:flex;align-items:center;gap:6px}
+.tc p{font-size:12px;color:var(--mu);line-height:1.7}
+.tc.gd{border-left-color:var(--gd)}
+/* NEXT BTN */
+.nb{display:block;width:100%;background:linear-gradient(135deg,var(--tl),var(--tl2));color:#fff;border:none;border-radius:12px;padding:15px;font-size:14px;font-weight:900;font-family:"Nunito",sans-serif;cursor:pointer;margin-top:14px;box-shadow:0 4px 14px rgba(0,201,167,.28);transition:all .2s;text-align:center;text-decoration:none}
+.nb:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,201,167,.38)}
 /* ALPHA GRID */
-.agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(62px,1fr));gap:7px;margin-top:12px}
-.lc{background:var(--bg);border:2px solid var(--border);border-radius:11px;padding:10px 7px;text-align:center;cursor:pointer;transition:all .15s}
-.lc:hover,.lc.on{border-color:var(--teal);background:var(--tp);transform:translateY(-2px)}
-.lc-big{font-size:20px;font-weight:800;color:var(--navy);line-height:1}
-.lc-sm{font-size:12px;color:var(--muted);margin:2px 0}
-.lc-s{font-size:9px;color:var(--teal2);font-family:'DM Mono',monospace;font-weight:700}
-
+.ag{display:grid;grid-template-columns:repeat(auto-fill,minmax(60px,1fr));gap:6px;margin-top:11px}
+.lc{background:var(--bg);border:2px solid var(--br);border-radius:10px;padding:9px 6px;text-align:center;cursor:pointer;transition:all .15s}
+.lc:hover,.lc.on{border-color:var(--tl);background:var(--tp);transform:translateY(-2px)}
+.lc-b{font-size:19px;font-weight:900;color:var(--nv);line-height:1}
+.lc-s{font-size:9px;color:var(--tl2);font-family:"DM Mono",monospace;font-weight:800;margin-top:2px}
 /* FLASHCARD */
-.fwrap{perspective:1000px;margin-bottom:18px}
-.fc{width:100%;min-height:150px;position:relative;transform-style:preserve-3d;transition:transform .5s;cursor:pointer;border-radius:18px}
-.fc.flip{transform:rotateY(180deg)}
-.fc-f,.fc-b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px;text-align:center}
-.fc-f{background:linear-gradient(135deg,var(--navy),var(--navy2));border:2px solid rgba(255,255,255,.07)}
-.fc-b{background:linear-gradient(135deg,var(--teal2),var(--teal));transform:rotateY(180deg)}
-.fc-letter{font-size:60px;font-weight:800;color:#fff;line-height:1;margin-bottom:5px}
-.fc-hint{font-size:11px;color:rgba(255,255,255,.38)}
-.fc-snd{font-size:26px;font-weight:800;color:#fff;font-family:'DM Mono',monospace;margin-bottom:5px}
-.fc-wd{font-size:15px;font-weight:700;color:rgba(255,255,255,.9);margin-bottom:3px}
+.fw{perspective:1000px;margin-bottom:16px}
+.fc{width:100%;min-height:148px;position:relative;transform-style:preserve-3d;transition:transform .5s;cursor:pointer;border-radius:16px}
+.fc.fl{transform:rotateY(180deg)}
+.fc-f,.fc-b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center}
+.fc-f{background:linear-gradient(135deg,var(--nv),var(--nv2));border:2px solid rgba(255,255,255,.07)}
+.fc-b{background:linear-gradient(135deg,var(--tl2),var(--tl));transform:rotateY(180deg)}
+.fc-lt{font-size:58px;font-weight:900;color:#fff;line-height:1;margin-bottom:5px}
+.fc-ht{font-size:11px;color:rgba(255,255,255,.38)}
+.fc-sn{font-size:24px;font-weight:900;color:#fff;font-family:"DM Mono",monospace;margin-bottom:5px}
+.fc-wd{font-size:14px;font-weight:800;color:rgba(255,255,255,.9);margin-bottom:3px;cursor:pointer}
 .fc-tr{font-size:12px;color:rgba(255,255,255,.68)}
-.fcnav{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:20px}
-.fcbtn{background:#fff;border:2px solid var(--border);border-radius:9px;padding:9px 18px;font-size:12px;font-weight:700;font-family:'Sora',sans-serif;color:var(--text);cursor:pointer;transition:all .15s}
-.fcbtn:hover{border-color:var(--teal);color:var(--teal)}
-.fccnt{font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);min-width:46px;text-align:center}
-
-@media(max-width:480px){
-  .opts{grid-template-columns:1fr}
-  .agrid{grid-template-columns:repeat(5,1fr)}
-  .hero-in{padding:32px 15px 22px}
-  .cnt{padding:18px 14px}
+.fcn{display:flex;align-items:center;justify-content:center;gap:11px;margin-bottom:18px}
+.fcb{background:#fff;border:2px solid var(--br);border-radius:8px;padding:8px 16px;font-size:12px;font-weight:800;font-family:"Nunito",sans-serif;color:var(--tx);cursor:pointer;transition:all .15s}
+.fcb:hover{border-color:var(--tl);color:var(--tl)}
+.fcc{font-family:"DM Mono",monospace;font-size:12px;color:var(--mu);min-width:44px;text-align:center}
+/* GAME HUD */
+.hud{display:flex;align-items:center;justify-content:space-between;padding:9px 13px;background:rgba(13,27,42,.07);border-radius:12px;margin-bottom:13px;gap:7px}
+.lv-r{display:flex;align-items:center;gap:3px;background:rgba(255,77,109,.1);border:1px solid rgba(255,77,109,.22);border-radius:20px;padding:5px 11px}
+.lv-r span{font-size:15px;transition:all .3s}
+.lv-r span.lost{opacity:.18;filter:grayscale(1);transform:scale(.75);animation:hpop .4s ease}
+@keyframes hpop{0%{transform:scale(1.4)}100%{transform:scale(.75);opacity:.18}}
+.tr{position:relative;width:42px;height:42px;flex-shrink:0}
+.tr svg{transform:rotate(-90deg)}
+.tr .tb{fill:none;stroke:rgba(0,0,0,.09);stroke-width:3}
+.tr .tf{fill:none;stroke:var(--tl);stroke-width:3;stroke-linecap:round;stroke-dasharray:113;stroke-dashoffset:0;transition:stroke-dashoffset 1s linear,stroke .3s}
+.tr .tn{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--nv);font-family:"DM Mono",monospace}
+.xp-h{display:flex;align-items:center;gap:4px;background:rgba(132,94,194,.11);border:1px solid rgba(132,94,194,.24);border-radius:20px;padding:5px 11px;font-size:12px;font-weight:800;color:#c4aaff}
+/* GAMEOVER */
+.go{position:fixed;inset:0;background:rgba(12,20,34,.92);z-index:500;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:26px;backdrop-filter:blur(10px)}
+.go.on{display:flex;animation:sUp .3s ease}
+.go-i{font-size:68px;margin-bottom:16px}
+.go-h{font-size:25px;font-weight:900;color:#fff;margin-bottom:9px}
+.go-s{color:rgba(255,255,255,.6);font-size:14px;margin-bottom:24px;line-height:1.7}
+.go-b{background:linear-gradient(135deg,#ff4d6d,#ff6b35);color:#fff;border:none;border-radius:13px;padding:14px 32px;font-size:14px;font-weight:900;font-family:"Nunito",sans-serif;cursor:pointer;margin-bottom:9px;width:100%;max-width:265px}
+.go-b2{background:rgba(255,255,255,.1);color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.2);border-radius:13px;padding:11px 24px;font-size:13px;font-weight:700;font-family:"Nunito",sans-serif;cursor:pointer;width:100%;max-width:265px}
+/* RETRY */
+.retry{background:linear-gradient(135deg,#ff4d6d,#ff6b35);color:#fff;border-radius:11px;padding:11px 14px;font-size:13px;font-weight:800;display:flex;align-items:center;gap:7px;margin-bottom:12px;animation:sUp .3s ease}
+.rb{margin-left:auto;background:#fff;color:#ff4d6d;border:none;border-radius:7px;padding:5px 12px;font-size:11px;font-weight:900;cursor:pointer;font-family:"Nunito",sans-serif}
+.sk{background:rgba(255,255,255,.2);color:#fff;border:none;border-radius:7px;padding:5px 10px;font-size:11px;font-weight:700;cursor:pointer;font-family:"Nunito",sans-serif}
+/* TOPIC STATS */
+.ts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:11px 0}
+.ts-i{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:10px}
+.ts-l{font-size:10px;font-weight:800;color:rgba(255,255,255,.42);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+.ts-bw{background:rgba(255,255,255,.1);border-radius:100px;height:5px;overflow:hidden;margin-bottom:4px}
+.ts-bf{height:100%;border-radius:100px;transition:width .9s ease}
+.ts-n{font-size:11px;font-weight:900;color:#fff;font-family:"DM Mono",monospace}
+/* XP FLOAT */
+@keyframes xpf{0%{transform:translateY(0);opacity:1}100%{transform:translateY(-44px);opacity:0}}
+.xpf{position:fixed;font-size:15px;font-weight:900;color:#c4aaff;pointer-events:none;z-index:9999;animation:xpf 1.6s ease forwards;font-family:"DM Mono",monospace}
+/* CONFETTI */
+@keyframes cf{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+/* TIGER */
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-14px) rotate(1.5deg)}}
+@keyframes jmp{0%{transform:translateY(0) scale(1)}20%{transform:translateY(-28px) scale(1.1)}50%{transform:translateY(-10px) scale(1.04)}70%{transform:translateY(-22px) scale(1.08)}100%{transform:translateY(0) scale(1)}}
+@keyframes shk{0%,100%{transform:translateX(0)}16%{transform:translateX(-10px) rotate(-3deg)}33%{transform:translateX(10px) rotate(3deg)}50%{transform:translateX(-7px)}66%{transform:translateX(7px)}}
+@keyframes earL{0%,62%,100%{transform:rotate(0)}67%{transform:rotate(-15deg)}78%{transform:rotate(7deg)}88%{transform:rotate(-5deg)}}
+@keyframes earR{0%,70%,100%{transform:rotate(0)}75%{transform:rotate(15deg)}85%{transform:rotate(-7deg)}93%{transform:rotate(5deg)}}
+@keyframes blk{0%,44%,53%,100%{transform:scaleY(1)}48%{transform:scaleY(.04)}}
+@keyframes twag{0%,100%{transform:rotate(-18deg)}50%{transform:rotate(18deg)}}
+@keyframes blsh{0%,100%{opacity:.33}50%{opacity:.52}}
+.t-wrap{position:relative;z-index:2;cursor:pointer;animation:bob 4s ease-in-out infinite;filter:drop-shadow(0 20px 40px rgba(0,0,0,.55));transition:transform .15s}
+.t-wrap:hover{transform:scale(1.05)!important}
+.t-wrap:active{transform:scale(.96)!important}
+.t-wrap.happy{animation:jmp .72s cubic-bezier(.36,.07,.19,.97)!important}
+.t-wrap.sad{animation:shk .58s ease!important}
+.eL{transform-origin:55% 92%;animation:earL 6s ease-in-out infinite}
+.eR{transform-origin:45% 92%;animation:earR 6s ease-in-out infinite}
+#lL{transform-origin:50% 56%;animation:blk 6.2s ease-in-out infinite}
+#lR{transform-origin:50% 56%;animation:blk 6.2s .14s ease-in-out infinite}
+.tl-g{transform-origin:0% 0%;animation:twag 1.9s ease-in-out infinite}
+.bl{animation:blsh 3s ease-in-out infinite}
+/* TIGER BUBBLE */
+.tb{position:fixed;bottom:82px;right:82px;background:#fff;border:2.5px solid var(--gd);border-radius:18px 18px 18px 5px;padding:13px 16px;font-size:13px;font-weight:800;color:var(--nv);line-height:1.58;max-width:210px;box-shadow:0 8px 28px rgba(0,0,0,.22);opacity:0;pointer-events:none;z-index:999;transform:scale(.78) translateY(8px);transition:opacity .28s,transform .32s cubic-bezier(.34,1.56,.64,1)}
+.tb.on{opacity:1;transform:scale(1) translateY(0)}
+.tb::before{content:"";position:absolute;right:-11px;bottom:18px;border:11px solid transparent;border-left-color:var(--gd);border-right:0}
+.tb::after{content:"";position:absolute;right:-7px;bottom:20px;border:9px solid transparent;border-left-color:#fff;border-right:0}
+/* TIGER CORNER */
+.tc-wrap{position:fixed;bottom:14px;right:14px;z-index:300;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.tc-svg{width:58px;height:65px;cursor:pointer;animation:bob 4s ease-in-out infinite;filter:drop-shadow(0 4px 14px rgba(0,0,0,.4))}
+@media(max-width:640px){
+  .tb{position:fixed;bottom:84px;left:50%;transform:translateX(-50%) scale(.78);border-radius:18px;top:auto;text-align:center;max-width:calc(100vw - 30px);right:auto}
+  .tb::before,.tb::after{display:none}
+  .tb.on{transform:translateX(-50%) scale(1)}
 }
-
-.next-lesson-btn {
-  display: block;
-  width: 100%;
-  background: linear-gradient(135deg, #00C9A7, #00A98F);
-  color: #fff;
-  border: none;
-  border-radius: 14px;
-  padding: 18px;
-  font-size: 15px;
-  font-weight: 800;
-  font-family: 'Sora', sans-serif;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  transition: all 0.2s;
-  margin-top: 20px;
-  box-shadow: 0 4px 16px rgba(0,201,167,0.3);
-  letter-spacing: 0.02em;
-}
-.next-lesson-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,201,167,0.4);
-}
-.speak-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 2px 4px;
-  border-radius: 5px;
-  transition: transform 0.15s;
-  vertical-align: middle;
-  margin-left: 4px;
-}
-.speak-btn:hover { transform: scale(1.2); }
-
-
-/* ── DUOLINGO ENGINE CSS ── */
-.lives-bar {
-  display: flex; align-items: center; gap: 6px;
-  background: rgba(255,77,109,0.12); border: 1px solid rgba(255,77,109,0.25);
-  border-radius: 20px; padding: 5px 12px; font-size: 13px; font-weight: 700; color: #FF4D6D;
-}
-.lives-bar span { font-size: 16px; transition: all 0.3s; }
-.lives-bar span.lost { opacity: 0.2; filter: grayscale(1); transform: scale(0.8); }
-
-.xp-bar {
-  display: flex; align-items: center; gap: 6px;
-  background: rgba(255,184,48,0.12); border: 1px solid rgba(255,184,48,0.25);
-  border-radius: 20px; padding: 5px 12px; font-size: 13px; font-weight: 700; color: #FFB830;
-}
-
-.timer-ring {
-  position: relative; width: 44px; height: 44px; flex-shrink: 0;
-}
-.timer-ring svg { transform: rotate(-90deg); }
-.timer-ring .bg { fill: none; stroke: rgba(255,255,255,0.1); stroke-width: 3; }
-.timer-ring .fg { fill: none; stroke: var(--teal); stroke-width: 3;
-  stroke-linecap: round; stroke-dasharray: 113; stroke-dashoffset: 0;
-  transition: stroke-dashoffset 1s linear, stroke 0.3s; }
-.timer-ring .num { position: absolute; inset: 0; display: flex; align-items: center;
-  justify-content: center; font-size: 13px; font-weight: 800; color: #fff;
-  font-family: 'DM Mono', monospace; }
-
-.game-hdr {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 10px 14px; background: rgba(0,0,0,0.15); border-radius: 12px;
-  margin-bottom: 16px; gap: 8px; flex-wrap: wrap;
-}
-
-/* Heart loss animation */
-@keyframes heartLost { 0%{transform:scale(1.5);opacity:1} 100%{transform:scale(0.5);opacity:0.2} }
-@keyframes xpGain { 0%{transform:translateY(0);opacity:1} 100%{transform:translateY(-30px);opacity:0} }
-@keyframes timerWarn { 0%,100%{background:rgba(255,77,109,0)} 50%{background:rgba(255,77,109,0.1)} }
-
-.xp-float {
-  position: fixed; font-size: 18px; font-weight: 800; color: #FFB830;
-  pointer-events: none; z-index: 9999; animation: xpGain 1.5s ease forwards;
-  font-family: 'DM Mono', monospace; text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-}
-
-/* Game over overlay */
-.gameover {
-  position: fixed; inset: 0; background: rgba(13,27,42,0.92);
-  z-index: 500; display: none; flex-direction: column;
-  align-items: center; justify-content: center; text-align: center; padding: 24px;
-  backdrop-filter: blur(8px);
-}
-.gameover.show { display: flex; animation: fadeIn 0.3s ease; }
-.go-icon { font-size: 72px; margin-bottom: 16px; }
-.go-title { font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 10px; }
-.go-sub { color: rgba(255,255,255,0.6); font-size: 15px; margin-bottom: 28px; line-height: 1.6; }
-.go-btn { background: linear-gradient(135deg,#FF4D6D,#FF6B35); color: #fff; border: none;
-  border-radius: 14px; padding: 16px 36px; font-size: 15px; font-weight: 800;
-  font-family: 'Sora',sans-serif; cursor: pointer; margin-bottom: 12px; width: 100%; max-width: 280px; }
-.go-btn2 { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 14px; padding: 12px 28px; font-size: 13px; font-weight: 600;
-  font-family: 'Sora',sans-serif; cursor: pointer; width: 100%; max-width: 280px; }
-
-/* Repeat wrong questions badge */
-.retry-badge {
-  background: linear-gradient(135deg,#FF4D6D,#FF6B35); color: #fff;
-  border-radius: 12px; padding: 12px 16px; font-size: 13px; font-weight: 700;
-  display: flex; align-items: center; gap: 8px; margin-bottom: 14px;
-  animation: sUp 0.3s ease;
-}
-
-/* Stats by topic */
-.topic-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
-.ts-item { background: var(--bg); border: 1.5px solid var(--border); border-radius: 11px; padding: 12px; }
-.ts-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
-.ts-bar { background: var(--border); border-radius: 100px; height: 6px; overflow: hidden; margin-bottom: 4px; }
-.ts-fill { height: 100%; border-radius: 100px; transition: width 0.8s ease; }
-.ts-num { font-size: 12px; font-weight: 700; color: var(--text); font-family: 'DM Mono', monospace; }
-
-/* Word builder */
-.word-bank { display: flex; flex-wrap: wrap; gap: 8px; min-height: 44px; padding: 10px;
-  background: var(--bg); border: 2px dashed var(--border); border-radius: 12px; margin-bottom: 12px; }
-.word-token { background: #fff; border: 2px solid var(--border); border-radius: 9px;
-  padding: 8px 14px; font-size: 13px; font-weight: 700; cursor: pointer;
-  transition: all 0.15s; user-select: none; }
-.word-token:hover { border-color: var(--teal); background: var(--tp); transform: translateY(-1px); }
-.word-token.selected { background: var(--teal); color: #fff; border-color: var(--teal2); }
-.word-token.wrong-order { animation: shake 0.4s ease; }
-.answer-slots { display: flex; flex-wrap: wrap; gap: 8px; min-height: 44px; padding: 10px;
-  background: var(--tp); border: 2px solid rgba(0,201,167,0.3); border-radius: 12px; margin-bottom: 16px; }
-.slot-filled { background: var(--teal); color: #fff; border: 2px solid var(--teal2);
-  border-radius: 9px; padding: 8px 14px; font-size: 13px; font-weight: 700; cursor: pointer; }
-
+@media(max-width:480px){.opts{grid-template-columns:1fr}.ag{grid-template-columns:repeat(5,1fr)}.cnt{padding:16px 13px}}
 </style>
 </head>
 <body>
-<header class="hdr">
-  <div class="hdr-in">
-    <div class="logo"><span class="logo-b">AtoC</span><span class="logo-t">IELTS from Zero</span></div>
-    <div class="hdr-r"><span class="streak" id="snum">🔥 0</span><a href="index.html" class="back">← Уроки</a></div>
-  </div>
-</header>
-<!-- Tiger -->
-<div class="tiger-wrap">
-  <div class="tiger-bbl" id="tb"><span id="tt"></span></div>
-  <div class="tiger-btn" onclick="tsay('tap')">🐯</div>
-</div>
-<div class="streak-pop" id="spop"></div>
-<!-- Hero -->
-<div class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-blob"></div><div class="hero-blob"></div>
-  <div class="hero-in">
-    <div class="hero-chips">
-      <span class="chip chip-teal">A0 · Beginner</span>
-      <span class="chip chip-gold">Урок 7 из 8</span>
-    </div>
-    <h1 class="hero-h">Первые<br><span class="acc">диалоги и приветствия</span></h1>
-    <p class="hero-sub">Самые нужные фразы для реального общения — познакомиться, поприветствовать и попрощаться.</p>
-    <div class="eq-row">
-      <div class="eq"><span class="eq-l">IELTS</span><span class="eq-v">0–2.0</span></div>
-      <div class="eq"><span class="eq-l">TOEFL</span><span class="eq-v">0–30</span></div>
-      <div class="eq"><span class="eq-l">Duolingo</span><span class="eq-v">10–50</span></div>
-      <div class="eq"><span class="eq-l">CEFR</span><span class="eq-v">Pre-A1</span></div>
-    </div>
-    <div class="goal"><div class="goal-i">🎯</div><div class="goal-t"><strong>После урока ты сможешь: познакомиться по-английски и поддержать простой разговор</strong></div></div>
-  </div>
-  <div class="pbar-wrap"><div class="pbar" id="pbar" style="width:7%"></div></div>
-</div>
-<div class="tabs-wrap"><div class="tabs"><div class="tab on" onclick="showTab('theory',this)">👋 Привет</div><div class="tab" onclick="showTab('intro',this)">🤝 Знакомство</div><div class="tab" onclick="showTab('bye',this)">👋 Пока</div><div class="tab" onclick="showTab('practice',this)">✏️ Практика</div><div class="tab" onclick="showTab('vocab',this)">📝 Словарь</div></div></div>
+<script>if(!localStorage.getItem('ielts_a0_access'))window.location.href='payment_a0.html';<\/script>
+<header class="hdr"><div class="hdr-in">
+  <div class="logo"><span class="logo-b">AtoC</span><span class="logo-t">IELTS from Zero</span></div>
+  <div class="hdr-r"><span class="str-b" id="str-n">🔥 0</span><a href="index.html" class="bk">← Уроки</a></div>
+</div></header>
+<div class="tb" id="tb">Привет! 🐯</div>
+<div class="tc-wrap"><svg class="tc-svg" viewBox="0 0 300 340" onclick="tTap()">
+  <defs><radialGradient id="eGc" cx="32%" cy="28%" r="72%"><stop offset="0%" stop-color="#aaecff"/><stop offset="45%" stop-color="#1a9de0"/><stop offset="100%" stop-color="#0e4f80"/></radialGradient><radialGradient id="hGc" cx="38%" cy="22%" r="75%"><stop offset="0%" stop-color="#ffbc44"/><stop offset="100%" stop-color="#e07810"/></radialGradient></defs>
+  <g transform="translate(80,76) rotate(-18)"><ellipse cx="0" cy="0" rx="36" ry="38" fill="#f0941c"/><ellipse cx="0" cy="8" rx="22" ry="24" fill="#f9a8c0"/></g>
+  <g transform="translate(220,76) rotate(18)"><ellipse cx="0" cy="0" rx="36" ry="38" fill="#f0941c"/><ellipse cx="0" cy="8" rx="22" ry="24" fill="#f9a8c0"/></g>
+  <ellipse cx="150" cy="146" rx="86" ry="82" fill="url(#hGc)"/>
+  <ellipse cx="150" cy="174" rx="54" ry="46" fill="#ffe8b8"/>
+  <ellipse cx="110" cy="140" rx="31" ry="33" fill="#fff"/><ellipse cx="110" cy="142" rx="24" ry="26" fill="url(#eGc)"/><ellipse cx="110" cy="143" rx="17" ry="18.5" fill="#081422"/><ellipse cx="97" cy="131" rx="8.5" ry="9.5" fill="#fff"/>
+  <ellipse cx="190" cy="140" rx="31" ry="33" fill="#fff"/><ellipse cx="190" cy="142" rx="24" ry="26" fill="url(#eGc)"/><ellipse cx="190" cy="143" rx="17" ry="18.5" fill="#081422"/><ellipse cx="177" cy="131" rx="8.5" ry="9.5" fill="#fff"/>
+  <path d="M80,120 C96,108 126,108 140,120" stroke="#d06010" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+  <path d="M160,120 C176,108 206,108 220,120" stroke="#d06010" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+  <path d="M141,178 C141,171 150,167 150,167 C150,167 159,171 159,178 C159,185 150,190 150,190Z" fill="#dd6090"/>
+  <path d="M126,196 C137,212 163,212 174,196" stroke="#b85010" stroke-width="3.8" fill="none" stroke-linecap="round"/>
+  <ellipse cx="84" cy="168" rx="26" ry="18" fill="#ffaac8" opacity=".34"/>
+  <ellipse cx="216" cy="168" rx="26" ry="18" fill="#ffaac8" opacity=".34"/>
+  <path d="M82,114 C74,130 76,150 80,168" stroke="#c06010" stroke-width="6" fill="none" stroke-linecap="round" opacity=".55"/>
+  <path d="M218,114 C226,130 224,150 220,168" stroke="#c06010" stroke-width="6" fill="none" stroke-linecap="round" opacity=".55"/>
+  <path d="M124,66 C134,80 150,76 150,76 C150,76 166,80 176,66" stroke="#c06010" stroke-width="6.5" fill="none" stroke-linecap="round" opacity=".65"/>
+</svg></div>
+<div class="go" id="go"><div class="go-i">💔</div><div class="go-h">Жизни кончились!</div><div class="go-s">Не переживай — каждая ошибка делает тебя умнее!<br>Тигрёнок верит в тебя 🐯</div><button class="go-b" onclick="restartLesson()">🔄 Попробовать снова</button><button class="go-b2" onclick="window.location.href='index.html'">← На главную</button></div>
+<div class="hero"><div class="hero-in">
+  <div class="chips"><span class="chip ct">A0 · Beginner</span><span class="chip cg">Урок 7 из 8</span></div>
+  <h1 class="hero-h">Первые<br><span class="ac">диалоги и приветствия</span></h1>
+  <p class="hero-s">Самые нужные фразы — познакомиться, поприветствовать, попрощаться.</p>
+  <div class="eqs"><div class="eq"><span class="eq-l">IELTS</span><span class="eq-v">0–2.0</span></div><div class="eq"><span class="eq-l">TOEFL</span><span class="eq-v">0–30</span></div><div class="eq"><span class="eq-l">Duolingo</span><span class="eq-v">10–50</span></div><div class="eq"><span class="eq-l">CEFR</span><span class="eq-v">Pre-A1</span></div></div>
+  <div class="goal"><i>🎯</i><p><strong>После урока: знакомишься по-английски и поддерживаешь разговор</strong></p></div>
+</div><div class="pb-w"><div class="pb" id="pb" style="width:8%"></div></div></div>
+<div class="tabs-w"><div class="tabs"><div class="tab  on" onclick="showTab('theory',this)">👋 Привет</div><div class="tab" onclick="showTab('intro',this)">🤝 Знакомство</div><div class="tab" onclick="showTab('polite',this)">🙏 Вежливость</div><div class="tab" onclick="showTab('prac',this)">✏️ Практика</div><div class="tab" onclick="showTab('vocab',this)">📝 Словарь</div></div></div>
 <div class="cnt">
-
-<div class="sec on" id="t-theory">
-  <div class="card"><div class="c-title"><span class="c-icon ci-t">🌅</span>Приветствия по времени суток</div>
-    <div class="er"><span class="er-en">Good morning! <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Good morning!')">🔊</button></span><span class="er-ru">Доброе утро! (до 12:00)</span></div>
-    <div class="er"><span class="er-en">Good afternoon! <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Good afternoon!')">🔊</button></span><span class="er-ru">Добрый день! (12:00–18:00)</span></div>
-    <div class="er"><span class="er-en">Good evening! <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Good evening!')">🔊</button></span><span class="er-ru">Добрый вечер! (после 18:00)</span></div>
-    <div class="er"><span class="er-en">Good night! <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Good night!')">🔊</button></span><span class="er-ru">Спокойной ночи! (уходя спать)</span></div>
-  </div>
-  <div class="card"><div class="c-title"><span class="c-icon ci-g">💬</span>Как дела?</div>
-    <div class="er"><span class="er-en">How are you? <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('How are you?')">🔊</button></span><span class="er-ru">Как ты? (формальное)</span></div>
-    <div class="er"><span class="er-en">How are you doing? <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('How are you doing?')">🔊</button></span><span class="er-ru">Как дела? (разговорное)</span></div>
-    <div class="er"><span class="er-en">What's up? <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('What\'s up?')">🔊</button></span><span class="er-ru">Что нового? (молодёжное)</span></div>
-    <div class="er"><span class="er-en">I'm fine, thank you. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('I\'m fine, thank you.')">🔊</button></span><span class="er-ru">Хорошо, спасибо.</span></div>
-    <div class="er"><span class="er-en">I'm great! <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('I\'m great!')">🔊</button></span><span class="er-ru">Отлично!</span></div>
-    <div class="er"><span class="er-en">Not bad. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Not bad.')">🔊</button></span><span class="er-ru">Неплохо.</span></div>
-    <div class="er"><span class="er-en">And you? <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('And you?')">🔊</button></span><span class="er-ru">А ты? (всегда спроси в ответ!)</span></div>
-  </div>
-</div>
-
-<div class="sec" id="t-intro">
-  <div class="card"><div class="c-title"><span class="c-icon ci-p">🤝</span>Как представиться</div>
-    <div class="er"><span class="er-en">My name is Ali. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('My name is Ali.')">🔊</button></span><span class="er-ru">Меня зовут Али.</span></div>
-    <div class="er"><span class="er-en">I'm Ali. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('I\'m Ali.')">🔊</button></span><span class="er-ru">Я Али. (короче и чаще)</span></div>
-    <div class="er"><span class="er-en">What's your name? <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('What\'s your name?')">🔊</button></span><span class="er-ru">Как тебя зовут?</span></div>
-    <div class="er"><span class="er-en">Nice to meet you! <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Nice to meet you!')">🔊</button></span><span class="er-ru">Приятно познакомиться!</span></div>
-    <div class="er"><span class="er-en">Nice to meet you too! <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Nice to meet you too!')">🔊</button></span><span class="er-ru">Взаимно! (ответ)</span></div>
-    <div class="er"><span class="er-en">Where are you from? <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Where are you from?')">🔊</button></span><span class="er-ru">Откуда ты?</span></div>
-    <div class="er"><span class="er-en">I'm from Kazakhstan. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('I\'m from Kazakhstan.')">🔊</button></span><span class="er-ru">Я из Казахстана.</span></div>
-  </div>
-  <div class="tip"><div class="tip-l">💬 Полный диалог</div>
-— Hi! I'm Sara. What's your name?<br>
-— Hello! My name is Ali. Nice to meet you!<br>
-— Nice to meet you too! Where are you from?<br>
-— I'm from Almaty. How old are you?<br>
-— I'm twenty. And you?<br>
-— I'm twenty-two.
-  </div>
-</div>
-
-<div class="sec" id="t-bye">
-  <div class="card"><div class="c-title"><span class="c-icon ci-g">👋</span>Прощание</div>
-    <div class="er"><span class="er-en">Goodbye! <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Goodbye!')">🔊</button></span><span class="er-ru">До свидания! (формальное)</span></div>
-    <div class="er"><span class="er-en">Bye! / Bye bye! <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Bye! / Bye bye!')">🔊</button></span><span class="er-ru">Пока! (неформальное)</span></div>
-    <div class="er"><span class="er-en">See you later! <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('See you later!')">🔊</button></span><span class="er-ru">Увидимся!</span></div>
-    <div class="er"><span class="er-en">See you tomorrow! <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('See you tomorrow!')">🔊</button></span><span class="er-ru">До завтра!</span></div>
-    <div class="er"><span class="er-en">Take care! <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Take care!')">🔊</button></span><span class="er-ru">Береги себя!</span></div>
-    <div class="er"><span class="er-en">Have a good day! <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Have a good day!')">🔊</button></span><span class="er-ru">Хорошего дня!</span></div>
-  </div>
-  <div class="card"><div class="c-title"><span class="c-icon ci-t">🙏</span>Вежливые фразы</div>
-    <div class="er"><span class="er-en">Please <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Please')">🔊</button></span><span class="er-ru">Пожалуйста (просьба)</span></div>
-    <div class="er"><span class="er-en">Thank you / Thanks <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Thank you / Thanks')">🔊</button></span><span class="er-ru">Спасибо</span></div>
-    <div class="er"><span class="er-en">You're welcome <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('You\'re welcome')">🔊</button></span><span class="er-ru">Пожалуйста (ответ на спасибо)</span></div>
-    <div class="er"><span class="er-en">Excuse me <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Excuse me')">🔊</button></span><span class="er-ru">Извините (привлечь внимание)</span></div>
-    <div class="er"><span class="er-en">I'm sorry <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('I\'m sorry')">🔊</button></span><span class="er-ru">Извините (за ошибку)</span></div>
-  </div>
-</div>
-
-<div class="sec" id="t-practice">
-  <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;padding:13px 16px;background:linear-gradient(135deg,var(--gp),#fff);border-radius:13px;border:1.5px solid rgba(255,184,48,.22)">
-    <span style="font-size:22px">🐯</span><div><div style="font-weight:800;font-size:13px">Почти финиш A0!</div><div style="font-size:11px;color:var(--muted)">6 вопросов на диалоги</div></div>
-  </div>
-  <div class="qcard">
-  <div class="q-hdr"><span class="q-num">Вопрос 1/6</span><span class="q-tag qt-v">Vocab</span></div>
-  <div class="q-text">Как правильно ответить на «How are you?»</div>
-  <div class="opts" id="q1-o"><button class="opt" id="q1-A" onclick="dlAnswer(1,'A','B','vocab')"><span class="opt-l">A</span>I am fine thanks.</button><button class="opt" id="q1-B" onclick="dlAnswer(1,'B','B','vocab')"><span class="opt-l">B</span>I'm fine, thank you.</button><button class="opt" id="q1-C" onclick="dlAnswer(1,'C','B','vocab')"><span class="opt-l">C</span>Fine I am.</button><button class="opt" id="q1-D" onclick="dlAnswer(1,'D','B','vocab')"><span class="opt-l">D</span>I good.</button></div>
-  <div class="expl" id="q1-e">✅ <strong>I'm fine, thank you.</strong> — стандартный ответ. Всегда добавляй «And you?» в ответ!</div>
-</div><div class="qcard">
-  <div class="q-hdr"><span class="q-num">Вопрос 2/6</span><span class="q-tag qt-v">Vocab</span></div>
-  <div class="q-text">Как сказать «Приятно познакомиться»?</div>
-  <div class="opts" id="q2-o"><button class="opt" id="q2-A" onclick="dlAnswer(2,'A','C','vocab')"><span class="opt-l">A</span>Good to know you!</button><button class="opt" id="q2-B" onclick="dlAnswer(2,'B','C','vocab')"><span class="opt-l">B</span>Happy meeting you!</button><button class="opt" id="q2-C" onclick="dlAnswer(2,'C','C','vocab')"><span class="opt-l">C</span>Nice to meet you!</button><button class="opt" id="q2-D" onclick="dlAnswer(2,'D','C','vocab')"><span class="opt-l">D</span>Pleased meeting!</button></div>
-  <div class="expl" id="q2-e">✅ <strong>Nice to meet you!</strong> — устойчивое выражение. Ответ: «Nice to meet you too!»</div>
-</div><div class="qcard">
-  <div class="q-hdr"><span class="q-num">Вопрос 3/6</span><span class="q-tag qt-v">Vocab</span></div>
-  <div class="q-text">Какое приветствие в 15:00?</div>
-  <div class="opts" id="q3-o"><button class="opt" id="q3-A" onclick="dlAnswer(3,'A','B','vocab')"><span class="opt-l">A</span>Good morning!</button><button class="opt" id="q3-B" onclick="dlAnswer(3,'B','B','vocab')"><span class="opt-l">B</span>Good afternoon!</button><button class="opt" id="q3-C" onclick="dlAnswer(3,'C','B','vocab')"><span class="opt-l">C</span>Good evening!</button><button class="opt" id="q3-D" onclick="dlAnswer(3,'D','B','vocab')"><span class="opt-l">D</span>Good night!</button></div>
-  <div class="expl" id="q3-e">✅ <strong>Good afternoon!</strong> — 12:00–18:00. Morning до 12, Evening после 18.</div>
-</div><div class="qcard">
-  <div class="q-hdr"><span class="q-num">Вопрос 4/6</span><span class="q-tag qt-v">Vocab</span></div>
-  <div class="q-text">Как спросить «Откуда ты?»</div>
-  <div class="opts" id="q4-o"><button class="opt" id="q4-A" onclick="dlAnswer(4,'A','B','vocab')"><span class="opt-l">A</span>Where you from?</button><button class="opt" id="q4-B" onclick="dlAnswer(4,'B','B','vocab')"><span class="opt-l">B</span>Where are you from?</button><button class="opt" id="q4-C" onclick="dlAnswer(4,'C','B','vocab')"><span class="opt-l">C</span>From where you?</button><button class="opt" id="q4-D" onclick="dlAnswer(4,'D','B','vocab')"><span class="opt-l">D</span>Where from are you?</button></div>
-  <div class="expl" id="q4-e">✅ <strong>Where are you from?</strong> — стандартный вопрос. Ответ: I'm from [страна].</div>
-</div><div class="qcard">
-  <div class="q-hdr"><span class="q-num">Вопрос 5/6</span><span class="q-tag qt-v">Vocab</span></div>
-  <div class="q-text">Что ответить на «Thank you»?</div>
-  <div class="opts" id="q5-o"><button class="opt" id="q5-A" onclick="dlAnswer(5,'A','C','vocab')"><span class="opt-l">A</span>No problem thank.</button><button class="opt" id="q5-B" onclick="dlAnswer(5,'B','C','vocab')"><span class="opt-l">B</span>Your welcome.</button><button class="opt" id="q5-C" onclick="dlAnswer(5,'C','C','vocab')"><span class="opt-l">C</span>You're welcome.</button><button class="opt" id="q5-D" onclick="dlAnswer(5,'D','C','vocab')"><span class="opt-l">D</span>I'm welcome.</button></div>
-  <div class="expl" id="q5-e">✅ <strong>You're welcome.</strong> — стандартный ответ на спасибо. Также: No problem, Sure!</div>
-</div><div class="qcard">
-  <div class="q-hdr"><span class="q-num">Вопрос 6/6</span><span class="q-tag qt-v">Vocab</span></div>
-  <div class="q-text">Как сказать «До завтра»?</div>
-  <div class="opts" id="q6-o"><button class="opt" id="q6-A" onclick="dlAnswer(6,'A','B','vocab')"><span class="opt-l">A</span>Goodbye tomorrow!</button><button class="opt" id="q6-B" onclick="dlAnswer(6,'B','B','vocab')"><span class="opt-l">B</span>See you tomorrow!</button><button class="opt" id="q6-C" onclick="dlAnswer(6,'C','B','vocab')"><span class="opt-l">C</span>Until tomorrow!</button><button class="opt" id="q6-D" onclick="dlAnswer(6,'D','B','vocab')"><span class="opt-l">D</span>Bye tomorrow!</button></div>
-  <div class="expl" id="q6-e">✅ <strong>See you tomorrow!</strong> — See you later = до встречи, See you soon = скоро увидимся.</div>
-</div> <div class="scard" id="scard">
-  <span class="sc-emoji" id="sc-em">🐯</span>
-  <div class="sc-num" id="sc-n">0/6</div>
+<div class="sec  on" id="t-theory"><div class="card"><div class="c-ti"><span class="ci ci-t">🌅</span>По времени суток</div><div class="er"><span class="er-e">Good morning! <button class="spk" onclick="spk('Good morning')">🔊</button></span><span class="er-r">Доброе утро! (до 12:00)</span></div><div class="er"><span class="er-e">Good afternoon! <button class="spk" onclick="spk('Good afternoon')">🔊</button></span><span class="er-r">Добрый день! (12–18)</span></div><div class="er"><span class="er-e">Good evening! <button class="spk" onclick="spk('Good evening')">🔊</button></span><span class="er-r">Добрый вечер! (после 18)</span></div></div><div class="card"><div class="c-ti"><span class="ci ci-g">💬</span>Как дела?</div><div class="er"><span class="er-e">How are you?</span><span class="er-r">Как ты?</span></div><div class="er"><span class="er-e">I'm fine, thank you.</span><span class="er-r">Хорошо, спасибо.</span></div><div class="er"><span class="er-e">Not bad.</span><span class="er-r">Неплохо.</span></div><div class="er"><span class="er-e">And you?</span><span class="er-r">А ты? (всегда спрашивай!)</span></div></div></div><div class="sec" id="t-intro"><div class="card"><div class="c-ti"><span class="ci ci-p">🤝</span>Как представиться</div><div class="er"><span class="er-e">My name is Ali.</span><span class="er-r">Меня зовут Али.</span></div><div class="er"><span class="er-e">I'm Ali.</span><span class="er-r">Я Али. (короче и чаще)</span></div><div class="er"><span class="er-e">Nice to meet you!</span><span class="er-r">Приятно познакомиться!</span></div><div class="er"><span class="er-e">Where are you from?</span><span class="er-r">Откуда ты?</span></div><div class="er"><span class="er-e">I'm from Kazakhstan.</span><span class="er-r">Я из Казахстана.</span></div></div><div class="tip"><div class="tl">💬 Полный диалог</div>— Hi! I'm Sara. What's your name?<br>— My name is Ali. Nice to meet you!<br>— Where are you from?<br>— I'm from Almaty. And you?</div></div><div class="sec" id="t-polite"><div class="card"><div class="c-ti"><span class="ci ci-t">🙏</span>Вежливые фразы</div><div class="er"><span class="er-e">Thank you / Thanks</span><span class="er-r">Спасибо</span></div><div class="er"><span class="er-e">You're welcome</span><span class="er-r">Пожалуйста (ответ)</span></div><div class="er"><span class="er-e">Please</span><span class="er-r">Пожалуйста (просьба)</span></div><div class="er"><span class="er-e">Excuse me</span><span class="er-r">Извините (привлечь внимание)</span></div><div class="er"><span class="er-e">I'm sorry</span><span class="er-r">Извините (за ошибку)</span></div></div><div class="card"><div class="c-ti"><span class="ci ci-g">👋</span>Прощание</div><div class="er"><span class="er-e">Goodbye!</span><span class="er-r">До свидания!</span></div><div class="er"><span class="er-e">Bye! / See you later!</span><span class="er-r">Пока! / Увидимся!</span></div><div class="er"><span class="er-e">Have a good day!</span><span class="er-r">Хорошего дня!</span></div></div></div><div class="sec" id="t-prac"><div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding:12px 15px;background:linear-gradient(135deg,var(--gp),#fff);border-radius:12px;border:1.5px solid rgba(255,184,48,.22)"><span style="font-size:22px">🐯</span><div><div style="font-weight:900;font-size:13px">Покажи что умеешь!</div><div style="font-size:11px;color:var(--mu)">Тигрёнок болеет за тебя!</div></div></div><div class="hud" id="hud"></div><div class="qc"><div class="q-h"><span class="q-n">Вопрос 1/6</span><span class="q-t tv">Vocab</span></div><div class="q-tx">Ответ на «How are you?»:</div><div class="opts" id="q1-o"><button class="opt" id="q1-A" onclick="dlA(1,'A','B','v')" ><span class="ol">A</span>I am fine thanks.</button><button class="opt" id="q1-B" onclick="dlA(1,'B','B','v')" ><span class="ol">B</span>I'm fine, thank you.</button><button class="opt" id="q1-C" onclick="dlA(1,'C','B','v')" ><span class="ol">C</span>Fine I am.</button><button class="opt" id="q1-D" onclick="dlA(1,'D','B','v')" ><span class="ol">D</span>I good.</button></div><div class="expl" id="q1-e">✅ <strong>I'm fine, thank you.</strong> — и спроси «And you?»</div></div><div class="qc"><div class="q-h"><span class="q-n">Вопрос 2/6</span><span class="q-t tv">Vocab</span></div><div class="q-tx">«Приятно познакомиться»:</div><div class="opts" id="q2-o"><button class="opt" id="q2-A" onclick="dlA(2,'A','C','v')" ><span class="ol">A</span>Good to know you!</button><button class="opt" id="q2-B" onclick="dlA(2,'B','C','v')" ><span class="ol">B</span>Happy meeting you!</button><button class="opt" id="q2-C" onclick="dlA(2,'C','C','v')" ><span class="ol">C</span>Nice to meet you!</button><button class="opt" id="q2-D" onclick="dlA(2,'D','C','v')" ><span class="ol">D</span>Pleased meeting!</button></div><div class="expl" id="q2-e">✅ <strong>Nice to meet you!</strong></div></div><div class="qc"><div class="q-h"><span class="q-n">Вопрос 3/6</span><span class="q-t tv">Vocab</span></div><div class="q-tx">Приветствие в 15:00:</div><div class="opts" id="q3-o"><button class="opt" id="q3-A" onclick="dlA(3,'A','B','v')" ><span class="ol">A</span>Good morning!</button><button class="opt" id="q3-B" onclick="dlA(3,'B','B','v')" ><span class="ol">B</span>Good afternoon!</button><button class="opt" id="q3-C" onclick="dlA(3,'C','B','v')" ><span class="ol">C</span>Good evening!</button><button class="opt" id="q3-D" onclick="dlA(3,'D','B','v')" ><span class="ol">D</span>Good night!</button></div><div class="expl" id="q3-e">✅ <strong>Good afternoon!</strong> — 12:00–18:00.</div></div><div class="qc"><div class="q-h"><span class="q-n">Вопрос 4/6</span><span class="q-t tv">Vocab</span></div><div class="q-tx">«Откуда ты?»:</div><div class="opts" id="q4-o"><button class="opt" id="q4-A" onclick="dlA(4,'A','B','v')" ><span class="ol">A</span>Where you from?</button><button class="opt" id="q4-B" onclick="dlA(4,'B','B','v')" ><span class="ol">B</span>Where are you from?</button><button class="opt" id="q4-C" onclick="dlA(4,'C','B','v')" ><span class="ol">C</span>From where you?</button><button class="opt" id="q4-D" onclick="dlA(4,'D','B','v')" ><span class="ol">D</span>Where from?</button></div><div class="expl" id="q4-e">✅ <strong>Where are you from?</strong></div></div><div class="qc"><div class="q-h"><span class="q-n">Вопрос 5/6</span><span class="q-t tv">Vocab</span></div><div class="q-tx">Ответ на «Thank you»:</div><div class="opts" id="q5-o"><button class="opt" id="q5-A" onclick="dlA(5,'A','C','v')" ><span class="ol">A</span>No problem thank.</button><button class="opt" id="q5-B" onclick="dlA(5,'B','C','v')" ><span class="ol">B</span>Your welcome.</button><button class="opt" id="q5-C" onclick="dlA(5,'C','C','v')" ><span class="ol">C</span>You're welcome.</button><button class="opt" id="q5-D" onclick="dlA(5,'D','C','v')" ><span class="ol">D</span>I'm welcome.</button></div><div class="expl" id="q5-e">✅ <strong>You're welcome.</strong></div></div><div class="qc"><div class="q-h"><span class="q-n">Вопрос 6/6</span><span class="q-t tv">Vocab</span></div><div class="q-tx">«До завтра»:</div><div class="opts" id="q6-o"><button class="opt" id="q6-A" onclick="dlA(6,'A','B','v')" ><span class="ol">A</span>Goodbye tomorrow!</button><button class="opt" id="q6-B" onclick="dlA(6,'B','B','v')" ><span class="ol">B</span>See you tomorrow!</button><button class="opt" id="q6-C" onclick="dlA(6,'C','B','v')" ><span class="ol">C</span>Until tomorrow!</button><button class="opt" id="q6-D" onclick="dlA(6,'D','B','v')" ><span class="ol">D</span>Bye tomorrow!</button></div><div class="expl" id="q6-e">✅ <strong>See you tomorrow!</strong></div></div><div class="sc" id="sc">
+  <span class="sc-em" id="sc-em">🐯</span>
+  <div class="sc-n" id="sc-n">0/6</div>
   <div class="sc-sub">правильных ответов</div>
   <div class="sc-bw"><div class="sc-b" id="sc-b" style="width:0%"></div></div>
-  <div class="sc-msg" id="sc-m"></div>
-  <div class="sc-badges">
-    <div class="sc-badge"><span class="scb-icon">🔥</span><span class="scb-l">Дней подряд</span><span class="scb-v" id="sc-str">0</span></div>
-    <div class="sc-badge"><span class="scb-icon">⭐</span><span class="scb-l">Уровень</span><span class="scb-v">A0</span></div>
-    <div class="sc-badge"><span class="scb-icon">🐯</span><span class="scb-l">Статус</span><span class="scb-v">Зверь!</span></div>
+  <div class="sc-m" id="sc-m"></div>
+  <div class="sc-bs">
+    <div class="sc-badge"><span class="sb-ic">🔥</span><span class="sb-l">Streak</span><span class="sb-v" id="sc-str">0</span></div>
+    <div class="sc-badge"><span class="sb-ic">💎</span><span class="sb-l">XP</span><span class="sb-v" id="sc-xp">+0</span></div>
+    <div class="sc-badge"><span class="sb-ic">⚡</span><span class="sb-l">Быстрых</span><span class="sb-v" id="sc-fast">0</span></div>
   </div>
+  <div id="ts" style="margin-bottom:13px"></div>
   <button class="sc-btn" onclick="showTab('vocab',document.querySelectorAll('.tab')[4])">Перейти к словарю →</button>
+</div></div>
+<div class="sec" id="t-vocab"><div class="card"><div class="c-ti"><span class="ci ci-t">📝</span>Слова урока</div><div class="vg"><div class="vi"><div class="vi-e">Hello/Hi <button class="spk" onclick="spk('Hello/Hi')">🔊</button></div><div class="vi-i">[həˈloʊ/haɪ]</div><div class="vi-r">Привет</div></div><div class="vi"><div class="vi-e">Good morning <button class="spk" onclick="spk('Good morning')">🔊</button></div><div class="vi-i">[ɡʊd ˈmɔːnɪŋ]</div><div class="vi-r">Доброе утро</div></div><div class="vi"><div class="vi-e">How are you? <button class="spk" onclick="spk('How are you?')">🔊</button></div><div class="vi-i">[haʊ ɑː juː]</div><div class="vi-r">Как дела?</div></div><div class="vi"><div class="vi-e">I'm fine <button class="spk" onclick="spk('I&#39;m fine')">🔊</button></div><div class="vi-i">[aɪm faɪn]</div><div class="vi-r">Я хорошо</div></div><div class="vi"><div class="vi-e">My name is... <button class="spk" onclick="spk('My name is...')">🔊</button></div><div class="vi-i">[maɪ neɪm ɪz]</div><div class="vi-r">Меня зовут...</div></div><div class="vi"><div class="vi-e">Nice to meet you <button class="spk" onclick="spk('Nice to meet you')">🔊</button></div><div class="vi-i">[naɪs tə miːt juː]</div><div class="vi-r">Приятно познакомиться</div></div><div class="vi"><div class="vi-e">Where are you from? <button class="spk" onclick="spk('Where are you from?')">🔊</button></div><div class="vi-i">[weər ɑː juː frɒm]</div><div class="vi-r">Откуда ты?</div></div><div class="vi"><div class="vi-e">Thank you <button class="spk" onclick="spk('Thank you')">🔊</button></div><div class="vi-i">[ˈθæŋk juː]</div><div class="vi-r">Спасибо</div></div><div class="vi"><div class="vi-e">You're welcome <button class="spk" onclick="spk('You&#39;re welcome')">🔊</button></div><div class="vi-i">[jɔː ˈwelkəm]</div><div class="vi-r">Пожалуйста</div></div><div class="vi"><div class="vi-e">Goodbye/Bye <button class="spk" onclick="spk('Goodbye/Bye')">🔊</button></div><div class="vi-i">[ɡʊdˈbaɪ/baɪ]</div><div class="vi-r">До свидания/Пока</div></div></div></div><div class="tc"><h4>🏆 Урок 7 завершён!</h4><p>Следующий: Итоговый тест A0!</p></div><div class="tc gd"><h4>🐯 Совет</h4><p>Повторяй новые слова вслух каждый день!</p></div><a href="IELTS_A0_Lesson8.html" class="nb">Следующий урок: Итоговый тест A0 →</a></div>
 </div>
-</div>
-<div class="sec" id="t-vocab"><div class="card"><div class="c-title"><span class="c-icon ci-t">📝</span>Слова урока</div><div class="vgrid"><div class="vi"><div class="vi-en">Hello/Hi <button class="speak-btn" onclick="event.preventDefault();speak('Hello/Hi')">🔊</button></div><div class="vi-ipa">[həˈloʊ/haɪ]</div><div class="vi-ru">Привет</div></div><div class="vi"><div class="vi-en">Good morning <button class="speak-btn" onclick="event.preventDefault();speak('Good morning')">🔊</button></div><div class="vi-ipa">[ɡʊd ˈmɔːnɪŋ]</div><div class="vi-ru">Доброе утро</div></div><div class="vi"><div class="vi-en">How are you? <button class="speak-btn" onclick="event.preventDefault();speak('How are you?')">🔊</button></div><div class="vi-ipa">[haʊ ɑː juː]</div><div class="vi-ru">Как дела?</div></div><div class="vi"><div class="vi-en">I'm fine <button class="speak-btn" onclick="event.preventDefault();speak('I\'m fine')">🔊</button></div><div class="vi-ipa">[aɪm faɪn]</div><div class="vi-ru">Я хорошо</div></div><div class="vi"><div class="vi-en">My name is... <button class="speak-btn" onclick="event.preventDefault();speak('My name is...')">🔊</button></div><div class="vi-ipa">[maɪ neɪm ɪz]</div><div class="vi-ru">Меня зовут...</div></div><div class="vi"><div class="vi-en">Nice to meet you <button class="speak-btn" onclick="event.preventDefault();speak('Nice to meet you')">🔊</button></div><div class="vi-ipa">[naɪs tə miːt juː]</div><div class="vi-ru">Приятно познакомиться</div></div><div class="vi"><div class="vi-en">Where are you from? <button class="speak-btn" onclick="event.preventDefault();speak('Where are you from?')">🔊</button></div><div class="vi-ipa">[weər ɑː juː frɒm]</div><div class="vi-ru">Откуда ты?</div></div><div class="vi"><div class="vi-en">Thank you <button class="speak-btn" onclick="event.preventDefault();speak('Thank you')">🔊</button></div><div class="vi-ipa">[ˈθæŋk juː]</div><div class="vi-ru">Спасибо</div></div><div class="vi"><div class="vi-en">You're welcome <button class="speak-btn" onclick="event.preventDefault();speak('You\'re welcome')">🔊</button></div><div class="vi-ipa">[jɔː ˈwelkəm]</div><div class="vi-ru">Пожалуйста</div></div><div class="vi"><div class="vi-en">Goodbye/Bye <button class="speak-btn" onclick="event.preventDefault();speak('Goodbye/Bye')">🔊</button></div><div class="vi-ipa">[ɡʊdˈbaɪ/baɪ]</div><div class="vi-ru">До свидания/Пока</div></div></div></div><div class="tc "><h4>🏆 Урок 7 завершён! Последний шаг — финальный тест A0!</h4><p>Ты прошёл 7 уроков. Урок 8 — итоговый тест и твой сертификат!</p></div><div class="tc gold"><h4>🐯 Задание от Тигра</h4><p>Представься по-английски вслух прямо сейчас: «Hi! My name is ___, I'm from ___, I'm ___ years old.» Тигр ждёт! 🐯</p></div></div>
-
-</div>
-
 <script>
-// ── ACCESS GUARD
-if(!localStorage.getItem('ielts_a0_access')){window.location.href='payment_a0.html';}
+_S.total=6;_S.lkey='ielts_a0_lesson7';window._cm={1:"B",2:"C",3:"B",4:"B",5:"C",6:"B"};
+function initL(){rHUD();setTimeout(()=>stTmr(1),1400);}
 
-// ── TIGER
-const TM={
-  ok:['Да-а-а! Вот это я понимаю! 🔥','БУМ! Точно в яблочко! 💥','Ррр! Тигр одобряет! 🐯✨','Легко! Ты реально крутой(ая)! 😎','Мозг работает как зверь! 🧠⚡','Пфф, лёгкотня! Дальше! 😄','Ещё один правильный — ты машина! ⚡','Я знал(а) что ты знаешь! 🐯'],
-  no:['Эй, не переживай — ошибки это топливо! 🧠','Почти! Посмотри объяснение 💡','Это была ловушка! Теперь не попадёшься 😏','Читай объяснение — и порвёшь следующий! 💪','Тигры тоже ошибаются... нет, не ошибаются 🐯'],
-  start:['Привет! Я Тигр 🐯 Поможем друг другу!','О, новый урок! Давай покажем что умеем! 🔥','Готов(а)? Я с тобой! Погнали! 🐯⚡'],
-  done:['УРОК ЗАВЕРШЁН! Ты абсолютный зверь! 🐯🏆','Вот это результат! Тигр гордится! 🐯❤️','Сделал(а)! Следующий урок уже дрожит! 🚀'],
-  tap:['Учись каждый день! 🔥','Тигр в тебя верит! 🐯💪','Ты справишься! ⚡','Один урок — один шаг к цели! 🎯','Ррр! Покажи на что способен(а)! 🐯']
-};
-let cons=0;
-function tsay(type,custom){
-  const msgs=TM[type]||TM.ok;
-  const msg=custom||msgs[Math.floor(Math.random()*msgs.length)];
-  const b=document.getElementById('tb'),t=document.getElementById('tt');
-  if(!b||!t)return;
-  t.textContent=msg;b.classList.remove('on');void b.offsetWidth;b.classList.add('on');
-  clearTimeout(window._tt);window._tt=setTimeout(()=>b.classList.remove('on'),4500);
-}
+// ── VOICE ──
+let _v=null;
+function _pv(){const vs=window.speechSynthesis.getVoices();if(!vs.length)return;const w=[v=>v.name==='Samantha',v=>v.name==='Google UK English Female',v=>v.name==='Karen',v=>v.name==='Moira',v=>v.name==='Tessa',v=>/aria/i.test(v.name)&&v.lang.startsWith('en'),v=>v.lang==='en-AU',v=>v.lang==='en-GB',v=>v.lang.startsWith('en')];for(const t of w){const f=vs.find(t);if(f){_v=f;return;}}}
+if(window.speechSynthesis){window.speechSynthesis.onvoiceschanged=_pv;_pv();}
+function spk(w,id){if(!window.speechSynthesis)return;const c=String(w).replace(/[^\x00-\x7F]/g,'').trim();if(!c)return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(c);u.lang='en-GB';u.rate=0.76;u.pitch=1.35;u.volume=1;if(_v)u.voice=_v;if(id){const el=document.getElementById(id);if(el){el.classList.add('playing');u.onend=u.onerror=()=>el.classList.remove('playing');}}window.speechSynthesis.speak(u);}
 
-// ── CONFETTI
-function boom(){
-  const c=['#FFB830','#00C9A7','#FF6B35','#845EC2','#FF6B9D','#fff','#06D6A0'];
-  for(let i=0;i<65;i++)setTimeout(()=>{
-    const e=document.createElement('div'),s=6+Math.random()*9;
-    e.style.cssText=`position:fixed;top:-10px;left:${Math.random()*100}vw;width:${s}px;height:${s}px;background:${c[Math.floor(Math.random()*c.length)]};border-radius:${Math.random()>.5?'50%':'3px'};pointer-events:none;z-index:9999;animation:cFall ${1.2+Math.random()*1.5}s ease-in forwards;transform:rotate(${Math.random()*360}deg)`;
-    document.body.appendChild(e);setTimeout(()=>e.remove(),3000);
-  },i*22);
-}
+// ── TIGER ──
+const TM={ok:['🎉 Ура! Правильно!','🔥 Молодец! Так держать!','⚡ Вот это я понимаю!','😄 Ты крутой!','🌟 Отлично!','💥 Попал в точку!'],no:['😅 Ничего, бывает!','💡 Ошибки делают нас умнее!','😏 Это была ловушка!','🤗 Не переживай!'],str:['🔥🔥 ОГОНЬ! Серия!','🚀 Тигрёнок в восторге!','🏆 Не останавливайся!'],st:['👋 Привет! Я Тигрёнок!','😊 Рад тебя видеть!','🐯 Учимся вместе!'],dn:['🏆 Урок пройден!','🎊 Тигрёнок гордится!','🌟 Невероятно!'],tp:['🐯 Привет!','✨ Учись каждый день!','💪 Ты справишься!','🌟 Молодец!','❤️ Верю в тебя!']};
+function tSay(type,custom){const msgs=TM[type]||TM.tp;const msg=custom||msgs[Math.floor(Math.random()*msgs.length)];const b=document.getElementById('tb');if(!b)return;b.innerHTML=msg;b.classList.remove('on');void b.offsetWidth;b.classList.add('on');clearTimeout(window._tb);window._tb=setTimeout(()=>b.classList.remove('on'),4800);}
+function tFace(type){const bL=document.getElementById('bL'),bR=document.getElementById('bR'),mth=document.getElementById('mth'),tng=document.getElementById('tng'),tngD=document.getElementById('tngD');if(!bL)return;if(type==='happy'){bL.setAttribute('d','M80,112 C96,100 126,100 140,112');bR.setAttribute('d','M160,112 C176,100 206,100 220,112');mth.setAttribute('d','M124,198 C136,216 164,216 176,198');if(tng)tng.style.opacity='1';if(tngD)tngD.style.opacity='1';}else if(type==='sad'){bL.setAttribute('d','M80,122 C96,118 126,120 140,124');bR.setAttribute('d','M160,124 C176,120 206,118 220,122');mth.setAttribute('d','M128,208 C138,200 162,200 172,208');if(tng)tng.style.opacity='0';if(tngD)tngD.style.opacity='0';}else{bL.setAttribute('d','M80,120 C96,108 126,108 140,120');bR.setAttribute('d','M160,120 C176,108 206,108 220,120');mth.setAttribute('d','M126,196 C137,212 163,212 174,196');if(tng)tng.style.opacity='0';if(tngD)tngD.style.opacity='0';}}
+function tReact(type,custom){const tw=document.querySelector('.t-wrap');if(tw){tw.classList.remove('happy','sad');void tw.offsetWidth;if(['ok','str','dn'].includes(type)){tw.classList.add('happy');tFace('happy');setTimeout(()=>{tw.classList.remove('happy');tFace('neutral');},1900);}else if(type==='no'||type==='timeout'){tw.classList.add('sad');tFace('sad');setTimeout(()=>{tw.classList.remove('sad');tFace('neutral');},1900);}else tFace('neutral');}tSay(type,custom);}
+function tTap(){tReact('tp');}
 
-// ── SOUND
-function snd(type){
-  try{
-    const ctx=new(window.AudioContext||window.webkitAudioContext)(),o=ctx.createOscillator(),g=ctx.createGain();
-    o.connect(g);g.connect(ctx.destination);
-    if(type==='ok'){o.frequency.setValueAtTime(523,ctx.currentTime);o.frequency.setValueAtTime(659,ctx.currentTime+.1);o.frequency.setValueAtTime(784,ctx.currentTime+.2);g.gain.setValueAtTime(.12,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.4);o.start(ctx.currentTime);o.stop(ctx.currentTime+.4);}
-    else{o.frequency.setValueAtTime(330,ctx.currentTime);o.frequency.setValueAtTime(200,ctx.currentTime+.15);g.gain.setValueAtTime(.1,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.3);o.start(ctx.currentTime);o.stop(ctx.currentTime+.3);}
-  }catch(e){}
-}
+// ── CONFETTI ──
+function boom(){const c=['#ffb830','#00c9a7','#ff6b35','#845ec2','#ff6b9d','#fff','#06d6a0'];for(let i=0;i<65;i++)setTimeout(()=>{const e=document.createElement('div'),s=6+Math.random()*9;e.style.cssText=`position:fixed;top:-10px;left:${Math.random()*100}vw;width:${s}px;height:${s}px;background:${c[Math.floor(Math.random()*c.length)]};border-radius:${Math.random()>.5?'50%':'3px'};pointer-events:none;z-index:9999;animation:cf ${1.2+Math.random()*1.5}s ease-in forwards;transform:rotate(${Math.random()*360}deg)`;document.body.appendChild(e);setTimeout(()=>e.remove(),3000);},i*22);}
 
-// ── STREAK
-function updStreak(){
-  const td=new Date().toDateString(),yd=new Date(Date.now()-86400000).toDateString();
-  let d=JSON.parse(localStorage.getItem('atoc_streak')||'{"c":0,"l":""}');
-  if(d.l===td)return d.c;
-  d.c=d.l===yd?d.c+1:1;d.l=td;
-  localStorage.setItem('atoc_streak',JSON.stringify(d));
-  showStreakPop(d.c);return d.c;
-}
-function getStreak(){return(JSON.parse(localStorage.getItem('atoc_streak')||'{"c":0}')).c||0;}
-function showStreakPop(n){
-  const e=document.getElementById('spop');if(!e)return;
-  e.textContent=`🔥 ${n} день подряд! Тигр в восторге!`;
-  e.classList.add('on');setTimeout(()=>e.classList.remove('on'),3200);
-}
-function renderStreak(){const e=document.getElementById('snum');if(e)e.textContent='🔥 '+getStreak();}
+// ── SOUND FX ──
+function snd(ok){try{const ctx=new(window.AudioContext||window.webkitAudioContext)(),o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);if(ok){o.frequency.setValueAtTime(523,ctx.currentTime);o.frequency.setValueAtTime(659,ctx.currentTime+.1);o.frequency.setValueAtTime(784,ctx.currentTime+.2);g.gain.setValueAtTime(.1,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.4);o.start(ctx.currentTime);o.stop(ctx.currentTime+.4);}else{o.frequency.setValueAtTime(330,ctx.currentTime);o.frequency.setValueAtTime(200,ctx.currentTime+.15);g.gain.setValueAtTime(.08,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.3);o.start(ctx.currentTime);o.stop(ctx.currentTime+.3);}}catch(e){}}
 
-// ── ANSWER
-window._ans={};window._sc=0;
-function ans(q,ch,ck,total,lkey){
-  if(window._ans[q])return;
-  window._ans[q]=ch;
-  document.querySelectorAll('#q'+q+'-o .opt').forEach(b=>b.disabled=true);
-  const chosen=document.getElementById('q'+q+'-'+ch),corBtn=document.getElementById('q'+q+'-'+ck);
-  const isOk=ch===ck;
-  if(isOk){chosen.classList.add('ok');window._sc++;cons++;snd('ok');if(cons>=3)tsay('ok',cons+' подряд! Ты в зоне! 🔥');else tsay('ok');if(window._sc===total)boom();}
-  else{chosen.classList.add('no');corBtn.classList.add('ok');cons=0;snd('no');tsay('no');}
-  document.getElementById('q'+q+'-e').classList.add('on');
-  const done=Object.keys(window._ans).length;
-  const pb=document.getElementById('pbar');if(pb)pb.style.width=(8+done/total*87)+'%';
-  if(done===total)setTimeout(()=>showScore(lkey,total),500);
-}
+// ── XP ──
+function gXP(){return(JSON.parse(localStorage.getItem('atoc_xp')||'{"xp":0}')).xp||0;}
+function aXP(n){const x=gXP()+n;localStorage.setItem('atoc_xp',JSON.stringify({xp:x}));const el=document.getElementById('hud-xp');if(el)el.textContent=x;const f=document.createElement('div');f.className='xpf';f.textContent='+'+n+' XP';f.style.cssText='top:160px;right:18px';document.body.appendChild(f);setTimeout(()=>f.remove(),1800);}
 
-function showScore(lkey,max){
-  const sc=window._sc,pct=Math.round(sc/max*100);
-  const card=document.getElementById('scard');if(!card)return;
-  card.classList.add('on');
-  const emojis=['😿','🐱','🐯','🐯💪','🐯🔥','🐯🏆'];
-  const msgs=['Не переживай! Перечитай теорию и попробуй снова 💪','Хорошее начало! Повтори слабые места 📚','Неплохо! Ещё чуть-чуть практики 🎯','Хорошо! Основы усвоены! 👍','Отлично! Тигр гордится! 🐯✨','ИДЕАЛЬНО! Тигр в полном восторге! 🐯🏆🎉'];
-  const idx=Math.min(Math.floor(sc/max*5),5);
-  document.getElementById('sc-em').textContent=emojis[idx];
-  document.getElementById('sc-n').textContent=sc+'/'+max;
-  document.getElementById('sc-b').style.width=pct+'%';
-  document.getElementById('sc-m').textContent=msgs[idx];
-  document.getElementById('sc-str').textContent=updStreak();
-  localStorage.setItem(lkey,JSON.stringify({score:sc,max,pct,date:new Date().toISOString()}));
-  tsay('done');
-  card.scrollIntoView({behavior:'smooth',block:'center'});
-}
+// ── STREAK ──
+function uStr(){const td=new Date().toDateString(),yd=new Date(Date.now()-86400000).toDateString();let d=JSON.parse(localStorage.getItem('atoc_streak')||'{"c":0,"l":""}');if(d.l===td)return d.c;d.c=d.l===yd?d.c+1:1;d.l=td;localStorage.setItem('atoc_streak',JSON.stringify(d));return d.c;}
+function gStr(){return(JSON.parse(localStorage.getItem('atoc_streak')||'{"c":0}')).c||0;}
 
-// ── TABS
-function showTab(id,el){
-  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
-  const s=document.getElementById('t-'+id);if(s)s.classList.add('on');
-  if(el)el.classList.add('on');
-  window.scrollTo({top:0,behavior:'smooth'});
-}
+// ── GAME STATE ──
+let _S={lives:3,score:0,ans:{},wrong:[],cons:0,timer:null,tLeft:15,tStats:{},sXP:0,fast:0,total:6,lkey:'',over:false};
 
+function rHUD(){const h=document.getElementById('hud');if(!h)return;const hts=Array.from({length:3},(_,i)=>`<span id="h${i}"${i>=_S.lives?' class="lost"':''}>❤️</span>`).join('');h.innerHTML=`<div class="lv-r">${hts}</div><div class="tr"><svg width="42" height="42" viewBox="0 0 42 42"><circle class="tb2" cx="21" cy="21" r="17" fill="none" stroke="rgba(0,0,0,.09)" stroke-width="3"/><circle class="tf" id="t-arc" cx="21" cy="21" r="17" fill="none" stroke="#00c9a7" stroke-width="3" stroke-linecap="round" stroke-dasharray="113" stroke-dashoffset="0" style="transition:stroke-dashoffset 1s linear,stroke .3s"/></svg><div class="tn" id="t-n">15</div></div><div class="xp-h">💎 <span id="hud-xp">${gXP()}</span></div>`;}
 
-// ── SPEECH SYNTHESIS ──────────────────────────────────
-function speak(text) {
-  if(!window.speechSynthesis) return;
-  window.speechSynthesis.cancel();
-  const utt = new SpeechSynthesisUtterance(text);
-  utt.lang = 'en-GB';
-  utt.rate = 0.85;
-  utt.pitch = 1.1;
-  // Try to find a female English voice
-  const voices = window.speechSynthesis.getVoices();
-  const femaleVoice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('Female') || v.name.includes('Samantha') || v.name.includes('Karen') || v.name.includes('Victoria') || v.name.includes('Fiona') || v.name.includes('Google UK English Female')));
-  const anyEnglish = voices.find(v => v.lang.startsWith('en'));
-  if(femaleVoice) utt.voice = femaleVoice;
-  else if(anyEnglish) utt.voice = anyEnglish;
-  window.speechSynthesis.speak(utt);
-}
-// Ensure voices are loaded
-if(window.speechSynthesis) {
-  window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
-  window.speechSynthesis.getVoices();
-}
+function stTmr(q){stpTmr();_S.tLeft=15;uTUI(15);_S.timer=setInterval(()=>{_S.tLeft--;uTUI(_S.tLeft);if(_S.tLeft<=0){stpTmr();tOut(q);}},1000);}
+function stpTmr(){clearInterval(_S.timer);_S.timer=null;}
+function uTUI(s){const arc=document.getElementById('t-arc'),n=document.getElementById('t-n');if(!arc||!n)return;arc.style.strokeDashoffset=113*(1-s/15);arc.style.stroke=s<=5?'#ff4d6d':s<=8?'#ffb830':'#00c9a7';n.textContent=s;n.style.color=s<=5?'#ff4d6d':'var(--nv)';}
 
-window.addEventListener('load',()=>{renderStreak();tsay('start');});
-</script>
+function tOut(q){if(_S.over||_S.ans[q])return;_S.ans[q]='T';document.querySelectorAll('#q'+q+'-o .opt').forEach(b=>b.disabled=true);const ck=window._cm&&window._cm[q];if(ck){const cb=document.getElementById('q'+q+'-'+ck);if(cb)cb.classList.add('ok');}const ep=document.getElementById('q'+q+'-e');if(ep)ep.classList.add('on');if(!_S.wrong.includes(q))_S.wrong.push(q);lLife(q);tReact('timeout','⏱️ Время вышло! Смотри ответ!');chkDone();}
 
-<script>
-window._correctMap = {};
-window._currentLKey = 'ielts_a0_lesson7';
-window._DL = window._DL || {};
-window._DL.totalQs = 6;
-window._correctMap[1] = 'D';
-window._correctMap[2] = 'D';
-window._correctMap[3] = 'D';
-window._correctMap[4] = 'D';
-window._correctMap[5] = 'D';
-window._correctMap[6] = 'D';
+function lLife(q){if(_S.lives<=0)return;_S.lives--;const h=document.getElementById('h'+_S.lives);if(h)h.classList.add('lost');if(!_S.wrong.includes(q)&&q)_S.wrong.push(q);snd(false);if(_S.lives===0){stpTmr();setTimeout(showGO,800);}}
 
-function restartLesson() {
-  window._ans = {}; window._sc = 0;
-  window._DL.lives = 3; window._DL.wrongQs = [];
-  window._DL.gameOver = false; window._DL.sessionXP = 0;
-  window._DL.topicStats = {};
-  document.getElementById('gameover').classList.remove('show');
-  document.querySelectorAll('.opt').forEach(b => { b.disabled=false; b.classList.remove('ok','no'); });
-  document.querySelectorAll('.expl').forEach(e => e.classList.remove('on'));
-  document.getElementById('scard').classList.remove('on');
-  renderHUD();
-  window.scrollTo({top:0,behavior:'smooth'});
-  setTimeout(()=>startTimer(1),500);
-}
-</script>
+function showGO(){_S.over=true;const go=document.getElementById('go');if(go)go.classList.add('on');tReact('no','💔 Жизни кончились! Попробуй снова!');}
+
+function restartLesson(){_S={lives:3,score:0,ans:{},wrong:[],cons:0,timer:null,tLeft:15,tStats:{},sXP:0,fast:0,total:_S.total,lkey:_S.lkey,over:false};const go=document.getElementById('go');if(go)go.classList.remove('on');document.querySelectorAll('.opt').forEach(b=>{b.disabled=false;b.classList.remove('ok','no');});document.querySelectorAll('.expl').forEach(e=>e.classList.remove('on'));const sc=document.getElementById('sc');if(sc)sc.classList.remove('on');document.querySelector('.retry')?.remove();const pb=document.getElementById('pb');if(pb)pb.style.width='8%';rHUD();tReact('st');setTimeout(()=>stTmr(1),600);window.scrollTo({top:0,behavior:'smooth'});}
+
+// ── ANSWER ──
+function dlA(q,ch,ck,tag){if(_S.ans[q]||_S.over)return;const fast=_S.tLeft>=10;stpTmr();_S.ans[q]=ch;document.querySelectorAll('#q'+q+'-o .opt').forEach(b=>b.disabled=true);const chosen=document.getElementById('q'+q+'-'+ch),corBtn=document.getElementById('q'+q+'-'+ck);const isOk=ch===ck;if(!_S.tStats[tag])_S.tStats[tag]={ok:0,total:0};_S.tStats[tag].total++;if(isOk){chosen.classList.add('ok');_S.score++;_S.cons++;_S.tStats[tag].ok++;const xp=10+(fast?5:0);aXP(xp);if(fast)_S.fast++;if(_S.cons>=3)tReact('str');else tReact('ok');if(_S.score===_S.total)boom();}else{chosen.classList.add('no');corBtn.classList.add('ok');_S.cons=0;lLife(q);tReact('no');}const ep=document.getElementById('q'+q+'-e');if(ep)ep.classList.add('on');const done=Object.keys(_S.ans).length;const pb=document.getElementById('pb');if(pb)pb.style.width=(8+done/_S.total*87)+'%';if(!_S.over){const nq=q+1;if(nq<=_S.total&&!_S.ans[nq])setTimeout(()=>stTmr(nq),900);}chkDone();}
+
+function chkDone(){if(Object.keys(_S.ans).length===_S.total&&!_S.over)setTimeout(finSes,600);}
+
+function finSes(){if(_S.wrong.length>0&&!_S._ret)showRetry();else showScore();}
+
+function showRetry(){const bar=document.createElement('div');bar.className='retry';bar.innerHTML=`🔁 ${_S.wrong.length} ошибки! <button class="rb" onclick="doRetry()">Повторить!</button><button class="sk" onclick="skipR()">Пропустить</button>`;const sc=document.getElementById('sc');if(sc)sc.before(bar);}
+function doRetry(){_S._ret=true;document.querySelector('.retry')?.remove();const tr=[..._S.wrong];_S.wrong=[];tr.forEach(q=>{delete _S.ans[q];document.querySelectorAll('#q'+q+'-o .opt').forEach(b=>{b.disabled=false;b.classList.remove('ok','no');});const ep=document.getElementById('q'+q+'-e');if(ep)ep.classList.remove('on');});_S.lives=3;for(let i=0;i<3;i++){const h=document.getElementById('h'+i);if(h)h.classList.remove('lost');}tReact('st','🔄 Повторяем! Тигрёнок верит! 🐯💪');setTimeout(()=>stTmr(tr[0]),500);}
+function skipR(){_S._ret=true;document.querySelector('.retry')?.remove();showScore();}
+
+function showScore(){const sc=document.getElementById('sc');if(!sc)return;sc.classList.add('on');const pct=Math.round(_S.score/_S.total*100);const em=['😿','🐱','🐯','🐯💪','🐯🔥','🐯🏆'];const ms=['Повтори теорию 💪','Хорошее начало! 📚','Неплохо! 🎯','Хорошо! 👍','Отлично! 🐯✨','ИДЕАЛЬНО! 🐯🏆🎉'];const idx=Math.min(Math.floor(_S.score/_S.total*5),5);const em2=document.getElementById('sc-em');if(em2)em2.textContent=em[idx];const sn=document.getElementById('sc-n');if(sn)sn.textContent=_S.score+'/'+_S.total;const sb=document.getElementById('sc-b');if(sb)sb.style.width=pct+'%';const sm2=document.getElementById('sc-m');if(sm2)sm2.textContent=ms[idx];const ss=document.getElementById('sc-str');if(ss)ss.textContent=uStr();const sx=document.getElementById('sc-xp');if(sx)sx.textContent='+'+_S.sXP;rTS();localStorage.setItem(_S.lkey,JSON.stringify({score:_S.score,max:_S.total,pct,date:new Date().toISOString()}));tReact('dn');sc.scrollIntoView({behavior:'smooth',block:'center'});}
+
+function rTS(){const el=document.getElementById('ts');if(!el)return;const colors={g:'#845ec2',v:'#00c9a7',t:'#ffb830'};const lbls={g:'Grammar',v:'Vocabulary',t:'Test'};let html='<div class="ts">';for(const[t,d]of Object.entries(_S.tStats)){if(!d.total)continue;const pct=Math.round(d.ok/d.total*100);html+=`<div class="ts-i"><div class="ts-l">${lbls[t]||t}</div><div class="ts-bw"><div class="ts-bf" style="width:${pct}%;background:${colors[t]||'#00c9a7'}"></div></div><div class="ts-n">${d.ok}/${d.total} (${pct}%)</div></div>`;}html+='</div>';el.innerHTML=html;}
+
+function showTab(id,el){document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));const s=document.getElementById('t-'+id);if(s)s.classList.add('on');if(el)el.classList.add('on');window.scrollTo({top:0,behavior:'smooth'});}
+
+const A0O=['ielts_a0_lesson1','ielts_a0_lesson2','ielts_a0_lesson3','ielts_a0_lesson4','ielts_a0_lesson5','ielts_a0_lesson6','ielts_a0_lesson7','ielts_a0_lesson8'];
+function isUL(k){const i=A0O.indexOf(k);if(i<=0)return true;return!!JSON.parse(localStorage.getItem(A0O[i-1])||'null');}
+
+window.addEventListener('load',()=>{
+  if(window.speechSynthesis)_pv();
+  const eL=document.getElementById('eLG'),eR=document.getElementById('eRG');
+  if(eL){eL.style.transformOrigin='55% 92%';eL.classList.add('eL');}
+  if(eR){eR.style.transformOrigin='45% 92%';eR.classList.add('eR');}
+  const sn=document.getElementById('str-n');if(sn)sn.textContent='🔥 '+gStr();
+  setTimeout(()=>tReact('st'),1200);
+  if(typeof initL==='function')initL();
+});
+
+<\/script>
 </body></html>

@@ -1,172 +1,114 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AtoC.IELTS from Zero — Получить доступ A0</title>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AtoC · Получить доступ A0</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Sora',sans-serif;background:#0B1F3A;color:#fff;min-height:100vh;display:flex;flex-direction:column;}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 20%,rgba(14,138,111,0.18) 0%,transparent 55%),radial-gradient(ellipse at 80% 80%,rgba(242,169,59,0.1) 0%,transparent 50%);pointer-events:none;}
-.logo-header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:16px 24px;background:rgba(11,31,58,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);}
-.logo-atoc{display:flex;align-items:center;gap:10px;}
-.logo-badge{background:linear-gradient(135deg,#F2A93B,#f7c46e);color:#0B1F3A;font-weight:800;font-size:15px;padding:5px 13px;border-radius:8px;letter-spacing:0.03em;}
-.logo-text{color:rgba(255,255,255,0.85);font-weight:700;font-size:15px;letter-spacing:-0.01em;}
-.page{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 20px 60px;}
-.top-badge{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);letter-spacing:0.05em;margin-bottom:32px;}
-.top-badge span{width:6px;height:6px;border-radius:50%;background:#0E8A6F;display:inline-block;}
-.hero-label{background:linear-gradient(135deg,#F2A93B,#f7c46e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:16px;text-align:center;}
-h1{font-size:clamp(28px,5vw,50px);font-weight:800;letter-spacing:-0.03em;line-height:1.1;text-align:center;margin-bottom:16px;max-width:600px;}
-h1 .green{color:#12B08E;}
-.subtitle{color:rgba(255,255,255,0.55);font-size:16px;text-align:center;max-width:460px;line-height:1.7;margin-bottom:48px;}
-.card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:40px;width:100%;max-width:480px;backdrop-filter:blur(20px);}
-.path-bar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:28px;justify-content:center;}
-.pb-item{padding:6px 12px;border-radius:8px;font-size:12px;font-weight:700;}
-.pb-active{background:rgba(14,138,111,0.3);border:1px solid rgba(14,138,111,0.5);color:#5de8c8;}
-.pb-next{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.3);}
-.pb-arrow{color:rgba(255,255,255,0.2);font-size:14px;}
-.includes{margin-bottom:28px;}
-.includes-title{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:14px;}
-.include-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:14px;color:rgba(255,255,255,0.8);}
-.include-item:last-child{border-bottom:none;}
-.inc-icon{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
-.ic-green{background:rgba(16,185,129,0.2);}
-.ic-purple{background:rgba(139,92,246,0.2);}
-.ic-gold{background:rgba(242,169,59,0.2);}
-.price-row{display:flex;align-items:center;justify-content:space-between;background:rgba(242,169,59,0.08);border:1px solid rgba(242,169,59,0.2);border-radius:14px;padding:16px 20px;margin-bottom:20px;}
-.price-label{color:rgba(255,255,255,0.5);font-size:13px;}
-.price-amount{font-size:28px;font-weight:800;color:#F2A93B;font-family:'DM Mono',monospace;}
-.price-once{font-size:11px;color:rgba(255,255,255,0.3);text-align:right;margin-top:2px;}
-.btn-kaspi{width:100%;background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;border:none;border-radius:14px;padding:16px;font-size:16px;font-weight:700;font-family:'Sora',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:12px;transition:all 0.2s;text-decoration:none;}
-.btn-kaspi:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(239,68,68,0.35);}
-.kaspi-logo{background:#fff;color:#ef4444;font-size:11px;font-weight:800;padding:2px 7px;border-radius:5px;letter-spacing:0.05em;}
-.btn-wa{width:100%;background:rgba(37,211,102,0.12);border:1px solid rgba(37,211,102,0.3);color:#4ade80;border-radius:14px;padding:14px;font-size:14px;font-weight:600;font-family:'Sora',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:28px;transition:all 0.2s;text-decoration:none;}
-.btn-wa:hover{background:rgba(37,211,102,0.2);}
-.divider{display:flex;align-items:center;gap:12px;margin-bottom:24px;}
-.divider-line{flex:1;height:1px;background:rgba(255,255,255,0.08);}
-.divider-text{font-size:11px;color:rgba(255,255,255,0.3);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;}
-.input-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;}
-.input-wrap{display:flex;gap:10px;margin-bottom:8px;}
-.pw-input{flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:14px 16px;font-size:15px;font-family:'DM Mono',monospace;color:#fff;outline:none;transition:border-color 0.2s;}
-.pw-input::placeholder{color:rgba(255,255,255,0.25);}
-.pw-input:focus{border-color:rgba(18,176,142,0.5);}
-.pw-input.error{border-color:rgba(239,68,68,0.6);animation:shake 0.3s ease;}
-.pw-input.success{border-color:rgba(18,176,142,0.8);}
-@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-6px);}75%{transform:translateX(6px);}}
-.btn-enter{background:linear-gradient(135deg,#0E8A6F,#12B08E);border:none;border-radius:12px;padding:14px 20px;color:#fff;font-size:14px;font-weight:700;font-family:'Sora',sans-serif;cursor:pointer;white-space:nowrap;transition:all 0.2s;}
-.btn-enter:hover{transform:translateY(-1px);}
-.error-msg{color:#f87171;font-size:13px;margin-top:6px;display:none;}
-.error-msg.show{display:block;}
-.trust{display:flex;justify-content:center;gap:20px;margin-top:28px;flex-wrap:wrap;}
-.trust-item{display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,0.35);}
-.success-overlay{display:none;position:fixed;inset:0;background:#0B1F3A;z-index:100;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px;}
-.success-overlay.show{display:flex;}
-.success-icon{font-size:64px;margin-bottom:24px;animation:pop 0.5s cubic-bezier(0.34,1.56,0.64,1);}
-@keyframes pop{from{transform:scale(0);opacity:0;}to{transform:scale(1);opacity:1;}}
-.success-overlay h2{font-size:32px;font-weight:800;margin-bottom:12px;}
-.success-overlay p{color:rgba(255,255,255,0.6);font-size:16px;margin-bottom:32px;}
-.btn-go{background:linear-gradient(135deg,#0E8A6F,#12B08E);color:#fff;border:none;border-radius:14px;padding:16px 40px;font-size:16px;font-weight:700;font-family:'Sora',sans-serif;cursor:pointer;text-decoration:none;display:inline-block;}
-@media(max-width:520px){.card{padding:28px 20px;}.path-bar{gap:4px;}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Nunito",sans-serif;background:#0c1e34;color:#fff;min-height:100vh;display:flex;flex-direction:column;}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(ellipse at 20% 20%,rgba(0,201,167,.12) 0%,transparent 55%),radial-gradient(ellipse at 80% 80%,rgba(255,184,48,.08) 0%,transparent 50%);pointer-events:none;z-index:0}
+.logo-bar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:15px 22px;background:rgba(12,30,52,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
+.lb-logo{display:flex;align-items:center;gap:9px}
+.lb-b{background:linear-gradient(135deg,#ffb830,#f7c46e);color:#0c1e34;font-weight:900;font-size:14px;padding:5px 12px;border-radius:7px}
+.lb-t{color:rgba(255,255,255,.85);font-weight:800;font-size:14px}
+.page{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:96px 18px 56px;position:relative;z-index:1}
+.lbl{font-size:10px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;color:#00c9a7;margin-bottom:14px;text-align:center}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-.03em;line-height:1.1;text-align:center;margin-bottom:14px;max-width:560px}
+h1 .bl{color:#60a5fa}
+.sub{color:rgba(255,255,255,.52);font-size:15px;text-align:center;max-width:440px;line-height:1.7;margin-bottom:44px}
+.card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:36px;width:100%;max-width:460px;backdrop-filter:blur(20px)}
+.incl{margin-bottom:26px}
+.incl-t{font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:13px}
+.inc{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:14px;color:rgba(255,255,255,.8)}
+.inc:last-child{border-bottom:none}
+.inc-ic{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.pr{display:flex;align-items:center;justify-content:space-between;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);border-radius:13px;padding:15px 18px;margin-bottom:18px}
+.pr-l{color:rgba(255,255,255,.48);font-size:13px}
+.pr-a{font-size:28px;font-weight:900;color:#60a5fa;font-family:"DM Mono",monospace}
+.pr-s{font-size:11px;color:rgba(255,255,255,.28);text-align:right;margin-top:2px}
+.btn-k{width:100%;background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;border:none;border-radius:13px;padding:15px;font-size:15px;font-weight:900;font-family:"Nunito",sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:11px;transition:all .2s;text-decoration:none}
+.btn-k:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(239,68,68,.35)}
+.kl{background:#fff;color:#ef4444;font-size:11px;font-weight:900;padding:2px 7px;border-radius:5px}
+.btn-w{width:100%;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.28);color:#4ade80;border-radius:13px;padding:13px;font-size:13px;font-weight:700;font-family:"Nunito",sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;margin-bottom:26px;transition:all .2s;text-decoration:none}
+.btn-w:hover{background:rgba(37,211,102,.18)}
+.div{display:flex;align-items:center;gap:11px;margin-bottom:22px}
+.div-l{flex:1;height:1px;background:rgba(255,255,255,.08)}
+.div-t{font-size:11px;color:rgba(255,255,255,.28);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.inp-l{font-size:12px;font-weight:700;color:rgba(255,255,255,.38);letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px}
+.inp-w{display:flex;gap:9px;margin-bottom:7px}
+.pw-in{flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:11px;padding:13px 15px;font-size:15px;font-family:"DM Mono",monospace;color:#fff;outline:none;transition:border-color .2s}
+.pw-in::placeholder{color:rgba(255,255,255,.22)}
+.pw-in:focus{border-color:rgba(0,201,167,.5)}
+.pw-in.err{border-color:rgba(239,68,68,.6);animation:pshake .3s ease}
+.pw-in.ok2{border-color:rgba(0,201,167,.8)}
+@keyframes pshake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.btn-en{background:linear-gradient(135deg,#00c9a7,#00a98f);border:none;border-radius:10px;padding:13px 18px;color:#fff;font-size:13px;font-weight:900;font-family:"Nunito",sans-serif;cursor:pointer;white-space:nowrap}
+.err-m{color:#f87171;font-size:12px;margin-top:5px;display:none}
+.err-m.on{display:block}
+.trust{display:flex;justify-content:center;gap:18px;margin-top:26px;flex-wrap:wrap}
+.trust span{font-size:12px;color:rgba(255,255,255,.3)}
+.success{display:none;position:fixed;inset:0;background:#0c1e34;z-index:100;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:36px}
+.success.on{display:flex}
+.s-ic{font-size:60px;margin-bottom:20px}
+.s-h{font-size:28px;font-weight:900;margin-bottom:10px}
+.s-s{color:rgba(255,255,255,.6);font-size:15px;margin-bottom:28px}
+.s-btn{background:linear-gradient(135deg,#00c9a7,#00a98f);color:#fff;border:none;border-radius:13px;padding:15px 38px;font-size:15px;font-weight:900;font-family:"Nunito",sans-serif;cursor:pointer;text-decoration:none;display:inline-block}
 </style>
 </head>
 <body>
-
-<div class="success-overlay" id="success">
-  <div class="success-icon">🎉</div>
-  <h2>Добро пожаловать!</h2>
-  <p>Пароль принят. Начинаем с нуля!</p>
-  <a href="index_ielts.html" class="btn-go">Открыть курс →</a>
+<div class="success" id="success">
+  <div class="s-ic">🎉</div>
+  <h2 class="s-h">Добро пожаловать!</h2>
+  <p class="s-s">Пароль принят. Начинаем учиться!</p>
+  <a href="index.html" class="s-btn">Открыть курс →</a>
 </div>
-
-<div class="logo-header">
-  <div class="logo-atoc">
-    <span class="logo-badge">AtoC</span>
-    <span class="logo-text">IELTS from Zero</span>
-  </div>
-</div>
-
+<div class="logo-bar"><div class="lb-logo"><span class="lb-b">AtoC</span><span class="lb-t">IELTS from Zero</span></div></div>
 <div class="page">
-  <div class="top-badge"><span></span> Онлайн-курс английского</div>
-  <div class="hero-label">AtoC · Уровень A0</div>
-  <h1>English от <span class="green">нуля</span><br>до IELTS</h1>
-  <p class="subtitle">8 уроков Beginner уровня — алфавит, грамматика, первые диалоги. С нуля, на русском, без воды.</p>
-
+  <div class="lbl">AtoC · Уровень A0</div>
+  <h1>Английский с нуля<br><span class="bl">до IELTS</span></h1>
+  <p class="sub">8 уроков уровня A0 — алфавит, TO BE, числа, артикли, диалоги. Пошагово, на русском, с Тигрёнком!</p>
   <div class="card">
-    <div class="path-bar">
-      <span class="pb-item pb-active">A0 ← здесь</span>
-      <span class="pb-arrow">→</span>
-      <span class="pb-item pb-next">A1</span>
-      <span class="pb-arrow">→</span>
-      <span class="pb-item pb-next">A2</span>
-      <span class="pb-arrow">→</span>
-      <span class="pb-item pb-next">IELTS</span>
+    <div class="incl">
+      <div class="incl-t">Уровень A0 включает</div>
+      <div class="inc"><div class="inc-ic" style="background:rgba(0,201,167,.2)">🔤</div><span>Алфавит, звуки и произношение</span></div>
+      <div class="inc"><div class="inc-ic" style="background:rgba(132,94,194,.2)">📌</div><span>Глаголы TO BE и HAVE</span></div>
+      <div class="inc"><div class="inc-ic" style="background:rgba(0,201,167,.2)">🔢</div><span>Числа, возраст, цены, цвета</span></div>
+      <div class="inc"><div class="inc-ic" style="background:rgba(255,184,48,.2)">💬</div><span>Первые диалоги и приветствия</span></div>
+      <div class="inc"><div class="inc-ic" style="background:rgba(255,184,48,.2)">🏆</div><span>Итоговый тест + сертификат A0</span></div>
     </div>
-
-    <div class="includes">
-      <div class="includes-title">Уровень A0 включает</div>
-      <div class="include-item"><div class="inc-icon ic-green">🔤</div><span>Алфавит, звуки, произношение</span></div>
-      <div class="include-item"><div class="inc-icon ic-purple">📝</div><span>TO BE, HAVE, артикли — базовая грамматика</span></div>
-      <div class="include-item"><div class="inc-icon ic-green">🔢</div><span>Числа, цвета, дни недели, время</span></div>
-      <div class="include-item"><div class="inc-icon ic-gold">💬</div><span>Первые диалоги — знакомство и приветствие</span></div>
-      <div class="include-item"><div class="inc-icon ic-gold">🏆</div><span>Итоговый тест + эквивалент IELTS/TOEFL/Duolingo</span></div>
+    <div class="pr">
+      <div><div class="pr-l">Стоимость A0</div><div class="pr-s">Единоразово · навсегда</div></div>
+      <div style="text-align:right"><div class="pr-a">12 000 ₸</div></div>
     </div>
-
-    <div class="price-row">
-      <div>
-        <div class="price-label">Стоимость уровня A0</div>
-        <div class="price-once">Единоразовая оплата · доступ навсегда</div>
-      </div>
-      <div style="text-align:right">
-        <div class="price-amount">15 000 ₸</div>
-      </div>
-    </div>
-
-    <a href="https://pay.kaspi.kz/pay/send?phone=87772327571" target="_blank" class="btn-kaspi">
-      <span class="kaspi-logo">Kaspi</span>Оплатить через Kaspi
-    </a>
-
-    <a href="https://wa.me/87772327571?text=Привет!%20Хочу%20купить%20курс%20AtoC.IELTS%20from%20Zero%20(уровень%20A0).%20Прошу%20выслать%20пароль%20🙏" target="_blank" class="btn-wa">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <a href="https://pay.kaspi.kz/pay/send?phone=87776296182" target="_blank" class="btn-k"><span class="kl">Kaspi</span>Оплатить через Kaspi</a>
+    <a href="https://wa.me/+77772327571?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D1%8C%20%D0%BA%D1%83%D1%80%D1%81%20AtoC.IELTS%20(A0).%20%D0%9F%D1%80%D0%BE%D1%88%D1%83%20%D0%B2%D1%8B%D1%81%D0%BB%D0%B0%D1%82%D1%8C%20%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D1%8C%20%F0%9F%99%8F" target="_blank" class="btn-w">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Написать в WhatsApp после оплаты
     </a>
-
-    <div class="divider"><div class="divider-line"></div><div class="divider-text">Уже есть пароль?</div><div class="divider-line"></div></div>
-
-    <div class="input-label">Введи пароль доступа</div>
-    <div class="input-wrap">
-      <input type="password" class="pw-input" id="pw-input" placeholder="••••••••••••" />
-      <button class="btn-enter" onclick="checkPassword()">Войти</button>
+    <div class="div"><div class="div-l"></div><div class="div-t">Уже есть пароль?</div><div class="div-l"></div></div>
+    <div class="inp-l">Введи пароль доступа</div>
+    <div class="inp-w">
+      <input type="password" class="pw-in" id="pw" placeholder="••••••••••••" onkeydown="if(event.key==='Enter')checkPW()"/>
+      <button class="btn-en" onclick="checkPW()">Войти</button>
     </div>
-    <div class="error-msg" id="error-msg">❌ Неверный пароль. Проверь и попробуй снова.</div>
-
-    <div class="trust">
-      <div class="trust-item">🔒 Безопасно</div>
-      <div class="trust-item">♾️ Навсегда</div>
-      <div class="trust-item">📱 Любое устройство</div>
-    </div>
+    <div class="err-m" id="err-m">❌ Неверный пароль. Попробуй снова.</div>
+    <div class="trust"><span>🔒 Безопасно</span><span>♾️ Навсегда</span><span>📱 Любое устройство</span></div>
   </div>
 </div>
-
 <script>
-const PASSWORD = 'toefl-atoc2026';
-if(localStorage.getItem('ielts_a0_access')==='granted'){window.location.href='index_ielts.html';}
-function checkPassword(){
-  const input=document.getElementById('pw-input');
-  const errorMsg=document.getElementById('error-msg');
-  const val=input.value.trim();
-  if(val===PASSWORD){
-    input.classList.remove('error');input.classList.add('success');
-    errorMsg.classList.remove('show');
-    localStorage.setItem('ielts_a0_access','granted');
-    document.getElementById('success').classList.add('show');
-  } else {
-    input.classList.add('error');input.classList.remove('success');
-    errorMsg.classList.add('show');
-    setTimeout(()=>input.classList.remove('error'),400);
+if(localStorage.getItem('ielts_a0_access')==='granted')window.location.href='index.html';
+function checkPW(){
+  const v=document.getElementById('pw').value.trim();
+  const em=document.getElementById('err-m');
+  if(v==='toefl-atoc2026'){
+    document.getElementById('pw').classList.remove('err');document.getElementById('pw').classList.add('ok2');
+    em.classList.remove('on');localStorage.setItem('ielts_a0_access','granted');
+    document.getElementById('success').classList.add('on');
+  }else{
+    document.getElementById('pw').classList.add('err');document.getElementById('pw').classList.remove('ok2');
+    em.classList.add('on');setTimeout(()=>document.getElementById('pw').classList.remove('err'),400);
   }
 }
-document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')checkPassword();});
-</script>
-</body>
-</html>
+<\/script>
+</body></html>
