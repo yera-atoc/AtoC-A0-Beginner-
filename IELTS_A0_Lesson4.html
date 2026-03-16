@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AtoC · AtoC IELTS from Zero — A0 Beginner</title>
+<title>AtoC · A0 Урок 4: Цвета, дни недели</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -205,107 +205,131 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
   .cnt{padding:18px 14px}
 }
 </style>
-<style>
-/* Extra styles for index */
-.portal-hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);padding:0;position:relative;overflow:hidden}
-.stat-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px}
-.stat-l{color:rgba(255,255,255,.42);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
-.stat-v{font-size:28px;font-weight:800;line-height:1}
-.stat-s{color:rgba(255,255,255,.35);font-size:11px;margin-top:3px}
-.lcard{background:#fff;border:2px solid var(--border);border-radius:16px;padding:18px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:9px;transition:all .2s;position:relative;overflow:hidden;cursor:pointer}
-.lcard::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--cc,var(--border));transition:all .2s}
-.lcard:hover:not(.locked){transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.08);border-color:var(--cc,var(--teal))}
-.lcard.done{background:linear-gradient(135deg,#f0fdf8,#fff);border-color:transparent}
-.lcard.done::before{background:var(--green);height:5px}
-.lcard.locked{opacity:.5;cursor:not-allowed}
-.lcard.locked::before{background:#9ca3af}
-.lnum{font-size:10px;font-weight:800;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:6px;letter-spacing:.05em;display:inline-block}
-.lnum-def{background:var(--bg);color:var(--muted)}
-.lnum-done{background:#d1fae5;color:#065f46}
-.lnum-lock{background:#f1f5f9;color:#94a3b8}
-.ltitle{font-size:14px;font-weight:800;color:var(--text);line-height:1.35;letter-spacing:-.01em}
-.ltag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px}
-.tag-g{background:var(--pp);color:var(--purple)}
-.tag-v{background:var(--tp);color:var(--teal2)}
-.tag-t{background:var(--gp);color:var(--gold2)}
-.lbar{background:var(--border);border-radius:100px;height:4px;overflow:hidden;margin-top:2px}
-.lbar-f{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--teal),var(--teal-light,#12B08E));transition:width .8s ease}
-.lcta{font-size:12px;font-weight:600;color:var(--muted);margin-top:auto}
-.done .lcta{color:var(--teal2)}
-.locked .lcta{color:#9ca3af}
-.locked-icon{font-size:18px}
-.ob-wrap{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 20px;margin-top:12px}
-.ob-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
-.ob-label{color:rgba(255,255,255,.45);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-.ob-pct{color:var(--gold);font-family:'DM Mono',monospace;font-weight:800;font-size:13px}
-.ob-bar{background:rgba(255,255,255,.1);border-radius:100px;height:8px;overflow:hidden}
-.ob-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width 1s ease;width:0%}
-.sec-hdr{display:flex;align-items:center;gap:10px;margin-bottom:16px;margin-top:36px}
-.sec-hdr:first-child{margin-top:0}
-.sec-pill{font-size:10px;font-weight:800;padding:3px 11px;border-radius:100px;color:#fff;letter-spacing:.06em}
-.sec-hdr h2{font-size:16px;font-weight:800;letter-spacing:-.01em}
-.sec-cnt{margin-left:auto;color:var(--muted);font-size:12px;font-family:'DM Mono',monospace}
-</style>
 </head>
 <body>
-<script>if(!localStorage.getItem('ielts_a0_access')){window.location.href='payment_a0.html';}</script>
-
 <header class="hdr">
   <div class="hdr-in">
     <div class="logo"><span class="logo-b">AtoC</span><span class="logo-t">IELTS from Zero</span></div>
-    <div class="hdr-r">
-      <span class="streak" id="snum">🔥 0</span>
-      <button onclick="if(confirm('Выйти?')){localStorage.removeItem('ielts_a0_access');window.location.href='payment_a0.html';}" style="color:rgba(255,255,255,.5);font-size:11px;font-weight:600;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;padding:5px 11px;cursor:pointer;font-family:'Sora',sans-serif">Выйти</button>
-    </div>
+    <div class="hdr-r"><span class="streak" id="snum">🔥 0</span><a href="index.html" class="back">← Уроки</a></div>
   </div>
 </header>
-
 <!-- Tiger -->
 <div class="tiger-wrap">
   <div class="tiger-bbl" id="tb"><span id="tt"></span></div>
   <div class="tiger-btn" onclick="tsay('tap')">🐯</div>
 </div>
 <div class="streak-pop" id="spop"></div>
-
 <!-- Hero -->
-<div class="portal-hero">
-  <div class="hero-bg"></div><div class="hero-blob"></div><div class="hero-blob"></div>
-  <div class="hero-in" style="padding:36px 18px 28px">
-    <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px">AtoC.IELTS from Zero</div>
-    <h1 style="font-size:clamp(22px,5vw,36px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:9px">Английский с нуля<br><span style="color:var(--gold)">до IELTS</span></h1>
-    <p style="font-size:13px;color:rgba(255,255,255,.55);margin-bottom:22px;line-height:1.7;max-width:480px">От A0 до C2 — пошагово, на русском, с объяснениями. Тигр помогает на каждом шаге!</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:12px">
-      <div class="stat-card"><div class="stat-l">Средний балл</div><div class="stat-v" id="avg" style="color:var(--gold)">—</div><div class="stat-s">по урокам</div></div>
-      <div class="stat-card"><div class="stat-l">Пройдено</div><div class="stat-v" id="done" style="color:var(--teal)">0</div><div class="stat-s">из 8 уроков</div></div>
-      <div class="stat-card"><div class="stat-l">Уровень</div><div class="stat-v" id="lvl" style="font-size:16px;margin-top:4px">Pre-A1</div><div class="stat-s" id="lvl-s">начало пути</div></div>
-      <div class="stat-card"><div class="stat-l">IELTS эквивалент</div><div class="stat-v" style="font-size:18px;margin-top:3px">0–2.0</div><div class="stat-s">после A0</div></div>
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-blob"></div><div class="hero-blob"></div>
+  <div class="hero-in">
+    <div class="hero-chips">
+      <span class="chip chip-teal">A0 · Beginner</span>
+      <span class="chip chip-gold">Урок 4 из 8</span>
     </div>
-    <div class="ob-wrap">
-      <div class="ob-top"><span class="ob-label">Прогресс A0</span><span class="ob-pct" id="ob-pct">0%</span></div>
-      <div class="ob-bar"><div class="ob-fill" id="ob-fill"></div></div>
+    <h1 class="hero-h">Цвета, дни недели<br><span class="acc">и время</span></h1>
+    <p class="hero-sub">Три темы которые нужны каждый день — описать что видишь, назначить встречу, сказать который час.</p>
+    <div class="eq-row">
+      <div class="eq"><span class="eq-l">IELTS</span><span class="eq-v">0–2.0</span></div>
+      <div class="eq"><span class="eq-l">TOEFL</span><span class="eq-v">0–30</span></div>
+      <div class="eq"><span class="eq-l">Duolingo</span><span class="eq-v">10–50</span></div>
+      <div class="eq"><span class="eq-l">CEFR</span><span class="eq-v">Pre-A1</span></div>
     </div>
+    <div class="goal"><div class="goal-i">🎯</div><div class="goal-t"><strong>После урока ты сможешь: назвать цвета, дни недели и сказать который час</strong></div></div>
+  </div>
+  <div class="pbar-wrap"><div class="pbar" id="pbar" style="width:4%"></div></div>
+</div>
+<div class="tabs-wrap"><div class="tabs"><div class="tab on" onclick="showTab('theory',this)">🎨 Цвета</div><div class="tab" onclick="showTab('days',this)">📅 Дни</div><div class="tab" onclick="showTab('time',this)">🕐 Время</div><div class="tab" onclick="showTab('practice',this)">✏️ Практика</div><div class="tab" onclick="showTab('vocab',this)">📝 Словарь</div></div></div>
+<div class="cnt">
+
+<div class="sec on" id="t-theory">
+  <div class="card"><div class="c-title"><span class="c-icon ci-t">🎨</span>12 основных цветов</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;margin:12px 0"><div style="background:#ef4444;border-radius:10px;padding:12px 10px;text-align:center;border:2px solid rgba(0,0,0,.07)"><div style="font-weight:800;font-size:13px;color:#fff">red</div><div style="font-size:11px;color:#fff;opacity:.75;margin-top:3px">красный</div></div><div style="background:#3b82f6;border-radius:10px;padding:12px 10px;text-align:center;border:2px solid rgba(0,0,0,.07)"><div style="font-weight:800;font-size:13px;color:#fff">blue</div><div style="font-size:11px;color:#fff;opacity:.75;margin-top:3px">синий</div></div><div style="background:#22c55e;border-radius:10px;padding:12px 10px;text-align:center;border:2px solid rgba(0,0,0,.07)"><div style="font-weight:800;font-size:13px;color:#fff">green</div><div style="font-size:11px;color:#fff;opacity:.75;margin-top:3px">зелёный</div></div><div style="background:#eab308;border-radius:10px;padding:12px 10px;text-align:center;border:2px solid rgba(0,0,0,.07)"><div style="font-weight:800;font-size:13px;color:#fff">yellow</div><div style="font-size:11px;color:#fff;opacity:.75;margin-top:3px">жёлтый</div></div><div style="background:#f97316;border-radius:10px;padding:12px 10px;text-align:center;border:2px solid rgba(0,0,0,.07)"><div style="font-weight:800;font-size:13px;color:#fff">orange</div><div style="font-size:11px;color:#fff;opacity:.75;margin-top:3px">оранжевый</div></div><div style="background:#8b5cf6;border-radius:10px;padding:12px 10px;text-align:center;border:2px solid rgba(0,0,0,.07)"><div style="font-weight:800;font-size:13px;color:#fff">purple</div><div style="font-size:11px;color:#fff;opacity:.75;margin-top:3px">фиолетовый</div></div><div style="background:#ec4899;border-radius:10px;padding:12px 10px;text-align:center;border:2px solid rgba(0,0,0,.07)"><div style="font-weight:800;font-size:13px;color:#fff">pink</div><div style="font-size:11px;color:#fff;opacity:.75;margin-top:3px">розовый</div></div><div style="background:#1f2937;border-radius:10px;padding:12px 10px;text-align:center;border:2px solid rgba(0,0,0,.07)"><div style="font-weight:800;font-size:13px;color:#fff">black</div><div style="font-size:11px;color:#fff;opacity:.75;margin-top:3px">чёрный</div></div><div style="background:#f3f4f6;border-radius:10px;padding:12px 10px;text-align:center;border:2px solid rgba(0,0,0,.07)"><div style="font-weight:800;font-size:13px;color:#1f2937">white</div><div style="font-size:11px;color:#1f2937;opacity:.75;margin-top:3px">белый</div></div><div style="background:#9ca3af;border-radius:10px;padding:12px 10px;text-align:center;border:2px solid rgba(0,0,0,.07)"><div style="font-weight:800;font-size:13px;color:#fff">grey</div><div style="font-size:11px;color:#fff;opacity:.75;margin-top:3px">серый</div></div><div style="background:#92400e;border-radius:10px;padding:12px 10px;text-align:center;border:2px solid rgba(0,0,0,.07)"><div style="font-weight:800;font-size:13px;color:#fff">brown</div><div style="font-size:11px;color:#fff;opacity:.75;margin-top:3px">коричневый</div></div><div style="background:#0e7490;border-radius:10px;padding:12px 10px;text-align:center;border:2px solid rgba(0,0,0,.07)"><div style="font-weight:800;font-size:13px;color:#fff">dark blue</div><div style="font-size:11px;color:#fff;opacity:.75;margin-top:3px">тёмно-синий</div></div></div>
+  <div class="tip" style="margin-top:12px"><div class="tip-l">💡 Важно</div>В английском цвет стоит ПЕРЕД существительным: a <strong>red</strong> car (красная машина). Не как в русском!</div>
+  <div class="er" style="margin-top:8px"><span class="er-en">What colour is it?</span><span class="er-ru">Какого это цвета?</span></div>
+  <div class="er"><span class="er-en">My favourite colour is blue.</span><span class="er-ru">Мой любимый цвет — синий.</span></div>
+  <div class="warn"><div class="warn-l">🇬🇧 vs 🇺🇸</div><strong>colour</strong> (British) = <strong>color</strong> (American). IELTS → British!</div>
   </div>
 </div>
 
-<div style="max-width:720px;margin:0 auto;padding:24px 18px 60px">
-  <div class="sec-hdr">
-    <span class="sec-pill" style="background:var(--teal2)">A0</span>
-    <h2>Beginner — Начинающий</h2>
-    <span class="sec-cnt" id="a0cnt">0/8</span>
-  </div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px" id="grid"></div>
-
-  <div class="sec-hdr" style="margin-top:40px">
-    <span class="sec-pill" style="background:#9ca3af">Скоро</span>
-    <h2>Следующие уровни</h2>
-  </div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
-    <div style="background:#fff;border:2px dashed var(--border);border-radius:14px;padding:18px;display:flex;align-items:center;gap:12px;opacity:.6"><span style="font-size:26px">🔵</span><div><div style="font-weight:800;font-size:13px">A1 — Elementary</div><div style="font-size:11px;color:var(--muted)">Present Simple, описание людей, 10 уроков</div></div></div>
-    <div style="background:#fff;border:2px dashed var(--border);border-radius:14px;padding:18px;display:flex;align-items:center;gap:12px;opacity:.6"><span style="font-size:26px">🟢</span><div><div style="font-weight:800;font-size:13px">A2 — Pre-Intermediate</div><div style="font-size:11px;color:var(--muted)">Past Simple, путешествия, 12 уроков</div></div></div>
-    <div style="background:#fff;border:2px dashed var(--border);border-radius:14px;padding:18px;display:flex;align-items:center;gap:12px;opacity:.6"><span style="font-size:26px">🏆</span><div><div style="font-weight:800;font-size:13px">IELTS подготовка</div><div style="font-size:11px;color:var(--muted)">Reading, Writing, Listening, Speaking</div></div></div>
+<div class="sec" id="t-days">
+  <div class="card"><div class="c-title"><span class="c-icon ci-g">📅</span>7 дней недели</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0"><div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:11px 13px"><div style="font-weight:800;font-size:13px;color:var(--navy)">Monday</div><div style="font-size:10px;color:var(--teal2);font-family:'DM Mono',monospace">Mon</div><div style="font-size:11px;color:var(--muted)">Понедельник</div></div><div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:11px 13px"><div style="font-weight:800;font-size:13px;color:var(--navy)">Tuesday</div><div style="font-size:10px;color:var(--teal2);font-family:'DM Mono',monospace">Tue</div><div style="font-size:11px;color:var(--muted)">Вторник</div></div><div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:11px 13px"><div style="font-weight:800;font-size:13px;color:var(--navy)">Wednesday</div><div style="font-size:10px;color:var(--teal2);font-family:'DM Mono',monospace">Wed</div><div style="font-size:11px;color:var(--muted)">Среда</div></div><div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:11px 13px"><div style="font-weight:800;font-size:13px;color:var(--navy)">Thursday</div><div style="font-size:10px;color:var(--teal2);font-family:'DM Mono',monospace">Thu</div><div style="font-size:11px;color:var(--muted)">Четверг</div></div><div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:11px 13px"><div style="font-weight:800;font-size:13px;color:var(--navy)">Friday</div><div style="font-size:10px;color:var(--teal2);font-family:'DM Mono',monospace">Fri</div><div style="font-size:11px;color:var(--muted)">Пятница</div></div><div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:11px 13px"><div style="font-weight:800;font-size:13px;color:var(--navy)">Saturday</div><div style="font-size:10px;color:var(--teal2);font-family:'DM Mono',monospace">Sat</div><div style="font-size:11px;color:var(--muted)">Суббота</div></div><div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:11px 13px"><div style="font-weight:800;font-size:13px;color:var(--navy)">Sunday</div><div style="font-size:10px;color:var(--teal2);font-family:'DM Mono',monospace">Sun</div><div style="font-size:11px;color:var(--muted)">Воскресенье</div></div></div>
+  <div class="warn"><div class="warn-l">⚠️ Важно!</div>В английском дни недели пишутся с <strong>большой буквы</strong>. Monday, Tuesday... — не monday!</div>
+  <div class="er" style="margin-top:8px"><span class="er-en">Today is Monday.</span><span class="er-ru">Сегодня понедельник.</span></div>
+  <div class="er"><span class="er-en">See you on Friday!</span><span class="er-ru">Увидимся в пятницу!</span></div>
+  <div class="er"><span class="er-en">At the weekend</span><span class="er-ru">В выходные (суббота+воскресенье)</span></div>
+  <div class="tip"><div class="tip-l">💡 Неделя в Великобритании</div>Начинается с Monday (понедельника). В США — с Sunday.</div>
   </div>
 </div>
 
+<div class="sec" id="t-time">
+  <div class="card"><div class="c-title"><span class="c-icon ci-p">🕐</span>Который час — официальный способ</div>
+    <div class="er"><span class="er-en">It's 9:00</span><span class="er-ru">nine o'clock — ровно 9</span></div>
+    <div class="er"><span class="er-en">It's 9:15</span><span class="er-ru">nine fifteen</span></div>
+    <div class="er"><span class="er-en">It's 9:30</span><span class="er-ru">nine thirty</span></div>
+    <div class="er"><span class="er-en">It's 9:45</span><span class="er-ru">nine forty-five</span></div>
+  </div>
+  <div class="card"><div class="c-title"><span class="c-icon ci-g">🗣️</span>Разговорный способ</div>
+    <div class="er"><span class="er-en">9:15</span><span class="er-ru"><strong>quarter past</strong> nine — четверть десятого</span></div>
+    <div class="er"><span class="er-en">9:30</span><span class="er-ru"><strong>half past</strong> nine — полдесятого</span></div>
+    <div class="er"><span class="er-en">9:45</span><span class="er-ru"><strong>quarter to</strong> ten — без четверти десять</span></div>
+    <div class="tip"><div class="tip-l">💡 am и pm</div><strong>am</strong> = до полудня (0:00–11:59) · <strong>pm</strong> = после полудня (12:00–23:59)</div>
+  </div>
+</div>
+
+<div class="sec" id="t-practice">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;padding:13px 16px;background:linear-gradient(135deg,var(--gp),#fff);border-radius:13px;border:1.5px solid rgba(255,184,48,.22)">
+    <span style="font-size:22px">🐯</span><div><div style="font-weight:800;font-size:13px">Проверяем цвета и дни!</div><div style="font-size:11px;color:var(--muted)">6 вопросов</div></div>
+  </div>
+  <div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 1/6</span><span class="q-tag qt-v">Vocab</span></div>
+  <div class="q-text">Небо какого цвета? Выбери правильное предложение:</div>
+  <div class="opts" id="q1-o"><button class="opt" id="q1-A" onclick="ans(1,'A','B',6,'LKEY')"><span class="opt-l">A</span>The sky is red.</button><button class="opt" id="q1-B" onclick="ans(1,'B','B',6,'LKEY')"><span class="opt-l">B</span>The sky is blue.</button><button class="opt" id="q1-C" onclick="ans(1,'C','B',6,'LKEY')"><span class="opt-l">C</span>The sky is green.</button><button class="opt" id="q1-D" onclick="ans(1,'D','B',6,'LKEY')"><span class="opt-l">D</span>The sky is brown.</button></div>
+  <div class="expl" id="q1-e">✅ <strong>The sky is blue.</strong> — небо синее. Цвет описывается через IS: The sky IS blue.</div>
+</div><div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 2/6</span><span class="q-tag qt-v">Vocab</span></div>
+  <div class="q-text">Как по-английски «среда»?</div>
+  <div class="opts" id="q2-o"><button class="opt" id="q2-A" onclick="ans(2,'A','C',6,'LKEY')"><span class="opt-l">A</span>Tuesday</button><button class="opt" id="q2-B" onclick="ans(2,'B','C',6,'LKEY')"><span class="opt-l">B</span>Thursday</button><button class="opt" id="q2-C" onclick="ans(2,'C','C',6,'LKEY')"><span class="opt-l">C</span>Wednesday</button><button class="opt" id="q2-D" onclick="ans(2,'D','C',6,'LKEY')"><span class="opt-l">D</span>Monday</button></div>
+  <div class="expl" id="q2-e">✅ <strong>Wednesday</strong> — среда. Читается «Уэнздэй» — буква D не читается!</div>
+</div><div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 3/6</span><span class="q-tag qt-v">Vocab</span></div>
+  <div class="q-text">Как сказать 9:30 разговорным способом?</div>
+  <div class="opts" id="q3-o"><button class="opt" id="q3-A" onclick="ans(3,'A','B',6,'LKEY')"><span class="opt-l">A</span>quarter past nine</button><button class="opt" id="q3-B" onclick="ans(3,'B','B',6,'LKEY')"><span class="opt-l">B</span>half past nine</button><button class="opt" id="q3-C" onclick="ans(3,'C','B',6,'LKEY')"><span class="opt-l">C</span>quarter to ten</button><button class="opt" id="q3-D" onclick="ans(3,'D','B',6,'LKEY')"><span class="opt-l">D</span>half to nine</button></div>
+  <div class="expl" id="q3-e">✅ <strong>half past nine</strong> — 9:30. Half past = прошло полчаса. Quarter past = прошло 15 минут.</div>
+</div><div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 4/6</span><span class="q-tag qt-v">Vocab</span></div>
+  <div class="q-text">Дни недели в английском пишутся:</div>
+  <div class="opts" id="q4-o"><button class="opt" id="q4-A" onclick="ans(4,'A','B',6,'LKEY')"><span class="opt-l">A</span>с маленькой буквы</button><button class="opt" id="q4-B" onclick="ans(4,'B','B',6,'LKEY')"><span class="opt-l">B</span>с большой буквы</button><button class="opt" id="q4-C" onclick="ans(4,'C','B',6,'LKEY')"><span class="opt-l">C</span>заглавными</button><button class="opt" id="q4-D" onclick="ans(4,'D','B',6,'LKEY')"><span class="opt-l">D</span>как удобно</button></div>
+  <div class="expl" id="q4-e">✅ <strong>С большой буквы</strong> — Monday, Tuesday, Wednesday... Это правило английского!</div>
+</div><div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 5/6</span><span class="q-tag qt-v">Vocab</span></div>
+  <div class="q-text">Что означает «9 pm»?</div>
+  <div class="opts" id="q5-o"><button class="opt" id="q5-A" onclick="ans(5,'A','B',6,'LKEY')"><span class="opt-l">A</span>9 утра</button><button class="opt" id="q5-B" onclick="ans(5,'B','B',6,'LKEY')"><span class="opt-l">B</span>9 вечера</button><button class="opt" id="q5-C" onclick="ans(5,'C','B',6,'LKEY')"><span class="opt-l">C</span>21 минута</button><button class="opt" id="q5-D" onclick="ans(5,'D','B',6,'LKEY')"><span class="opt-l">D</span>просто 9</button></div>
+  <div class="expl" id="q5-e">✅ <strong>9 вечера</strong> — pm = после полудня. am = до полудня.</div>
+</div><div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 6/6</span><span class="q-tag qt-g">Grammar</span></div>
+  <div class="q-text">Как сказать «Мой любимый цвет — зелёный»?</div>
+  <div class="opts" id="q6-o"><button class="opt" id="q6-A" onclick="ans(6,'A','A',6,'LKEY')"><span class="opt-l">A</span>My favourite colour is green.</button><button class="opt" id="q6-B" onclick="ans(6,'B','A',6,'LKEY')"><span class="opt-l">B</span>I like colour green.</button><button class="opt" id="q6-C" onclick="ans(6,'C','A',6,'LKEY')"><span class="opt-l">C</span>My colour favourite green.</button><button class="opt" id="q6-D" onclick="ans(6,'D','A',6,'LKEY')"><span class="opt-l">D</span>Green colour is my favourite.</button></div>
+  <div class="expl" id="q6-e">✅ <strong>My favourite colour is green.</strong> — My favourite [noun] is [answer]. Colour с U — British spelling!</div>
+</div> <div class="scard" id="scard">
+  <span class="sc-emoji" id="sc-em">🐯</span>
+  <div class="sc-num" id="sc-n">0/6</div>
+  <div class="sc-sub">правильных ответов</div>
+  <div class="sc-bw"><div class="sc-b" id="sc-b" style="width:0%"></div></div>
+  <div class="sc-msg" id="sc-m"></div>
+  <div class="sc-badges">
+    <div class="sc-badge"><span class="scb-icon">🔥</span><span class="scb-l">Дней подряд</span><span class="scb-v" id="sc-str">0</span></div>
+    <div class="sc-badge"><span class="scb-icon">⭐</span><span class="scb-l">Уровень</span><span class="scb-v">A0</span></div>
+    <div class="sc-badge"><span class="scb-icon">🐯</span><span class="scb-l">Статус</span><span class="scb-v">Зверь!</span></div>
+  </div>
+  <button class="sc-btn" onclick="showTab('vocab',document.querySelectorAll('.tab')[4])">Перейти к словарю →</button>
+</div>
+</div>
+<div class="sec" id="t-vocab"><div class="card"><div class="c-title"><span class="c-icon ci-t">📝</span>Слова урока</div><div class="vgrid"><div class="vi"><div class="vi-en">colour/color</div><div class="vi-ipa">[ˈkʌlər]</div><div class="vi-ru">цвет</div></div><div class="vi"><div class="vi-en">red/blue/green</div><div class="vi-ipa">[red/bluː/ɡriːn]</div><div class="vi-ru">красный/синий/зелёный</div></div><div class="vi"><div class="vi-en">black/white</div><div class="vi-ipa">[blæk/waɪt]</div><div class="vi-ru">чёрный/белый</div></div><div class="vi"><div class="vi-en">Monday–Sunday</div><div class="vi-ipa">[ˈmʌndeɪ–ˈsʌndeɪ]</div><div class="vi-ru">пн–вс</div></div><div class="vi"><div class="vi-en">weekend</div><div class="vi-ipa">[ˈwiːkend]</div><div class="vi-ru">выходные</div></div><div class="vi"><div class="vi-en">What time is it?</div><div class="vi-ipa">[wɒt taɪm ɪz ɪt]</div><div class="vi-ru">Который час?</div></div><div class="vi"><div class="vi-en">o'clock</div><div class="vi-ipa">[əˈklɒk]</div><div class="vi-ru">ровно (час)</div></div><div class="vi"><div class="vi-en">half past</div><div class="vi-ipa">[hɑːf pɑːst]</div><div class="vi-ru">полчаса прошло</div></div><div class="vi"><div class="vi-en">favourite</div><div class="vi-ipa">[ˈfeɪvərɪt]</div><div class="vi-ru">любимый</div></div><div class="vi"><div class="vi-en">today/tomorrow</div><div class="vi-ipa">[təˈdeɪ/təˈmɒrəʊ]</div><div class="vi-ru">сегодня/завтра</div></div></div></div><div class="tc "><h4>🏆 Урок 4 завершён!</h4><p>Отличная работа! Урок 5: Артикли A/AN/THE — маленькие слова с большими правилами.</p></div><div class="tc gold"><h4>🐯 Лайфхак от Тигра</h4><p>Смени язык телефона на английский — видишь дни недели и цвета каждый день автоматически!</p></div></div>
+
+</div>
 
 <script>
 // ── ACCESS GUARD
@@ -409,65 +433,5 @@ function showTab(id,el){
 }
 
 window.addEventListener('load',()=>{renderStreak();tsay('start');});
-</script>
-<script>
-const LESSONS=[
-  {n:1,f:'IELTS_A0_Lesson1.html',t:'Алфавит и звуки',tags:['vocab'],k:'ielts_a0_lesson1',c:'#00C9A7'},
-  {n:2,f:'IELTS_A0_Lesson2.html',t:'Глагол TO BE',tags:['grammar'],k:'ielts_a0_lesson2',c:'#845EC2'},
-  {n:3,f:'IELTS_A0_Lesson3.html',t:'Числа, возраст, цены',tags:['vocab'],k:'ielts_a0_lesson3',c:'#00C9A7'},
-  {n:4,f:'IELTS_A0_Lesson4.html',t:'Цвета, дни, время',tags:['vocab'],k:'ielts_a0_lesson4',c:'#FFB830'},
-  {n:5,f:'IELTS_A0_Lesson5.html',t:'Артикли A / AN / THE',tags:['grammar'],k:'ielts_a0_lesson5',c:'#845EC2'},
-  {n:6,f:'IELTS_A0_Lesson6.html',t:'Глагол HAVE',tags:['grammar'],k:'ielts_a0_lesson6',c:'#845EC2'},
-  {n:7,f:'IELTS_A0_Lesson7.html',t:'Первые диалоги',tags:['vocab'],k:'ielts_a0_lesson7',c:'#06D6A0'},
-  {n:8,f:'IELTS_A0_Lesson8.html',t:'Итоговый тест A0',tags:['test'],k:'ielts_a0_lesson8',c:'#FFB830'},
-];
-const A0_ORDER=LESSONS.map(l=>l.k);
-const TAG_C={grammar:'tag-g',vocab:'tag-v',test:'tag-t'};
-const TAG_L={grammar:'Grammar',vocab:'Vocab',test:'Финальный тест'};
-
-function getR(k){try{return JSON.parse(localStorage.getItem(k));}catch{return null;}}
-function isUnlocked(k){const i=A0_ORDER.indexOf(k);return i<=0||!!getR(A0_ORDER[i-1]);}
-
-function buildCard(l){
-  const r=getR(l.k),done=!!r,unlocked=isUnlocked(l.k),locked=!unlocked;
-  const pct=done?r.pct:null;
-  const tags=l.tags.map(t=>`<span class="ltag ${TAG_C[t]||'tag-v'}">${TAG_L[t]||t}</span>`).join(' ');
-  const score=done?`<span style="background:#d1fae5;border:1px solid #a7f3d0;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:800;color:#065f46">✓ ${r.score}/${r.max}</span>`:'';
-  if(locked)return `<div class="lcard locked" onclick="tsay('tap','Сначала заверши предыдущий урок! 🔒')" style="--cc:#9ca3af">
-    <div style="display:flex;align-items:center;justify-content:space-between"><span class="lnum lnum-lock">Урок 0${l.n}</span><span class="locked-icon">🔒</span></div>
-    <div class="ltitle" style="color:var(--muted)">${l.t}</div>
-    <div>${tags}</div>
-    <div class="lcta">Сначала заверши предыдущий урок</div>
-  </div>`;
-  const bar=done?`<div class="lbar"><div class="lbar-f" style="width:${pct}%;background:${pct>=70?'var(--green)':pct>=50?'var(--gold)':'var(--red)'}"></div></div>`:'';
-  const cta=done?`✓ Пройден · ${pct}% — Повторить`:'Начать урок →';
-  return `<a href="${l.f}" class="lcard${done?' done':''}" style="--cc:${l.c}">
-    <div style="display:flex;align-items:center;justify-content:space-between"><span class="lnum ${done?'lnum-done':'lnum-def'}">Урок 0${l.n}</span>${score}</div>
-    <div class="ltitle">${l.t}</div>
-    <div>${tags}</div>
-    ${bar}
-    <div class="lcta">${cta}</div>
-  </a>`;
-}
-
-function init(){
-  const results=LESSONS.map(l=>getR(l.k)).filter(Boolean);
-  const done=results.length;
-  document.getElementById('done').textContent=done;
-  document.getElementById('a0cnt').textContent=done+'/8';
-  const pct=Math.round(done/8*100);
-  document.getElementById('ob-pct').textContent=pct+'%';
-  setTimeout(()=>document.getElementById('ob-fill').style.width=pct+'%',200);
-  if(done>0){
-    const avg=Math.round(results.reduce((s,r)=>s+r.pct,0)/done);
-    document.getElementById('avg').textContent=avg+'%';
-  }
-  if(done>=8){document.getElementById('lvl').textContent='A0 ✓';document.getElementById('lvl-s').textContent='готов к A1!';}
-  else if(done>=4){document.getElementById('lvl').textContent='A0';document.getElementById('lvl-s').textContent='в процессе';}
-  document.getElementById('grid').innerHTML=LESSONS.map(buildCard).join('');
-  renderStreak();
-}
-init();
-document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')init();});
 </script>
 </body></html>

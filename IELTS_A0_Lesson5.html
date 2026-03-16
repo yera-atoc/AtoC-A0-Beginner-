@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AtoC · AtoC IELTS from Zero — A0 Beginner</title>
+<title>AtoC · A0 Урок 5: Артикли</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -205,107 +205,138 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
   .cnt{padding:18px 14px}
 }
 </style>
-<style>
-/* Extra styles for index */
-.portal-hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);padding:0;position:relative;overflow:hidden}
-.stat-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px}
-.stat-l{color:rgba(255,255,255,.42);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
-.stat-v{font-size:28px;font-weight:800;line-height:1}
-.stat-s{color:rgba(255,255,255,.35);font-size:11px;margin-top:3px}
-.lcard{background:#fff;border:2px solid var(--border);border-radius:16px;padding:18px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:9px;transition:all .2s;position:relative;overflow:hidden;cursor:pointer}
-.lcard::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--cc,var(--border));transition:all .2s}
-.lcard:hover:not(.locked){transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.08);border-color:var(--cc,var(--teal))}
-.lcard.done{background:linear-gradient(135deg,#f0fdf8,#fff);border-color:transparent}
-.lcard.done::before{background:var(--green);height:5px}
-.lcard.locked{opacity:.5;cursor:not-allowed}
-.lcard.locked::before{background:#9ca3af}
-.lnum{font-size:10px;font-weight:800;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:6px;letter-spacing:.05em;display:inline-block}
-.lnum-def{background:var(--bg);color:var(--muted)}
-.lnum-done{background:#d1fae5;color:#065f46}
-.lnum-lock{background:#f1f5f9;color:#94a3b8}
-.ltitle{font-size:14px;font-weight:800;color:var(--text);line-height:1.35;letter-spacing:-.01em}
-.ltag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px}
-.tag-g{background:var(--pp);color:var(--purple)}
-.tag-v{background:var(--tp);color:var(--teal2)}
-.tag-t{background:var(--gp);color:var(--gold2)}
-.lbar{background:var(--border);border-radius:100px;height:4px;overflow:hidden;margin-top:2px}
-.lbar-f{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--teal),var(--teal-light,#12B08E));transition:width .8s ease}
-.lcta{font-size:12px;font-weight:600;color:var(--muted);margin-top:auto}
-.done .lcta{color:var(--teal2)}
-.locked .lcta{color:#9ca3af}
-.locked-icon{font-size:18px}
-.ob-wrap{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 20px;margin-top:12px}
-.ob-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
-.ob-label{color:rgba(255,255,255,.45);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-.ob-pct{color:var(--gold);font-family:'DM Mono',monospace;font-weight:800;font-size:13px}
-.ob-bar{background:rgba(255,255,255,.1);border-radius:100px;height:8px;overflow:hidden}
-.ob-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width 1s ease;width:0%}
-.sec-hdr{display:flex;align-items:center;gap:10px;margin-bottom:16px;margin-top:36px}
-.sec-hdr:first-child{margin-top:0}
-.sec-pill{font-size:10px;font-weight:800;padding:3px 11px;border-radius:100px;color:#fff;letter-spacing:.06em}
-.sec-hdr h2{font-size:16px;font-weight:800;letter-spacing:-.01em}
-.sec-cnt{margin-left:auto;color:var(--muted);font-size:12px;font-family:'DM Mono',monospace}
-</style>
 </head>
 <body>
-<script>if(!localStorage.getItem('ielts_a0_access')){window.location.href='payment_a0.html';}</script>
-
 <header class="hdr">
   <div class="hdr-in">
     <div class="logo"><span class="logo-b">AtoC</span><span class="logo-t">IELTS from Zero</span></div>
-    <div class="hdr-r">
-      <span class="streak" id="snum">🔥 0</span>
-      <button onclick="if(confirm('Выйти?')){localStorage.removeItem('ielts_a0_access');window.location.href='payment_a0.html';}" style="color:rgba(255,255,255,.5);font-size:11px;font-weight:600;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;padding:5px 11px;cursor:pointer;font-family:'Sora',sans-serif">Выйти</button>
-    </div>
+    <div class="hdr-r"><span class="streak" id="snum">🔥 0</span><a href="index.html" class="back">← Уроки</a></div>
   </div>
 </header>
-
 <!-- Tiger -->
 <div class="tiger-wrap">
   <div class="tiger-bbl" id="tb"><span id="tt"></span></div>
   <div class="tiger-btn" onclick="tsay('tap')">🐯</div>
 </div>
 <div class="streak-pop" id="spop"></div>
-
 <!-- Hero -->
-<div class="portal-hero">
-  <div class="hero-bg"></div><div class="hero-blob"></div><div class="hero-blob"></div>
-  <div class="hero-in" style="padding:36px 18px 28px">
-    <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px">AtoC.IELTS from Zero</div>
-    <h1 style="font-size:clamp(22px,5vw,36px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:9px">Английский с нуля<br><span style="color:var(--gold)">до IELTS</span></h1>
-    <p style="font-size:13px;color:rgba(255,255,255,.55);margin-bottom:22px;line-height:1.7;max-width:480px">От A0 до C2 — пошагово, на русском, с объяснениями. Тигр помогает на каждом шаге!</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:12px">
-      <div class="stat-card"><div class="stat-l">Средний балл</div><div class="stat-v" id="avg" style="color:var(--gold)">—</div><div class="stat-s">по урокам</div></div>
-      <div class="stat-card"><div class="stat-l">Пройдено</div><div class="stat-v" id="done" style="color:var(--teal)">0</div><div class="stat-s">из 8 уроков</div></div>
-      <div class="stat-card"><div class="stat-l">Уровень</div><div class="stat-v" id="lvl" style="font-size:16px;margin-top:4px">Pre-A1</div><div class="stat-s" id="lvl-s">начало пути</div></div>
-      <div class="stat-card"><div class="stat-l">IELTS эквивалент</div><div class="stat-v" style="font-size:18px;margin-top:3px">0–2.0</div><div class="stat-s">после A0</div></div>
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-blob"></div><div class="hero-blob"></div>
+  <div class="hero-in">
+    <div class="hero-chips">
+      <span class="chip chip-teal">A0 · Beginner</span>
+      <span class="chip chip-gold">Урок 5 из 8</span>
     </div>
-    <div class="ob-wrap">
-      <div class="ob-top"><span class="ob-label">Прогресс A0</span><span class="ob-pct" id="ob-pct">0%</span></div>
-      <div class="ob-bar"><div class="ob-fill" id="ob-fill"></div></div>
+    <h1 class="hero-h">Артикли<br><span class="acc">A / AN / THE</span></h1>
+    <p class="hero-sub">Маленькие слова — большие правила. В русском их нет, но без них английский звучит странно.</p>
+    <div class="eq-row">
+      <div class="eq"><span class="eq-l">IELTS</span><span class="eq-v">0–2.0</span></div>
+      <div class="eq"><span class="eq-l">TOEFL</span><span class="eq-v">0–30</span></div>
+      <div class="eq"><span class="eq-l">Duolingo</span><span class="eq-v">10–50</span></div>
+      <div class="eq"><span class="eq-l">CEFR</span><span class="eq-v">Pre-A1</span></div>
+    </div>
+    <div class="goal"><div class="goal-i">🎯</div><div class="goal-t"><strong>После урока ты сможешь: правильно использовать A, AN и THE в простых предложениях</strong></div></div>
+  </div>
+  <div class="pbar-wrap"><div class="pbar" id="pbar" style="width:5%"></div></div>
+</div>
+<div class="tabs-wrap"><div class="tabs"><div class="tab on" onclick="showTab('theory',this)">📖 A и AN</div><div class="tab" onclick="showTab('the',this)">📖 THE</div><div class="tab" onclick="showTab('zero',this)">🚫 Без артикля</div><div class="tab" onclick="showTab('practice',this)">✏️ Практика</div><div class="tab" onclick="showTab('vocab',this)">📝 Словарь</div></div></div>
+<div class="cnt">
+
+<div class="sec on" id="t-theory">
+  <div class="card"><div class="c-title"><span class="c-icon ci-t">📌</span>A и AN — неопределённые артикли</div>
+    <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:12px">Используй когда говоришь о чём-то в первый раз или о любом представителе группы.</p>
+    <div class="tip"><div class="tip-l">🔑 Правило выбора A или AN</div>
+    <strong>A</strong> — перед согласным звуком: a cat, a book, a university («ю» — согласный!)<br>
+    <strong>AN</strong> — перед гласным звуком (a,e,i,o,u): an apple, an egg, an hour («аур» — гласный!)<br><br>
+    ⚠️ Смотри на <em>звук</em>, а не на букву!
+    </div>
+    <div class="er"><span class="er-en">a cat</span><span class="er-ru">кошка (любая)</span></div>
+    <div class="er"><span class="er-en">an apple</span><span class="er-ru">яблоко (начинается на «э»)</span></div>
+    <div class="er"><span class="er-en">an umbrella</span><span class="er-ru">зонт (начинается на «а»)</span></div>
+    <div class="er"><span class="er-en">a university</span><span class="er-ru">университет («ю» — согласный звук!)</span></div>
+    <div class="er"><span class="er-en">an hour</span><span class="er-ru">час (H не читается, начинается с «а»)</span></div>
+    <div class="er"><span class="er-en">She is a teacher.</span><span class="er-ru">Профессии — с артиклем A/AN</span></div>
+  </div>
+</div>
+
+<div class="sec" id="t-the">
+  <div class="card"><div class="c-title"><span class="c-icon ci-g">📌</span>THE — определённый артикль</div>
+    <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:12px">Используй когда оба знают о чём речь — либо уже упоминали, либо один такой в мире.</p>
+    <div class="er"><span class="er-en">I have a cat. The cat is black.</span><span class="er-ru">Вторая mentions — уже знаем какую кошку</span></div>
+    <div class="er"><span class="er-en">Close the door.</span><span class="er-ru">Мы оба знаем какую дверь</span></div>
+    <div class="er"><span class="er-en">The sun is hot.</span><span class="er-ru">Солнце одно в мире</span></div>
+    <div class="er"><span class="er-en">The Eiffel Tower</span><span class="er-ru">Единственная в мире</span></div>
+    <div class="warn"><div class="warn-l">⚠️ Не используй THE</div>
+    Перед именами: ~~The Ali~~ → просто Ali<br>
+    Перед странами: ~~The Kazakhstan~~ → Kazakhstan<br>
+    Перед языками: ~~The English~~ → English<br>
+    Исключения: the USA, the UK
     </div>
   </div>
 </div>
 
-<div style="max-width:720px;margin:0 auto;padding:24px 18px 60px">
-  <div class="sec-hdr">
-    <span class="sec-pill" style="background:var(--teal2)">A0</span>
-    <h2>Beginner — Начинающий</h2>
-    <span class="sec-cnt" id="a0cnt">0/8</span>
-  </div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px" id="grid"></div>
-
-  <div class="sec-hdr" style="margin-top:40px">
-    <span class="sec-pill" style="background:#9ca3af">Скоро</span>
-    <h2>Следующие уровни</h2>
-  </div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
-    <div style="background:#fff;border:2px dashed var(--border);border-radius:14px;padding:18px;display:flex;align-items:center;gap:12px;opacity:.6"><span style="font-size:26px">🔵</span><div><div style="font-weight:800;font-size:13px">A1 — Elementary</div><div style="font-size:11px;color:var(--muted)">Present Simple, описание людей, 10 уроков</div></div></div>
-    <div style="background:#fff;border:2px dashed var(--border);border-radius:14px;padding:18px;display:flex;align-items:center;gap:12px;opacity:.6"><span style="font-size:26px">🟢</span><div><div style="font-weight:800;font-size:13px">A2 — Pre-Intermediate</div><div style="font-size:11px;color:var(--muted)">Past Simple, путешествия, 12 уроков</div></div></div>
-    <div style="background:#fff;border:2px dashed var(--border);border-radius:14px;padding:18px;display:flex;align-items:center;gap:12px;opacity:.6"><span style="font-size:26px">🏆</span><div><div style="font-weight:800;font-size:13px">IELTS подготовка</div><div style="font-size:11px;color:var(--muted)">Reading, Writing, Listening, Speaking</div></div></div>
+<div class="sec" id="t-zero">
+  <div class="card"><div class="c-title"><span class="c-icon ci-r">🚫</span>Когда артикль не нужен</div>
+    <div class="er"><span class="er-en">I speak English.</span><span class="er-ru">Языки — без артикля</span></div>
+    <div class="er"><span class="er-en">She is from Kazakhstan.</span><span class="er-ru">Большинство стран — без артикля</span></div>
+    <div class="er"><span class="er-en">I love music.</span><span class="er-ru">Абстрактные понятия</span></div>
+    <div class="er"><span class="er-en">Breakfast is ready.</span><span class="er-ru">Приёмы пищи</span></div>
+    <div class="er"><span class="er-en">Ali is my friend.</span><span class="er-ru">Имена людей</span></div>
   </div>
 </div>
 
+<div class="sec" id="t-practice">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;padding:13px 16px;background:linear-gradient(135deg,var(--gp),#fff);border-radius:13px;border:1.5px solid rgba(255,184,48,.22)">
+    <span style="font-size:22px">🐯</span><div><div style="font-weight:800;font-size:13px">Артикли — это несложно!</div><div style="font-size:11px;color:var(--muted)">6 вопросов</div></div>
+  </div>
+  <div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 1/6</span><span class="q-tag qt-g">Grammar</span></div>
+  <div class="q-text">Выбери правильный артикль:</div><div class="q-sent">___ apple</div>
+  <div class="opts" id="q1-o"><button class="opt" id="q1-A" onclick="ans(1,'A','B',6,'LKEY')"><span class="opt-l">A</span>a</button><button class="opt" id="q1-B" onclick="ans(1,'B','B',6,'LKEY')"><span class="opt-l">B</span>an</button><button class="opt" id="q1-C" onclick="ans(1,'C','B',6,'LKEY')"><span class="opt-l">C</span>the</button><button class="opt" id="q1-D" onclick="ans(1,'D','B',6,'LKEY')"><span class="opt-l">D</span>—</button></div>
+  <div class="expl" id="q1-e">✅ <strong>AN</strong> — apple начинается с гласного звука [æ]. Перед гласными → AN.</div>
+</div><div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 2/6</span><span class="q-tag qt-g">Grammar</span></div>
+  <div class="q-text">Выбери правильный артикль:</div><div class="q-sent">___ university</div>
+  <div class="opts" id="q2-o"><button class="opt" id="q2-A" onclick="ans(2,'A','A',6,'LKEY')"><span class="opt-l">A</span>a</button><button class="opt" id="q2-B" onclick="ans(2,'B','A',6,'LKEY')"><span class="opt-l">B</span>an</button><button class="opt" id="q2-C" onclick="ans(2,'C','A',6,'LKEY')"><span class="opt-l">C</span>the</button><button class="opt" id="q2-D" onclick="ans(2,'D','A',6,'LKEY')"><span class="opt-l">D</span>—</button></div>
+  <div class="expl" id="q2-e">✅ <strong>A</strong> — university начинается со звука [j] («ю»), это согласный. Поэтому A, не AN!</div>
+</div><div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 3/6</span><span class="q-tag qt-g">Grammar</span></div>
+  <div class="q-text">Почему здесь THE: «The sun is hot»?</div>
+  <div class="opts" id="q3-o"><button class="opt" id="q3-A" onclick="ans(3,'A','B',6,'LKEY')"><span class="opt-l">A</span>Солнце большое</button><button class="opt" id="q3-B" onclick="ans(3,'B','B',6,'LKEY')"><span class="opt-l">B</span>Солнце одно в мире</button><button class="opt" id="q3-C" onclick="ans(3,'C','B',6,'LKEY')"><span class="opt-l">C</span>Уже упомянули раньше</button><button class="opt" id="q3-D" onclick="ans(3,'D','B',6,'LKEY')"><span class="opt-l">D</span>Просто правило</button></div>
+  <div class="expl" id="q3-e">✅ <strong>Солнце одно в мире</strong> — THE для уникальных предметов: the sun, the moon, the sky.</div>
+</div><div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 4/6</span><span class="q-tag qt-g">Grammar</span></div>
+  <div class="q-text">Как правильно: «Я говорю по-английски»?</div>
+  <div class="opts" id="q4-o"><button class="opt" id="q4-A" onclick="ans(4,'A','C',6,'LKEY')"><span class="opt-l">A</span>I speak the English.</button><button class="opt" id="q4-B" onclick="ans(4,'B','C',6,'LKEY')"><span class="opt-l">B</span>I speak an English.</button><button class="opt" id="q4-C" onclick="ans(4,'C','C',6,'LKEY')"><span class="opt-l">C</span>I speak English.</button><button class="opt" id="q4-D" onclick="ans(4,'D','C',6,'LKEY')"><span class="opt-l">D</span>I speak a English.</button></div>
+  <div class="expl" id="q4-e">✅ <strong>I speak English.</strong> — Языки используются БЕЗ артикля!</div>
+</div><div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 5/6</span><span class="q-tag qt-g">Grammar</span></div>
+  <div class="q-text">Выбери правильный артикль:</div>
+  <div class="opts" id="q5-o"><button class="opt" id="q5-A" onclick="ans(5,'A','B',6,'LKEY')"><span class="opt-l">A</span>a hour</button><button class="opt" id="q5-B" onclick="ans(5,'B','B',6,'LKEY')"><span class="opt-l">B</span>an hour</button><button class="opt" id="q5-C" onclick="ans(5,'C','B',6,'LKEY')"><span class="opt-l">C</span>the hour</button><button class="opt" id="q5-D" onclick="ans(5,'D','B',6,'LKEY')"><span class="opt-l">D</span>— hour</button></div>
+  <div class="expl" id="q5-e">✅ <strong>AN hour</strong> — буква H не читается, слово начинается со звука [aʊ] — это гласный!</div>
+</div><div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 6/6</span><span class="q-tag qt-g">Grammar</span></div>
+  <div class="q-text">Выбери правильный вариант:</div>
+  <div class="opts" id="q6-o"><button class="opt" id="q6-A" onclick="ans(6,'A','C',6,'LKEY')"><span class="opt-l">A</span>Close a window.</button><button class="opt" id="q6-B" onclick="ans(6,'B','C',6,'LKEY')"><span class="opt-l">B</span>Close an window.</button><button class="opt" id="q6-C" onclick="ans(6,'C','C',6,'LKEY')"><span class="opt-l">C</span>Close the window.</button><button class="opt" id="q6-D" onclick="ans(6,'D','C',6,'LKEY')"><span class="opt-l">D</span>Close window.</button></div>
+  <div class="expl" id="q6-e">✅ <strong>Close the window.</strong> — мы оба знаем какое окно имеется в виду. THE для известных конкретных предметов.</div>
+</div> <div class="scard" id="scard">
+  <span class="sc-emoji" id="sc-em">🐯</span>
+  <div class="sc-num" id="sc-n">0/6</div>
+  <div class="sc-sub">правильных ответов</div>
+  <div class="sc-bw"><div class="sc-b" id="sc-b" style="width:0%"></div></div>
+  <div class="sc-msg" id="sc-m"></div>
+  <div class="sc-badges">
+    <div class="sc-badge"><span class="scb-icon">🔥</span><span class="scb-l">Дней подряд</span><span class="scb-v" id="sc-str">0</span></div>
+    <div class="sc-badge"><span class="scb-icon">⭐</span><span class="scb-l">Уровень</span><span class="scb-v">A0</span></div>
+    <div class="sc-badge"><span class="scb-icon">🐯</span><span class="scb-l">Статус</span><span class="scb-v">Зверь!</span></div>
+  </div>
+  <button class="sc-btn" onclick="showTab('vocab',document.querySelectorAll('.tab')[4])">Перейти к словарю →</button>
+</div>
+</div>
+<div class="sec" id="t-vocab"><div class="card"><div class="c-title"><span class="c-icon ci-t">📝</span>Слова урока</div><div class="vgrid"><div class="vi"><div class="vi-en">a/an</div><div class="vi-ipa">[ə/æn]</div><div class="vi-ru">неопределённый артикль</div></div><div class="vi"><div class="vi-en">the</div><div class="vi-ipa">[ðə/ðiː]</div><div class="vi-ru">определённый артикль</div></div><div class="vi"><div class="vi-en">teacher</div><div class="vi-ipa">[ˈtiːtʃər]</div><div class="vi-ru">учитель</div></div><div class="vi"><div class="vi-en">apple</div><div class="vi-ipa">[ˈæpl]</div><div class="vi-ru">яблоко</div></div><div class="vi"><div class="vi-en">university</div><div class="vi-ipa">[ˌjuːnɪˈvɜːsɪti]</div><div class="vi-ru">университет</div></div><div class="vi"><div class="vi-en">hour</div><div class="vi-ipa">[ˈaʊər]</div><div class="vi-ru">час</div></div><div class="vi"><div class="vi-en">door</div><div class="vi-ipa">[dɔːr]</div><div class="vi-ru">дверь</div></div><div class="vi"><div class="vi-en">window</div><div class="vi-ipa">[ˈwɪndəʊ]</div><div class="vi-ru">окно</div></div><div class="vi"><div class="vi-en">breakfast</div><div class="vi-ipa">[ˈbrekfəst]</div><div class="vi-ru">завтрак</div></div><div class="vi"><div class="vi-en">language</div><div class="vi-ipa">[ˈlæŋɡwɪdʒ]</div><div class="vi-ru">язык</div></div></div></div><div class="tc "><h4>🏆 Урок 5 завершён!</h4><p>Артикли освоены! Урок 6: Глагол HAVE — «иметь».</p></div><div class="tc gold"><h4>🐯 Совет от Тигра</h4><p>Артикли приходят с практикой. Читай английские тексты — мозг сам запомнит паттерны!</p></div></div>
+
+</div>
 
 <script>
 // ── ACCESS GUARD
@@ -409,65 +440,5 @@ function showTab(id,el){
 }
 
 window.addEventListener('load',()=>{renderStreak();tsay('start');});
-</script>
-<script>
-const LESSONS=[
-  {n:1,f:'IELTS_A0_Lesson1.html',t:'Алфавит и звуки',tags:['vocab'],k:'ielts_a0_lesson1',c:'#00C9A7'},
-  {n:2,f:'IELTS_A0_Lesson2.html',t:'Глагол TO BE',tags:['grammar'],k:'ielts_a0_lesson2',c:'#845EC2'},
-  {n:3,f:'IELTS_A0_Lesson3.html',t:'Числа, возраст, цены',tags:['vocab'],k:'ielts_a0_lesson3',c:'#00C9A7'},
-  {n:4,f:'IELTS_A0_Lesson4.html',t:'Цвета, дни, время',tags:['vocab'],k:'ielts_a0_lesson4',c:'#FFB830'},
-  {n:5,f:'IELTS_A0_Lesson5.html',t:'Артикли A / AN / THE',tags:['grammar'],k:'ielts_a0_lesson5',c:'#845EC2'},
-  {n:6,f:'IELTS_A0_Lesson6.html',t:'Глагол HAVE',tags:['grammar'],k:'ielts_a0_lesson6',c:'#845EC2'},
-  {n:7,f:'IELTS_A0_Lesson7.html',t:'Первые диалоги',tags:['vocab'],k:'ielts_a0_lesson7',c:'#06D6A0'},
-  {n:8,f:'IELTS_A0_Lesson8.html',t:'Итоговый тест A0',tags:['test'],k:'ielts_a0_lesson8',c:'#FFB830'},
-];
-const A0_ORDER=LESSONS.map(l=>l.k);
-const TAG_C={grammar:'tag-g',vocab:'tag-v',test:'tag-t'};
-const TAG_L={grammar:'Grammar',vocab:'Vocab',test:'Финальный тест'};
-
-function getR(k){try{return JSON.parse(localStorage.getItem(k));}catch{return null;}}
-function isUnlocked(k){const i=A0_ORDER.indexOf(k);return i<=0||!!getR(A0_ORDER[i-1]);}
-
-function buildCard(l){
-  const r=getR(l.k),done=!!r,unlocked=isUnlocked(l.k),locked=!unlocked;
-  const pct=done?r.pct:null;
-  const tags=l.tags.map(t=>`<span class="ltag ${TAG_C[t]||'tag-v'}">${TAG_L[t]||t}</span>`).join(' ');
-  const score=done?`<span style="background:#d1fae5;border:1px solid #a7f3d0;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:800;color:#065f46">✓ ${r.score}/${r.max}</span>`:'';
-  if(locked)return `<div class="lcard locked" onclick="tsay('tap','Сначала заверши предыдущий урок! 🔒')" style="--cc:#9ca3af">
-    <div style="display:flex;align-items:center;justify-content:space-between"><span class="lnum lnum-lock">Урок 0${l.n}</span><span class="locked-icon">🔒</span></div>
-    <div class="ltitle" style="color:var(--muted)">${l.t}</div>
-    <div>${tags}</div>
-    <div class="lcta">Сначала заверши предыдущий урок</div>
-  </div>`;
-  const bar=done?`<div class="lbar"><div class="lbar-f" style="width:${pct}%;background:${pct>=70?'var(--green)':pct>=50?'var(--gold)':'var(--red)'}"></div></div>`:'';
-  const cta=done?`✓ Пройден · ${pct}% — Повторить`:'Начать урок →';
-  return `<a href="${l.f}" class="lcard${done?' done':''}" style="--cc:${l.c}">
-    <div style="display:flex;align-items:center;justify-content:space-between"><span class="lnum ${done?'lnum-done':'lnum-def'}">Урок 0${l.n}</span>${score}</div>
-    <div class="ltitle">${l.t}</div>
-    <div>${tags}</div>
-    ${bar}
-    <div class="lcta">${cta}</div>
-  </a>`;
-}
-
-function init(){
-  const results=LESSONS.map(l=>getR(l.k)).filter(Boolean);
-  const done=results.length;
-  document.getElementById('done').textContent=done;
-  document.getElementById('a0cnt').textContent=done+'/8';
-  const pct=Math.round(done/8*100);
-  document.getElementById('ob-pct').textContent=pct+'%';
-  setTimeout(()=>document.getElementById('ob-fill').style.width=pct+'%',200);
-  if(done>0){
-    const avg=Math.round(results.reduce((s,r)=>s+r.pct,0)/done);
-    document.getElementById('avg').textContent=avg+'%';
-  }
-  if(done>=8){document.getElementById('lvl').textContent='A0 ✓';document.getElementById('lvl-s').textContent='готов к A1!';}
-  else if(done>=4){document.getElementById('lvl').textContent='A0';document.getElementById('lvl-s').textContent='в процессе';}
-  document.getElementById('grid').innerHTML=LESSONS.map(buildCard).join('');
-  renderStreak();
-}
-init();
-document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')init();});
 </script>
 </body></html>

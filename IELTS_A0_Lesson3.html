@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AtoC · AtoC IELTS from Zero — A0 Beginner</title>
+<title>AtoC · A0 Урок 3: Числа,</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -205,107 +205,161 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
   .cnt{padding:18px 14px}
 }
 </style>
-<style>
-/* Extra styles for index */
-.portal-hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);padding:0;position:relative;overflow:hidden}
-.stat-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 18px}
-.stat-l{color:rgba(255,255,255,.42);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
-.stat-v{font-size:28px;font-weight:800;line-height:1}
-.stat-s{color:rgba(255,255,255,.35);font-size:11px;margin-top:3px}
-.lcard{background:#fff;border:2px solid var(--border);border-radius:16px;padding:18px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:9px;transition:all .2s;position:relative;overflow:hidden;cursor:pointer}
-.lcard::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--cc,var(--border));transition:all .2s}
-.lcard:hover:not(.locked){transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.08);border-color:var(--cc,var(--teal))}
-.lcard.done{background:linear-gradient(135deg,#f0fdf8,#fff);border-color:transparent}
-.lcard.done::before{background:var(--green);height:5px}
-.lcard.locked{opacity:.5;cursor:not-allowed}
-.lcard.locked::before{background:#9ca3af}
-.lnum{font-size:10px;font-weight:800;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:6px;letter-spacing:.05em;display:inline-block}
-.lnum-def{background:var(--bg);color:var(--muted)}
-.lnum-done{background:#d1fae5;color:#065f46}
-.lnum-lock{background:#f1f5f9;color:#94a3b8}
-.ltitle{font-size:14px;font-weight:800;color:var(--text);line-height:1.35;letter-spacing:-.01em}
-.ltag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px}
-.tag-g{background:var(--pp);color:var(--purple)}
-.tag-v{background:var(--tp);color:var(--teal2)}
-.tag-t{background:var(--gp);color:var(--gold2)}
-.lbar{background:var(--border);border-radius:100px;height:4px;overflow:hidden;margin-top:2px}
-.lbar-f{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--teal),var(--teal-light,#12B08E));transition:width .8s ease}
-.lcta{font-size:12px;font-weight:600;color:var(--muted);margin-top:auto}
-.done .lcta{color:var(--teal2)}
-.locked .lcta{color:#9ca3af}
-.locked-icon{font-size:18px}
-.ob-wrap{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 20px;margin-top:12px}
-.ob-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
-.ob-label{color:rgba(255,255,255,.45);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-.ob-pct{color:var(--gold);font-family:'DM Mono',monospace;font-weight:800;font-size:13px}
-.ob-bar{background:rgba(255,255,255,.1);border-radius:100px;height:8px;overflow:hidden}
-.ob-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width 1s ease;width:0%}
-.sec-hdr{display:flex;align-items:center;gap:10px;margin-bottom:16px;margin-top:36px}
-.sec-hdr:first-child{margin-top:0}
-.sec-pill{font-size:10px;font-weight:800;padding:3px 11px;border-radius:100px;color:#fff;letter-spacing:.06em}
-.sec-hdr h2{font-size:16px;font-weight:800;letter-spacing:-.01em}
-.sec-cnt{margin-left:auto;color:var(--muted);font-size:12px;font-family:'DM Mono',monospace}
-</style>
 </head>
 <body>
-<script>if(!localStorage.getItem('ielts_a0_access')){window.location.href='payment_a0.html';}</script>
-
 <header class="hdr">
   <div class="hdr-in">
     <div class="logo"><span class="logo-b">AtoC</span><span class="logo-t">IELTS from Zero</span></div>
-    <div class="hdr-r">
-      <span class="streak" id="snum">🔥 0</span>
-      <button onclick="if(confirm('Выйти?')){localStorage.removeItem('ielts_a0_access');window.location.href='payment_a0.html';}" style="color:rgba(255,255,255,.5);font-size:11px;font-weight:600;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;padding:5px 11px;cursor:pointer;font-family:'Sora',sans-serif">Выйти</button>
-    </div>
+    <div class="hdr-r"><span class="streak" id="snum">🔥 0</span><a href="index.html" class="back">← Уроки</a></div>
   </div>
 </header>
-
 <!-- Tiger -->
 <div class="tiger-wrap">
   <div class="tiger-bbl" id="tb"><span id="tt"></span></div>
   <div class="tiger-btn" onclick="tsay('tap')">🐯</div>
 </div>
 <div class="streak-pop" id="spop"></div>
-
 <!-- Hero -->
-<div class="portal-hero">
-  <div class="hero-bg"></div><div class="hero-blob"></div><div class="hero-blob"></div>
-  <div class="hero-in" style="padding:36px 18px 28px">
-    <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px">AtoC.IELTS from Zero</div>
-    <h1 style="font-size:clamp(22px,5vw,36px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:9px">Английский с нуля<br><span style="color:var(--gold)">до IELTS</span></h1>
-    <p style="font-size:13px;color:rgba(255,255,255,.55);margin-bottom:22px;line-height:1.7;max-width:480px">От A0 до C2 — пошагово, на русском, с объяснениями. Тигр помогает на каждом шаге!</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:12px">
-      <div class="stat-card"><div class="stat-l">Средний балл</div><div class="stat-v" id="avg" style="color:var(--gold)">—</div><div class="stat-s">по урокам</div></div>
-      <div class="stat-card"><div class="stat-l">Пройдено</div><div class="stat-v" id="done" style="color:var(--teal)">0</div><div class="stat-s">из 8 уроков</div></div>
-      <div class="stat-card"><div class="stat-l">Уровень</div><div class="stat-v" id="lvl" style="font-size:16px;margin-top:4px">Pre-A1</div><div class="stat-s" id="lvl-s">начало пути</div></div>
-      <div class="stat-card"><div class="stat-l">IELTS эквивалент</div><div class="stat-v" style="font-size:18px;margin-top:3px">0–2.0</div><div class="stat-s">после A0</div></div>
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-blob"></div><div class="hero-blob"></div>
+  <div class="hero-in">
+    <div class="hero-chips">
+      <span class="chip chip-teal">A0 · Beginner</span>
+      <span class="chip chip-gold">Урок 3 из 8</span>
     </div>
-    <div class="ob-wrap">
-      <div class="ob-top"><span class="ob-label">Прогресс A0</span><span class="ob-pct" id="ob-pct">0%</span></div>
-      <div class="ob-bar"><div class="ob-fill" id="ob-fill"></div></div>
+    <h1 class="hero-h">Числа,<br><span class="acc">возраст и цены</span></h1>
+    <p class="hero-sub">Числа нужны каждый день — спросить цену, сказать сколько лет, назвать номер телефона.</p>
+    <div class="eq-row">
+      <div class="eq"><span class="eq-l">IELTS</span><span class="eq-v">0–2.0</span></div>
+      <div class="eq"><span class="eq-l">TOEFL</span><span class="eq-v">0–30</span></div>
+      <div class="eq"><span class="eq-l">Duolingo</span><span class="eq-v">10–50</span></div>
+      <div class="eq"><span class="eq-l">CEFR</span><span class="eq-v">Pre-A1</span></div>
     </div>
+    <div class="goal"><div class="goal-i">🎯</div><div class="goal-t"><strong>После урока ты сможешь: считать до 1000, сказать свой возраст и спросить цену</strong></div></div>
+  </div>
+  <div class="pbar-wrap"><div class="pbar" id="pbar" style="width:3%"></div></div>
+</div>
+<div class="tabs-wrap"><div class="tabs"><div class="tab on" onclick="showTab('theory',this)">🔢 1–20</div><div class="tab" onclick="showTab('big',this)">💯 21–1000</div><div class="tab" onclick="showTab('usage',this)">💬 В жизни</div><div class="tab" onclick="showTab('practice',this)">✏️ Практика</div><div class="tab" onclick="showTab('vocab',this)">📝 Словарь</div></div></div>
+<div class="cnt">
+
+<div class="sec on" id="t-theory">
+  <div class="card"><div class="c-title"><span class="c-icon ci-t">🔢</span>Числа 1–20 — учи наизусть!</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;margin-top:12px">
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:var(--navy);font-family:'DM Mono',monospace">1</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">one</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:var(--navy);font-family:'DM Mono',monospace">2</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">two</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:var(--navy);font-family:'DM Mono',monospace">3</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">three</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:var(--navy);font-family:'DM Mono',monospace">4</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">four</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:var(--navy);font-family:'DM Mono',monospace">5</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">five</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:var(--navy);font-family:'DM Mono',monospace">6</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">six</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:var(--navy);font-family:'DM Mono',monospace">7</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">seven</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:var(--navy);font-family:'DM Mono',monospace">8</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">eight</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:var(--navy);font-family:'DM Mono',monospace">9</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">nine</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:var(--navy);font-family:'DM Mono',monospace">10</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">ten</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:var(--navy);font-family:'DM Mono',monospace">11</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">eleven</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:var(--navy);font-family:'DM Mono',monospace">12</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">twelve</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:var(--navy);font-family:'DM Mono',monospace">13</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">thirteen</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:var(--navy);font-family:'DM Mono',monospace">14</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">fourteen</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:var(--navy);font-family:'DM Mono',monospace">15</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">fifteen</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:var(--navy);font-family:'DM Mono',monospace">16</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">sixteen</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:var(--navy);font-family:'DM Mono',monospace">17</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">seventeen</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:var(--navy);font-family:'DM Mono',monospace">18</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">eighteen</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:var(--navy);font-family:'DM Mono',monospace">19</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">nineteen</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:18px;font-weight:800;color:var(--navy);font-family:'DM Mono',monospace">20</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">twenty</div></div>
+    </div>
+    <div class="warn" style="margin-top:14px"><div class="warn-l">⚠️ Путаница 13 vs 30</div><strong>thirteen</strong> [ˌθɜːˈtiːn] = 13 — ударение на конце<br><strong>thirty</strong> [ˈθɜːti] = 30 — ударение в начале</div>
   </div>
 </div>
 
-<div style="max-width:720px;margin:0 auto;padding:24px 18px 60px">
-  <div class="sec-hdr">
-    <span class="sec-pill" style="background:var(--teal2)">A0</span>
-    <h2>Beginner — Начинающий</h2>
-    <span class="sec-cnt" id="a0cnt">0/8</span>
+<div class="sec" id="t-big">
+  <div class="card"><div class="c-title"><span class="c-icon ci-g">💯</span>Десятки</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0">
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:16px;font-weight:800;font-family:'DM Mono',monospace">20</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">twenty</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:16px;font-weight:800;font-family:'DM Mono',monospace">30</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">thirty</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:16px;font-weight:800;font-family:'DM Mono',monospace">40</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">forty</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:16px;font-weight:800;font-family:'DM Mono',monospace">50</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">fifty</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:16px;font-weight:800;font-family:'DM Mono',monospace">60</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">sixty</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:16px;font-weight:800;font-family:'DM Mono',monospace">70</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">seventy</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:16px;font-weight:800;font-family:'DM Mono',monospace">80</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">eighty</div></div>
+<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px;text-align:center"><div style="font-size:16px;font-weight:800;font-family:'DM Mono',monospace">90</div><div style="font-size:11px;font-weight:700;color:var(--teal2)">ninety</div></div>
+    </div>
+    <div class="tip"><div class="tip-l">💡 Система 21–99</div>Десятки + единицы через дефис:<br>21 = twenty-<strong>one</strong> · 35 = thirty-<strong>five</strong> · 99 = ninety-<strong>nine</strong></div>
+    <div class="warn"><div class="warn-l">⚠️ Ловушка!</div><strong>forty</strong> — не «fourty»! 4 = four, но 40 = <strong>forty</strong> (без U!)</div>
   </div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px" id="grid"></div>
-
-  <div class="sec-hdr" style="margin-top:40px">
-    <span class="sec-pill" style="background:#9ca3af">Скоро</span>
-    <h2>Следующие уровни</h2>
-  </div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
-    <div style="background:#fff;border:2px dashed var(--border);border-radius:14px;padding:18px;display:flex;align-items:center;gap:12px;opacity:.6"><span style="font-size:26px">🔵</span><div><div style="font-weight:800;font-size:13px">A1 — Elementary</div><div style="font-size:11px;color:var(--muted)">Present Simple, описание людей, 10 уроков</div></div></div>
-    <div style="background:#fff;border:2px dashed var(--border);border-radius:14px;padding:18px;display:flex;align-items:center;gap:12px;opacity:.6"><span style="font-size:26px">🟢</span><div><div style="font-weight:800;font-size:13px">A2 — Pre-Intermediate</div><div style="font-size:11px;color:var(--muted)">Past Simple, путешествия, 12 уроков</div></div></div>
-    <div style="background:#fff;border:2px dashed var(--border);border-radius:14px;padding:18px;display:flex;align-items:center;gap:12px;opacity:.6"><span style="font-size:26px">🏆</span><div><div style="font-weight:800;font-size:13px">IELTS подготовка</div><div style="font-size:11px;color:var(--muted)">Reading, Writing, Listening, Speaking</div></div></div>
+  <div class="card"><div class="c-title"><span class="c-icon ci-p">💯</span>Сотни и тысячи</div>
+    <div class="er"><span class="er-en">100</span><span class="er-ru">one <strong>hundred</strong></span></div>
+    <div class="er"><span class="er-en">350</span><span class="er-ru">three hundred and fifty</span></div>
+    <div class="er"><span class="er-en">1,000</span><span class="er-ru">one <strong>thousand</strong></span></div>
+    <div class="er"><span class="er-en">15,000 ₸</span><span class="er-ru">fifteen thousand tenge</span></div>
   </div>
 </div>
 
+<div class="sec" id="t-usage">
+  <div class="card"><div class="c-title"><span class="c-icon ci-t">👤</span>Возраст</div>
+    <div class="er"><span class="er-en">I am 20 years old.</span><span class="er-ru">Мне 20 лет.</span></div>
+    <div class="er"><span class="er-en">How old are you?</span><span class="er-ru">Сколько тебе лет?</span></div>
+    <div class="er"><span class="er-en">I'm twenty-three.</span><span class="er-ru">Мне двадцать три.</span></div>
+    <div class="warn"><div class="warn-l">⚠️ Не как в русском</div>«I have 20 years» — НЕПРАВИЛЬНО! По-английски: <strong>I AM 20 years old</strong> (через TO BE, не HAVE!)</div>
+  </div>
+  <div class="card"><div class="c-title"><span class="c-icon ci-g">💰</span>Цены</div>
+    <div class="er"><span class="er-en">How much is it?</span><span class="er-ru">Сколько стоит?</span></div>
+    <div class="er"><span class="er-en">It is five dollars.</span><span class="er-ru">Это стоит пять долларов.</span></div>
+    <div class="er"><span class="er-en">That's too expensive!</span><span class="er-ru">Это слишком дорого!</span></div>
+    <div class="tip"><div class="tip-l">💡 Валюты</div>$ dollar · £ pound · € euro · ₸ tenge</div>
+  </div>
+</div>
+
+<div class="sec" id="t-practice">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;padding:13px 16px;background:linear-gradient(135deg,var(--gp),#fff);border-radius:13px;border:1.5px solid rgba(255,184,48,.22)">
+    <span style="font-size:22px">🐯</span><div><div style="font-weight:800;font-size:13px">Считаем вместе!</div><div style="font-size:11px;color:var(--muted)">6 вопросов на числа</div></div>
+  </div>
+  <div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 1/6</span><span class="q-tag qt-v">Vocab</span></div>
+  <div class="q-text">Как по-английски число 15?</div>
+  <div class="opts" id="q1-o"><button class="opt" id="q1-A" onclick="ans(1,'A','B',6,'LKEY')"><span class="opt-l">A</span>fifty</button><button class="opt" id="q1-B" onclick="ans(1,'B','B',6,'LKEY')"><span class="opt-l">B</span>fifteen</button><button class="opt" id="q1-C" onclick="ans(1,'C','B',6,'LKEY')"><span class="opt-l">C</span>fiveteen</button><button class="opt" id="q1-D" onclick="ans(1,'D','B',6,'LKEY')"><span class="opt-l">D</span>fifty-one</button></div>
+  <div class="expl" id="q1-e">✅ <strong>fifteen</strong> — числа 13–19 заканчиваются на -teen. Fifteen=15, Fifty=50 — не путай!</div>
+</div><div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 2/6</span><span class="q-tag qt-v">Vocab</span></div>
+  <div class="q-text">Как написать число 40?</div>
+  <div class="opts" id="q2-o"><button class="opt" id="q2-A" onclick="ans(2,'A','B',6,'LKEY')"><span class="opt-l">A</span>fourty</button><button class="opt" id="q2-B" onclick="ans(2,'B','B',6,'LKEY')"><span class="opt-l">B</span>forty</button><button class="opt" id="q2-C" onclick="ans(2,'C','B',6,'LKEY')"><span class="opt-l">C</span>foty</button><button class="opt" id="q2-D" onclick="ans(2,'D','B',6,'LKEY')"><span class="opt-l">D</span>four-ten</button></div>
+  <div class="expl" id="q2-e">✅ <strong>forty</strong> — без буквы U! 4=four, но 40=forty. Классическая ловушка!</div>
+</div><div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 3/6</span><span class="q-tag qt-g">Grammar</span></div>
+  <div class="q-text">Как сказать «Мне 23 года»?</div>
+  <div class="opts" id="q3-o"><button class="opt" id="q3-A" onclick="ans(3,'A','C',6,'LKEY')"><span class="opt-l">A</span>I have 23 years.</button><button class="opt" id="q3-B" onclick="ans(3,'B','C',6,'LKEY')"><span class="opt-l">B</span>My age is twenty three.</button><button class="opt" id="q3-C" onclick="ans(3,'C','C',6,'LKEY')"><span class="opt-l">C</span>I am twenty-three years old.</button><button class="opt" id="q3-D" onclick="ans(3,'D','C',6,'LKEY')"><span class="opt-l">D</span>I is 23 years.</button></div>
+  <div class="expl" id="q3-e">✅ <strong>I am twenty-three years old.</strong> — Возраст через TO BE, не HAVE!</div>
+</div><div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 4/6</span><span class="q-tag qt-v">Vocab</span></div>
+  <div class="q-text">Как спросить цену?</div>
+  <div class="opts" id="q4-o"><button class="opt" id="q4-A" onclick="ans(4,'A','B',6,'LKEY')"><span class="opt-l">A</span>What is the price?</button><button class="opt" id="q4-B" onclick="ans(4,'B','B',6,'LKEY')"><span class="opt-l">B</span>How much is it?</button><button class="opt" id="q4-C" onclick="ans(4,'C','B',6,'LKEY')"><span class="opt-l">C</span>How many costs?</button><button class="opt" id="q4-D" onclick="ans(4,'D','B',6,'LKEY')"><span class="opt-l">D</span>What costs this?</button></div>
+  <div class="expl" id="q4-e">✅ <strong>How much is it?</strong> — стандартная фраза. Также: How much does it cost?</div>
+</div><div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 5/6</span><span class="q-tag qt-v">Vocab</span></div>
+  <div class="q-text">Что означает seventy-five?</div>
+  <div class="opts" id="q5-o"><button class="opt" id="q5-A" onclick="ans(5,'A','B',6,'LKEY')"><span class="opt-l">A</span>57</button><button class="opt" id="q5-B" onclick="ans(5,'B','B',6,'LKEY')"><span class="opt-l">B</span>75</button><button class="opt" id="q5-C" onclick="ans(5,'C','B',6,'LKEY')"><span class="opt-l">C</span>700</button><button class="opt" id="q5-D" onclick="ans(5,'D','B',6,'LKEY')"><span class="opt-l">D</span>17</button></div>
+  <div class="expl" id="q5-e">✅ <strong>75</strong> — seventy(70) + five(5) = 75. Система проста: сначала десятки, потом единицы через дефис.</div>
+</div><div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 6/6</span><span class="q-tag qt-g">Grammar</span></div>
+  <div class="q-text">«Это стоит сто долларов» — как сказать?</div>
+  <div class="opts" id="q6-o"><button class="opt" id="q6-A" onclick="ans(6,'A','C',6,'LKEY')"><span class="opt-l">A</span>It is a hundred dollar.</button><button class="opt" id="q6-B" onclick="ans(6,'B','C',6,'LKEY')"><span class="opt-l">B</span>It costs hundred dollars.</button><button class="opt" id="q6-C" onclick="ans(6,'C','C',6,'LKEY')"><span class="opt-l">C</span>It is one hundred dollars.</button><button class="opt" id="q6-D" onclick="ans(6,'D','C',6,'LKEY')"><span class="opt-l">D</span>It are hundred dollar.</button></div>
+  <div class="expl" id="q6-e">✅ <strong>It is one hundred dollars.</strong> — «one hundred» и «dollars» во множественном числе.</div>
+</div> <div class="scard" id="scard">
+  <span class="sc-emoji" id="sc-em">🐯</span>
+  <div class="sc-num" id="sc-n">0/6</div>
+  <div class="sc-sub">правильных ответов</div>
+  <div class="sc-bw"><div class="sc-b" id="sc-b" style="width:0%"></div></div>
+  <div class="sc-msg" id="sc-m"></div>
+  <div class="sc-badges">
+    <div class="sc-badge"><span class="scb-icon">🔥</span><span class="scb-l">Дней подряд</span><span class="scb-v" id="sc-str">0</span></div>
+    <div class="sc-badge"><span class="scb-icon">⭐</span><span class="scb-l">Уровень</span><span class="scb-v">A0</span></div>
+    <div class="sc-badge"><span class="scb-icon">🐯</span><span class="scb-l">Статус</span><span class="scb-v">Зверь!</span></div>
+  </div>
+  <button class="sc-btn" onclick="showTab('vocab',document.querySelectorAll('.tab')[4])">Перейти к словарю →</button>
+</div>
+</div>
+<div class="sec" id="t-vocab"><div class="card"><div class="c-title"><span class="c-icon ci-t">📝</span>Слова урока</div><div class="vgrid"><div class="vi"><div class="vi-en">one/two/three</div><div class="vi-ipa">[wʌn/tuː/θriː]</div><div class="vi-ru">один/два/три</div></div><div class="vi"><div class="vi-en">ten/twenty/thirty</div><div class="vi-ipa">[ten/ˈtwenti/ˈθɜːti]</div><div class="vi-ru">10/20/30</div></div><div class="vi"><div class="vi-en">hundred</div><div class="vi-ipa">[ˈhʌndrəd]</div><div class="vi-ru">сто</div></div><div class="vi"><div class="vi-en">thousand</div><div class="vi-ipa">[ˈθaʊzənd]</div><div class="vi-ru">тысяча</div></div><div class="vi"><div class="vi-en">How old are you?</div><div class="vi-ipa">[haʊ əʊld ɑː juː]</div><div class="vi-ru">Сколько лет?</div></div><div class="vi"><div class="vi-en">years old</div><div class="vi-ipa">[jɪəz əʊld]</div><div class="vi-ru">лет (возраст)</div></div><div class="vi"><div class="vi-en">How much is it?</div><div class="vi-ipa">[haʊ mʌtʃ ɪz ɪt]</div><div class="vi-ru">Сколько стоит?</div></div><div class="vi"><div class="vi-en">expensive</div><div class="vi-ipa">[ɪkˈspensɪv]</div><div class="vi-ru">дорогой</div></div><div class="vi"><div class="vi-en">cheap</div><div class="vi-ipa">[tʃiːp]</div><div class="vi-ru">дешёвый</div></div><div class="vi"><div class="vi-en">dollar/pound</div><div class="vi-ipa">[ˈdɒlər/paʊnd]</div><div class="vi-ru">доллар/фунт</div></div></div></div><div class="tc "><h4>🏆 Урок 3 завершён!</h4><p>Ты умеешь считать до 1000, говорить о возрасте и ценах. Урок 4: Цвета, дни недели и время!</p></div><div class="tc gold"><h4>🐯 Практика от Тигра</h4><p>Посмотри на любой ценник сегодня и прочитай цену по-английски. Это лучшая тренировка!</p></div></div>
+
+</div>
 
 <script>
 // ── ACCESS GUARD
@@ -409,65 +463,5 @@ function showTab(id,el){
 }
 
 window.addEventListener('load',()=>{renderStreak();tsay('start');});
-</script>
-<script>
-const LESSONS=[
-  {n:1,f:'IELTS_A0_Lesson1.html',t:'Алфавит и звуки',tags:['vocab'],k:'ielts_a0_lesson1',c:'#00C9A7'},
-  {n:2,f:'IELTS_A0_Lesson2.html',t:'Глагол TO BE',tags:['grammar'],k:'ielts_a0_lesson2',c:'#845EC2'},
-  {n:3,f:'IELTS_A0_Lesson3.html',t:'Числа, возраст, цены',tags:['vocab'],k:'ielts_a0_lesson3',c:'#00C9A7'},
-  {n:4,f:'IELTS_A0_Lesson4.html',t:'Цвета, дни, время',tags:['vocab'],k:'ielts_a0_lesson4',c:'#FFB830'},
-  {n:5,f:'IELTS_A0_Lesson5.html',t:'Артикли A / AN / THE',tags:['grammar'],k:'ielts_a0_lesson5',c:'#845EC2'},
-  {n:6,f:'IELTS_A0_Lesson6.html',t:'Глагол HAVE',tags:['grammar'],k:'ielts_a0_lesson6',c:'#845EC2'},
-  {n:7,f:'IELTS_A0_Lesson7.html',t:'Первые диалоги',tags:['vocab'],k:'ielts_a0_lesson7',c:'#06D6A0'},
-  {n:8,f:'IELTS_A0_Lesson8.html',t:'Итоговый тест A0',tags:['test'],k:'ielts_a0_lesson8',c:'#FFB830'},
-];
-const A0_ORDER=LESSONS.map(l=>l.k);
-const TAG_C={grammar:'tag-g',vocab:'tag-v',test:'tag-t'};
-const TAG_L={grammar:'Grammar',vocab:'Vocab',test:'Финальный тест'};
-
-function getR(k){try{return JSON.parse(localStorage.getItem(k));}catch{return null;}}
-function isUnlocked(k){const i=A0_ORDER.indexOf(k);return i<=0||!!getR(A0_ORDER[i-1]);}
-
-function buildCard(l){
-  const r=getR(l.k),done=!!r,unlocked=isUnlocked(l.k),locked=!unlocked;
-  const pct=done?r.pct:null;
-  const tags=l.tags.map(t=>`<span class="ltag ${TAG_C[t]||'tag-v'}">${TAG_L[t]||t}</span>`).join(' ');
-  const score=done?`<span style="background:#d1fae5;border:1px solid #a7f3d0;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:800;color:#065f46">✓ ${r.score}/${r.max}</span>`:'';
-  if(locked)return `<div class="lcard locked" onclick="tsay('tap','Сначала заверши предыдущий урок! 🔒')" style="--cc:#9ca3af">
-    <div style="display:flex;align-items:center;justify-content:space-between"><span class="lnum lnum-lock">Урок 0${l.n}</span><span class="locked-icon">🔒</span></div>
-    <div class="ltitle" style="color:var(--muted)">${l.t}</div>
-    <div>${tags}</div>
-    <div class="lcta">Сначала заверши предыдущий урок</div>
-  </div>`;
-  const bar=done?`<div class="lbar"><div class="lbar-f" style="width:${pct}%;background:${pct>=70?'var(--green)':pct>=50?'var(--gold)':'var(--red)'}"></div></div>`:'';
-  const cta=done?`✓ Пройден · ${pct}% — Повторить`:'Начать урок →';
-  return `<a href="${l.f}" class="lcard${done?' done':''}" style="--cc:${l.c}">
-    <div style="display:flex;align-items:center;justify-content:space-between"><span class="lnum ${done?'lnum-done':'lnum-def'}">Урок 0${l.n}</span>${score}</div>
-    <div class="ltitle">${l.t}</div>
-    <div>${tags}</div>
-    ${bar}
-    <div class="lcta">${cta}</div>
-  </a>`;
-}
-
-function init(){
-  const results=LESSONS.map(l=>getR(l.k)).filter(Boolean);
-  const done=results.length;
-  document.getElementById('done').textContent=done;
-  document.getElementById('a0cnt').textContent=done+'/8';
-  const pct=Math.round(done/8*100);
-  document.getElementById('ob-pct').textContent=pct+'%';
-  setTimeout(()=>document.getElementById('ob-fill').style.width=pct+'%',200);
-  if(done>0){
-    const avg=Math.round(results.reduce((s,r)=>s+r.pct,0)/done);
-    document.getElementById('avg').textContent=avg+'%';
-  }
-  if(done>=8){document.getElementById('lvl').textContent='A0 ✓';document.getElementById('lvl-s').textContent='готов к A1!';}
-  else if(done>=4){document.getElementById('lvl').textContent='A0';document.getElementById('lvl-s').textContent='в процессе';}
-  document.getElementById('grid').innerHTML=LESSONS.map(buildCard).join('');
-  renderStreak();
-}
-init();
-document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')init();});
 </script>
 </body></html>

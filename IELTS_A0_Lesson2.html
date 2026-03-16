@@ -3,487 +3,473 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AtoC.IELTS from Zero — A0 Урок 2: Глагол TO BE</title>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+<title>AtoC · A0 Урок 2: Глагол</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --navy:#0B1F3A;--teal:#0E8A6F;--teal-light:#12B08E;--teal-pale:#e6f9f5;
-  --gold:#F2A93B;--gold-light:#FEF3C7;--red:#E24B4A;--red-light:#FEE2E2;
-  --green:#10B981;--green-light:#D1FAE5;--purple:#8B5CF6;--purple-light:#EDE9FE;
-  --cream:#F8F5EE;--white:#FFFFFF;--text:#0B1F3A;--text-muted:#5a6a7e;
-  --border:#dde3ed;--bg:#F4F6FA;
+:root{
+  --navy:#0D1B2A;--navy2:#162840;
+  --teal:#00C9A7;--teal2:#00A98F;--tp:#e0faf5;
+  --gold:#FFB830;--gold2:#e09a00;--gp:#fff8e1;
+  --red:#FF4D6D;--rp:#ffe0e6;
+  --green:#06D6A0;--grnp:#e0fdf4;
+  --purple:#845EC2;--pp:#f0ebff;
+  --orange:#FF6B35;--pink:#FF6B9D;
+  --bg:#F2F5FF;--white:#fff;
+  --text:#0D1B2A;--muted:#5a7184;--border:#e2eaf5;
 }
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:80px;}
-.back-btn{position:fixed;top:16px;left:16px;z-index:999;background:var(--navy);color:#fff;text-decoration:none;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(0,0,0,0.2);}
-.hero{background:linear-gradient(135deg,#0B1F3A 0%,#1a3a5c 100%);padding:0;position:relative;overflow:hidden;}
-.hero-pattern{position:absolute;inset:0;background:radial-gradient(circle at 15% 50%,rgba(14,138,111,0.2) 0%,transparent 50%),radial-gradient(circle at 85% 20%,rgba(242,169,59,0.1) 0%,transparent 40%);}
-.hero-inner{position:relative;max-width:780px;margin:0 auto;padding:48px 24px 32px;}
-.hero-top{display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
-.atoc-logo{background:var(--gold);color:var(--navy);font-weight:800;font-size:13px;padding:4px 12px;border-radius:7px;}
-.level-badge{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#a3d4ff;font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;}
-.lesson-badge{background:rgba(14,138,111,0.3);border:1px solid rgba(14,138,111,0.4);color:#5de8c8;font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;}
-.hero-title{font-family:'Lora',serif;font-size:clamp(24px,4vw,38px);color:#fff;line-height:1.2;margin-bottom:12px;}
-.hero-title span{color:var(--gold);}
-.hero-sub{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:24px;max-width:560px;}
-.equiv-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;}
-.equiv-pill{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:8px 14px;font-size:12px;}
-.equiv-pill .ep-label{color:rgba(255,255,255,0.45);font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:2px;}
-.equiv-pill .ep-val{color:#fff;font-weight:700;font-family:'DM Mono',monospace;}
-.goal-box{background:rgba(14,138,111,0.15);border:1px solid rgba(14,138,111,0.3);border-radius:14px;padding:16px 20px;display:flex;align-items:flex-start;gap:12px;}
-.goal-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
-.goal-text{font-size:14px;color:rgba(255,255,255,0.85);line-height:1.6;}
-.goal-text strong{color:#5de8c8;}
-.progress-track{height:4px;background:rgba(255,255,255,0.1);}
-.progress-fill{height:4px;background:linear-gradient(90deg,var(--teal),var(--gold));width:20%;transition:width 0.6s ease;}
-.tabs-wrap{background:var(--white);border-bottom:2px solid var(--border);position:sticky;top:0;z-index:100;}
-.tabs{max-width:780px;margin:0 auto;display:flex;overflow-x:auto;}
-.tabs::-webkit-scrollbar{display:none;}
-.tab{padding:15px 20px;font-size:13px;font-weight:600;color:var(--text-muted);cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all 0.2s;flex-shrink:0;}
-.tab:hover{color:var(--teal);}
-.tab.active{color:var(--teal);border-bottom-color:var(--teal);}
-.content{max-width:780px;margin:0 auto;padding:32px 24px;}
-.section{display:none;}
-.section.active{display:block;}
-.sec-title{font-size:22px;font-weight:800;letter-spacing:-0.02em;margin-bottom:6px;color:var(--navy);}
-.sec-sub{color:var(--text-muted);font-size:15px;margin-bottom:28px;line-height:1.6;}
-.theory-block{background:var(--white);border:2px solid var(--border);border-radius:18px;padding:28px;margin-bottom:20px;}
-.theory-block h3{font-size:17px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
-.th-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
-.th-teal{background:var(--teal-pale);}
-.th-gold{background:var(--gold-light);}
-.th-purple{background:var(--purple-light);}
-.info-box{background:var(--teal-pale);border:1.5px solid rgba(14,138,111,0.2);border-radius:12px;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.7;color:var(--text);}
-.info-box .ib-title{font-weight:700;color:var(--teal);margin-bottom:6px;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;}
-.warn-box{background:var(--gold-light);border:1.5px solid rgba(242,169,59,0.3);border-radius:12px;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.7;}
-.warn-box .wb-title{font-weight:700;color:#92400e;margin-bottom:6px;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;}
+@keyframes cFall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+@keyframes bIn{0%{transform:scale(0) rotate(-10deg);opacity:0}60%{transform:scale(1.2)}100%{transform:scale(1);opacity:1}}
+@keyframes sUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,201,167,.5)}100%{box-shadow:0 0 0 18px rgba(0,201,167,0)}}
+@keyframes streakAnim{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
 
-/* Conjugation table */
-.conj-table{width:100%;border-collapse:collapse;margin:16px 0;border-radius:12px;overflow:hidden;}
-.conj-table th{background:var(--navy);color:#fff;padding:12px 16px;text-align:left;font-size:13px;font-weight:600;}
-.conj-table td{padding:12px 16px;font-size:14px;border-bottom:1px solid var(--border);}
-.conj-table tr:last-child td{border-bottom:none;}
-.conj-table tr:nth-child(even) td{background:#fafbff;}
-.conj-table .en{font-weight:700;color:var(--navy);font-family:'DM Mono',monospace;}
-.conj-table .short{color:var(--teal);font-family:'DM Mono',monospace;}
-.conj-table .ru{color:var(--text-muted);}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:100px;overflow-x:hidden}
 
-/* Sentence builder */
-.sent-builder{background:var(--bg);border:2px solid var(--border);border-radius:14px;padding:20px;margin:16px 0;}
-.sb-title{font-size:13px;font-weight:700;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;}
-.sb-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
-.sb-block{padding:8px 16px;border-radius:8px;font-weight:700;font-size:15px;}
-.sb-subject{background:#dbeafe;color:#1e40af;}
-.sb-verb{background:var(--teal-pale);color:var(--teal);}
-.sb-rest{background:var(--gold-light);color:#92400e;}
-.sb-arrow{color:var(--text-muted);font-size:18px;}
-.sb-result{font-size:16px;font-weight:700;color:var(--navy);margin-top:4px;}
-.sb-translation{font-size:14px;color:var(--text-muted);}
+/* HEADER */
+.hdr{background:var(--navy);border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:200;padding:0 18px}
+.hdr-in{max-width:720px;margin:0 auto;height:56px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-b{background:var(--gold);color:var(--navy);font-weight:800;font-size:12px;padding:4px 10px;border-radius:7px}
+.logo-t{color:#fff;font-weight:700;font-size:14px}
+.hdr-r{display:flex;align-items:center;gap:8px}
+.streak{display:flex;align-items:center;gap:4px;background:rgba(255,184,48,.12);border:1px solid rgba(255,184,48,.3);border-radius:20px;padding:4px 10px;font-size:12px;font-weight:700;color:var(--gold);animation:streakAnim 2s infinite}
+.back{color:rgba(255,255,255,.6);font-size:11px;font-weight:600;text-decoration:none;padding:5px 11px;border:1px solid rgba(255,255,255,.15);border-radius:7px}
+.back:hover{background:rgba(255,255,255,.08);color:#fff}
 
-/* Negative/question boxes */
-.form-card{background:var(--white);border:2px solid var(--border);border-radius:14px;padding:20px;margin-bottom:14px;}
-.form-card h4{font-size:15px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
-.form-tag{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:0.05em;}
-.ft-neg{background:#fee2e2;color:#991b1b;}
-.ft-q{background:#ede9fe;color:#5b21b6;}
-.ft-pos{background:#d1fae5;color:#065f46;}
-.example-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;}
-.example-row:last-child{border-bottom:none;}
-.ex-en{font-weight:700;color:var(--navy);min-width:160px;}
-.ex-ru{color:var(--text-muted);}
+/* TIGER */
+.tiger-wrap{position:fixed;bottom:22px;right:18px;z-index:300;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.tiger-btn{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--orange));display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;box-shadow:0 4px 16px rgba(255,184,48,.4);animation:float 3s ease-in-out infinite;border:3px solid #fff;transition:transform .2s}
+.tiger-btn:hover{transform:scale(1.1)}
+.tiger-bbl{background:var(--navy);color:#fff;border-radius:14px 14px 3px 14px;padding:11px 14px;font-size:13px;font-weight:600;max-width:210px;line-height:1.5;box-shadow:0 6px 20px rgba(0,0,0,.25);opacity:0;transform:translateY(8px) scale(.92);transition:all .3s cubic-bezier(.34,1.56,.64,1);pointer-events:none;border:2px solid var(--gold)}
+.tiger-bbl.on{opacity:1;transform:translateY(0) scale(1)}
+.streak-pop{position:fixed;top:72px;left:50%;transform:translateX(-50%) translateY(-14px);background:linear-gradient(135deg,var(--gold),var(--orange));color:#fff;border-radius:14px;padding:10px 22px;font-size:14px;font-weight:800;opacity:0;transition:all .4s cubic-bezier(.34,1.56,.64,1);pointer-events:none;z-index:400;box-shadow:0 6px 20px rgba(255,150,0,.4);white-space:nowrap}
+.streak-pop.on{opacity:1;transform:translateX(-50%) translateY(0)}
 
-/* Quiz */
-.quiz-card{background:var(--white);border:2px solid var(--border);border-radius:18px;padding:28px;margin-bottom:20px;}
-.q-num{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;}
-.q-text{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:20px;line-height:1.5;}
-.q-sentence{font-size:22px;font-weight:800;color:var(--navy);text-align:center;padding:16px;background:var(--bg);border-radius:12px;margin-bottom:20px;font-family:'DM Mono',monospace;}
-.q-blank{color:var(--teal);border-bottom:3px solid var(--teal);padding:0 8px;min-width:60px;display:inline-block;text-align:center;}
-.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.opt-btn{background:var(--bg);border:2px solid var(--border);border-radius:12px;padding:14px 16px;font-size:15px;font-weight:600;font-family:'Sora',sans-serif;color:var(--text);cursor:pointer;text-align:left;transition:all 0.15s;display:flex;align-items:center;gap:10px;}
-.opt-btn:hover:not(:disabled){border-color:var(--teal);background:var(--teal-pale);}
-.opt-btn.correct{border-color:var(--green);background:var(--green-light);color:#065f46;}
-.opt-btn.wrong{border-color:var(--red);background:var(--red-light);color:#991b1b;}
-.opt-btn:disabled{cursor:default;}
-.explain-box{background:var(--teal-pale);border:1.5px solid rgba(14,138,111,0.2);border-radius:10px;padding:14px 18px;margin-top:16px;font-size:14px;line-height:1.7;display:none;}
-.explain-box.show{display:block;}
-.score-card{background:linear-gradient(135deg,var(--navy),#1a3a5c);border-radius:20px;padding:36px 28px;text-align:center;display:none;margin-top:24px;}
-.score-card.show{display:block;}
-.sc-emoji{font-size:48px;margin-bottom:16px;}
-.sc-score{font-size:48px;font-weight:800;color:var(--gold);font-family:'DM Mono',monospace;margin-bottom:8px;}
-.sc-msg{color:rgba(255,255,255,0.75);font-size:15px;margin-bottom:24px;line-height:1.6;}
-.sc-bar-wrap{background:rgba(255,255,255,0.1);border-radius:100px;height:8px;margin:0 auto 24px;max-width:300px;overflow:hidden;}
-.sc-bar{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width 1s ease;}
-.sc-next{background:linear-gradient(135deg,var(--teal),var(--teal-light));color:#fff;border:none;border-radius:12px;padding:14px 32px;font-size:15px;font-weight:700;font-family:'Sora',sans-serif;cursor:pointer;transition:all 0.2s;}
-.sc-next:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(14,138,111,0.35);}
-.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:16px;}
-.vocab-item{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;}
-.vi-en{font-weight:700;font-size:15px;color:var(--navy);}
-.vi-ipa{font-size:12px;color:var(--teal);font-family:'DM Mono',monospace;}
-.vi-ru{font-size:13px;color:var(--text-muted);}
-.tip-card{background:var(--white);border:2px solid var(--border);border-left:4px solid var(--teal);border-radius:14px;padding:20px 24px;margin-bottom:16px;}
-.tip-card h4{font-size:15px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
-.tip-card p{font-size:14px;color:var(--text-muted);line-height:1.7;}
-.tip-card.gold{border-left-color:var(--gold);}
-.tip-card.purple{border-left-color:var(--purple);}
-@media(max-width:600px){.opts{grid-template-columns:1fr;}.hero-inner{padding:56px 20px 28px;}.content{padding:24px 16px;}}
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 8% 50%,rgba(0,201,167,.13) 0%,transparent 60%),radial-gradient(ellipse at 92% 15%,rgba(255,184,48,.1) 0%,transparent 50%);pointer-events:none}
+.hero-blob{position:absolute;border-radius:50%;opacity:.07;pointer-events:none}
+.hero-blob:nth-child(1){width:200px;height:200px;background:var(--teal);top:-50px;right:-40px}
+.hero-blob:nth-child(2){width:140px;height:140px;background:var(--gold);bottom:-40px;left:10px}
+.hero-in{position:relative;max-width:720px;margin:0 auto;padding:36px 18px 26px}
+.hero-chips{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.chip{font-size:10px;font-weight:700;padding:4px 11px;border-radius:20px;letter-spacing:.06em}
+.chip-teal{background:rgba(0,201,167,.18);border:1px solid rgba(0,201,167,.35);color:#5de8c8}
+.chip-gold{background:rgba(255,184,48,.18);border:1px solid rgba(255,184,48,.35);color:var(--gold)}
+.hero-h{font-size:clamp(21px,5vw,34px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:9px;letter-spacing:-.02em}
+.hero-h .acc{color:var(--gold)}
+.hero-sub{font-size:13px;color:rgba(255,255,255,.58);line-height:1.7;margin-bottom:18px;max-width:500px}
+.eq-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px}
+.eq{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:7px 11px;text-align:center}
+.eq-l{color:rgba(255,255,255,.38);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:2px}
+.eq-v{color:#fff;font-weight:800;font-size:12px;font-family:'DM Mono',monospace}
+.goal{background:rgba(0,201,167,.1);border:1px solid rgba(0,201,167,.22);border-radius:11px;padding:13px 15px;display:flex;gap:9px;align-items:flex-start}
+.goal-i{font-size:18px;flex-shrink:0}
+.goal-t{font-size:12px;color:rgba(255,255,255,.78);line-height:1.6}
+.goal-t strong{color:#5de8c8}
+.pbar-wrap{height:5px;background:rgba(255,255,255,.08)}
+.pbar{height:5px;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width .7s ease;width:0%}
+
+/* TABS */
+.tabs-wrap{background:#fff;border-bottom:2px solid var(--border);position:sticky;top:56px;z-index:100}
+.tabs{max-width:720px;margin:0 auto;display:flex;overflow-x:auto}
+.tabs::-webkit-scrollbar{display:none}
+.tab{padding:13px 16px;font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .2s;flex-shrink:0;letter-spacing:.02em}
+.tab:hover{color:var(--teal)}
+.tab.on{color:var(--teal);border-bottom-color:var(--teal)}
+
+/* CONTENT */
+.cnt{max-width:720px;margin:0 auto;padding:24px 18px}
+.sec{display:none;animation:sUp .3s ease}
+.sec.on{display:block}
+
+/* CARDS */
+.card{background:#fff;border:2px solid var(--border);border-radius:18px;padding:22px;margin-bottom:14px;transition:border-color .2s}
+.card:hover{border-color:var(--teal)}
+.c-title{font-size:15px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:9px;letter-spacing:-.01em}
+.c-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.ci-t{background:var(--tp)}.ci-g{background:var(--gp)}.ci-p{background:var(--pp)}.ci-r{background:var(--rp)}
+
+.tip{background:var(--tp);border:1.5px solid rgba(0,201,167,.22);border-radius:11px;padding:13px 15px;margin:12px 0;font-size:13px;line-height:1.7}
+.tip .tip-l{font-weight:800;color:var(--teal2);font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.warn{background:var(--gp);border:1.5px solid rgba(255,184,48,.28);border-radius:11px;padding:13px 15px;margin:12px 0;font-size:13px;line-height:1.7}
+.warn .warn-l{font-weight:800;color:var(--gold2);font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.er{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px}
+.er:last-child{border-bottom:none}
+.er-en{font-weight:800;color:var(--navy);min-width:150px}
+.er-ru{color:var(--muted)}
+
+/* TABLE */
+.ctable{width:100%;border-collapse:collapse;border-radius:12px;overflow:hidden;margin:12px 0}
+.ctable th{background:var(--navy);color:#fff;padding:11px 14px;text-align:left;font-size:12px;font-weight:600}
+.ctable td{padding:11px 14px;font-size:13px;border-bottom:1px solid var(--border)}
+.ctable tr:last-child td{border-bottom:none}
+.ctable tr:nth-child(even) td{background:#fafbff}
+.ctable .en{font-weight:700;color:var(--navy);font-family:'DM Mono',monospace}
+.ctable .sh{color:var(--teal2);font-family:'DM Mono',monospace}
+.ctable .ru{color:var(--muted)}
+
+/* SENT BUILDER */
+.sbox{background:var(--bg);border:2px solid var(--border);border-radius:12px;padding:16px;margin:12px 0}
+.sb-parts{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:8px}
+.sb-b{padding:7px 13px;border-radius:7px;font-weight:700;font-size:13px}
+.sb-s{background:#dbeafe;color:#1e40af}
+.sb-v{background:var(--tp);color:var(--teal2)}
+.sb-o{background:var(--gp);color:#92400e}
+.sb-r{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:3px}
+.sb-ru{font-size:12px;color:var(--muted)}
+
+/* QUIZ */
+.qcard{background:#fff;border:2px solid var(--border);border-radius:18px;padding:22px;margin-bottom:14px;transition:all .3s}
+.q-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px}
+.q-num{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.q-tag{font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px}
+.qt-g{background:var(--pp);color:var(--purple)}
+.qt-v{background:var(--tp);color:var(--teal2)}
+.q-text{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:14px;line-height:1.5;letter-spacing:-.01em}
+.q-sent{font-size:19px;font-weight:800;text-align:center;padding:13px;background:var(--bg);border-radius:12px;margin-bottom:14px;font-family:'DM Mono',monospace;color:var(--navy);border:2px dashed var(--border)}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.opt{background:var(--bg);border:2px solid var(--border);border-radius:12px;padding:13px 14px;font-size:13px;font-weight:700;font-family:'Sora',sans-serif;color:var(--text);cursor:pointer;text-align:left;transition:all .15s;display:flex;align-items:center;gap:7px}
+.opt:hover:not(:disabled){border-color:var(--teal);background:var(--tp);transform:translateY(-1px)}
+.opt:disabled{cursor:default}
+.opt.ok{border-color:var(--green);background:var(--grnp);color:#065f46;animation:pulse .5s ease}
+.opt.no{border-color:var(--red);background:var(--rp);color:#991b1b;animation:shake .4s ease}
+.opt-l{width:24px;height:24px;border-radius:7px;background:rgba(0,0,0,.06);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.expl{background:linear-gradient(135deg,var(--tp),#f0fff8);border:1.5px solid rgba(0,201,167,.22);border-radius:11px;padding:13px 15px;margin-top:12px;font-size:13px;line-height:1.7;display:none;animation:sUp .3s ease}
+.expl.on{display:block}
+
+/* SCORE */
+.scard{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:22px;padding:38px 26px;text-align:center;display:none;margin-top:18px;border:2px solid rgba(255,184,48,.28)}
+.scard.on{display:block;animation:bIn .5s ease}
+.sc-emoji{font-size:54px;display:block;margin-bottom:10px}
+.sc-num{font-size:50px;font-weight:800;color:var(--gold);font-family:'DM Mono',monospace;line-height:1;margin-bottom:5px}
+.sc-sub{color:rgba(255,255,255,.45);font-size:12px;margin-bottom:18px}
+.sc-bw{background:rgba(255,255,255,.1);border-radius:100px;height:9px;max-width:280px;margin:0 auto 18px;overflow:hidden}
+.sc-b{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width 1.2s ease}
+.sc-msg{color:rgba(255,255,255,.8);font-size:14px;font-weight:600;margin-bottom:22px;line-height:1.6;padding:0 8px}
+.sc-badges{display:flex;justify-content:center;gap:9px;margin-bottom:22px;flex-wrap:wrap}
+.sc-badge{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:11px;padding:9px 14px;font-size:12px;text-align:center}
+.scb-icon{font-size:20px;display:block;margin-bottom:3px}
+.scb-l{color:rgba(255,255,255,.5);font-size:9px;font-weight:600;display:block}
+.scb-v{color:#fff;font-weight:800;font-size:12px}
+.sc-btn{background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff;border:none;border-radius:13px;padding:14px 32px;font-size:14px;font-weight:800;font-family:'Sora',sans-serif;cursor:pointer;transition:all .2s}
+.sc-btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,201,167,.4)}
+
+/* VOCAB */
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:9px;margin-top:12px}
+.vi{background:var(--bg);border:1.5px solid var(--border);border-radius:11px;padding:11px 13px;transition:all .2s;cursor:default}
+.vi:hover{border-color:var(--teal);transform:translateY(-1px)}
+.vi-en{font-weight:800;font-size:13px;color:var(--navy)}
+.vi-ipa{font-size:10px;color:var(--teal2);font-family:'DM Mono',monospace;margin:2px 0}
+.vi-ru{font-size:11px;color:var(--muted)}
+
+/* TIP CARDS */
+.tc{background:#fff;border:2px solid var(--border);border-left:5px solid var(--teal);border-radius:13px;padding:16px 18px;margin-bottom:12px}
+.tc h4{font-size:13px;font-weight:800;margin-bottom:5px;display:flex;align-items:center;gap:7px}
+.tc p{font-size:12px;color:var(--muted);line-height:1.7}
+.tc.gold{border-left-color:var(--gold)}
+.tc.purple{border-left-color:var(--purple)}
+
+/* ALPHA GRID */
+.agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(62px,1fr));gap:7px;margin-top:12px}
+.lc{background:var(--bg);border:2px solid var(--border);border-radius:11px;padding:10px 7px;text-align:center;cursor:pointer;transition:all .15s}
+.lc:hover,.lc.on{border-color:var(--teal);background:var(--tp);transform:translateY(-2px)}
+.lc-big{font-size:20px;font-weight:800;color:var(--navy);line-height:1}
+.lc-sm{font-size:12px;color:var(--muted);margin:2px 0}
+.lc-s{font-size:9px;color:var(--teal2);font-family:'DM Mono',monospace;font-weight:700}
+
+/* FLASHCARD */
+.fwrap{perspective:1000px;margin-bottom:18px}
+.fc{width:100%;min-height:150px;position:relative;transform-style:preserve-3d;transition:transform .5s;cursor:pointer;border-radius:18px}
+.fc.flip{transform:rotateY(180deg)}
+.fc-f,.fc-b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px;text-align:center}
+.fc-f{background:linear-gradient(135deg,var(--navy),var(--navy2));border:2px solid rgba(255,255,255,.07)}
+.fc-b{background:linear-gradient(135deg,var(--teal2),var(--teal));transform:rotateY(180deg)}
+.fc-letter{font-size:60px;font-weight:800;color:#fff;line-height:1;margin-bottom:5px}
+.fc-hint{font-size:11px;color:rgba(255,255,255,.38)}
+.fc-snd{font-size:26px;font-weight:800;color:#fff;font-family:'DM Mono',monospace;margin-bottom:5px}
+.fc-wd{font-size:15px;font-weight:700;color:rgba(255,255,255,.9);margin-bottom:3px}
+.fc-tr{font-size:12px;color:rgba(255,255,255,.68)}
+.fcnav{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:20px}
+.fcbtn{background:#fff;border:2px solid var(--border);border-radius:9px;padding:9px 18px;font-size:12px;font-weight:700;font-family:'Sora',sans-serif;color:var(--text);cursor:pointer;transition:all .15s}
+.fcbtn:hover{border-color:var(--teal);color:var(--teal)}
+.fccnt{font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);min-width:46px;text-align:center}
+
+@media(max-width:480px){
+  .opts{grid-template-columns:1fr}
+  .agrid{grid-template-columns:repeat(5,1fr)}
+  .hero-in{padding:32px 15px 22px}
+  .cnt{padding:18px 14px}
+}
 </style>
 </head>
 <body>
-<script>
-if(localStorage.getItem('ielts_a0_access')!=='granted'){window.location.href='payment_a0.html';}
-</script>
-<a href="index_ielts.html" class="back-btn">← Все уроки</a>
-
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="logo"><span class="logo-b">AtoC</span><span class="logo-t">IELTS from Zero</span></div>
+    <div class="hdr-r"><span class="streak" id="snum">🔥 0</span><a href="index.html" class="back">← Уроки</a></div>
+  </div>
+</header>
+<!-- Tiger -->
+<div class="tiger-wrap">
+  <div class="tiger-bbl" id="tb"><span id="tt"></span></div>
+  <div class="tiger-btn" onclick="tsay('tap')">🐯</div>
+</div>
+<div class="streak-pop" id="spop"></div>
+<!-- Hero -->
 <div class="hero">
-  <div class="hero-pattern"></div>
-  <div class="hero-inner">
-    <div class="hero-top">
-      <span class="atoc-logo">AtoC</span>
-      <span class="level-badge">A0 · Beginner</span>
-      <span class="lesson-badge">Урок 2 из 8</span>
+  <div class="hero-bg"></div>
+  <div class="hero-blob"></div><div class="hero-blob"></div>
+  <div class="hero-in">
+    <div class="hero-chips">
+      <span class="chip chip-teal">A0 · Beginner</span>
+      <span class="chip chip-gold">Урок 2 из 8</span>
     </div>
-    <h1 class="hero-title">Глагол <span>TO BE</span><br>— самый важный глагол</h1>
-    <p class="hero-sub">«Быть» — это основа всего. Без TO BE невозможно построить ни одно простое предложение на английском. Разберём раз и навсегда.</p>
-    <div class="equiv-bar">
-      <div class="equiv-pill"><div class="ep-label">IELTS</div><div class="ep-val">0 – 2.0</div></div>
-      <div class="equiv-pill"><div class="ep-label">TOEFL</div><div class="ep-val">0 – 30</div></div>
-      <div class="equiv-pill"><div class="ep-label">Duolingo</div><div class="ep-val">10 – 50</div></div>
-      <div class="equiv-pill"><div class="ep-label">CEFR</div><div class="ep-val">Pre-A1</div></div>
+    <h1 class="hero-h">Глагол<br><span class="acc">TO BE — самый важный</span></h1>
+    <p class="hero-sub">«Быть» — основа всего. Без TO BE невозможно построить ни одно простое предложение!</p>
+    <div class="eq-row">
+      <div class="eq"><span class="eq-l">IELTS</span><span class="eq-v">0–2.0</span></div>
+      <div class="eq"><span class="eq-l">TOEFL</span><span class="eq-v">0–30</span></div>
+      <div class="eq"><span class="eq-l">Duolingo</span><span class="eq-v">10–50</span></div>
+      <div class="eq"><span class="eq-l">CEFR</span><span class="eq-v">Pre-A1</span></div>
     </div>
-    <div class="goal-box">
-      <div class="goal-icon">🎯</div>
-      <div class="goal-text"><strong>После этого урока ты сможешь:</strong> сказать кто ты есть, откуда ты, как тебя зовут — и понять когда кто-то говорит то же самое о себе</div>
-    </div>
+    <div class="goal"><div class="goal-i">🎯</div><div class="goal-t"><strong>После урока ты сможешь: представиться, рассказать кто ты и откуда</strong></div></div>
   </div>
-  <div class="progress-track"><div class="progress-fill" id="progress" style="width:20%"></div></div>
+  <div class="pbar-wrap"><div class="pbar" id="pbar" style="width:2%"></div></div>
+</div>
+<div class="tabs-wrap"><div class="tabs"><div class="tab on" onclick="showTab('theory',this)">📖 Теория</div><div class="tab" onclick="showTab('forms',this)">📋 Формы</div><div class="tab" onclick="showTab('neg',this)">❌ Отрицание</div><div class="tab" onclick="showTab('practice',this)">✏️ Практика</div><div class="tab" onclick="showTab('vocab',this)">📝 Словарь</div></div></div>
+<div class="cnt">
+
+<div class="sec on" id="t-theory">
+  <div class="card"><div class="c-title"><span class="c-icon ci-t">🇷🇺</span>Сравни русский и английский</div>
+    <p style="font-size:13px;line-height:1.8;color:var(--muted);margin-bottom:12px">В русском мы говорим «Я студент» и опускаем глагол «есть». В английском — НЕЛЬЗЯ. Он всегда должен быть!</p>
+    <div class="er"><span class="er-en">Я студент.</span><span class="er-ru">→ I <strong>am</strong> a student. (нельзя: «I student»)</span></div>
+    <div class="er"><span class="er-en">Она красивая.</span><span class="er-ru">→ She <strong>is</strong> beautiful. (нельзя: «She beautiful»)</span></div>
+    <div class="er"><span class="er-en">Мы дома.</span><span class="er-ru">→ We <strong>are</strong> at home. (нельзя: «We at home»)</span></div>
+    <div class="tip"><div class="tip-l">🔑 Главное правило</div>В английском предложении всегда должен быть глагол. Если другого нет — используй TO BE!</div>
+  </div>
+  <div class="card"><div class="c-title"><span class="c-icon ci-g">📊</span>3 формы TO BE в настоящем</div>
+    <table class="ctable">
+      <thead><tr><th>Подлежащее</th><th>Форма</th><th>Краткая</th></tr></thead>
+      <tbody>
+        <tr><td>I</td><td class="en">am</td><td class="sh">'m</td></tr>
+        <tr><td>He / She / It</td><td class="en">is</td><td class="sh">'s</td></tr>
+        <tr><td>You / We / They</td><td class="en">are</td><td class="sh">'re</td></tr>
+      </tbody>
+    </table>
+    <div class="warn"><div class="warn-l">⚠️ Классическая ошибка</div>«I is» или «He am» — это грубая ошибка! <strong>I — только am, He/She/It — только is, You/We/They — только are</strong>. Запомни раз и навсегда!</div>
+  </div>
+  <div class="card"><div class="c-title"><span class="c-icon ci-p">💬</span>Примеры с краткими формами</div>
+    <div class="sbox"><div class="sb-parts"><span class="sb-b sb-s">I</span><span>+</span><span class="sb-b sb-v">'m</span><span>+</span><span class="sb-b sb-o">happy</span></div><div class="sb-r">→ I'm happy.</div><div class="sb-ru">Я счастлив/а.</div></div>
+    <div class="sbox"><div class="sb-parts"><span class="sb-b sb-s">She</span><span>+</span><span class="sb-b sb-v">'s</span><span>+</span><span class="sb-b sb-o">a doctor</span></div><div class="sb-r">→ She's a doctor.</div><div class="sb-ru">Она врач.</div></div>
+    <div class="sbox"><div class="sb-parts"><span class="sb-b sb-s">They</span><span>+</span><span class="sb-b sb-v">'re</span><span>+</span><span class="sb-b sb-o">from Kazakhstan</span></div><div class="sb-r">→ They're from Kazakhstan.</div><div class="sb-ru">Они из Казахстана.</div></div>
+  </div>
 </div>
 
-<div class="tabs-wrap">
-  <div class="tabs">
-    <div class="tab active" onclick="showTab('theory',this)">📖 Теория</div>
-    <div class="tab" onclick="showTab('forms',this)">📋 Формы</div>
-    <div class="tab" onclick="showTab('negative',this)">❌ Отрицание</div>
-    <div class="tab" onclick="showTab('practice',this)">✏️ Практика</div>
-    <div class="tab" onclick="showTab('vocab',this)">📝 Словарь</div>
+<div class="sec" id="t-forms">
+  <div class="card"><div class="c-title"><span class="c-icon ci-t">✅</span>Утвердительные предложения</div>
+    <div class="er"><span class="er-en">I am Ali.</span><span class="er-ru">Меня зовут Али.</span></div>
+    <div class="er"><span class="er-en">I am 20 years old.</span><span class="er-ru">Мне 20 лет.</span></div>
+    <div class="er"><span class="er-en">I am from Almaty.</span><span class="er-ru">Я из Алматы.</span></div>
+    <div class="er"><span class="er-en">She is a teacher.</span><span class="er-ru">Она учительница.</span></div>
+    <div class="er"><span class="er-en">It is cold today.</span><span class="er-ru">Сегодня холодно.</span></div>
+    <div class="er"><span class="er-en">We are students.</span><span class="er-ru">Мы студенты.</span></div>
+    <div class="tip"><div class="tip-l">💡 Про IT</div><strong>It</strong> — для вещей, погоды, времени: It is hot. It is Monday. It is a cat.</div>
+  </div>
+  <div class="card"><div class="c-title"><span class="c-icon ci-p">❓</span>Вопрос — просто переставь!</div>
+    <div class="er"><span class="er-en">Are you a student?</span><span class="er-ru">Ты студент?</span></div>
+    <div class="er"><span class="er-en">Is she from Russia?</span><span class="er-ru">Она из России?</span></div>
+    <div class="er"><span class="er-en">Is it cold?</span><span class="er-ru">Холодно?</span></div>
+    <div class="er"><span class="er-en">Am I late?</span><span class="er-ru">Я опоздал?</span></div>
+    <div class="tip"><div class="tip-l">📐 Формула</div>IS/AM/ARE + подлежащее + остальное?<br>Yes, I am. / No, I'm not. (в кратких ответах НЕ сокращаем «Yes, I'm» ❌)</div>
   </div>
 </div>
 
-<div class="content">
-
-  <!-- THEORY -->
-  <div class="section active" id="tab-theory">
-    <div class="sec-title">Что такое TO BE и зачем он нужен?</div>
-    <p class="sec-sub">В русском языке мы говорим «Я студент», «Она красивая», «Мы дома». Глагол «есть/являться» мы обычно опускаем. В английском — НЕЛЬЗЯ. Он всегда должен быть!</p>
-
-    <div class="theory-block">
-      <h3><span class="th-icon th-teal">🇷🇺</span> Сравни русский и английский</h3>
-      <div class="example-row">
-        <span class="ex-en">Я студент.</span>
-        <span class="ex-ru">→ I <strong>am</strong> a student. (нельзя: «I student»)</span>
-      </div>
-      <div class="example-row">
-        <span class="ex-en">Она красивая.</span>
-        <span class="ex-ru">→ She <strong>is</strong> beautiful. (нельзя: «She beautiful»)</span>
-      </div>
-      <div class="example-row">
-        <span class="ex-en">Мы дома.</span>
-        <span class="ex-ru">→ We <strong>are</strong> at home. (нельзя: «We at home»)</span>
-      </div>
-      <div class="example-row">
-        <span class="ex-en">Он устал.</span>
-        <span class="ex-ru">→ He <strong>is</strong> tired. (нельзя: «He tired»)</span>
-      </div>
-      <div class="info-box">
-        <div class="ib-title">🔑 Главное правило</div>
-        В английском предложении <strong>всегда должен быть глагол</strong>. Если другого глагола нет — используй TO BE. Это «глагол-связка».
-      </div>
-    </div>
-
-    <div class="theory-block">
-      <h3><span class="th-icon th-gold">📊</span> TO BE имеет 3 формы в настоящем времени</h3>
-      <table class="conj-table">
-        <thead><tr><th>Местоимение</th><th>Полная форма</th><th>Краткая форма</th><th>По-русски</th></tr></thead>
-        <tbody>
-          <tr><td>I</td><td class="en">am</td><td class="short">'m</td><td class="ru">я есть / я</td></tr>
-          <tr><td>He / She / It</td><td class="en">is</td><td class="short">'s</td><td class="ru">он/она/оно есть</td></tr>
-          <tr><td>You / We / They</td><td class="en">are</td><td class="short">'re</td><td class="ru">ты/мы/они есть</td></tr>
-        </tbody>
-      </table>
-      <div class="warn-box">
-        <div class="wb-title">⚠️ Частая ошибка</div>
-        Многие говорят «I is» или «He am» — это грубая ошибка! Запомни: <strong>I — только am, He/She/It — только is, You/We/They — только are</strong>.
-      </div>
-    </div>
-
-    <div class="theory-block">
-      <h3><span class="th-icon th-purple">💬</span> Краткие формы — так говорят в жизни</h3>
-      <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px">В разговорной речи почти всегда используют краткие формы. Полные формы — для письма и официальных ситуаций.</p>
-      <div class="sent-builder">
-        <div class="sb-title">Примеры с краткими формами</div>
-        <div class="sb-row"><span class="sb-block sb-subject">I</span><span class="sb-arrow">+</span><span class="sb-block sb-verb">'m</span><span class="sb-arrow">+</span><span class="sb-block sb-rest">happy</span></div>
-        <div class="sb-result">→ I'm happy.</div><div class="sb-translation">Я счастлив/а.</div>
-      </div>
-      <div class="sent-builder">
-        <div class="sb-row"><span class="sb-block sb-subject">She</span><span class="sb-arrow">+</span><span class="sb-block sb-verb">'s</span><span class="sb-arrow">+</span><span class="sb-block sb-rest">a doctor</span></div>
-        <div class="sb-result">→ She's a doctor.</div><div class="sb-translation">Она врач.</div>
-      </div>
-      <div class="sent-builder">
-        <div class="sb-row"><span class="sb-block sb-subject">They</span><span class="sb-arrow">+</span><span class="sb-block sb-verb">'re</span><span class="sb-arrow">+</span><span class="sb-block sb-rest">from Kazakhstan</span></div>
-        <div class="sb-result">→ They're from Kazakhstan.</div><div class="sb-translation">Они из Казахстана.</div>
-      </div>
-    </div>
-
-    <div style="text-align:center;margin-top:32px">
-      <button onclick="showTab('forms',document.querySelectorAll('.tab')[1])" style="background:var(--teal);color:#fff;border:none;border-radius:12px;padding:14px 32px;font-size:15px;font-weight:700;font-family:'Sora',sans-serif;cursor:pointer">Смотреть все формы →</button>
-    </div>
+<div class="sec" id="t-neg">
+  <div class="card"><div class="c-title"><span class="c-icon ci-r">❌</span>Отрицание — добавь NOT</div>
+    <table class="ctable">
+      <thead><tr><th>Утверждение</th><th>Отрицание</th><th>Кратко</th></tr></thead>
+      <tbody>
+        <tr><td class="en">I am</td><td class="en">I am not</td><td class="sh">I'm not</td></tr>
+        <tr><td class="en">He/She/It is</td><td class="en">is not</td><td class="sh">isn't</td></tr>
+        <tr><td class="en">You/We/They are</td><td class="en">are not</td><td class="sh">aren't</td></tr>
+      </tbody>
+    </table>
+    <div class="er"><span class="er-en">I'm not tired.</span><span class="er-ru">Я не устал/а.</span></div>
+    <div class="er"><span class="er-en">She isn't a doctor.</span><span class="er-ru">Она не врач.</span></div>
+    <div class="er"><span class="er-en">We aren't from Russia.</span><span class="er-ru">Мы не из России.</span></div>
+    <div class="warn"><div class="warn-l">⚠️ Важно!</div><strong>I amn't</strong> — так нельзя! Только <strong>I'm not</strong>. Для остальных: isn't / aren't.</div>
   </div>
+</div>
 
-  <!-- FORMS -->
-  <div class="section" id="tab-forms">
-    <div class="sec-title">Все формы TO BE</div>
-    <p class="sec-sub">Утвердительные предложения — когда мы что-то говорим о себе или других.</p>
-
-    <div class="form-card">
-      <h4><span class="form-tag ft-pos">+ Утверждение</span> Положительные предложения</h4>
-      <div class="example-row"><span class="ex-en">I am Ali.</span><span class="ex-ru">Меня зовут Али. / Я — Али.</span></div>
-      <div class="example-row"><span class="ex-en">I am 20 years old.</span><span class="ex-ru">Мне 20 лет.</span></div>
-      <div class="example-row"><span class="ex-en">I am from Almaty.</span><span class="ex-ru">Я из Алматы.</span></div>
-      <div class="example-row"><span class="ex-en">He is a teacher.</span><span class="ex-ru">Он учитель.</span></div>
-      <div class="example-row"><span class="ex-en">She is beautiful.</span><span class="ex-ru">Она красивая.</span></div>
-      <div class="example-row"><span class="ex-en">It is cold today.</span><span class="ex-ru">Сегодня холодно.</span></div>
-      <div class="example-row"><span class="ex-en">We are students.</span><span class="ex-ru">Мы студенты.</span></div>
-      <div class="example-row"><span class="ex-en">You are very kind.</span><span class="ex-ru">Ты очень добрый.</span></div>
-      <div class="example-row"><span class="ex-en">They are friends.</span><span class="ex-ru">Они друзья.</span></div>
-    </div>
-
-    <div class="info-box">
-      <div class="ib-title">💡 Про IT</div>
-      <strong>It</strong> — это «оно», используется для вещей, животных (если пол неизвестен), погоды, времени:<br>
-      • <strong>It is hot.</strong> — Жарко.<br>
-      • <strong>It is a cat.</strong> — Это кошка.<br>
-      • <strong>It is Monday.</strong> — Сегодня понедельник.
-    </div>
-
-    <div class="form-card" style="margin-top:20px">
-      <h4><span class="form-tag ft-q">? Вопрос</span> Как задать вопрос — просто переставь!</h4>
-      <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px">Чтобы задать вопрос с TO BE — просто поставь глагол <strong>перед</strong> подлежащим:</p>
-      <div class="example-row"><span class="ex-en">Are you a student?</span><span class="ex-ru">Ты студент?</span></div>
-      <div class="example-row"><span class="ex-en">Is she from Russia?</span><span class="ex-ru">Она из России?</span></div>
-      <div class="example-row"><span class="ex-en">Is it cold?</span><span class="ex-ru">Холодно?</span></div>
-      <div class="example-row"><span class="ex-en">Are they teachers?</span><span class="ex-ru">Они учителя?</span></div>
-      <div class="example-row"><span class="ex-en">Am I late?</span><span class="ex-ru">Я опоздал?</span></div>
-    </div>
+<div class="sec" id="t-practice">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;padding:13px 16px;background:linear-gradient(135deg,var(--gp),#fff);border-radius:13px;border:1.5px solid rgba(255,184,48,.22)">
+    <span style="font-size:22px">🐯</span>
+    <div><div style="font-weight:800;font-size:13px">Покажи что запомнил(а)!</div>
+    <div style="font-size:11px;color:var(--muted)">7 вопросов · думай · тигр болеет за тебя!</div></div>
   </div>
-
-  <!-- NEGATIVE -->
-  <div class="section" id="tab-negative">
-    <div class="sec-title">Отрицательные предложения</div>
-    <p class="sec-sub">Чтобы сказать «не», добавь <strong>NOT</strong> после TO BE. Всё просто!</p>
-
-    <div class="theory-block">
-      <h3><span class="th-icon th-teal">❌</span> Правило отрицания</h3>
-      <table class="conj-table">
-        <thead><tr><th>Утверждение</th><th>Отрицание</th><th>Краткая форма</th></tr></thead>
-        <tbody>
-          <tr><td class="en">I am</td><td class="en">I am not</td><td class="short">I'm not</td></tr>
-          <tr><td class="en">He/She/It is</td><td class="en">He/She/It is not</td><td class="short">He's not / He isn't</td></tr>
-          <tr><td class="en">You/We/They are</td><td class="en">You/We/They are not</td><td class="short">You're not / You aren't</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="form-card">
-      <h4><span class="form-tag ft-neg">— Отрицание</span> Примеры</h4>
-      <div class="example-row"><span class="ex-en">I'm not tired.</span><span class="ex-ru">Я не устал/а.</span></div>
-      <div class="example-row"><span class="ex-en">She isn't a doctor.</span><span class="ex-ru">Она не врач.</span></div>
-      <div class="example-row"><span class="ex-en">We aren't from Russia.</span><span class="ex-ru">Мы не из России.</span></div>
-      <div class="example-row"><span class="ex-en">It isn't cold today.</span><span class="ex-ru">Сегодня не холодно.</span></div>
-      <div class="example-row"><span class="ex-en">They aren't students.</span><span class="ex-ru">Они не студенты.</span></div>
-    </div>
-
-    <div class="warn-box">
-      <div class="wb-title">⚠️ Важно!</div>
-      <strong>I amn't</strong> — так нельзя! Только <strong>I'm not</strong>.<br>
-      Для всех остальных: <strong>isn't</strong> = is not, <strong>aren't</strong> = are not.
-    </div>
-
-    <div class="info-box" style="margin-top:16px">
-      <div class="ib-title">🗣️ Короткие ответы</div>
-      На вопрос «Are you a student?» отвечают так:<br>
-      ✅ <strong>Yes, I am.</strong> — Да. (нельзя сказать «Yes, I'm» в коротком ответе!)<br>
-      ❌ <strong>No, I'm not.</strong> — Нет.<br><br>
-      На «Is she happy?»:<br>
-      ✅ <strong>Yes, she is.</strong> / ❌ <strong>No, she isn't.</strong>
-    </div>
+  <div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 1/7</span><span class="q-tag qt-g">Grammar</span></div>
+  <div class="q-text">Выбери правильную форму:</div><div class="q-sent">I ___ a student.</div>
+  <div class="opts" id="q1-o"><button class="opt" id="q1-A" onclick="ans(1,'A','B',7,'LKEY')"><span class="opt-l">A</span>is</button><button class="opt" id="q1-B" onclick="ans(1,'B','B',7,'LKEY')"><span class="opt-l">B</span>am</button><button class="opt" id="q1-C" onclick="ans(1,'C','B',7,'LKEY')"><span class="opt-l">C</span>are</button><button class="opt" id="q1-D" onclick="ans(1,'D','B',7,'LKEY')"><span class="opt-l">D</span>be</button></div>
+  <div class="expl" id="q1-e">✅ <strong>I am</strong> — с местоимением I всегда только AM. Никакого is или are!</div>
+</div><div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 2/7</span><span class="q-tag qt-g">Grammar</span></div>
+  <div class="q-text">Выбери правильную форму:</div><div class="q-sent">She ___ from Kazakhstan.</div>
+  <div class="opts" id="q2-o"><button class="opt" id="q2-A" onclick="ans(2,'A','C',7,'LKEY')"><span class="opt-l">A</span>am</button><button class="opt" id="q2-B" onclick="ans(2,'B','C',7,'LKEY')"><span class="opt-l">B</span>are</button><button class="opt" id="q2-C" onclick="ans(2,'C','C',7,'LKEY')"><span class="opt-l">C</span>is</button><button class="opt" id="q2-D" onclick="ans(2,'D','C',7,'LKEY')"><span class="opt-l">D</span>be</button></div>
+  <div class="expl" id="q2-e">✅ <strong>She is</strong> — He/She/It всегда IS. Запомни: одно лицо → is.</div>
+</div><div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 3/7</span><span class="q-tag qt-g">Grammar</span></div>
+  <div class="q-text">Выбери правильную форму:</div><div class="q-sent">We ___ friends.</div>
+  <div class="opts" id="q3-o"><button class="opt" id="q3-A" onclick="ans(3,'A','C',7,'LKEY')"><span class="opt-l">A</span>is</button><button class="opt" id="q3-B" onclick="ans(3,'B','C',7,'LKEY')"><span class="opt-l">B</span>am</button><button class="opt" id="q3-C" onclick="ans(3,'C','C',7,'LKEY')"><span class="opt-l">C</span>are</button><button class="opt" id="q3-D" onclick="ans(3,'D','C',7,'LKEY')"><span class="opt-l">D</span>be</button></div>
+  <div class="expl" id="q3-e">✅ <strong>We are</strong> — You/We/They всегда ARE.</div>
+</div><div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 4/7</span><span class="q-tag qt-g">Grammar</span></div>
+  <div class="q-text">Как правильно: «Она не врач»?</div>
+  <div class="opts" id="q4-o"><button class="opt" id="q4-A" onclick="ans(4,'A','B',7,'LKEY')"><span class="opt-l">A</span>She not is a doctor.</button><button class="opt" id="q4-B" onclick="ans(4,'B','B',7,'LKEY')"><span class="opt-l">B</span>She isn't a doctor.</button><button class="opt" id="q4-C" onclick="ans(4,'C','B',7,'LKEY')"><span class="opt-l">C</span>She amn't a doctor.</button><button class="opt" id="q4-D" onclick="ans(4,'D','B',7,'LKEY')"><span class="opt-l">D</span>She no a doctor.</button></div>
+  <div class="expl" id="q4-e">✅ <strong>She isn't a doctor.</strong> — isn't = is not. NOT всегда идёт ПОСЛЕ глагола TO BE.</div>
+</div><div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 5/7</span><span class="q-tag qt-g">Grammar</span></div>
+  <div class="q-text">Как задать вопрос «Ты устал?»</div>
+  <div class="opts" id="q5-o"><button class="opt" id="q5-A" onclick="ans(5,'A','B',7,'LKEY')"><span class="opt-l">A</span>You are tired?</button><button class="opt" id="q5-B" onclick="ans(5,'B','B',7,'LKEY')"><span class="opt-l">B</span>Are you tired?</button><button class="opt" id="q5-C" onclick="ans(5,'C','B',7,'LKEY')"><span class="opt-l">C</span>Is you tired?</button><button class="opt" id="q5-D" onclick="ans(5,'D','B',7,'LKEY')"><span class="opt-l">D</span>You tired?</button></div>
+  <div class="expl" id="q5-e">✅ <strong>Are you tired?</strong> — В вопросе TO BE ставится НА ПЕРВОЕ место!</div>
+</div><div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 6/7</span><span class="q-tag qt-g">Grammar</span></div>
+  <div class="q-text">Правильный ответ на «Is she a teacher?» — ДА:</div>
+  <div class="opts" id="q6-o"><button class="opt" id="q6-A" onclick="ans(6,'A','C',7,'LKEY')"><span class="opt-l">A</span>Yes, she's.</button><button class="opt" id="q6-B" onclick="ans(6,'B','C',7,'LKEY')"><span class="opt-l">B</span>Yes, is.</button><button class="opt" id="q6-C" onclick="ans(6,'C','C',7,'LKEY')"><span class="opt-l">C</span>Yes, she is.</button><button class="opt" id="q6-D" onclick="ans(6,'D','C',7,'LKEY')"><span class="opt-l">D</span>Yes, she are.</button></div>
+  <div class="expl" id="q6-e">✅ <strong>Yes, she is.</strong> — В коротком утвердительном ответе нельзя использовать краткую форму 's. Только полная IS!</div>
+</div><div class="qcard">
+  <div class="q-hdr"><span class="q-num">Вопрос 7/7</span><span class="q-tag qt-v">Vocab</span></div>
+  <div class="q-text">Что означает «It's cold today»?</div>
+  <div class="opts" id="q7-o"><button class="opt" id="q7-A" onclick="ans(7,'A','B',7,'LKEY')"><span class="opt-l">A</span>Он холодный.</button><button class="opt" id="q7-B" onclick="ans(7,'B','B',7,'LKEY')"><span class="opt-l">B</span>Сегодня холодно.</button><button class="opt" id="q7-C" onclick="ans(7,'C','B',7,'LKEY')"><span class="opt-l">C</span>Это холодно.</button><button class="opt" id="q7-D" onclick="ans(7,'D','B',7,'LKEY')"><span class="opt-l">D</span>Они холодные.</button></div>
+  <div class="expl" id="q7-e">✅ <strong>Сегодня холодно.</strong> — IT используется для погоды. «It's cold» = «Холодно», «It's Monday» = «Сегодня понедельник».</div>
+</div>
+  <div class="scard" id="scard">
+  <span class="sc-emoji" id="sc-em">🐯</span>
+  <div class="sc-num" id="sc-n">0/7</div>
+  <div class="sc-sub">правильных ответов</div>
+  <div class="sc-bw"><div class="sc-b" id="sc-b" style="width:0%"></div></div>
+  <div class="sc-msg" id="sc-m"></div>
+  <div class="sc-badges">
+    <div class="sc-badge"><span class="scb-icon">🔥</span><span class="scb-l">Дней подряд</span><span class="scb-v" id="sc-str">0</span></div>
+    <div class="sc-badge"><span class="scb-icon">⭐</span><span class="scb-l">Уровень</span><span class="scb-v">A0</span></div>
+    <div class="sc-badge"><span class="scb-icon">🐯</span><span class="scb-l">Статус</span><span class="scb-v">Зверь!</span></div>
   </div>
+  <button class="sc-btn" onclick="showTab('vocab',document.querySelectorAll('.tab')[4])">Перейти к словарю →</button>
+</div>
+</div>
 
-  <!-- PRACTICE -->
-  <div class="section" id="tab-practice">
-    <div class="sec-title">Практика</div>
-    <p class="sec-sub">7 вопросов — выбери правильную форму глагола TO BE.</p>
-
-    <div class="quiz-card">
-      <div class="q-num">Вопрос 1 из 7</div>
-      <div class="q-text">Выбери правильную форму:</div>
-      <div class="q-sentence">I ___ a student.</div>
-      <div class="opts" id="q1-opts">
-        <button class="opt-btn" id="q1-A" onclick="answer(1,'A')">is</button>
-        <button class="opt-btn" id="q1-B" onclick="answer(1,'B')">am</button>
-        <button class="opt-btn" id="q1-C" onclick="answer(1,'C')">are</button>
-        <button class="opt-btn" id="q1-D" onclick="answer(1,'D')">be</button>
-      </div>
-      <div class="explain-box" id="q1-explain">✅ <strong>I am</strong> — с местоимением I всегда используется AM. I am a student = Я студент.</div>
-    </div>
-
-    <div class="quiz-card">
-      <div class="q-num">Вопрос 2 из 7</div>
-      <div class="q-text">Выбери правильную форму:</div>
-      <div class="q-sentence">She ___ from Kazakhstan.</div>
-      <div class="opts" id="q2-opts">
-        <button class="opt-btn" id="q2-A" onclick="answer(2,'A')">am</button>
-        <button class="opt-btn" id="q2-B" onclick="answer(2,'B')">are</button>
-        <button class="opt-btn" id="q2-C" onclick="answer(2,'C')">is</button>
-        <button class="opt-btn" id="q2-D" onclick="answer(2,'D')">be</button>
-      </div>
-      <div class="explain-box" id="q2-explain">✅ <strong>She is</strong> — He/She/It всегда IS. She is from Kazakhstan = Она из Казахстана.</div>
-    </div>
-
-    <div class="quiz-card">
-      <div class="q-num">Вопрос 3 из 7</div>
-      <div class="q-text">Выбери правильную форму:</div>
-      <div class="q-sentence">We ___ friends.</div>
-      <div class="opts" id="q3-opts">
-        <button class="opt-btn" id="q3-A" onclick="answer(3,'A')">is</button>
-        <button class="opt-btn" id="q3-B" onclick="answer(3,'B')">am</button>
-        <button class="opt-btn" id="q3-C" onclick="answer(3,'C')">are</button>
-        <button class="opt-btn" id="q3-D" onclick="answer(3,'D')">aren't</button>
-      </div>
-      <div class="explain-box" id="q3-explain">✅ <strong>We are</strong> — You/We/They всегда ARE. We are friends = Мы друзья.</div>
-    </div>
-
-    <div class="quiz-card">
-      <div class="q-num">Вопрос 4 из 7</div>
-      <div class="q-text">Как правильно сказать «Она не врач»?</div>
-      <div class="opts" id="q4-opts">
-        <button class="opt-btn" id="q4-A" onclick="answer(4,'A')">She not is a doctor.</button>
-        <button class="opt-btn" id="q4-B" onclick="answer(4,'B')">She isn't a doctor.</button>
-        <button class="opt-btn" id="q4-C" onclick="answer(4,'C')">She amn't a doctor.</button>
-        <button class="opt-btn" id="q4-D" onclick="answer(4,'D')">She no a doctor.</button>
-      </div>
-      <div class="explain-box" id="q4-explain">✅ <strong>She isn't a doctor.</strong> — Отрицание: is + not = isn't. NOT всегда идёт ПОСЛЕ глагола TO BE.</div>
-    </div>
-
-    <div class="quiz-card">
-      <div class="q-num">Вопрос 5 из 7</div>
-      <div class="q-text">Как задать вопрос «Ты устал?»</div>
-      <div class="opts" id="q5-opts">
-        <button class="opt-btn" id="q5-A" onclick="answer(5,'A')">You are tired?</button>
-        <button class="opt-btn" id="q5-B" onclick="answer(5,'B')">Are you tired?</button>
-        <button class="opt-btn" id="q5-C" onclick="answer(5,'C')">Is you tired?</button>
-        <button class="opt-btn" id="q5-D" onclick="answer(5,'D')">You tired?</button>
-      </div>
-      <div class="explain-box" id="q5-explain">✅ <strong>Are you tired?</strong> — В вопросе TO BE ставится НА ПЕРВОЕ место перед подлежащим. Are you...? Is he...? Am I...?</div>
-    </div>
-
-    <div class="quiz-card">
-      <div class="q-num">Вопрос 6 из 7</div>
-      <div class="q-text">Выбери правильный краткий ответ на вопрос «Is she a teacher?»</div>
-      <div class="opts" id="q6-opts">
-        <button class="opt-btn" id="q6-A" onclick="answer(6,'A')">Yes, she's.</button>
-        <button class="opt-btn" id="q6-B" onclick="answer(6,'B')">Yes, is.</button>
-        <button class="opt-btn" id="q6-C" onclick="answer(6,'C')">Yes, she is.</button>
-        <button class="opt-btn" id="q6-D" onclick="answer(6,'D')">Yes, she are.</button>
-      </div>
-      <div class="explain-box" id="q6-explain">✅ <strong>Yes, she is.</strong> — В коротком утвердительном ответе НЕЛЬЗЯ использовать краткую форму ('s). Только полная: Yes, she IS.</div>
-    </div>
-
-    <div class="quiz-card">
-      <div class="q-num">Вопрос 7 из 7</div>
-      <div class="q-text">Что означает фраза: «It's cold today»?</div>
-      <div class="opts" id="q7-opts">
-        <button class="opt-btn" id="q7-A" onclick="answer(7,'A')">Он холодный сегодня.</button>
-        <button class="opt-btn" id="q7-B" onclick="answer(7,'B')">Сегодня холодно.</button>
-        <button class="opt-btn" id="q7-C" onclick="answer(7,'C')">Это холодно.</button>
-        <button class="opt-btn" id="q7-D" onclick="answer(7,'D')">Они холодные сегодня.</button>
-      </div>
-      <div class="explain-box" id="q7-explain">✅ <strong>Сегодня холодно.</strong> — IT используется для погоды и времени. «It's cold» = «Холодно», «It's Monday» = «Сегодня понедельник».</div>
-    </div>
-
-    <div class="score-card" id="score-card">
-      <div class="sc-emoji" id="score-emoji">🎉</div>
-      <div class="sc-score" id="score-display">0/7</div>
-      <div class="sc-bar-wrap"><div class="sc-bar" id="score-bar" style="width:0%"></div></div>
-      <div class="sc-msg" id="score-msg"></div>
-      <button class="sc-next" onclick="showTab('vocab',document.querySelectorAll('.tab')[4])">Перейти к словарю →</button>
-    </div>
-  </div>
-
-  <!-- VOCAB -->
-  <div class="section" id="tab-vocab">
-    <div class="sec-title">Словарь урока</div>
-    <p class="sec-sub">Слова и фразы с глаголом TO BE — используй их уже сегодня!</p>
-    <div class="vocab-grid">
-      <div class="vocab-item"><div class="vi-en">I am / I'm</div><div class="vi-ipa">[aɪ æm]</div><div class="vi-ru">Я есть / Я</div></div>
-      <div class="vocab-item"><div class="vi-en">he is / he's</div><div class="vi-ipa">[hiː ɪz]</div><div class="vi-ru">он есть / он</div></div>
-      <div class="vocab-item"><div class="vi-en">she is / she's</div><div class="vi-ipa">[ʃiː ɪz]</div><div class="vi-ru">она есть / она</div></div>
-      <div class="vocab-item"><div class="vi-en">we are / we're</div><div class="vi-ipa">[wiː ɑː]</div><div class="vi-ru">мы есть / мы</div></div>
-      <div class="vocab-item"><div class="vi-en">student</div><div class="vi-ipa">[ˈstjuːdənt]</div><div class="vi-ru">студент</div></div>
-      <div class="vocab-item"><div class="vi-en">teacher</div><div class="vi-ipa">[ˈtiːtʃər]</div><div class="vi-ru">учитель</div></div>
-      <div class="vocab-item"><div class="vi-en">doctor</div><div class="vi-ipa">[ˈdɒktər]</div><div class="vi-ru">врач</div></div>
-      <div class="vocab-item"><div class="vi-en">happy</div><div class="vi-ipa">[ˈhæpi]</div><div class="vi-ru">счастливый</div></div>
-      <div class="vocab-item"><div class="vi-en">tired</div><div class="vi-ipa">[ˈtaɪərd]</div><div class="vi-ru">усталый</div></div>
-      <div class="vocab-item"><div class="vi-en">cold / hot</div><div class="vi-ipa">[kəʊld / hɒt]</div><div class="vi-ru">холодный / горячий</div></div>
-      <div class="vocab-item"><div class="vi-en">from</div><div class="vi-ipa">[frɒm]</div><div class="vi-ru">из (откуда)</div></div>
-      <div class="vocab-item"><div class="vi-en">today</div><div class="vi-ipa">[təˈdeɪ]</div><div class="vi-ru">сегодня</div></div>
-    </div>
-    <div class="tip-card" style="margin-top:32px">
-      <h4>🏆 Урок 2 завершён!</h4>
-      <p>Ты освоил самый важный глагол английского языка. Теперь ты можешь представиться, рассказать о себе и понять простые фразы. Следующий урок: <strong>Числа, возраст и цены</strong>!</p>
-    </div>
-    <div class="tip-card gold">
-      <h4>💡 Домашнее задание</h4>
-      <p>Представься по-английски вслух: «My name is ___, I am ___ years old, I am from ___. I am a ___.» Повтори 5 раз — это уже настоящий английский!</p>
-    </div>
-  </div>
+<div class="sec" id="t-vocab">
+  <div class="card"><div class="c-title"><span class="c-icon ci-t">📝</span>Слова урока</div><div class="vgrid"><div class="vi"><div class="vi-en">I am / I'm</div><div class="vi-ipa">[aɪ æm]</div><div class="vi-ru">Я есть</div></div><div class="vi"><div class="vi-en">he is / he's</div><div class="vi-ipa">[hiː ɪz]</div><div class="vi-ru">он есть</div></div><div class="vi"><div class="vi-en">she is / she's</div><div class="vi-ipa">[ʃiː ɪz]</div><div class="vi-ru">она есть</div></div><div class="vi"><div class="vi-en">we are / we're</div><div class="vi-ipa">[wiː ɑː]</div><div class="vi-ru">мы есть</div></div><div class="vi"><div class="vi-en">student</div><div class="vi-ipa">[ˈstjuːdənt]</div><div class="vi-ru">студент</div></div><div class="vi"><div class="vi-en">teacher</div><div class="vi-ipa">[ˈtiːtʃər]</div><div class="vi-ru">учитель</div></div><div class="vi"><div class="vi-en">doctor</div><div class="vi-ipa">[ˈdɒktər]</div><div class="vi-ru">врач</div></div><div class="vi"><div class="vi-en">happy</div><div class="vi-ipa">[ˈhæpi]</div><div class="vi-ru">счастливый</div></div><div class="vi"><div class="vi-en">tired</div><div class="vi-ipa">[ˈtaɪərd]</div><div class="vi-ru">усталый</div></div><div class="vi"><div class="vi-en">today</div><div class="vi-ipa">[təˈdeɪ]</div><div class="vi-ru">сегодня</div></div></div></div>
+  <div class="tc "><h4>🏆 Урок 2 завершён!</h4><p>Ты освоил самый важный глагол английского! Урок 3: Числа, возраст и цены.</p></div><div class="tc gold"><h4>🐯 Домашнее задание от Тигра</h4><p>Скажи вслух: «My name is ___, I am ___ years old, I am from ___.» Повтори 5 раз — это настоящий английский!</p></div>
+</div>
 
 </div>
 
 <script>
-const correct={1:'B',2:'C',3:'C',4:'B',5:'B',6:'C',7:'B'};
-const answered={};
-let score=0;
-function answer(q,choice){
-  if(answered[q])return;
-  answered[q]=choice;
-  document.querySelectorAll('#q'+q+'-opts .opt-btn').forEach(b=>b.disabled=true);
-  const chosen=document.getElementById('q'+q+'-'+choice);
-  const correctBtn=document.getElementById('q'+q+'-'+correct[q]);
-  if(choice===correct[q]){chosen.classList.add('correct');score++;}
-  else{chosen.classList.add('wrong');correctBtn.classList.add('correct');}
-  document.getElementById('q'+q+'-explain').classList.add('show');
-  const done=Object.keys(answered).length;
-  document.getElementById('progress').style.width=(20+done*10)+'%';
-  if(done===7){
-    const card=document.getElementById('score-card');
-    card.classList.add('show');
-    document.getElementById('score-display').textContent=score+'/7';
-    document.getElementById('score-bar').style.width=(score/7*100)+'%';
-    const pct=Math.round(score/7*100);
-    const emojis=['😅','🙂','😊','👍','🌟','🌟','🏆'];
-    const msgs=['Повтори теорию и попробуй снова!','Хорошее начало! Повтори формы TO BE.','Неплохо! Ещё немного практики.','Хорошо! Основы усвоены.','Отлично! Почти идеально.','Очень хорошо!','Превосходно! Урок 2 пройден на 100%! 🎉'];
-    document.getElementById('score-emoji').textContent=emojis[score-1]||'😅';
-    document.getElementById('score-msg').textContent=msgs[score-1]||msgs[0];
-    card.scrollIntoView({behavior:'smooth',block:'center'});
-    localStorage.setItem('ielts_a0_lesson2',JSON.stringify({score,max:7,pct,date:new Date().toISOString()}));
-  }
+// ── ACCESS GUARD
+if(!localStorage.getItem('ielts_a0_access')){window.location.href='payment_a0.html';}
+
+// ── TIGER
+const TM={
+  ok:['Да-а-а! Вот это я понимаю! 🔥','БУМ! Точно в яблочко! 💥','Ррр! Тигр одобряет! 🐯✨','Легко! Ты реально крутой(ая)! 😎','Мозг работает как зверь! 🧠⚡','Пфф, лёгкотня! Дальше! 😄','Ещё один правильный — ты машина! ⚡','Я знал(а) что ты знаешь! 🐯'],
+  no:['Эй, не переживай — ошибки это топливо! 🧠','Почти! Посмотри объяснение 💡','Это была ловушка! Теперь не попадёшься 😏','Читай объяснение — и порвёшь следующий! 💪','Тигры тоже ошибаются... нет, не ошибаются 🐯'],
+  start:['Привет! Я Тигр 🐯 Поможем друг другу!','О, новый урок! Давай покажем что умеем! 🔥','Готов(а)? Я с тобой! Погнали! 🐯⚡'],
+  done:['УРОК ЗАВЕРШЁН! Ты абсолютный зверь! 🐯🏆','Вот это результат! Тигр гордится! 🐯❤️','Сделал(а)! Следующий урок уже дрожит! 🚀'],
+  tap:['Учись каждый день! 🔥','Тигр в тебя верит! 🐯💪','Ты справишься! ⚡','Один урок — один шаг к цели! 🎯','Ррр! Покажи на что способен(а)! 🐯']
+};
+let cons=0;
+function tsay(type,custom){
+  const msgs=TM[type]||TM.ok;
+  const msg=custom||msgs[Math.floor(Math.random()*msgs.length)];
+  const b=document.getElementById('tb'),t=document.getElementById('tt');
+  if(!b||!t)return;
+  t.textContent=msg;b.classList.remove('on');void b.offsetWidth;b.classList.add('on');
+  clearTimeout(window._tt);window._tt=setTimeout(()=>b.classList.remove('on'),4500);
 }
+
+// ── CONFETTI
+function boom(){
+  const c=['#FFB830','#00C9A7','#FF6B35','#845EC2','#FF6B9D','#fff','#06D6A0'];
+  for(let i=0;i<65;i++)setTimeout(()=>{
+    const e=document.createElement('div'),s=6+Math.random()*9;
+    e.style.cssText=`position:fixed;top:-10px;left:${Math.random()*100}vw;width:${s}px;height:${s}px;background:${c[Math.floor(Math.random()*c.length)]};border-radius:${Math.random()>.5?'50%':'3px'};pointer-events:none;z-index:9999;animation:cFall ${1.2+Math.random()*1.5}s ease-in forwards;transform:rotate(${Math.random()*360}deg)`;
+    document.body.appendChild(e);setTimeout(()=>e.remove(),3000);
+  },i*22);
+}
+
+// ── SOUND
+function snd(type){
+  try{
+    const ctx=new(window.AudioContext||window.webkitAudioContext)(),o=ctx.createOscillator(),g=ctx.createGain();
+    o.connect(g);g.connect(ctx.destination);
+    if(type==='ok'){o.frequency.setValueAtTime(523,ctx.currentTime);o.frequency.setValueAtTime(659,ctx.currentTime+.1);o.frequency.setValueAtTime(784,ctx.currentTime+.2);g.gain.setValueAtTime(.12,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.4);o.start(ctx.currentTime);o.stop(ctx.currentTime+.4);}
+    else{o.frequency.setValueAtTime(330,ctx.currentTime);o.frequency.setValueAtTime(200,ctx.currentTime+.15);g.gain.setValueAtTime(.1,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.3);o.start(ctx.currentTime);o.stop(ctx.currentTime+.3);}
+  }catch(e){}
+}
+
+// ── STREAK
+function updStreak(){
+  const td=new Date().toDateString(),yd=new Date(Date.now()-86400000).toDateString();
+  let d=JSON.parse(localStorage.getItem('atoc_streak')||'{"c":0,"l":""}');
+  if(d.l===td)return d.c;
+  d.c=d.l===yd?d.c+1:1;d.l=td;
+  localStorage.setItem('atoc_streak',JSON.stringify(d));
+  showStreakPop(d.c);return d.c;
+}
+function getStreak(){return(JSON.parse(localStorage.getItem('atoc_streak')||'{"c":0}')).c||0;}
+function showStreakPop(n){
+  const e=document.getElementById('spop');if(!e)return;
+  e.textContent=`🔥 ${n} день подряд! Тигр в восторге!`;
+  e.classList.add('on');setTimeout(()=>e.classList.remove('on'),3200);
+}
+function renderStreak(){const e=document.getElementById('snum');if(e)e.textContent='🔥 '+getStreak();}
+
+// ── ANSWER
+window._ans={};window._sc=0;
+function ans(q,ch,ck,total,lkey){
+  if(window._ans[q])return;
+  window._ans[q]=ch;
+  document.querySelectorAll('#q'+q+'-o .opt').forEach(b=>b.disabled=true);
+  const chosen=document.getElementById('q'+q+'-'+ch),corBtn=document.getElementById('q'+q+'-'+ck);
+  const isOk=ch===ck;
+  if(isOk){chosen.classList.add('ok');window._sc++;cons++;snd('ok');if(cons>=3)tsay('ok',cons+' подряд! Ты в зоне! 🔥');else tsay('ok');if(window._sc===total)boom();}
+  else{chosen.classList.add('no');corBtn.classList.add('ok');cons=0;snd('no');tsay('no');}
+  document.getElementById('q'+q+'-e').classList.add('on');
+  const done=Object.keys(window._ans).length;
+  const pb=document.getElementById('pbar');if(pb)pb.style.width=(8+done/total*87)+'%';
+  if(done===total)setTimeout(()=>showScore(lkey,total),500);
+}
+
+function showScore(lkey,max){
+  const sc=window._sc,pct=Math.round(sc/max*100);
+  const card=document.getElementById('scard');if(!card)return;
+  card.classList.add('on');
+  const emojis=['😿','🐱','🐯','🐯💪','🐯🔥','🐯🏆'];
+  const msgs=['Не переживай! Перечитай теорию и попробуй снова 💪','Хорошее начало! Повтори слабые места 📚','Неплохо! Ещё чуть-чуть практики 🎯','Хорошо! Основы усвоены! 👍','Отлично! Тигр гордится! 🐯✨','ИДЕАЛЬНО! Тигр в полном восторге! 🐯🏆🎉'];
+  const idx=Math.min(Math.floor(sc/max*5),5);
+  document.getElementById('sc-em').textContent=emojis[idx];
+  document.getElementById('sc-n').textContent=sc+'/'+max;
+  document.getElementById('sc-b').style.width=pct+'%';
+  document.getElementById('sc-m').textContent=msgs[idx];
+  document.getElementById('sc-str').textContent=updStreak();
+  localStorage.setItem(lkey,JSON.stringify({score:sc,max,pct,date:new Date().toISOString()}));
+  tsay('done');
+  card.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+// ── TABS
 function showTab(id,el){
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById('tab-'+id).classList.add('active');
-  if(el)el.classList.add('active');
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  const s=document.getElementById('t-'+id);if(s)s.classList.add('on');
+  if(el)el.classList.add('on');
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
+window.addEventListener('load',()=>{renderStreak();tsay('start');});
 </script>
-</body>
-</html>
+</body></html>
