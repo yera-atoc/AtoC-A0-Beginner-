@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AtoC.IELTS from Zero — A0 Урок 2: Глагол TO BE</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#0B1F3A;--teal:#0E8A6F;--teal-light:#12B08E;--teal-pale:#e6f9f5;
+  --gold:#F2A93B;--gold-light:#FEF3C7;--red:#E24B4A;--red-light:#FEE2E2;
+  --green:#10B981;--green-light:#D1FAE5;--purple:#8B5CF6;--purple-light:#EDE9FE;
+  --cream:#F8F5EE;--white:#FFFFFF;--text:#0B1F3A;--text-muted:#5a6a7e;
+  --border:#dde3ed;--bg:#F4F6FA;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:80px;}
+.back-btn{position:fixed;top:16px;left:16px;z-index:999;background:var(--navy);color:#fff;text-decoration:none;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(0,0,0,0.2);}
+.hero{background:linear-gradient(135deg,#0B1F3A 0%,#1a3a5c 100%);padding:0;position:relative;overflow:hidden;}
+.hero-pattern{position:absolute;inset:0;background:radial-gradient(circle at 15% 50%,rgba(14,138,111,0.2) 0%,transparent 50%),radial-gradient(circle at 85% 20%,rgba(242,169,59,0.1) 0%,transparent 40%);}
+.hero-inner{position:relative;max-width:780px;margin:0 auto;padding:48px 24px 32px;}
+.hero-top{display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
+.atoc-logo{background:var(--gold);color:var(--navy);font-weight:800;font-size:13px;padding:4px 12px;border-radius:7px;}
+.level-badge{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#a3d4ff;font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;}
+.lesson-badge{background:rgba(14,138,111,0.3);border:1px solid rgba(14,138,111,0.4);color:#5de8c8;font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;}
+.hero-title{font-family:'Lora',serif;font-size:clamp(24px,4vw,38px);color:#fff;line-height:1.2;margin-bottom:12px;}
+.hero-title span{color:var(--gold);}
+.hero-sub{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:24px;max-width:560px;}
+.equiv-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;}
+.equiv-pill{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:8px 14px;font-size:12px;}
+.equiv-pill .ep-label{color:rgba(255,255,255,0.45);font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:2px;}
+.equiv-pill .ep-val{color:#fff;font-weight:700;font-family:'DM Mono',monospace;}
+.goal-box{background:rgba(14,138,111,0.15);border:1px solid rgba(14,138,111,0.3);border-radius:14px;padding:16px 20px;display:flex;align-items:flex-start;gap:12px;}
+.goal-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
+.goal-text{font-size:14px;color:rgba(255,255,255,0.85);line-height:1.6;}
+.goal-text strong{color:#5de8c8;}
+.progress-track{height:4px;background:rgba(255,255,255,0.1);}
+.progress-fill{height:4px;background:linear-gradient(90deg,var(--teal),var(--gold));width:20%;transition:width 0.6s ease;}
+.tabs-wrap{background:var(--white);border-bottom:2px solid var(--border);position:sticky;top:0;z-index:100;}
+.tabs{max-width:780px;margin:0 auto;display:flex;overflow-x:auto;}
+.tabs::-webkit-scrollbar{display:none;}
+.tab{padding:15px 20px;font-size:13px;font-weight:600;color:var(--text-muted);cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all 0.2s;flex-shrink:0;}
+.tab:hover{color:var(--teal);}
+.tab.active{color:var(--teal);border-bottom-color:var(--teal);}
+.content{max-width:780px;margin:0 auto;padding:32px 24px;}
+.section{display:none;}
+.section.active{display:block;}
+.sec-title{font-size:22px;font-weight:800;letter-spacing:-0.02em;margin-bottom:6px;color:var(--navy);}
+.sec-sub{color:var(--text-muted);font-size:15px;margin-bottom:28px;line-height:1.6;}
+.theory-block{background:var(--white);border:2px solid var(--border);border-radius:18px;padding:28px;margin-bottom:20px;}
+.theory-block h3{font-size:17px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.th-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.th-teal{background:var(--teal-pale);}
+.th-gold{background:var(--gold-light);}
+.th-purple{background:var(--purple-light);}
+.info-box{background:var(--teal-pale);border:1.5px solid rgba(14,138,111,0.2);border-radius:12px;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.7;color:var(--text);}
+.info-box .ib-title{font-weight:700;color:var(--teal);margin-bottom:6px;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;}
+.warn-box{background:var(--gold-light);border:1.5px solid rgba(242,169,59,0.3);border-radius:12px;padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.7;}
+.warn-box .wb-title{font-weight:700;color:#92400e;margin-bottom:6px;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;}
+
+/* Conjugation table */
+.conj-table{width:100%;border-collapse:collapse;margin:16px 0;border-radius:12px;overflow:hidden;}
+.conj-table th{background:var(--navy);color:#fff;padding:12px 16px;text-align:left;font-size:13px;font-weight:600;}
+.conj-table td{padding:12px 16px;font-size:14px;border-bottom:1px solid var(--border);}
+.conj-table tr:last-child td{border-bottom:none;}
+.conj-table tr:nth-child(even) td{background:#fafbff;}
+.conj-table .en{font-weight:700;color:var(--navy);font-family:'DM Mono',monospace;}
+.conj-table .short{color:var(--teal);font-family:'DM Mono',monospace;}
+.conj-table .ru{color:var(--text-muted);}
+
+/* Sentence builder */
+.sent-builder{background:var(--bg);border:2px solid var(--border);border-radius:14px;padding:20px;margin:16px 0;}
+.sb-title{font-size:13px;font-weight:700;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;}
+.sb-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+.sb-block{padding:8px 16px;border-radius:8px;font-weight:700;font-size:15px;}
+.sb-subject{background:#dbeafe;color:#1e40af;}
+.sb-verb{background:var(--teal-pale);color:var(--teal);}
+.sb-rest{background:var(--gold-light);color:#92400e;}
+.sb-arrow{color:var(--text-muted);font-size:18px;}
+.sb-result{font-size:16px;font-weight:700;color:var(--navy);margin-top:4px;}
+.sb-translation{font-size:14px;color:var(--text-muted);}
+
+/* Negative/question boxes */
+.form-card{background:var(--white);border:2px solid var(--border);border-radius:14px;padding:20px;margin-bottom:14px;}
+.form-card h4{font-size:15px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.form-tag{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:0.05em;}
+.ft-neg{background:#fee2e2;color:#991b1b;}
+.ft-q{background:#ede9fe;color:#5b21b6;}
+.ft-pos{background:#d1fae5;color:#065f46;}
+.example-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;}
+.example-row:last-child{border-bottom:none;}
+.ex-en{font-weight:700;color:var(--navy);min-width:160px;}
+.ex-ru{color:var(--text-muted);}
+
+/* Quiz */
+.quiz-card{background:var(--white);border:2px solid var(--border);border-radius:18px;padding:28px;margin-bottom:20px;}
+.q-num{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;}
+.q-text{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:20px;line-height:1.5;}
+.q-sentence{font-size:22px;font-weight:800;color:var(--navy);text-align:center;padding:16px;background:var(--bg);border-radius:12px;margin-bottom:20px;font-family:'DM Mono',monospace;}
+.q-blank{color:var(--teal);border-bottom:3px solid var(--teal);padding:0 8px;min-width:60px;display:inline-block;text-align:center;}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.opt-btn{background:var(--bg);border:2px solid var(--border);border-radius:12px;padding:14px 16px;font-size:15px;font-weight:600;font-family:'Sora',sans-serif;color:var(--text);cursor:pointer;text-align:left;transition:all 0.15s;display:flex;align-items:center;gap:10px;}
+.opt-btn:hover:not(:disabled){border-color:var(--teal);background:var(--teal-pale);}
+.opt-btn.correct{border-color:var(--green);background:var(--green-light);color:#065f46;}
+.opt-btn.wrong{border-color:var(--red);background:var(--red-light);color:#991b1b;}
+.opt-btn:disabled{cursor:default;}
+.explain-box{background:var(--teal-pale);border:1.5px solid rgba(14,138,111,0.2);border-radius:10px;padding:14px 18px;margin-top:16px;font-size:14px;line-height:1.7;display:none;}
+.explain-box.show{display:block;}
+.score-card{background:linear-gradient(135deg,var(--navy),#1a3a5c);border-radius:20px;padding:36px 28px;text-align:center;display:none;margin-top:24px;}
+.score-card.show{display:block;}
+.sc-emoji{font-size:48px;margin-bottom:16px;}
+.sc-score{font-size:48px;font-weight:800;color:var(--gold);font-family:'DM Mono',monospace;margin-bottom:8px;}
+.sc-msg{color:rgba(255,255,255,0.75);font-size:15px;margin-bottom:24px;line-height:1.6;}
+.sc-bar-wrap{background:rgba(255,255,255,0.1);border-radius:100px;height:8px;margin:0 auto 24px;max-width:300px;overflow:hidden;}
+.sc-bar{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width 1s ease;}
+.sc-next{background:linear-gradient(135deg,var(--teal),var(--teal-light));color:#fff;border:none;border-radius:12px;padding:14px 32px;font-size:15px;font-weight:700;font-family:'Sora',sans-serif;cursor:pointer;transition:all 0.2s;}
+.sc-next:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(14,138,111,0.35);}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:16px;}
+.vocab-item{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;}
+.vi-en{font-weight:700;font-size:15px;color:var(--navy);}
+.vi-ipa{font-size:12px;color:var(--teal);font-family:'DM Mono',monospace;}
+.vi-ru{font-size:13px;color:var(--text-muted);}
+.tip-card{background:var(--white);border:2px solid var(--border);border-left:4px solid var(--teal);border-radius:14px;padding:20px 24px;margin-bottom:16px;}
+.tip-card h4{font-size:15px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.tip-card p{font-size:14px;color:var(--text-muted);line-height:1.7;}
+.tip-card.gold{border-left-color:var(--gold);}
+.tip-card.purple{border-left-color:var(--purple);}
+@media(max-width:600px){.opts{grid-template-columns:1fr;}.hero-inner{padding:56px 20px 28px;}.content{padding:24px 16px;}}
+</style>
+</head>
+<body>
+<script>
+if(localStorage.getItem('ielts_a0_access')!=='granted'){window.location.href='payment_a0.html';}
+</script>
+<a href="index_ielts.html" class="back-btn">← Все уроки</a>
+
+<div class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-inner">
+    <div class="hero-top">
+      <span class="atoc-logo">AtoC</span>
+      <span class="level-badge">A0 · Beginner</span>
+      <span class="lesson-badge">Урок 2 из 8</span>
+    </div>
+    <h1 class="hero-title">Глагол <span>TO BE</span><br>— самый важный глагол</h1>
+    <p class="hero-sub">«Быть» — это основа всего. Без TO BE невозможно построить ни одно простое предложение на английском. Разберём раз и навсегда.</p>
+    <div class="equiv-bar">
+      <div class="equiv-pill"><div class="ep-label">IELTS</div><div class="ep-val">0 – 2.0</div></div>
+      <div class="equiv-pill"><div class="ep-label">TOEFL</div><div class="ep-val">0 – 30</div></div>
+      <div class="equiv-pill"><div class="ep-label">Duolingo</div><div class="ep-val">10 – 50</div></div>
+      <div class="equiv-pill"><div class="ep-label">CEFR</div><div class="ep-val">Pre-A1</div></div>
+    </div>
+    <div class="goal-box">
+      <div class="goal-icon">🎯</div>
+      <div class="goal-text"><strong>После этого урока ты сможешь:</strong> сказать кто ты есть, откуда ты, как тебя зовут — и понять когда кто-то говорит то же самое о себе</div>
+    </div>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="progress" style="width:20%"></div></div>
+</div>
+
+<div class="tabs-wrap">
+  <div class="tabs">
+    <div class="tab active" onclick="showTab('theory',this)">📖 Теория</div>
+    <div class="tab" onclick="showTab('forms',this)">📋 Формы</div>
+    <div class="tab" onclick="showTab('negative',this)">❌ Отрицание</div>
+    <div class="tab" onclick="showTab('practice',this)">✏️ Практика</div>
+    <div class="tab" onclick="showTab('vocab',this)">📝 Словарь</div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- THEORY -->
+  <div class="section active" id="tab-theory">
+    <div class="sec-title">Что такое TO BE и зачем он нужен?</div>
+    <p class="sec-sub">В русском языке мы говорим «Я студент», «Она красивая», «Мы дома». Глагол «есть/являться» мы обычно опускаем. В английском — НЕЛЬЗЯ. Он всегда должен быть!</p>
+
+    <div class="theory-block">
+      <h3><span class="th-icon th-teal">🇷🇺</span> Сравни русский и английский</h3>
+      <div class="example-row">
+        <span class="ex-en">Я студент.</span>
+        <span class="ex-ru">→ I <strong>am</strong> a student. (нельзя: «I student»)</span>
+      </div>
+      <div class="example-row">
+        <span class="ex-en">Она красивая.</span>
+        <span class="ex-ru">→ She <strong>is</strong> beautiful. (нельзя: «She beautiful»)</span>
+      </div>
+      <div class="example-row">
+        <span class="ex-en">Мы дома.</span>
+        <span class="ex-ru">→ We <strong>are</strong> at home. (нельзя: «We at home»)</span>
+      </div>
+      <div class="example-row">
+        <span class="ex-en">Он устал.</span>
+        <span class="ex-ru">→ He <strong>is</strong> tired. (нельзя: «He tired»)</span>
+      </div>
+      <div class="info-box">
+        <div class="ib-title">🔑 Главное правило</div>
+        В английском предложении <strong>всегда должен быть глагол</strong>. Если другого глагола нет — используй TO BE. Это «глагол-связка».
+      </div>
+    </div>
+
+    <div class="theory-block">
+      <h3><span class="th-icon th-gold">📊</span> TO BE имеет 3 формы в настоящем времени</h3>
+      <table class="conj-table">
+        <thead><tr><th>Местоимение</th><th>Полная форма</th><th>Краткая форма</th><th>По-русски</th></tr></thead>
+        <tbody>
+          <tr><td>I</td><td class="en">am</td><td class="short">'m</td><td class="ru">я есть / я</td></tr>
+          <tr><td>He / She / It</td><td class="en">is</td><td class="short">'s</td><td class="ru">он/она/оно есть</td></tr>
+          <tr><td>You / We / They</td><td class="en">are</td><td class="short">'re</td><td class="ru">ты/мы/они есть</td></tr>
+        </tbody>
+      </table>
+      <div class="warn-box">
+        <div class="wb-title">⚠️ Частая ошибка</div>
+        Многие говорят «I is» или «He am» — это грубая ошибка! Запомни: <strong>I — только am, He/She/It — только is, You/We/They — только are</strong>.
+      </div>
+    </div>
+
+    <div class="theory-block">
+      <h3><span class="th-icon th-purple">💬</span> Краткие формы — так говорят в жизни</h3>
+      <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px">В разговорной речи почти всегда используют краткие формы. Полные формы — для письма и официальных ситуаций.</p>
+      <div class="sent-builder">
+        <div class="sb-title">Примеры с краткими формами</div>
+        <div class="sb-row"><span class="sb-block sb-subject">I</span><span class="sb-arrow">+</span><span class="sb-block sb-verb">'m</span><span class="sb-arrow">+</span><span class="sb-block sb-rest">happy</span></div>
+        <div class="sb-result">→ I'm happy.</div><div class="sb-translation">Я счастлив/а.</div>
+      </div>
+      <div class="sent-builder">
+        <div class="sb-row"><span class="sb-block sb-subject">She</span><span class="sb-arrow">+</span><span class="sb-block sb-verb">'s</span><span class="sb-arrow">+</span><span class="sb-block sb-rest">a doctor</span></div>
+        <div class="sb-result">→ She's a doctor.</div><div class="sb-translation">Она врач.</div>
+      </div>
+      <div class="sent-builder">
+        <div class="sb-row"><span class="sb-block sb-subject">They</span><span class="sb-arrow">+</span><span class="sb-block sb-verb">'re</span><span class="sb-arrow">+</span><span class="sb-block sb-rest">from Kazakhstan</span></div>
+        <div class="sb-result">→ They're from Kazakhstan.</div><div class="sb-translation">Они из Казахстана.</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:32px">
+      <button onclick="showTab('forms',document.querySelectorAll('.tab')[1])" style="background:var(--teal);color:#fff;border:none;border-radius:12px;padding:14px 32px;font-size:15px;font-weight:700;font-family:'Sora',sans-serif;cursor:pointer">Смотреть все формы →</button>
+    </div>
+  </div>
+
+  <!-- FORMS -->
+  <div class="section" id="tab-forms">
+    <div class="sec-title">Все формы TO BE</div>
+    <p class="sec-sub">Утвердительные предложения — когда мы что-то говорим о себе или других.</p>
+
+    <div class="form-card">
+      <h4><span class="form-tag ft-pos">+ Утверждение</span> Положительные предложения</h4>
+      <div class="example-row"><span class="ex-en">I am Ali.</span><span class="ex-ru">Меня зовут Али. / Я — Али.</span></div>
+      <div class="example-row"><span class="ex-en">I am 20 years old.</span><span class="ex-ru">Мне 20 лет.</span></div>
+      <div class="example-row"><span class="ex-en">I am from Almaty.</span><span class="ex-ru">Я из Алматы.</span></div>
+      <div class="example-row"><span class="ex-en">He is a teacher.</span><span class="ex-ru">Он учитель.</span></div>
+      <div class="example-row"><span class="ex-en">She is beautiful.</span><span class="ex-ru">Она красивая.</span></div>
+      <div class="example-row"><span class="ex-en">It is cold today.</span><span class="ex-ru">Сегодня холодно.</span></div>
+      <div class="example-row"><span class="ex-en">We are students.</span><span class="ex-ru">Мы студенты.</span></div>
+      <div class="example-row"><span class="ex-en">You are very kind.</span><span class="ex-ru">Ты очень добрый.</span></div>
+      <div class="example-row"><span class="ex-en">They are friends.</span><span class="ex-ru">Они друзья.</span></div>
+    </div>
+
+    <div class="info-box">
+      <div class="ib-title">💡 Про IT</div>
+      <strong>It</strong> — это «оно», используется для вещей, животных (если пол неизвестен), погоды, времени:<br>
+      • <strong>It is hot.</strong> — Жарко.<br>
+      • <strong>It is a cat.</strong> — Это кошка.<br>
+      • <strong>It is Monday.</strong> — Сегодня понедельник.
+    </div>
+
+    <div class="form-card" style="margin-top:20px">
+      <h4><span class="form-tag ft-q">? Вопрос</span> Как задать вопрос — просто переставь!</h4>
+      <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px">Чтобы задать вопрос с TO BE — просто поставь глагол <strong>перед</strong> подлежащим:</p>
+      <div class="example-row"><span class="ex-en">Are you a student?</span><span class="ex-ru">Ты студент?</span></div>
+      <div class="example-row"><span class="ex-en">Is she from Russia?</span><span class="ex-ru">Она из России?</span></div>
+      <div class="example-row"><span class="ex-en">Is it cold?</span><span class="ex-ru">Холодно?</span></div>
+      <div class="example-row"><span class="ex-en">Are they teachers?</span><span class="ex-ru">Они учителя?</span></div>
+      <div class="example-row"><span class="ex-en">Am I late?</span><span class="ex-ru">Я опоздал?</span></div>
+    </div>
+  </div>
+
+  <!-- NEGATIVE -->
+  <div class="section" id="tab-negative">
+    <div class="sec-title">Отрицательные предложения</div>
+    <p class="sec-sub">Чтобы сказать «не», добавь <strong>NOT</strong> после TO BE. Всё просто!</p>
+
+    <div class="theory-block">
+      <h3><span class="th-icon th-teal">❌</span> Правило отрицания</h3>
+      <table class="conj-table">
+        <thead><tr><th>Утверждение</th><th>Отрицание</th><th>Краткая форма</th></tr></thead>
+        <tbody>
+          <tr><td class="en">I am</td><td class="en">I am not</td><td class="short">I'm not</td></tr>
+          <tr><td class="en">He/She/It is</td><td class="en">He/She/It is not</td><td class="short">He's not / He isn't</td></tr>
+          <tr><td class="en">You/We/They are</td><td class="en">You/We/They are not</td><td class="short">You're not / You aren't</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="form-card">
+      <h4><span class="form-tag ft-neg">— Отрицание</span> Примеры</h4>
+      <div class="example-row"><span class="ex-en">I'm not tired.</span><span class="ex-ru">Я не устал/а.</span></div>
+      <div class="example-row"><span class="ex-en">She isn't a doctor.</span><span class="ex-ru">Она не врач.</span></div>
+      <div class="example-row"><span class="ex-en">We aren't from Russia.</span><span class="ex-ru">Мы не из России.</span></div>
+      <div class="example-row"><span class="ex-en">It isn't cold today.</span><span class="ex-ru">Сегодня не холодно.</span></div>
+      <div class="example-row"><span class="ex-en">They aren't students.</span><span class="ex-ru">Они не студенты.</span></div>
+    </div>
+
+    <div class="warn-box">
+      <div class="wb-title">⚠️ Важно!</div>
+      <strong>I amn't</strong> — так нельзя! Только <strong>I'm not</strong>.<br>
+      Для всех остальных: <strong>isn't</strong> = is not, <strong>aren't</strong> = are not.
+    </div>
+
+    <div class="info-box" style="margin-top:16px">
+      <div class="ib-title">🗣️ Короткие ответы</div>
+      На вопрос «Are you a student?» отвечают так:<br>
+      ✅ <strong>Yes, I am.</strong> — Да. (нельзя сказать «Yes, I'm» в коротком ответе!)<br>
+      ❌ <strong>No, I'm not.</strong> — Нет.<br><br>
+      На «Is she happy?»:<br>
+      ✅ <strong>Yes, she is.</strong> / ❌ <strong>No, she isn't.</strong>
+    </div>
+  </div>
+
+  <!-- PRACTICE -->
+  <div class="section" id="tab-practice">
+    <div class="sec-title">Практика</div>
+    <p class="sec-sub">7 вопросов — выбери правильную форму глагола TO BE.</p>
+
+    <div class="quiz-card">
+      <div class="q-num">Вопрос 1 из 7</div>
+      <div class="q-text">Выбери правильную форму:</div>
+      <div class="q-sentence">I ___ a student.</div>
+      <div class="opts" id="q1-opts">
+        <button class="opt-btn" id="q1-A" onclick="answer(1,'A')">is</button>
+        <button class="opt-btn" id="q1-B" onclick="answer(1,'B')">am</button>
+        <button class="opt-btn" id="q1-C" onclick="answer(1,'C')">are</button>
+        <button class="opt-btn" id="q1-D" onclick="answer(1,'D')">be</button>
+      </div>
+      <div class="explain-box" id="q1-explain">✅ <strong>I am</strong> — с местоимением I всегда используется AM. I am a student = Я студент.</div>
+    </div>
+
+    <div class="quiz-card">
+      <div class="q-num">Вопрос 2 из 7</div>
+      <div class="q-text">Выбери правильную форму:</div>
+      <div class="q-sentence">She ___ from Kazakhstan.</div>
+      <div class="opts" id="q2-opts">
+        <button class="opt-btn" id="q2-A" onclick="answer(2,'A')">am</button>
+        <button class="opt-btn" id="q2-B" onclick="answer(2,'B')">are</button>
+        <button class="opt-btn" id="q2-C" onclick="answer(2,'C')">is</button>
+        <button class="opt-btn" id="q2-D" onclick="answer(2,'D')">be</button>
+      </div>
+      <div class="explain-box" id="q2-explain">✅ <strong>She is</strong> — He/She/It всегда IS. She is from Kazakhstan = Она из Казахстана.</div>
+    </div>
+
+    <div class="quiz-card">
+      <div class="q-num">Вопрос 3 из 7</div>
+      <div class="q-text">Выбери правильную форму:</div>
+      <div class="q-sentence">We ___ friends.</div>
+      <div class="opts" id="q3-opts">
+        <button class="opt-btn" id="q3-A" onclick="answer(3,'A')">is</button>
+        <button class="opt-btn" id="q3-B" onclick="answer(3,'B')">am</button>
+        <button class="opt-btn" id="q3-C" onclick="answer(3,'C')">are</button>
+        <button class="opt-btn" id="q3-D" onclick="answer(3,'D')">aren't</button>
+      </div>
+      <div class="explain-box" id="q3-explain">✅ <strong>We are</strong> — You/We/They всегда ARE. We are friends = Мы друзья.</div>
+    </div>
+
+    <div class="quiz-card">
+      <div class="q-num">Вопрос 4 из 7</div>
+      <div class="q-text">Как правильно сказать «Она не врач»?</div>
+      <div class="opts" id="q4-opts">
+        <button class="opt-btn" id="q4-A" onclick="answer(4,'A')">She not is a doctor.</button>
+        <button class="opt-btn" id="q4-B" onclick="answer(4,'B')">She isn't a doctor.</button>
+        <button class="opt-btn" id="q4-C" onclick="answer(4,'C')">She amn't a doctor.</button>
+        <button class="opt-btn" id="q4-D" onclick="answer(4,'D')">She no a doctor.</button>
+      </div>
+      <div class="explain-box" id="q4-explain">✅ <strong>She isn't a doctor.</strong> — Отрицание: is + not = isn't. NOT всегда идёт ПОСЛЕ глагола TO BE.</div>
+    </div>
+
+    <div class="quiz-card">
+      <div class="q-num">Вопрос 5 из 7</div>
+      <div class="q-text">Как задать вопрос «Ты устал?»</div>
+      <div class="opts" id="q5-opts">
+        <button class="opt-btn" id="q5-A" onclick="answer(5,'A')">You are tired?</button>
+        <button class="opt-btn" id="q5-B" onclick="answer(5,'B')">Are you tired?</button>
+        <button class="opt-btn" id="q5-C" onclick="answer(5,'C')">Is you tired?</button>
+        <button class="opt-btn" id="q5-D" onclick="answer(5,'D')">You tired?</button>
+      </div>
+      <div class="explain-box" id="q5-explain">✅ <strong>Are you tired?</strong> — В вопросе TO BE ставится НА ПЕРВОЕ место перед подлежащим. Are you...? Is he...? Am I...?</div>
+    </div>
+
+    <div class="quiz-card">
+      <div class="q-num">Вопрос 6 из 7</div>
+      <div class="q-text">Выбери правильный краткий ответ на вопрос «Is she a teacher?»</div>
+      <div class="opts" id="q6-opts">
+        <button class="opt-btn" id="q6-A" onclick="answer(6,'A')">Yes, she's.</button>
+        <button class="opt-btn" id="q6-B" onclick="answer(6,'B')">Yes, is.</button>
+        <button class="opt-btn" id="q6-C" onclick="answer(6,'C')">Yes, she is.</button>
+        <button class="opt-btn" id="q6-D" onclick="answer(6,'D')">Yes, she are.</button>
+      </div>
+      <div class="explain-box" id="q6-explain">✅ <strong>Yes, she is.</strong> — В коротком утвердительном ответе НЕЛЬЗЯ использовать краткую форму ('s). Только полная: Yes, she IS.</div>
+    </div>
+
+    <div class="quiz-card">
+      <div class="q-num">Вопрос 7 из 7</div>
+      <div class="q-text">Что означает фраза: «It's cold today»?</div>
+      <div class="opts" id="q7-opts">
+        <button class="opt-btn" id="q7-A" onclick="answer(7,'A')">Он холодный сегодня.</button>
+        <button class="opt-btn" id="q7-B" onclick="answer(7,'B')">Сегодня холодно.</button>
+        <button class="opt-btn" id="q7-C" onclick="answer(7,'C')">Это холодно.</button>
+        <button class="opt-btn" id="q7-D" onclick="answer(7,'D')">Они холодные сегодня.</button>
+      </div>
+      <div class="explain-box" id="q7-explain">✅ <strong>Сегодня холодно.</strong> — IT используется для погоды и времени. «It's cold» = «Холодно», «It's Monday» = «Сегодня понедельник».</div>
+    </div>
+
+    <div class="score-card" id="score-card">
+      <div class="sc-emoji" id="score-emoji">🎉</div>
+      <div class="sc-score" id="score-display">0/7</div>
+      <div class="sc-bar-wrap"><div class="sc-bar" id="score-bar" style="width:0%"></div></div>
+      <div class="sc-msg" id="score-msg"></div>
+      <button class="sc-next" onclick="showTab('vocab',document.querySelectorAll('.tab')[4])">Перейти к словарю →</button>
+    </div>
+  </div>
+
+  <!-- VOCAB -->
+  <div class="section" id="tab-vocab">
+    <div class="sec-title">Словарь урока</div>
+    <p class="sec-sub">Слова и фразы с глаголом TO BE — используй их уже сегодня!</p>
+    <div class="vocab-grid">
+      <div class="vocab-item"><div class="vi-en">I am / I'm</div><div class="vi-ipa">[aɪ æm]</div><div class="vi-ru">Я есть / Я</div></div>
+      <div class="vocab-item"><div class="vi-en">he is / he's</div><div class="vi-ipa">[hiː ɪz]</div><div class="vi-ru">он есть / он</div></div>
+      <div class="vocab-item"><div class="vi-en">she is / she's</div><div class="vi-ipa">[ʃiː ɪz]</div><div class="vi-ru">она есть / она</div></div>
+      <div class="vocab-item"><div class="vi-en">we are / we're</div><div class="vi-ipa">[wiː ɑː]</div><div class="vi-ru">мы есть / мы</div></div>
+      <div class="vocab-item"><div class="vi-en">student</div><div class="vi-ipa">[ˈstjuːdənt]</div><div class="vi-ru">студент</div></div>
+      <div class="vocab-item"><div class="vi-en">teacher</div><div class="vi-ipa">[ˈtiːtʃər]</div><div class="vi-ru">учитель</div></div>
+      <div class="vocab-item"><div class="vi-en">doctor</div><div class="vi-ipa">[ˈdɒktər]</div><div class="vi-ru">врач</div></div>
+      <div class="vocab-item"><div class="vi-en">happy</div><div class="vi-ipa">[ˈhæpi]</div><div class="vi-ru">счастливый</div></div>
+      <div class="vocab-item"><div class="vi-en">tired</div><div class="vi-ipa">[ˈtaɪərd]</div><div class="vi-ru">усталый</div></div>
+      <div class="vocab-item"><div class="vi-en">cold / hot</div><div class="vi-ipa">[kəʊld / hɒt]</div><div class="vi-ru">холодный / горячий</div></div>
+      <div class="vocab-item"><div class="vi-en">from</div><div class="vi-ipa">[frɒm]</div><div class="vi-ru">из (откуда)</div></div>
+      <div class="vocab-item"><div class="vi-en">today</div><div class="vi-ipa">[təˈdeɪ]</div><div class="vi-ru">сегодня</div></div>
+    </div>
+    <div class="tip-card" style="margin-top:32px">
+      <h4>🏆 Урок 2 завершён!</h4>
+      <p>Ты освоил самый важный глагол английского языка. Теперь ты можешь представиться, рассказать о себе и понять простые фразы. Следующий урок: <strong>Числа, возраст и цены</strong>!</p>
+    </div>
+    <div class="tip-card gold">
+      <h4>💡 Домашнее задание</h4>
+      <p>Представься по-английски вслух: «My name is ___, I am ___ years old, I am from ___. I am a ___.» Повтори 5 раз — это уже настоящий английский!</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const correct={1:'B',2:'C',3:'C',4:'B',5:'B',6:'C',7:'B'};
+const answered={};
+let score=0;
+function answer(q,choice){
+  if(answered[q])return;
+  answered[q]=choice;
+  document.querySelectorAll('#q'+q+'-opts .opt-btn').forEach(b=>b.disabled=true);
+  const chosen=document.getElementById('q'+q+'-'+choice);
+  const correctBtn=document.getElementById('q'+q+'-'+correct[q]);
+  if(choice===correct[q]){chosen.classList.add('correct');score++;}
+  else{chosen.classList.add('wrong');correctBtn.classList.add('correct');}
+  document.getElementById('q'+q+'-explain').classList.add('show');
+  const done=Object.keys(answered).length;
+  document.getElementById('progress').style.width=(20+done*10)+'%';
+  if(done===7){
+    const card=document.getElementById('score-card');
+    card.classList.add('show');
+    document.getElementById('score-display').textContent=score+'/7';
+    document.getElementById('score-bar').style.width=(score/7*100)+'%';
+    const pct=Math.round(score/7*100);
+    const emojis=['😅','🙂','😊','👍','🌟','🌟','🏆'];
+    const msgs=['Повтори теорию и попробуй снова!','Хорошее начало! Повтори формы TO BE.','Неплохо! Ещё немного практики.','Хорошо! Основы усвоены.','Отлично! Почти идеально.','Очень хорошо!','Превосходно! Урок 2 пройден на 100%! 🎉'];
+    document.getElementById('score-emoji').textContent=emojis[score-1]||'😅';
+    document.getElementById('score-msg').textContent=msgs[score-1]||msgs[0];
+    card.scrollIntoView({behavior:'smooth',block:'center'});
+    localStorage.setItem('ielts_a0_lesson2',JSON.stringify({score,max:7,pct,date:new Date().toISOString()}));
+  }
+}
+function showTab(id,el){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  if(el)el.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
