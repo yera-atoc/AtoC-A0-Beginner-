@@ -204,6 +204,43 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
   .hero-in{padding:32px 15px 22px}
   .cnt{padding:18px 14px}
 }
+
+.next-lesson-btn {
+  display: block;
+  width: 100%;
+  background: linear-gradient(135deg, #00C9A7, #00A98F);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 18px;
+  font-size: 15px;
+  font-weight: 800;
+  font-family: 'Sora', sans-serif;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s;
+  margin-top: 20px;
+  box-shadow: 0 4px 16px rgba(0,201,167,0.3);
+  letter-spacing: 0.02em;
+}
+.next-lesson-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,201,167,0.4);
+}
+.speak-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 2px 4px;
+  border-radius: 5px;
+  transition: transform 0.15s;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+.speak-btn:hover { transform: scale(1.2); }
+
 </style>
 </head>
 <body>
@@ -261,10 +298,10 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
     <div class="warn"><div class="warn-l">🐯 Главное правило</div>Не читай по-русски («хелло», «гудбай»). Учи настоящее произношение сразу — потом переучиться намного сложнее!</div>
   </div>
   <div class="card"><div class="c-title"><span class="c-icon ci-p">🗣️</span>Звуки которых нет в русском</div>
-    <div class="er"><span class="er-en">[θ] — TH</span><span class="er-ru">Язык между зубами: think, this, that</span></div>
-    <div class="er"><span class="er-en">[w] — W</span><span class="er-ru">Губы трубочкой: water, word, wow</span></div>
-    <div class="er"><span class="er-en">[æ] — краткое A</span><span class="er-ru">Между «э» и «а»: cat, man, bad</span></div>
-    <div class="er"><span class="er-en">[h] — H</span><span class="er-ru">Лёгкий выдох: hello, happy, help</span></div>
+    <div class="er"><span class="er-en">[θ] — TH <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('[θ] — TH')">🔊</button></span><span class="er-ru">Язык между зубами: think, this, that</span></div>
+    <div class="er"><span class="er-en">[w] — W <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('[w] — W')">🔊</button></span><span class="er-ru">Губы трубочкой: water, word, wow</span></div>
+    <div class="er"><span class="er-en">[æ] — краткое A <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('[æ] — краткое A')">🔊</button></span><span class="er-ru">Между «э» и «а»: cat, man, bad</span></div>
+    <div class="er"><span class="er-en">[h] — H <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('[h] — H')">🔊</button></span><span class="er-ru">Лёгкий выдох: hello, happy, help</span></div>
     <div class="warn"><div class="warn-l">⚠️ Ошибка новичков</div>Буква H в английском ВСЕГДА читается! <strong>Hello</strong> = «Хэлоу», а не «элоу».</div>
   </div>
   <div style="text-align:center;margin-top:20px">
@@ -303,7 +340,7 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
   <div class="card"><div class="c-title"><span class="c-icon ci-p">🃏</span>Карточки — нажми чтобы перевернуть</div>
     <div class="fwrap"><div class="fc" id="fc" onclick="flipFC()">
       <div class="fc-f"><div class="fc-letter" id="fc-l">A</div><div class="fc-hint">Нажми → узнай звук</div></div>
-      <div class="fc-b"><div class="fc-snd" id="fc-s">[æ]</div><div class="fc-wd" id="fc-w">apple 🍎</div><div class="fc-tr" id="fc-t">яблоко</div></div>
+      <div class="fc-b"><div class="fc-snd" id="fc-s">[æ]</div><div class="fc-wd" id="fc-w" onclick="speak(document.getElementById('fc-w').textContent.replace(/[^a-zA-Z ]/g,'').trim())" style="cursor:pointer" title="Нажми чтобы услышать">apple 🍎</div><div class="fc-tr" id="fc-t">яблоко</div></div>
     </div></div>
     <div class="fcnav">
       <button class="fcbtn" onclick="prevFC()">← Назад</button>
@@ -368,7 +405,7 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
 
 <div class="sec" id="t-vocab">
   <div class="card"><div class="c-title"><span class="c-icon ci-t">📝</span>Слова урока</div>
-    <div class="vgrid"><div class="vi"><div class="vi-en">alphabet</div><div class="vi-ipa">[ˈælfəbet]</div><div class="vi-ru">алфавит</div></div><div class="vi"><div class="vi-en">letter</div><div class="vi-ipa">[ˈletər]</div><div class="vi-ru">буква</div></div><div class="vi"><div class="vi-en">sound</div><div class="vi-ipa">[saʊnd]</div><div class="vi-ru">звук</div></div><div class="vi"><div class="vi-en">vowel</div><div class="vi-ipa">[ˈvaʊəl]</div><div class="vi-ru">гласная</div></div><div class="vi"><div class="vi-en">consonant</div><div class="vi-ipa">[ˈkɒnsənənt]</div><div class="vi-ru">согласная</div></div><div class="vi"><div class="vi-en">cat</div><div class="vi-ipa">[kæt]</div><div class="vi-ru">кошка</div></div><div class="vi"><div class="vi-en">cake</div><div class="vi-ipa">[keɪk]</div><div class="vi-ru">торт</div></div><div class="vi"><div class="vi-en">water</div><div class="vi-ipa">[ˈwɔːtər]</div><div class="vi-ru">вода</div></div><div class="vi"><div class="vi-en">think</div><div class="vi-ipa">[θɪŋk]</div><div class="vi-ru">думать</div></div><div class="vi"><div class="vi-en">hello</div><div class="vi-ipa">[həˈloʊ]</div><div class="vi-ru">привет</div></div></div>
+    <div class="vgrid"><div class="vi"><div class="vi-en">alphabet <button class="speak-btn" onclick="event.preventDefault();speak('alphabet')">🔊</button></div><div class="vi-ipa">[ˈælfəbet]</div><div class="vi-ru">алфавит</div></div><div class="vi"><div class="vi-en">letter <button class="speak-btn" onclick="event.preventDefault();speak('letter')">🔊</button></div><div class="vi-ipa">[ˈletər]</div><div class="vi-ru">буква</div></div><div class="vi"><div class="vi-en">sound <button class="speak-btn" onclick="event.preventDefault();speak('sound')">🔊</button></div><div class="vi-ipa">[saʊnd]</div><div class="vi-ru">звук</div></div><div class="vi"><div class="vi-en">vowel <button class="speak-btn" onclick="event.preventDefault();speak('vowel')">🔊</button></div><div class="vi-ipa">[ˈvaʊəl]</div><div class="vi-ru">гласная</div></div><div class="vi"><div class="vi-en">consonant <button class="speak-btn" onclick="event.preventDefault();speak('consonant')">🔊</button></div><div class="vi-ipa">[ˈkɒnsənənt]</div><div class="vi-ru">согласная</div></div><div class="vi"><div class="vi-en">cat <button class="speak-btn" onclick="event.preventDefault();speak('cat')">🔊</button></div><div class="vi-ipa">[kæt]</div><div class="vi-ru">кошка</div></div><div class="vi"><div class="vi-en">cake <button class="speak-btn" onclick="event.preventDefault();speak('cake')">🔊</button></div><div class="vi-ipa">[keɪk]</div><div class="vi-ru">торт</div></div><div class="vi"><div class="vi-en">water <button class="speak-btn" onclick="event.preventDefault();speak('water')">🔊</button></div><div class="vi-ipa">[ˈwɔːtər]</div><div class="vi-ru">вода</div></div><div class="vi"><div class="vi-en">think <button class="speak-btn" onclick="event.preventDefault();speak('think')">🔊</button></div><div class="vi-ipa">[θɪŋk]</div><div class="vi-ru">думать</div></div><div class="vi"><div class="vi-en">hello <button class="speak-btn" onclick="event.preventDefault();speak('hello')">🔊</button></div><div class="vi-ipa">[həˈloʊ]</div><div class="vi-ru">привет</div></div></div>
   </div>
   <div class="tc "><h4>🏆 Урок 1 завершён!</h4><p>Ты знаешь алфавит и основные звуки. Урок 2 — глагол TO BE — уже ждёт тебя!</p></div><div class="tc gold"><h4>🐯 Совет от Тигра</h4><p>Читай вслух 5 английских слов каждый день. Просто произноси — мозг сам строит связи!</p></div>
 </div>
@@ -476,6 +513,29 @@ function showTab(id,el){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
+
+// ── SPEECH SYNTHESIS ──────────────────────────────────
+function speak(text) {
+  if(!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.lang = 'en-GB';
+  utt.rate = 0.85;
+  utt.pitch = 1.1;
+  // Try to find a female English voice
+  const voices = window.speechSynthesis.getVoices();
+  const femaleVoice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('Female') || v.name.includes('Samantha') || v.name.includes('Karen') || v.name.includes('Victoria') || v.name.includes('Fiona') || v.name.includes('Google UK English Female')));
+  const anyEnglish = voices.find(v => v.lang.startsWith('en'));
+  if(femaleVoice) utt.voice = femaleVoice;
+  else if(anyEnglish) utt.voice = anyEnglish;
+  window.speechSynthesis.speak(utt);
+}
+// Ensure voices are loaded
+if(window.speechSynthesis) {
+  window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+  window.speechSynthesis.getVoices();
+}
+
 window.addEventListener('load',()=>{renderStreak();tsay('start');});
 </script>
 </body></html>
@@ -499,11 +559,11 @@ const g=document.getElementById('agrid');
 if(g)LT.forEach((lt,i)=>{
   const d=document.createElement('div');d.className='lc';
   d.innerHTML=`<div class="lc-big">${lt.l}</div><div class="lc-sm">${lt.l.toLowerCase()}</div><div class="lc-s">${lt.n}</div>`;
-  d.onclick=()=>{
+  d.title="Нажми чтобы услышать произношение";d.addEventListener("dblclick",()=>speak(lt.l));d.onclick=()=>{
     document.querySelectorAll('.lc').forEach(c=>c.classList.remove('on'));d.classList.add('on');
     const det=document.getElementById('ldetail'),dc=document.getElementById('ldetail-c');
     if(!det||!dc)return;
-    dc.innerHTML=`<div class="c-title" style="font-size:20px">${lt.l} <span style="font-size:14px;color:var(--muted);font-weight:500">/ ${lt.l.toLowerCase()} — «${lt.n}»</span></div><div class="er"><span class="er-en">Звук</span><span style="font-family:'DM Mono',monospace;color:var(--teal2)">${lt.s}</span></div><div class="er"><span class="er-en">Пример</span><span style="font-size:18px">${lt.w}</span></div><div class="er"><span class="er-en">Перевод</span><span class="er-ru">${lt.t}</span></div>`;
+    dc.innerHTML=`<div class="c-title" style="font-size:20px">${lt.l} <span style="font-size:14px;color:var(--muted);font-weight:500">/ ${lt.l.toLowerCase()} — «${lt.n}»</span></div><div class="er"><span class="er-en">Звук <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Звук')">🔊</button></span><span style="font-family:'DM Mono',monospace;color:var(--teal2)">${lt.s}</span></div><div class="er"><span class="er-en">Пример <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Пример')">🔊</button></span><span style="font-size:18px">${lt.w}</span></div><div class="er"><span class="er-en">Перевод <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Перевод')">🔊</button></span><span class="er-ru">${lt.t}</span></div>`;
     det.style.display='block';det.scrollIntoView({behavior:'smooth',block:'nearest'});
   };g.appendChild(d);
 });

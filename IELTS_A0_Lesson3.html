@@ -204,6 +204,43 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
   .hero-in{padding:32px 15px 22px}
   .cnt{padding:18px 14px}
 }
+
+.next-lesson-btn {
+  display: block;
+  width: 100%;
+  background: linear-gradient(135deg, #00C9A7, #00A98F);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 18px;
+  font-size: 15px;
+  font-weight: 800;
+  font-family: 'Sora', sans-serif;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s;
+  margin-top: 20px;
+  box-shadow: 0 4px 16px rgba(0,201,167,0.3);
+  letter-spacing: 0.02em;
+}
+.next-lesson-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,201,167,0.4);
+}
+.speak-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 2px 4px;
+  border-radius: 5px;
+  transition: transform 0.15s;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+.speak-btn:hover { transform: scale(1.2); }
+
 </style>
 </head>
 <body>
@@ -296,15 +333,15 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
 
 <div class="sec" id="t-usage">
   <div class="card"><div class="c-title"><span class="c-icon ci-t">👤</span>Возраст</div>
-    <div class="er"><span class="er-en">I am 20 years old.</span><span class="er-ru">Мне 20 лет.</span></div>
-    <div class="er"><span class="er-en">How old are you?</span><span class="er-ru">Сколько тебе лет?</span></div>
-    <div class="er"><span class="er-en">I'm twenty-three.</span><span class="er-ru">Мне двадцать три.</span></div>
+    <div class="er"><span class="er-en">I am 20 years old. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('I am 20 years old.')">🔊</button></span><span class="er-ru">Мне 20 лет.</span></div>
+    <div class="er"><span class="er-en">How old are you? <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('How old are you?')">🔊</button></span><span class="er-ru">Сколько тебе лет?</span></div>
+    <div class="er"><span class="er-en">I'm twenty-three. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('I\'m twenty-three.')">🔊</button></span><span class="er-ru">Мне двадцать три.</span></div>
     <div class="warn"><div class="warn-l">⚠️ Не как в русском</div>«I have 20 years» — НЕПРАВИЛЬНО! По-английски: <strong>I AM 20 years old</strong> (через TO BE, не HAVE!)</div>
   </div>
   <div class="card"><div class="c-title"><span class="c-icon ci-g">💰</span>Цены</div>
-    <div class="er"><span class="er-en">How much is it?</span><span class="er-ru">Сколько стоит?</span></div>
-    <div class="er"><span class="er-en">It is five dollars.</span><span class="er-ru">Это стоит пять долларов.</span></div>
-    <div class="er"><span class="er-en">That's too expensive!</span><span class="er-ru">Это слишком дорого!</span></div>
+    <div class="er"><span class="er-en">How much is it? <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('How much is it?')">🔊</button></span><span class="er-ru">Сколько стоит?</span></div>
+    <div class="er"><span class="er-en">It is five dollars. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('It is five dollars.')">🔊</button></span><span class="er-ru">Это стоит пять долларов.</span></div>
+    <div class="er"><span class="er-en">That's too expensive! <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('That\'s too expensive!')">🔊</button></span><span class="er-ru">Это слишком дорого!</span></div>
     <div class="tip"><div class="tip-l">💡 Валюты</div>$ dollar · £ pound · € euro · ₸ tenge</div>
   </div>
 </div>
@@ -357,7 +394,7 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
   <button class="sc-btn" onclick="showTab('vocab',document.querySelectorAll('.tab')[4])">Перейти к словарю →</button>
 </div>
 </div>
-<div class="sec" id="t-vocab"><div class="card"><div class="c-title"><span class="c-icon ci-t">📝</span>Слова урока</div><div class="vgrid"><div class="vi"><div class="vi-en">one/two/three</div><div class="vi-ipa">[wʌn/tuː/θriː]</div><div class="vi-ru">один/два/три</div></div><div class="vi"><div class="vi-en">ten/twenty/thirty</div><div class="vi-ipa">[ten/ˈtwenti/ˈθɜːti]</div><div class="vi-ru">10/20/30</div></div><div class="vi"><div class="vi-en">hundred</div><div class="vi-ipa">[ˈhʌndrəd]</div><div class="vi-ru">сто</div></div><div class="vi"><div class="vi-en">thousand</div><div class="vi-ipa">[ˈθaʊzənd]</div><div class="vi-ru">тысяча</div></div><div class="vi"><div class="vi-en">How old are you?</div><div class="vi-ipa">[haʊ əʊld ɑː juː]</div><div class="vi-ru">Сколько лет?</div></div><div class="vi"><div class="vi-en">years old</div><div class="vi-ipa">[jɪəz əʊld]</div><div class="vi-ru">лет (возраст)</div></div><div class="vi"><div class="vi-en">How much is it?</div><div class="vi-ipa">[haʊ mʌtʃ ɪz ɪt]</div><div class="vi-ru">Сколько стоит?</div></div><div class="vi"><div class="vi-en">expensive</div><div class="vi-ipa">[ɪkˈspensɪv]</div><div class="vi-ru">дорогой</div></div><div class="vi"><div class="vi-en">cheap</div><div class="vi-ipa">[tʃiːp]</div><div class="vi-ru">дешёвый</div></div><div class="vi"><div class="vi-en">dollar/pound</div><div class="vi-ipa">[ˈdɒlər/paʊnd]</div><div class="vi-ru">доллар/фунт</div></div></div></div><div class="tc "><h4>🏆 Урок 3 завершён!</h4><p>Ты умеешь считать до 1000, говорить о возрасте и ценах. Урок 4: Цвета, дни недели и время!</p></div><div class="tc gold"><h4>🐯 Практика от Тигра</h4><p>Посмотри на любой ценник сегодня и прочитай цену по-английски. Это лучшая тренировка!</p></div></div>
+<div class="sec" id="t-vocab"><div class="card"><div class="c-title"><span class="c-icon ci-t">📝</span>Слова урока</div><div class="vgrid"><div class="vi"><div class="vi-en">one/two/three <button class="speak-btn" onclick="event.preventDefault();speak('one/two/three')">🔊</button></div><div class="vi-ipa">[wʌn/tuː/θriː]</div><div class="vi-ru">один/два/три</div></div><div class="vi"><div class="vi-en">ten/twenty/thirty <button class="speak-btn" onclick="event.preventDefault();speak('ten/twenty/thirty')">🔊</button></div><div class="vi-ipa">[ten/ˈtwenti/ˈθɜːti]</div><div class="vi-ru">10/20/30</div></div><div class="vi"><div class="vi-en">hundred <button class="speak-btn" onclick="event.preventDefault();speak('hundred')">🔊</button></div><div class="vi-ipa">[ˈhʌndrəd]</div><div class="vi-ru">сто</div></div><div class="vi"><div class="vi-en">thousand <button class="speak-btn" onclick="event.preventDefault();speak('thousand')">🔊</button></div><div class="vi-ipa">[ˈθaʊzənd]</div><div class="vi-ru">тысяча</div></div><div class="vi"><div class="vi-en">How old are you? <button class="speak-btn" onclick="event.preventDefault();speak('How old are you?')">🔊</button></div><div class="vi-ipa">[haʊ əʊld ɑː juː]</div><div class="vi-ru">Сколько лет?</div></div><div class="vi"><div class="vi-en">years old <button class="speak-btn" onclick="event.preventDefault();speak('years old')">🔊</button></div><div class="vi-ipa">[jɪəz əʊld]</div><div class="vi-ru">лет (возраст)</div></div><div class="vi"><div class="vi-en">How much is it? <button class="speak-btn" onclick="event.preventDefault();speak('How much is it?')">🔊</button></div><div class="vi-ipa">[haʊ mʌtʃ ɪz ɪt]</div><div class="vi-ru">Сколько стоит?</div></div><div class="vi"><div class="vi-en">expensive <button class="speak-btn" onclick="event.preventDefault();speak('expensive')">🔊</button></div><div class="vi-ipa">[ɪkˈspensɪv]</div><div class="vi-ru">дорогой</div></div><div class="vi"><div class="vi-en">cheap <button class="speak-btn" onclick="event.preventDefault();speak('cheap')">🔊</button></div><div class="vi-ipa">[tʃiːp]</div><div class="vi-ru">дешёвый</div></div><div class="vi"><div class="vi-en">dollar/pound <button class="speak-btn" onclick="event.preventDefault();speak('dollar/pound')">🔊</button></div><div class="vi-ipa">[ˈdɒlər/paʊnd]</div><div class="vi-ru">доллар/фунт</div></div></div></div><div class="tc "><h4>🏆 Урок 3 завершён!</h4><p>Ты умеешь считать до 1000, говорить о возрасте и ценах. Урок 4: Цвета, дни недели и время!</p></div><div class="tc gold"><h4>🐯 Практика от Тигра</h4><p>Посмотри на любой ценник сегодня и прочитай цену по-английски. Это лучшая тренировка!</p></div></div>
 
 </div>
 
@@ -460,6 +497,29 @@ function showTab(id,el){
   const s=document.getElementById('t-'+id);if(s)s.classList.add('on');
   if(el)el.classList.add('on');
   window.scrollTo({top:0,behavior:'smooth'});
+}
+
+
+// ── SPEECH SYNTHESIS ──────────────────────────────────
+function speak(text) {
+  if(!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.lang = 'en-GB';
+  utt.rate = 0.85;
+  utt.pitch = 1.1;
+  // Try to find a female English voice
+  const voices = window.speechSynthesis.getVoices();
+  const femaleVoice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('Female') || v.name.includes('Samantha') || v.name.includes('Karen') || v.name.includes('Victoria') || v.name.includes('Fiona') || v.name.includes('Google UK English Female')));
+  const anyEnglish = voices.find(v => v.lang.startsWith('en'));
+  if(femaleVoice) utt.voice = femaleVoice;
+  else if(anyEnglish) utt.voice = anyEnglish;
+  window.speechSynthesis.speak(utt);
+}
+// Ensure voices are loaded
+if(window.speechSynthesis) {
+  window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+  window.speechSynthesis.getVoices();
 }
 
 window.addEventListener('load',()=>{renderStreak();tsay('start');});

@@ -204,6 +204,43 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
   .hero-in{padding:32px 15px 22px}
   .cnt{padding:18px 14px}
 }
+
+.next-lesson-btn {
+  display: block;
+  width: 100%;
+  background: linear-gradient(135deg, #00C9A7, #00A98F);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 18px;
+  font-size: 15px;
+  font-weight: 800;
+  font-family: 'Sora', sans-serif;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s;
+  margin-top: 20px;
+  box-shadow: 0 4px 16px rgba(0,201,167,0.3);
+  letter-spacing: 0.02em;
+}
+.next-lesson-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,201,167,0.4);
+}
+.speak-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 2px 4px;
+  border-radius: 5px;
+  transition: transform 0.15s;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+.speak-btn:hover { transform: scale(1.2); }
+
 </style>
 </head>
 <body>
@@ -253,34 +290,34 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
       </tbody>
     </table>
     <div class="warn"><div class="warn-l">⚠️ Важно!</div>He/She/It → <strong>HAS</strong>, не have! «She has a car» — не «She have a car».</div>
-    <div class="er" style="margin-top:12px"><span class="er-en">I have a car.</span><span class="er-ru">У меня есть машина.</span></div>
-    <div class="er"><span class="er-en">She has two brothers.</span><span class="er-ru">У неё два брата.</span></div>
-    <div class="er"><span class="er-en">Do you have a pen?</span><span class="er-ru">У тебя есть ручка?</span></div>
-    <div class="er"><span class="er-en">I don't have time.</span><span class="er-ru">У меня нет времени.</span></div>
+    <div class="er" style="margin-top:12px"><span class="er-en">I have a car. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('I have a car.')">🔊</button></span><span class="er-ru">У меня есть машина.</span></div>
+    <div class="er"><span class="er-en">She has two brothers. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('She has two brothers.')">🔊</button></span><span class="er-ru">У неё два брата.</span></div>
+    <div class="er"><span class="er-en">Do you have a pen? <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Do you have a pen?')">🔊</button></span><span class="er-ru">У тебя есть ручка?</span></div>
+    <div class="er"><span class="er-en">I don't have time. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('I don\'t have time.')">🔊</button></span><span class="er-ru">У меня нет времени.</span></div>
   </div>
 </div>
 
 <div class="sec" id="t-forms">
   <div class="card"><div class="c-title"><span class="c-icon ci-r">❌</span>Отрицание — DON'T / DOESN'T</div>
-    <div class="er"><span class="er-en">I don't have a dog.</span><span class="er-ru">У меня нет собаки.</span></div>
-    <div class="er"><span class="er-en">She doesn't have a car.</span><span class="er-ru">У неё нет машины.</span></div>
+    <div class="er"><span class="er-en">I don't have a dog. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('I don\'t have a dog.')">🔊</button></span><span class="er-ru">У меня нет собаки.</span></div>
+    <div class="er"><span class="er-en">She doesn't have a car. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('She doesn\'t have a car.')">🔊</button></span><span class="er-ru">У неё нет машины.</span></div>
     <div class="tip"><div class="tip-l">💡 После DOESN'T — базовая форма!</div>She work<del>s</del> → She <strong>doesn't</strong> work (не doesn't works!)</div>
   </div>
   <div class="card"><div class="c-title"><span class="c-icon ci-p">❓</span>Вопрос — DO / DOES</div>
-    <div class="er"><span class="er-en">Do you have a phone?</span><span class="er-ru">У тебя есть телефон?</span></div>
-    <div class="er"><span class="er-en">Does she have a sister?</span><span class="er-ru">У неё есть сестра?</span></div>
-    <div class="er"><span class="er-en">Yes, I do. / No, I don't.</span><span class="er-ru">Да. / Нет.</span></div>
+    <div class="er"><span class="er-en">Do you have a phone? <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Do you have a phone?')">🔊</button></span><span class="er-ru">У тебя есть телефон?</span></div>
+    <div class="er"><span class="er-en">Does she have a sister? <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Does she have a sister?')">🔊</button></span><span class="er-ru">У неё есть сестра?</span></div>
+    <div class="er"><span class="er-en">Yes, I do. / No, I don't. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Yes, I do. / No, I don\'t.')">🔊</button></span><span class="er-ru">Да. / Нет.</span></div>
   </div>
 </div>
 
 <div class="sec" id="t-usage">
   <div class="card"><div class="c-title"><span class="c-icon ci-g">🍽️</span>HAVE в повседневной жизни</div>
-    <div class="er"><span class="er-en">have breakfast/lunch/dinner</span><span class="er-ru">завтракать/обедать/ужинать</span></div>
-    <div class="er"><span class="er-en">have a coffee/tea</span><span class="er-ru">выпить кофе/чай</span></div>
-    <div class="er"><span class="er-en">I have a headache.</span><span class="er-ru">У меня болит голова.</span></div>
-    <div class="er"><span class="er-en">She has blue eyes.</span><span class="er-ru">У неё голубые глаза.</span></div>
-    <div class="er"><span class="er-en">He has short hair.</span><span class="er-ru">У него короткие волосы.</span></div>
-    <div class="er"><span class="er-en">Let's have lunch!</span><span class="er-ru">Давай пообедаем!</span></div>
+    <div class="er"><span class="er-en">have breakfast/lunch/dinner <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('have breakfast/lunch/dinner')">🔊</button></span><span class="er-ru">завтракать/обедать/ужинать</span></div>
+    <div class="er"><span class="er-en">have a coffee/tea <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('have a coffee/tea')">🔊</button></span><span class="er-ru">выпить кофе/чай</span></div>
+    <div class="er"><span class="er-en">I have a headache. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('I have a headache.')">🔊</button></span><span class="er-ru">У меня болит голова.</span></div>
+    <div class="er"><span class="er-en">She has blue eyes. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('She has blue eyes.')">🔊</button></span><span class="er-ru">У неё голубые глаза.</span></div>
+    <div class="er"><span class="er-en">He has short hair. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('He has short hair.')">🔊</button></span><span class="er-ru">У него короткие волосы.</span></div>
+    <div class="er"><span class="er-en">Let's have lunch! <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Let\'s have lunch!')">🔊</button></span><span class="er-ru">Давай пообедаем!</span></div>
   </div>
 </div>
 
@@ -332,7 +369,7 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
   <button class="sc-btn" onclick="showTab('vocab',document.querySelectorAll('.tab')[4])">Перейти к словарю →</button>
 </div>
 </div>
-<div class="sec" id="t-vocab"><div class="card"><div class="c-title"><span class="c-icon ci-t">📝</span>Слова урока</div><div class="vgrid"><div class="vi"><div class="vi-en">have/has</div><div class="vi-ipa">[hæv/hæz]</div><div class="vi-ru">иметь</div></div><div class="vi"><div class="vi-en">don't have</div><div class="vi-ipa">[dəʊnt hæv]</div><div class="vi-ru">не иметь</div></div><div class="vi"><div class="vi-en">do you have?</div><div class="vi-ipa">[duː juː hæv]</div><div class="vi-ru">у тебя есть?</div></div><div class="vi"><div class="vi-en">brother/sister</div><div class="vi-ipa">[ˈbrʌðər/ˈsɪstər]</div><div class="vi-ru">брат/сестра</div></div><div class="vi"><div class="vi-en">eyes/hair</div><div class="vi-ipa">[aɪz/heər]</div><div class="vi-ru">глаза/волосы</div></div><div class="vi"><div class="vi-en">headache</div><div class="vi-ipa">[ˈhedeɪk]</div><div class="vi-ru">головная боль</div></div><div class="vi"><div class="vi-en">cold</div><div class="vi-ipa">[kəʊld]</div><div class="vi-ru">простуда/холодный</div></div><div class="vi"><div class="vi-en">breakfast</div><div class="vi-ipa">[ˈbrekfəst]</div><div class="vi-ru">завтрак</div></div><div class="vi"><div class="vi-en">lunch/dinner</div><div class="vi-ipa">[lʌntʃ/ˈdɪnər]</div><div class="vi-ru">обед/ужин</div></div><div class="vi"><div class="vi-en">phone</div><div class="vi-ipa">[fəʊn]</div><div class="vi-ru">телефон</div></div></div></div><div class="tc "><h4>🏆 Урок 6 завершён!</h4><p>Ты освоил HAVE! Урок 7: Первые диалоги — знакомство и приветствия!</p></div><div class="tc gold"><h4>🐯 Домашнее задание</h4><p>Скажи вслух 5 предложений про себя с HAVE. Например: «I have a phone. I have two brothers...»</p></div></div>
+<div class="sec" id="t-vocab"><div class="card"><div class="c-title"><span class="c-icon ci-t">📝</span>Слова урока</div><div class="vgrid"><div class="vi"><div class="vi-en">have/has <button class="speak-btn" onclick="event.preventDefault();speak('have/has')">🔊</button></div><div class="vi-ipa">[hæv/hæz]</div><div class="vi-ru">иметь</div></div><div class="vi"><div class="vi-en">don't have <button class="speak-btn" onclick="event.preventDefault();speak('don\'t have')">🔊</button></div><div class="vi-ipa">[dəʊnt hæv]</div><div class="vi-ru">не иметь</div></div><div class="vi"><div class="vi-en">do you have? <button class="speak-btn" onclick="event.preventDefault();speak('do you have?')">🔊</button></div><div class="vi-ipa">[duː juː hæv]</div><div class="vi-ru">у тебя есть?</div></div><div class="vi"><div class="vi-en">brother/sister <button class="speak-btn" onclick="event.preventDefault();speak('brother/sister')">🔊</button></div><div class="vi-ipa">[ˈbrʌðər/ˈsɪstər]</div><div class="vi-ru">брат/сестра</div></div><div class="vi"><div class="vi-en">eyes/hair <button class="speak-btn" onclick="event.preventDefault();speak('eyes/hair')">🔊</button></div><div class="vi-ipa">[aɪz/heər]</div><div class="vi-ru">глаза/волосы</div></div><div class="vi"><div class="vi-en">headache <button class="speak-btn" onclick="event.preventDefault();speak('headache')">🔊</button></div><div class="vi-ipa">[ˈhedeɪk]</div><div class="vi-ru">головная боль</div></div><div class="vi"><div class="vi-en">cold <button class="speak-btn" onclick="event.preventDefault();speak('cold')">🔊</button></div><div class="vi-ipa">[kəʊld]</div><div class="vi-ru">простуда/холодный</div></div><div class="vi"><div class="vi-en">breakfast <button class="speak-btn" onclick="event.preventDefault();speak('breakfast')">🔊</button></div><div class="vi-ipa">[ˈbrekfəst]</div><div class="vi-ru">завтрак</div></div><div class="vi"><div class="vi-en">lunch/dinner <button class="speak-btn" onclick="event.preventDefault();speak('lunch/dinner')">🔊</button></div><div class="vi-ipa">[lʌntʃ/ˈdɪnər]</div><div class="vi-ru">обед/ужин</div></div><div class="vi"><div class="vi-en">phone <button class="speak-btn" onclick="event.preventDefault();speak('phone')">🔊</button></div><div class="vi-ipa">[fəʊn]</div><div class="vi-ru">телефон</div></div></div></div><div class="tc "><h4>🏆 Урок 6 завершён!</h4><p>Ты освоил HAVE! Урок 7: Первые диалоги — знакомство и приветствия!</p></div><div class="tc gold"><h4>🐯 Домашнее задание</h4><p>Скажи вслух 5 предложений про себя с HAVE. Например: «I have a phone. I have two brothers...»</p></div></div>
 
 </div>
 
@@ -435,6 +472,29 @@ function showTab(id,el){
   const s=document.getElementById('t-'+id);if(s)s.classList.add('on');
   if(el)el.classList.add('on');
   window.scrollTo({top:0,behavior:'smooth'});
+}
+
+
+// ── SPEECH SYNTHESIS ──────────────────────────────────
+function speak(text) {
+  if(!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.lang = 'en-GB';
+  utt.rate = 0.85;
+  utt.pitch = 1.1;
+  // Try to find a female English voice
+  const voices = window.speechSynthesis.getVoices();
+  const femaleVoice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('Female') || v.name.includes('Samantha') || v.name.includes('Karen') || v.name.includes('Victoria') || v.name.includes('Fiona') || v.name.includes('Google UK English Female')));
+  const anyEnglish = voices.find(v => v.lang.startsWith('en'));
+  if(femaleVoice) utt.voice = femaleVoice;
+  else if(anyEnglish) utt.voice = anyEnglish;
+  window.speechSynthesis.speak(utt);
+}
+// Ensure voices are loaded
+if(window.speechSynthesis) {
+  window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+  window.speechSynthesis.getVoices();
 }
 
 window.addEventListener('load',()=>{renderStreak();tsay('start');});

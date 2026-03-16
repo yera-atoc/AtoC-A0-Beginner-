@@ -204,6 +204,43 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
   .hero-in{padding:32px 15px 22px}
   .cnt{padding:18px 14px}
 }
+
+.next-lesson-btn {
+  display: block;
+  width: 100%;
+  background: linear-gradient(135deg, #00C9A7, #00A98F);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 18px;
+  font-size: 15px;
+  font-weight: 800;
+  font-family: 'Sora', sans-serif;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s;
+  margin-top: 20px;
+  box-shadow: 0 4px 16px rgba(0,201,167,0.3);
+  letter-spacing: 0.02em;
+}
+.next-lesson-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,201,167,0.4);
+}
+.speak-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 2px 4px;
+  border-radius: 5px;
+  transition: transform 0.15s;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+.speak-btn:hover { transform: scale(1.2); }
+
 </style>
 </head>
 <body>
@@ -246,9 +283,9 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
 <div class="sec on" id="t-theory">
   <div class="card"><div class="c-title"><span class="c-icon ci-t">🇷🇺</span>Сравни русский и английский</div>
     <p style="font-size:13px;line-height:1.8;color:var(--muted);margin-bottom:12px">В русском мы говорим «Я студент» и опускаем глагол «есть». В английском — НЕЛЬЗЯ. Он всегда должен быть!</p>
-    <div class="er"><span class="er-en">Я студент.</span><span class="er-ru">→ I <strong>am</strong> a student. (нельзя: «I student»)</span></div>
-    <div class="er"><span class="er-en">Она красивая.</span><span class="er-ru">→ She <strong>is</strong> beautiful. (нельзя: «She beautiful»)</span></div>
-    <div class="er"><span class="er-en">Мы дома.</span><span class="er-ru">→ We <strong>are</strong> at home. (нельзя: «We at home»)</span></div>
+    <div class="er"><span class="er-en">Я студент. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Я студент.')">🔊</button></span><span class="er-ru">→ I <strong>am</strong> a student. (нельзя: «I student»)</span></div>
+    <div class="er"><span class="er-en">Она красивая. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Она красивая.')">🔊</button></span><span class="er-ru">→ She <strong>is</strong> beautiful. (нельзя: «She beautiful»)</span></div>
+    <div class="er"><span class="er-en">Мы дома. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Мы дома.')">🔊</button></span><span class="er-ru">→ We <strong>are</strong> at home. (нельзя: «We at home»)</span></div>
     <div class="tip"><div class="tip-l">🔑 Главное правило</div>В английском предложении всегда должен быть глагол. Если другого нет — используй TO BE!</div>
   </div>
   <div class="card"><div class="c-title"><span class="c-icon ci-g">📊</span>3 формы TO BE в настоящем</div>
@@ -271,19 +308,19 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
 
 <div class="sec" id="t-forms">
   <div class="card"><div class="c-title"><span class="c-icon ci-t">✅</span>Утвердительные предложения</div>
-    <div class="er"><span class="er-en">I am Ali.</span><span class="er-ru">Меня зовут Али.</span></div>
-    <div class="er"><span class="er-en">I am 20 years old.</span><span class="er-ru">Мне 20 лет.</span></div>
-    <div class="er"><span class="er-en">I am from Almaty.</span><span class="er-ru">Я из Алматы.</span></div>
-    <div class="er"><span class="er-en">She is a teacher.</span><span class="er-ru">Она учительница.</span></div>
-    <div class="er"><span class="er-en">It is cold today.</span><span class="er-ru">Сегодня холодно.</span></div>
-    <div class="er"><span class="er-en">We are students.</span><span class="er-ru">Мы студенты.</span></div>
+    <div class="er"><span class="er-en">I am Ali. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('I am Ali.')">🔊</button></span><span class="er-ru">Меня зовут Али.</span></div>
+    <div class="er"><span class="er-en">I am 20 years old. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('I am 20 years old.')">🔊</button></span><span class="er-ru">Мне 20 лет.</span></div>
+    <div class="er"><span class="er-en">I am from Almaty. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('I am from Almaty.')">🔊</button></span><span class="er-ru">Я из Алматы.</span></div>
+    <div class="er"><span class="er-en">She is a teacher. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('She is a teacher.')">🔊</button></span><span class="er-ru">Она учительница.</span></div>
+    <div class="er"><span class="er-en">It is cold today. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('It is cold today.')">🔊</button></span><span class="er-ru">Сегодня холодно.</span></div>
+    <div class="er"><span class="er-en">We are students. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('We are students.')">🔊</button></span><span class="er-ru">Мы студенты.</span></div>
     <div class="tip"><div class="tip-l">💡 Про IT</div><strong>It</strong> — для вещей, погоды, времени: It is hot. It is Monday. It is a cat.</div>
   </div>
   <div class="card"><div class="c-title"><span class="c-icon ci-p">❓</span>Вопрос — просто переставь!</div>
-    <div class="er"><span class="er-en">Are you a student?</span><span class="er-ru">Ты студент?</span></div>
-    <div class="er"><span class="er-en">Is she from Russia?</span><span class="er-ru">Она из России?</span></div>
-    <div class="er"><span class="er-en">Is it cold?</span><span class="er-ru">Холодно?</span></div>
-    <div class="er"><span class="er-en">Am I late?</span><span class="er-ru">Я опоздал?</span></div>
+    <div class="er"><span class="er-en">Are you a student? <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Are you a student?')">🔊</button></span><span class="er-ru">Ты студент?</span></div>
+    <div class="er"><span class="er-en">Is she from Russia? <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Is she from Russia?')">🔊</button></span><span class="er-ru">Она из России?</span></div>
+    <div class="er"><span class="er-en">Is it cold? <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Is it cold?')">🔊</button></span><span class="er-ru">Холодно?</span></div>
+    <div class="er"><span class="er-en">Am I late? <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('Am I late?')">🔊</button></span><span class="er-ru">Я опоздал?</span></div>
     <div class="tip"><div class="tip-l">📐 Формула</div>IS/AM/ARE + подлежащее + остальное?<br>Yes, I am. / No, I'm not. (в кратких ответах НЕ сокращаем «Yes, I'm» ❌)</div>
   </div>
 </div>
@@ -298,9 +335,9 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
         <tr><td class="en">You/We/They are</td><td class="en">are not</td><td class="sh">aren't</td></tr>
       </tbody>
     </table>
-    <div class="er"><span class="er-en">I'm not tired.</span><span class="er-ru">Я не устал/а.</span></div>
-    <div class="er"><span class="er-en">She isn't a doctor.</span><span class="er-ru">Она не врач.</span></div>
-    <div class="er"><span class="er-en">We aren't from Russia.</span><span class="er-ru">Мы не из России.</span></div>
+    <div class="er"><span class="er-en">I'm not tired. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('I\'m not tired.')">🔊</button></span><span class="er-ru">Я не устал/а.</span></div>
+    <div class="er"><span class="er-en">She isn't a doctor. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('She isn\'t a doctor.')">🔊</button></span><span class="er-ru">Она не врач.</span></div>
+    <div class="er"><span class="er-en">We aren't from Russia. <button class="speak-btn" onclick="event.preventDefault();event.stopPropagation();speak('We aren\'t from Russia.')">🔊</button></span><span class="er-ru">Мы не из России.</span></div>
     <div class="warn"><div class="warn-l">⚠️ Важно!</div><strong>I amn't</strong> — так нельзя! Только <strong>I'm not</strong>. Для остальных: isn't / aren't.</div>
   </div>
 </div>
@@ -363,7 +400,7 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
 </div>
 
 <div class="sec" id="t-vocab">
-  <div class="card"><div class="c-title"><span class="c-icon ci-t">📝</span>Слова урока</div><div class="vgrid"><div class="vi"><div class="vi-en">I am / I'm</div><div class="vi-ipa">[aɪ æm]</div><div class="vi-ru">Я есть</div></div><div class="vi"><div class="vi-en">he is / he's</div><div class="vi-ipa">[hiː ɪz]</div><div class="vi-ru">он есть</div></div><div class="vi"><div class="vi-en">she is / she's</div><div class="vi-ipa">[ʃiː ɪz]</div><div class="vi-ru">она есть</div></div><div class="vi"><div class="vi-en">we are / we're</div><div class="vi-ipa">[wiː ɑː]</div><div class="vi-ru">мы есть</div></div><div class="vi"><div class="vi-en">student</div><div class="vi-ipa">[ˈstjuːdənt]</div><div class="vi-ru">студент</div></div><div class="vi"><div class="vi-en">teacher</div><div class="vi-ipa">[ˈtiːtʃər]</div><div class="vi-ru">учитель</div></div><div class="vi"><div class="vi-en">doctor</div><div class="vi-ipa">[ˈdɒktər]</div><div class="vi-ru">врач</div></div><div class="vi"><div class="vi-en">happy</div><div class="vi-ipa">[ˈhæpi]</div><div class="vi-ru">счастливый</div></div><div class="vi"><div class="vi-en">tired</div><div class="vi-ipa">[ˈtaɪərd]</div><div class="vi-ru">усталый</div></div><div class="vi"><div class="vi-en">today</div><div class="vi-ipa">[təˈdeɪ]</div><div class="vi-ru">сегодня</div></div></div></div>
+  <div class="card"><div class="c-title"><span class="c-icon ci-t">📝</span>Слова урока</div><div class="vgrid"><div class="vi"><div class="vi-en">I am / I'm <button class="speak-btn" onclick="event.preventDefault();speak('I am / I\'m')">🔊</button></div><div class="vi-ipa">[aɪ æm]</div><div class="vi-ru">Я есть</div></div><div class="vi"><div class="vi-en">he is / he's <button class="speak-btn" onclick="event.preventDefault();speak('he is / he\'s')">🔊</button></div><div class="vi-ipa">[hiː ɪz]</div><div class="vi-ru">он есть</div></div><div class="vi"><div class="vi-en">she is / she's <button class="speak-btn" onclick="event.preventDefault();speak('she is / she\'s')">🔊</button></div><div class="vi-ipa">[ʃiː ɪz]</div><div class="vi-ru">она есть</div></div><div class="vi"><div class="vi-en">we are / we're <button class="speak-btn" onclick="event.preventDefault();speak('we are / we\'re')">🔊</button></div><div class="vi-ipa">[wiː ɑː]</div><div class="vi-ru">мы есть</div></div><div class="vi"><div class="vi-en">student <button class="speak-btn" onclick="event.preventDefault();speak('student')">🔊</button></div><div class="vi-ipa">[ˈstjuːdənt]</div><div class="vi-ru">студент</div></div><div class="vi"><div class="vi-en">teacher <button class="speak-btn" onclick="event.preventDefault();speak('teacher')">🔊</button></div><div class="vi-ipa">[ˈtiːtʃər]</div><div class="vi-ru">учитель</div></div><div class="vi"><div class="vi-en">doctor <button class="speak-btn" onclick="event.preventDefault();speak('doctor')">🔊</button></div><div class="vi-ipa">[ˈdɒktər]</div><div class="vi-ru">врач</div></div><div class="vi"><div class="vi-en">happy <button class="speak-btn" onclick="event.preventDefault();speak('happy')">🔊</button></div><div class="vi-ipa">[ˈhæpi]</div><div class="vi-ru">счастливый</div></div><div class="vi"><div class="vi-en">tired <button class="speak-btn" onclick="event.preventDefault();speak('tired')">🔊</button></div><div class="vi-ipa">[ˈtaɪərd]</div><div class="vi-ru">усталый</div></div><div class="vi"><div class="vi-en">today <button class="speak-btn" onclick="event.preventDefault();speak('today')">🔊</button></div><div class="vi-ipa">[təˈdeɪ]</div><div class="vi-ru">сегодня</div></div></div></div>
   <div class="tc "><h4>🏆 Урок 2 завершён!</h4><p>Ты освоил самый важный глагол английского! Урок 3: Числа, возраст и цены.</p></div><div class="tc gold"><h4>🐯 Домашнее задание от Тигра</h4><p>Скажи вслух: «My name is ___, I am ___ years old, I am from ___.» Повтори 5 раз — это настоящий английский!</p></div>
 </div>
 
@@ -468,6 +505,29 @@ function showTab(id,el){
   const s=document.getElementById('t-'+id);if(s)s.classList.add('on');
   if(el)el.classList.add('on');
   window.scrollTo({top:0,behavior:'smooth'});
+}
+
+
+// ── SPEECH SYNTHESIS ──────────────────────────────────
+function speak(text) {
+  if(!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.lang = 'en-GB';
+  utt.rate = 0.85;
+  utt.pitch = 1.1;
+  // Try to find a female English voice
+  const voices = window.speechSynthesis.getVoices();
+  const femaleVoice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('Female') || v.name.includes('Samantha') || v.name.includes('Karen') || v.name.includes('Victoria') || v.name.includes('Fiona') || v.name.includes('Google UK English Female')));
+  const anyEnglish = voices.find(v => v.lang.startsWith('en'));
+  if(femaleVoice) utt.voice = femaleVoice;
+  else if(anyEnglish) utt.voice = anyEnglish;
+  window.speechSynthesis.speak(utt);
+}
+// Ensure voices are loaded
+if(window.speechSynthesis) {
+  window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+  window.speechSynthesis.getVoices();
 }
 
 window.addEventListener('load',()=>{renderStreak();tsay('start');});

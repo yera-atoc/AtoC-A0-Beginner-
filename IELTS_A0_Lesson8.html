@@ -204,6 +204,43 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
   .hero-in{padding:32px 15px 22px}
   .cnt{padding:18px 14px}
 }
+
+.next-lesson-btn {
+  display: block;
+  width: 100%;
+  background: linear-gradient(135deg, #00C9A7, #00A98F);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 18px;
+  font-size: 15px;
+  font-weight: 800;
+  font-family: 'Sora', sans-serif;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s;
+  margin-top: 20px;
+  box-shadow: 0 4px 16px rgba(0,201,167,0.3);
+  letter-spacing: 0.02em;
+}
+.next-lesson-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,201,167,0.4);
+}
+.speak-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 2px 4px;
+  border-radius: 5px;
+  transition: transform 0.15s;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+.speak-btn:hover { transform: scale(1.2); }
+
 </style>
 </head>
 <body>
@@ -492,6 +529,29 @@ function showTab(id,el){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
+
+// ── SPEECH SYNTHESIS ──────────────────────────────────
+function speak(text) {
+  if(!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.lang = 'en-GB';
+  utt.rate = 0.85;
+  utt.pitch = 1.1;
+  // Try to find a female English voice
+  const voices = window.speechSynthesis.getVoices();
+  const femaleVoice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('Female') || v.name.includes('Samantha') || v.name.includes('Karen') || v.name.includes('Victoria') || v.name.includes('Fiona') || v.name.includes('Google UK English Female')));
+  const anyEnglish = voices.find(v => v.lang.startsWith('en'));
+  if(femaleVoice) utt.voice = femaleVoice;
+  else if(anyEnglish) utt.voice = anyEnglish;
+  window.speechSynthesis.speak(utt);
+}
+// Ensure voices are loaded
+if(window.speechSynthesis) {
+  window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+  window.speechSynthesis.getVoices();
+}
+
 window.addEventListener('load',()=>{renderStreak();tsay('start');});
 </script>
 <script>
@@ -530,6 +590,29 @@ function buildResults(){
   document.getElementById('res-table').innerHTML=h;
 }
 // Check statuses
+
+// ── SPEECH SYNTHESIS ──────────────────────────────────
+function speak(text) {
+  if(!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.lang = 'en-GB';
+  utt.rate = 0.85;
+  utt.pitch = 1.1;
+  // Try to find a female English voice
+  const voices = window.speechSynthesis.getVoices();
+  const femaleVoice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('Female') || v.name.includes('Samantha') || v.name.includes('Karen') || v.name.includes('Victoria') || v.name.includes('Fiona') || v.name.includes('Google UK English Female')));
+  const anyEnglish = voices.find(v => v.lang.startsWith('en'));
+  if(femaleVoice) utt.voice = femaleVoice;
+  else if(anyEnglish) utt.voice = anyEnglish;
+  window.speechSynthesis.speak(utt);
+}
+// Ensure voices are loaded
+if(window.speechSynthesis) {
+  window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+  window.speechSynthesis.getVoices();
+}
+
 window.addEventListener('load',()=>{
   renderStreak();tsay('start');
   for(let i=1;i<=7;i++){
