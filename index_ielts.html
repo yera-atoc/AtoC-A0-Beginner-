@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AtoC.IELTS from Zero — Портал</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B1F3A;--navy-mid:#132d52;--teal:#0E8A6F;--teal-light:#12B08E;--teal-pale:#e6f9f5;--gold:#F2A93B;--gold-light:#FEF3C7;--red:#E24B4A;--green:#10B981;--green-light:#D1FAE5;--white:#FFFFFF;--text:#0B1F3A;--text-muted:#5a6a7e;--border:#dde3ed;--bg:#F4F6FA;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:80px;}
+
+/* Header */
+.header{background:var(--navy);border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:100;}
+.header-inner{max-width:1100px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-badge{background:var(--gold);color:var(--navy);font-weight:800;font-size:14px;padding:5px 13px;border-radius:8px;}
+.logo-text{color:#fff;font-weight:700;font-size:16px;letter-spacing:-0.01em;}
+.hdr-right{display:flex;align-items:center;gap:12px;}
+.hdr-progress{color:rgba(255,255,255,0.6);font-size:13px;font-family:'DM Mono',monospace;}
+.hdr-progress strong{color:var(--gold);}
+.logout-btn{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);font-size:12px;font-weight:600;padding:6px 14px;border-radius:8px;cursor:pointer;font-family:'Sora',sans-serif;transition:all 0.2s;}
+.logout-btn:hover{background:rgba(226,75,74,0.2);border-color:rgba(226,75,74,0.4);color:#fca5a5;}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 60%,#1a4a6e 100%);padding:56px 24px 64px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(14,138,111,0.15) 0%,transparent 70%);top:-200px;right:-100px;pointer-events:none;}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;}
+.hero-label{background:linear-gradient(135deg,var(--gold),#f7c46e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:16px;}
+.hero h1{font-family:'Lora',serif;font-size:clamp(28px,4vw,52px);font-weight:700;color:#fff;letter-spacing:-0.02em;line-height:1.15;margin-bottom:12px;}
+.hero h1 span{color:var(--gold);}
+.hero p{color:rgba(255,255,255,0.6);font-size:16px;margin-bottom:36px;max-width:500px;line-height:1.7;}
+
+/* Stats */
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-bottom:16px;}
+.stat-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:18px 20px;backdrop-filter:blur(10px);}
+.stat-label{color:rgba(255,255,255,0.45);font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;}
+.stat-value{color:#fff;font-size:30px;font-weight:800;letter-spacing:-0.03em;line-height:1;}
+.stat-value.gold{color:var(--gold);}
+.stat-value.teal{color:#5de8c8;}
+.stat-sub{color:rgba(255,255,255,0.35);font-size:12px;margin-top:4px;}
+.overall-bar-wrap{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:18px 24px;margin-top:14px;}
+.ob-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.ob-label{color:rgba(255,255,255,0.5);font-size:12px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;}
+.ob-pct{color:var(--gold);font-family:'DM Mono',monospace;font-weight:700;font-size:14px;}
+.ob-bar{background:rgba(255,255,255,0.1);border-radius:100px;height:8px;overflow:hidden;}
+.ob-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width 1s ease;width:0%;}
+
+/* Main */
+.main{max-width:1100px;margin:0 auto;padding:40px 24px 60px;}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;margin-top:48px;}
+.section-header:first-child{margin-top:0;}
+.sec-pill{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:4px 12px;border-radius:100px;color:#fff;}
+.pill-a0{background:#0E8A6F;}
+.pill-a1{background:#3b82f6;}
+.pill-coming{background:#9ca3af;}
+.section-header h2{font-size:18px;font-weight:700;letter-spacing:-0.02em;}
+.sec-count{margin-left:auto;color:var(--text-muted);font-size:13px;font-family:'DM Mono',monospace;}
+
+/* Lesson grid */
+.lesson-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;}
+.lesson-card{background:var(--white);border:2px solid var(--border);border-radius:16px;padding:20px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:10px;transition:all 0.2s;position:relative;overflow:hidden;}
+.lesson-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--card-color,var(--border));transition:all 0.2s;}
+.lesson-card:hover{border-color:var(--card-color,var(--teal));transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.08);}
+.lesson-card.done{background:linear-gradient(135deg,#f0fdf8 0%,#fff 100%);border-color:transparent;}
+.lesson-card.done::before{background:var(--green);height:4px;}
+.lesson-card.locked{opacity:0.5;cursor:not-allowed;}
+.lesson-card.locked:hover{transform:none;box-shadow:none;}
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}
+.lesson-num{background:var(--bg);color:var(--text-muted);font-size:11px;font-weight:700;font-family:'DM Mono',monospace;padding:4px 8px;border-radius:6px;letter-spacing:0.05em;}
+.lesson-card.done .lesson-num{background:#d1fae5;color:#065f46;}
+.score-badge{background:#f0fdf8;border:1px solid #a7f3d0;border-radius:100px;padding:4px 10px;font-size:12px;font-weight:700;color:#065f46;font-family:'DM Mono',monospace;display:flex;align-items:center;gap:4px;}
+.lesson-title{font-size:15px;font-weight:700;color:var(--text);line-height:1.35;letter-spacing:-0.01em;}
+.lesson-tags{display:flex;gap:6px;flex-wrap:wrap;}
+.tag{font-size:11px;font-weight:600;padding:3px 8px;border-radius:6px;letter-spacing:0.03em;}
+.tag-grammar{background:#ede9fe;color:#5b21b6;}
+.tag-vocab{background:var(--teal-pale);color:var(--teal);}
+.tag-reading{background:#d1fae5;color:#065f46;}
+.tag-test{background:#fff7ed;color:#c2410c;}
+.lesson-bar{background:var(--border);border-radius:100px;height:4px;overflow:hidden;}
+.lesson-bar-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--teal),var(--teal-light));transition:width 0.8s ease;}
+.lesson-bar-fill.mid{background:linear-gradient(90deg,var(--gold),#f59e0b);}
+.lesson-bar-fill.low{background:linear-gradient(90deg,var(--red),#f87171);}
+.lesson-cta{font-size:13px;font-weight:600;color:var(--text-muted);margin-top:auto;}
+.lesson-card.done .lesson-cta{color:var(--teal);}
+.lesson-card.locked .lesson-cta{color:#9ca3af;}
+
+/* Coming soon */
+.coming-card{background:var(--white);border:2px dashed var(--border);border-radius:16px;padding:20px;display:flex;align-items:center;gap:14px;opacity:0.6;}
+.cc-icon{font-size:28px;flex-shrink:0;}
+.cc-title{font-size:15px;font-weight:700;color:var(--text);}
+.cc-sub{font-size:13px;color:var(--text-muted);margin-top:3px;}
+
+@media(max-width:640px){.hero{padding:40px 20px 48px;}.main{padding:28px 16px 60px;}.stats-row{grid-template-columns:repeat(2,1fr);}.lesson-grid{grid-template-columns:1fr;}.hdr-right{gap:6px;}}
+</style>
+</head>
+<body>
+<script>
+if(localStorage.getItem('ielts_a0_access')!=='granted'){window.location.href='payment_a0.html';}
+</script>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-badge">AtoC</span>
+      <span class="logo-text">IELTS from Zero</span>
+    </div>
+    <div class="hdr-right">
+      <span class="hdr-progress">Пройдено: <strong id="hdr-done">0</strong>/18</span>
+      <button class="logout-btn" onclick="if(confirm('Выйти из курса?')){localStorage.removeItem('ielts_a0_access');window.location.href='payment_a0.html';}">Выйти</button>
+    </div>
+  </div>
+</header>
+<!-- Tiger mascot -->
+<style>
+@keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.tiger-wrap2{position:fixed;bottom:24px;right:20px;z-index:300;display:flex;flex-direction:column;align-items:flex-end;gap:8px;}
+.tiger-avatar2{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#FFB830,#FF6B35);display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;box-shadow:0 4px 16px rgba(255,184,48,0.4);animation:float2 3s ease-in-out infinite;border:3px solid #fff;}
+.tiger-bubble2{background:#0D1B2A;color:#fff;border-radius:16px 16px 4px 16px;padding:12px 16px;font-size:13px;font-weight:600;max-width:200px;line-height:1.5;box-shadow:0 8px 24px rgba(0,0,0,0.2);opacity:0;transform:translateY(8px) scale(0.9);transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);pointer-events:none;border:2px solid #FFB830;position:relative;}
+.tiger-bubble2.show{opacity:1;transform:translateY(0) scale(1);}
+</style>
+<div class="tiger-wrap2">
+  <div class="tiger-bubble2" id="tiger-bubble"><span id="tiger-text">Привет! Я Тигр 🐯 Учись со мной!</span></div>
+  <div class="tiger-avatar2" onclick="tigerTap()">🐯</div>
+</div>
+<script>
+const TIGER_TAPS=['Учись каждый день! 🔥','Тигр в тебя верит! 🐯💪','Ты справишься! ⚡','Один урок — один шаг к цели! 🎯','Ррр! Покажи на что способен(а)! 🐯'];
+function tigerTap(){
+  const bubble=document.getElementById('tiger-bubble');
+  const text=document.getElementById('tiger-text');
+  text.textContent=TIGER_TAPS[Math.floor(Math.random()*TIGER_TAPS.length)];
+  bubble.classList.remove('show');void bubble.offsetWidth;bubble.classList.add('show');
+  clearTimeout(window._tt);window._tt=setTimeout(()=>bubble.classList.remove('show'),4000);
+}
+setTimeout(tigerTap, 1500);
+</script>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">AtoC.IELTS from Zero</div>
+    <h1>Английский с нуля<br>до <span>IELTS</span></h1>
+    <p>От A0 до C2 — пошагово, на русском, с объяснениями. Каждый урок приближает тебя к реальному результату.</p>
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-label">Средний балл</div>
+        <div class="stat-value gold" id="avg-pct">—</div>
+        <div class="stat-sub">по пройденным урокам</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Уроков пройдено</div>
+        <div class="stat-value teal" id="done-count">0</div>
+        <div class="stat-sub">из 8 уроков A0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Твой уровень</div>
+        <div class="stat-value" id="level-val" style="font-size:18px;margin-top:4px">Pre-A1</div>
+        <div class="stat-sub" id="level-sub">начало пути</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">IELTS эквивалент</div>
+        <div class="stat-value" id="ielts-val" style="font-size:20px;margin-top:4px">0 – 2.0</div>
+        <div class="stat-sub">после A0</div>
+      </div>
+    </div>
+    <div class="overall-bar-wrap">
+      <div class="ob-top">
+        <span class="ob-label">Прогресс курса A0</span>
+        <span class="ob-pct" id="ob-pct-label">0%</span>
+      </div>
+      <div class="ob-bar"><div class="ob-fill" id="ob-fill"></div></div>
+    </div>
+  </div>
+</section>
+
+<main class="main">
+
+  <!-- A0 -->
+  <div class="section-header">
+    <span class="sec-pill pill-a0">A0</span>
+    <h2>Beginner — Начинающий</h2>
+    <span class="sec-count" id="a0-count">0/8 пройдено</span>
+  </div>
+  <div class="lesson-grid" id="grid-a0"></div>
+
+
+  <!-- Coming soon -->
+  <div class="section-header" style="margin-top:52px">
+    <span class="sec-pill pill-coming">Скоро</span>
+    <h2>Следующие уровни</h2>
+  </div>
+  <div class="lesson-grid">
+    <div class="coming-card"><div class="cc-icon">🔵</div><div><div class="cc-title">A1 — Elementary</div><div class="cc-sub">Present Simple, описание людей, 10 уроков</div></div></div>
+    <div class="coming-card"><div class="cc-icon">🟢</div><div><div class="cc-title">A2 — Pre-Intermediate</div><div class="cc-sub">Past Simple, путешествия, 12 уроков</div></div></div>
+    <div class="coming-card"><div class="cc-icon">🟡</div><div><div class="cc-title">B1 — Intermediate</div><div class="cc-sub">Все времена, сложные тексты, 14 уроков</div></div></div>
+    <div class="coming-card"><div class="cc-icon">🏆</div><div><div class="cc-title">IELTS подготовка</div><div class="cc-sub">Reading, Writing, Listening, Speaking, 14 уроков</div></div></div>
+  </div>
+
+</main>
+
+<script>
+const LESSONS = [
+  {num:1, file:'IELTS_A0_Lesson1.html', title:'Алфавит и звуки', tags:['vocab'], key:'ielts_a0_lesson1', color:'#0E8A6F'},
+  {num:2, file:'IELTS_A0_Lesson2.html', title:'Глагол TO BE', tags:['grammar'], key:'ielts_a0_lesson2', color:'#8B5CF6'},
+  {num:3, file:'IELTS_A0_Lesson3.html', title:'Числа, возраст, цены', tags:['vocab'], key:'ielts_a0_lesson3', color:'#0E8A6F'},
+  {num:4, file:'IELTS_A0_Lesson4.html', title:'Цвета, дни недели, время', tags:['vocab'], key:'ielts_a0_lesson4', color:'#F2A93B'},
+  {num:5, file:'IELTS_A0_Lesson5.html', title:'Артикли A / AN / THE', tags:['grammar'], key:'ielts_a0_lesson5', color:'#8B5CF6'},
+  {num:6, file:'IELTS_A0_Lesson6.html', title:'Глагол HAVE', tags:['grammar'], key:'ielts_a0_lesson6', color:'#8B5CF6'},
+  {num:7, file:'IELTS_A0_Lesson7.html', title:'Первые диалоги', tags:['vocab','reading'], key:'ielts_a0_lesson7', color:'#10B981'},
+  {num:8, file:'IELTS_A0_Lesson8.html', title:'Итоговый тест A0', tags:['test'], key:'ielts_a0_lesson8', color:'#F2A93B'},
+];
+const TAG_CLASS={grammar:'tag-grammar',vocab:'tag-vocab',reading:'tag-reading',test:'tag-test'};
+const TAG_LABEL={grammar:'Grammar',vocab:'Vocabulary',reading:'Reading',test:'Финальный тест'};
+
+function getR(key){try{return JSON.parse(localStorage.getItem(key));}catch{return null;}}
+function pctClass(p){return p>=70?'high':p>=50?'mid':'low';}
+
+
+const LESSONS_A1 = [
+  {num:1, file:'IELTS_A1_Lesson1.html', title:'Present Simple', tags:['grammar'], key:'ielts_a1_lesson1', color:'#3B82F6'},
+  {num:2, file:'IELTS_A1_Lesson2.html', title:'Вопросительные слова', tags:['grammar','vocab'], key:'ielts_a1_lesson2', color:'#3B82F6'},
+  {num:3, file:'IELTS_A1_Lesson3.html', title:'Описание людей', tags:['vocab'], key:'ielts_a1_lesson3', color:'#10B981'},
+  {num:4, file:'IELTS_A1_Lesson4.html', title:'Семья', tags:['vocab'], key:'ielts_a1_lesson4', color:'#10B981'},
+  {num:5, file:'IELTS_A1_Lesson5.html', title:'Еда и напитки', tags:['vocab'], key:'ielts_a1_lesson5', color:'#F2A93B'},
+  {num:6, file:'IELTS_A1_Lesson6.html', title:'Место и направление', tags:['grammar','vocab'], key:'ielts_a1_lesson6', color:'#8B5CF6'},
+  {num:7, file:'IELTS_A1_Lesson7.html', title:'Профессии и распорядок дня', tags:['vocab'], key:'ielts_a1_lesson7', color:'#10B981'},
+  {num:8, file:'IELTS_A1_Lesson8.html', title:'Покупки и деньги', tags:['vocab'], key:'ielts_a1_lesson8', color:'#F2A93B'},
+  {num:9, file:'IELTS_A1_Lesson9.html', title:'Погода и времена года', tags:['vocab'], key:'ielts_a1_lesson9', color:'#3B82F6'},
+  {num:10, file:'IELTS_A1_Lesson10.html', title:'Итоговый тест A1', tags:['test'], key:'ielts_a1_lesson10', color:'#F2A93B'},
+];
+
+// Lesson order for locking
+const A0_ORDER=['ielts_a0_lesson1','ielts_a0_lesson2','ielts_a0_lesson3','ielts_a0_lesson4','ielts_a0_lesson5','ielts_a0_lesson6','ielts_a0_lesson7','ielts_a0_lesson8'];
+
+function isUnlocked(key){
+  const idx=A0_ORDER.indexOf(key);
+  if(idx<=0) return true;
+  return !!getR(A0_ORDER[idx-1]);
+}
+
+function buildCard(l){
+  const r=getR(l.key);
+  const done=!!r;
+  const unlocked=isUnlocked(l.key);
+  const locked=!unlocked&&!done;
+  const pct=done?r.pct:null;
+  const cls=pct!==null?(pct>=70?'high':pct>=50?'mid':'low'):'';
+  const tags=l.tags.map(t=>`<span class="tag ${TAG_CLASS[t]||'tag-vocab'}">${TAG_LABEL[t]||t}</span>`).join('');
+  const scoreBadge=done?`<span class="score-badge">✓ ${r.score}/${r.max}</span>`:'';
+  const bar=done?`<div class="lesson-bar"><div class="lesson-bar-fill ${cls}" style="width:${pct}%"></div></div>`:'';
+
+  if(locked){
+    return `<div class="lesson-card locked" onclick="showLockedMsg()" style="--card-color:#9ca3af">
+      <div class="card-top"><span class="lesson-num">Урок 0${l.num}</span><span style="font-size:18px">🔒</span></div>
+      <div class="lesson-title" style="color:var(--text-muted)">${l.title}</div>
+      <div class="lesson-tags">${tags}</div>
+      <div class="lesson-cta" style="color:#9ca3af">Сначала заверши предыдущий урок</div>
+    </div>`;
+  }
+
+  const cta=done?`✓ Пройден · ${pct}% — Повторить`:'Начать урок →';
+  return `<a href="${l.file}" class="lesson-card${done?' done':''}" style="--card-color:${l.color}">
+    <div class="card-top"><span class="lesson-num">Урок 0${l.num}</span>${scoreBadge}</div>
+    <div class="lesson-title">${l.title}</div>
+    <div class="lesson-tags">${tags}</div>
+    ${bar}
+    <div class="lesson-cta">${cta}</div>
+  </a>`;
+}
+
+function showLockedMsg(){
+  const msgs=['Сначала заверши предыдущий урок! 🔒','Порядок важен — один шаг за раз 🐯','Пройди предыдущий урок и этот откроется! 🔓'];
+  const msg=msgs[Math.floor(Math.random()*msgs.length)];
+  // Show tiger bubble if exists
+  const bubble=document.getElementById('tiger-bubble');
+  const text=document.getElementById('tiger-text');
+  if(bubble&&text){text.textContent=msg;bubble.classList.add('show');setTimeout(()=>bubble.classList.remove('show'),3500);}
+  else alert(msg);
+}
+
+function init(){
+  const results=LESSONS.map(l=>getR(l.key)).filter(Boolean);
+  const done=results.length;
+  document.getElementById('done-count').textContent=done;
+  const a1d=LESSONS_A1.filter(l=>getR(l.key)).length;
+  document.getElementById('hdr-done').textContent=done+a1d;
+  document.getElementById('a0-count').textContent=`${done}/8 пройдено`;
+  const pct=Math.round(done/8*100);
+  document.getElementById('ob-pct-label').textContent=pct+'%';
+  setTimeout(()=>{document.getElementById('ob-fill').style.width=pct+'%';},200);
+  if(done>0){
+    const avg=Math.round(results.reduce((s,r)=>s+r.pct,0)/done);
+    document.getElementById('avg-pct').textContent=avg+'%';
+  }
+  if(done>=8){document.getElementById('level-val').textContent='A0 ✓';document.getElementById('level-sub').textContent='готов к A1!';}
+  else if(done>=4){document.getElementById('level-val').textContent='A0';document.getElementById('level-sub').textContent='в процессе';}
+  const g0=document.getElementById('grid-a0');
+  if(g0)g0.innerHTML=LESSONS.map(buildCard).join('');
+  const a1done=LESSONS_A1.filter(l=>getR(l.key)).length;
+  const a1c=document.getElementById('a1-count');
+  if(a1c)a1c.textContent=a1done+'/10 пройдено';
+  const g1=document.getElementById('grid-a1');
+  if(g1)g1.innerHTML=LESSONS_A1.map(buildCard).join('');
+}
+
+init();
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')init();});
+</script>
+</body>
+</html>

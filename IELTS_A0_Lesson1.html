@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AtoC.IELTS — A0 Урок 1: Алфавит и звуки</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#0D1B2A;--navy2:#1a2f4a;
+  --teal:#00C9A7;--teal2:#00A98F;--teal-pale:#e0faf5;
+  --gold:#FFB830;--gold2:#FF9500;--gold-pale:#fff8e6;
+  --red:#FF4D6D;--red-pale:#ffe0e6;
+  --green:#06D6A0;--green-pale:#e0fdf4;
+  --purple:#845EC2;--purple-pale:#f0ebff;
+  --orange:#FF6B35;--pink:#FF6B9D;
+  --white:#fff;--text:#0D1B2A;--muted:#5a7184;
+  --border:#e2eaf5;--bg:#F5F7FF;
+}
+@keyframes confettiFall{to{transform:translateY(110vh) rotate(720deg);opacity:0;}}
+@keyframes bounceIn{0%{transform:scale(0) rotate(-10deg);opacity:0}60%{transform:scale(1.2) rotate(3deg)}100%{transform:scale(1) rotate(0);opacity:1}}
+@keyframes slideUp{from{transform:translateY(24px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
+@keyframes streakFlame{0%,100%{transform:scale(1) rotate(-3deg)}50%{transform:scale(1.1) rotate(3deg)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes correctPulse{0%{box-shadow:0 0 0 0 rgba(6,214,160,0.5)}100%{box-shadow:0 0 0 20px rgba(6,214,160,0)}}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:80px;overflow-x:hidden;}
+
+/* ── HEADER ── */
+.header{background:var(--navy);border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:200;padding:0 20px;}
+.header-inner{max-width:700px;margin:0 auto;height:58px;display:flex;align-items:center;justify-content:space-between;}
+.logo{display:flex;align-items:center;gap:8px;}
+.logo-badge{background:var(--gold);color:var(--navy);font-weight:800;font-size:13px;padding:4px 11px;border-radius:7px;letter-spacing:0.02em;}
+.logo-text{color:#fff;font-weight:700;font-size:14px;}
+.hdr-right{display:flex;align-items:center;gap:8px;}
+.streak-badge{display:flex;align-items:center;gap:4px;background:rgba(255,184,48,0.15);border:1px solid rgba(255,184,48,0.3);border-radius:20px;padding:4px 10px;font-size:13px;font-weight:700;color:var(--gold);animation:streakFlame 2s ease-in-out infinite;}
+.back-link{color:rgba(255,255,255,0.6);font-size:12px;font-weight:600;text-decoration:none;padding:6px 12px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;transition:all 0.2s;}
+.back-link:hover{background:rgba(255,255,255,0.1);color:#fff;}
+
+/* ── TIGER MASCOT ── */
+.tiger-wrap{position:fixed;bottom:24px;right:20px;z-index:300;display:flex;flex-direction:column;align-items:flex-end;gap:8px;}
+.tiger-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--orange));display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer;box-shadow:0 4px 16px rgba(255,184,48,0.4);animation:float 3s ease-in-out infinite;border:3px solid #fff;transition:transform 0.2s;}
+.tiger-avatar:hover{transform:scale(1.1);}
+.tiger-bubble{background:var(--navy);color:#fff;border-radius:16px 16px 4px 16px;padding:12px 16px;font-size:14px;font-weight:600;max-width:220px;line-height:1.5;box-shadow:0 8px 24px rgba(0,0,0,0.2);opacity:0;transform:translateY(10px) scale(0.9);transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);pointer-events:none;border:2px solid var(--gold);}
+.tiger-bubble.show{opacity:1;transform:translateY(0) scale(1);}
+.tiger-bubble::after{content:'';position:absolute;bottom:-8px;right:20px;border:8px solid transparent;border-top-color:var(--gold);}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);padding:0;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 10% 50%,rgba(0,201,167,0.12) 0%,transparent 60%),radial-gradient(ellipse at 90% 20%,rgba(255,184,48,0.1) 0%,transparent 50%);pointer-events:none;}
+.hero-shapes{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+.hero-shapes span{position:absolute;border-radius:50%;opacity:0.06;}
+.hero-shapes span:nth-child(1){width:200px;height:200px;background:var(--teal);top:-60px;right:-40px;}
+.hero-shapes span:nth-child(2){width:120px;height:120px;background:var(--gold);bottom:-30px;left:20px;}
+.hero-inner{position:relative;max-width:700px;margin:0 auto;padding:40px 20px 28px;}
+.hero-top{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;}
+.level-chip{background:rgba(0,201,167,0.2);border:1px solid rgba(0,201,167,0.4);color:#5de8c8;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:0.06em;}
+.lesson-chip{background:rgba(255,184,48,0.2);border:1px solid rgba(255,184,48,0.4);color:var(--gold);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;}
+.hero-title{font-size:clamp(22px,5vw,36px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:10px;letter-spacing:-0.02em;}
+.hero-title .accent{color:var(--gold);}
+.hero-sub{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:22px;max-width:520px;}
+.equiv-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
+.eq-pill{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:8px 12px;text-align:center;}
+.eq-label{color:rgba(255,255,255,0.4);font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:2px;}
+.eq-val{color:#fff;font-weight:800;font-size:13px;font-family:'DM Mono',monospace;}
+.goal-chip{background:rgba(0,201,167,0.12);border:1px solid rgba(0,201,167,0.25);border-radius:12px;padding:14px 16px;display:flex;gap:10px;align-items:flex-start;}
+.goal-icon{font-size:20px;flex-shrink:0;}
+.goal-text{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.6;}
+.goal-text strong{color:#5de8c8;}
+.progress-bar-wrap{height:5px;background:rgba(255,255,255,0.08);}
+.progress-bar-fill{height:5px;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width 0.7s ease;width:0%;}
+
+/* ── TABS ── */
+.tabs-wrap{background:#fff;border-bottom:2px solid var(--border);position:sticky;top:58px;z-index:100;}
+.tabs{max-width:700px;margin:0 auto;display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.tabs::-webkit-scrollbar{display:none;}
+.tab{padding:14px 18px;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all 0.2s;flex-shrink:0;letter-spacing:0.02em;}
+.tab:hover{color:var(--teal);}
+.tab.active{color:var(--teal);border-bottom-color:var(--teal);}
+
+/* ── CONTENT ── */
+.content{max-width:700px;margin:0 auto;padding:28px 20px;}
+.section{display:none;animation:slideUp 0.3s ease;}
+.section.active{display:block;}
+
+/* ── CARDS ── */
+.card{background:#fff;border:2px solid var(--border);border-radius:20px;padding:24px;margin-bottom:16px;transition:all 0.2s;}
+.card:hover{border-color:var(--teal);box-shadow:0 4px 20px rgba(0,201,167,0.1);}
+.card-title{font-size:16px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:10px;letter-spacing:-0.01em;}
+.card-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.ci-teal{background:var(--teal-pale);}
+.ci-gold{background:var(--gold-pale);}
+.ci-purple{background:var(--purple-pale);}
+.ci-red{background:var(--red-pale);}
+
+/* Info boxes */
+.tip-box{background:var(--teal-pale);border:1.5px solid rgba(0,201,167,0.25);border-radius:12px;padding:14px 16px;margin:14px 0;font-size:13px;line-height:1.7;}
+.tip-box .tip-label{font-weight:800;color:var(--teal2);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px;}
+.warn-box{background:var(--gold-pale);border:1.5px solid rgba(255,184,48,0.3);border-radius:12px;padding:14px 16px;margin:14px 0;font-size:13px;line-height:1.7;}
+.warn-box .warn-label{font-weight:800;color:var(--gold2);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px;}
+.ex-row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:14px;}
+.ex-row:last-child{border-bottom:none;}
+.ex-en{font-weight:800;color:var(--navy);min-width:160px;}
+.ex-ru{color:var(--muted);}
+
+/* ── QUIZ ── */
+.quiz-card{background:#fff;border:2px solid var(--border);border-radius:20px;padding:24px;margin-bottom:16px;transition:all 0.3s;}
+.q-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.q-num{font-size:10px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+.q-tag{font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;}
+.qt-g{background:var(--purple-pale);color:var(--purple);}
+.qt-v{background:var(--teal-pale);color:var(--teal2);}
+.q-text{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:16px;line-height:1.5;letter-spacing:-0.01em;}
+.q-sent{font-size:20px;font-weight:800;text-align:center;padding:14px;background:var(--bg);border-radius:14px;margin-bottom:16px;font-family:'DM Mono',monospace;color:var(--navy);border:2px dashed var(--border);}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.opt-btn{
+  background:var(--bg);border:2px solid var(--border);border-radius:14px;
+  padding:14px 16px;font-size:14px;font-weight:700;font-family:'Sora',sans-serif;
+  color:var(--text);cursor:pointer;text-align:left;transition:all 0.15s;
+  display:flex;align-items:center;gap:8px;
+}
+.opt-btn:hover:not(:disabled){border-color:var(--teal);background:var(--teal-pale);transform:translateY(-1px);}
+.opt-btn:disabled{cursor:default;}
+.opt-btn.correct{
+  border-color:var(--green);background:var(--green-pale);color:#065f46;
+  animation:correctPulse 0.5s ease;
+}
+.opt-btn.wrong{border-color:var(--red);background:var(--red-pale);color:#991b1b;animation:shake 0.4s ease;}
+.opt-letter{width:26px;height:26px;border-radius:8px;background:rgba(0,0,0,0.06);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;}
+.explain-box{
+  background:linear-gradient(135deg,var(--teal-pale),#f0fff8);
+  border:1.5px solid rgba(0,201,167,0.25);border-radius:12px;
+  padding:14px 16px;margin-top:14px;font-size:13px;line-height:1.7;
+  display:none;animation:slideUp 0.3s ease;
+}
+.explain-box.show{display:block;}
+
+/* ── SCORE CARD ── */
+.score-card{
+  background:linear-gradient(135deg,var(--navy),var(--navy2));
+  border-radius:24px;padding:40px 28px;text-align:center;
+  display:none;margin-top:20px;
+  border:2px solid rgba(255,184,48,0.3);
+}
+.score-card.show{display:block;animation:bounceIn 0.5s ease;}
+.score-tiger{font-size:56px;margin-bottom:12px;display:block;}
+.score-num{font-size:52px;font-weight:800;color:var(--gold);font-family:'DM Mono',monospace;line-height:1;margin-bottom:6px;}
+.score-label{color:rgba(255,255,255,0.5);font-size:13px;margin-bottom:20px;}
+.score-bar-wrap{background:rgba(255,255,255,0.1);border-radius:100px;height:10px;max-width:300px;margin:0 auto 20px;overflow:hidden;}
+.score-bar{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width 1.2s ease;}
+.score-msg{color:rgba(255,255,255,0.8);font-size:15px;font-weight:600;margin-bottom:28px;line-height:1.6;padding:0 10px;}
+.score-badge-row{display:flex;justify-content:center;gap:10px;margin-bottom:28px;flex-wrap:wrap;}
+.score-badge{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:10px 16px;font-size:13px;text-align:center;}
+.sb-icon{font-size:22px;display:block;margin-bottom:4px;}
+.sb-label{color:rgba(255,255,255,0.6);font-size:10px;font-weight:600;display:block;}
+.sb-val{color:#fff;font-weight:800;font-size:13px;}
+.score-next-btn{
+  background:linear-gradient(135deg,var(--teal),var(--teal2));
+  color:#fff;border:none;border-radius:14px;padding:16px 36px;
+  font-size:15px;font-weight:800;font-family:'Sora',sans-serif;cursor:pointer;
+  transition:all 0.2s;letter-spacing:0.02em;
+}
+.score-next-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,201,167,0.4);}
+
+/* ── VOCAB ── */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-top:14px;}
+.vocab-item{background:var(--bg);border:1.5px solid var(--border);border-radius:12px;padding:12px 14px;transition:all 0.2s;}
+.vocab-item:hover{border-color:var(--teal);transform:translateY(-1px);}
+.vi-en{font-weight:800;font-size:14px;color:var(--navy);}
+.vi-ipa{font-size:11px;color:var(--teal2);font-family:'DM Mono',monospace;margin:2px 0;}
+.vi-ru{font-size:12px;color:var(--muted);}
+
+/* ── TIP CARD ── */
+.tip-card{background:#fff;border:2px solid var(--border);border-left:5px solid var(--teal);border-radius:14px;padding:18px 20px;margin-bottom:14px;}
+.tip-card h4{font-size:14px;font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+.tip-card p{font-size:13px;color:var(--muted);line-height:1.7;}
+.tip-card.gold{border-left-color:var(--gold);}
+.tip-card.purple{border-left-color:var(--purple);}
+
+/* Alphabet grid */
+.alpha-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(66px,1fr));gap:8px;margin-top:14px;}
+.letter-card{background:var(--bg);border:2px solid var(--border);border-radius:12px;padding:12px 8px;text-align:center;cursor:pointer;transition:all 0.15s;}
+.letter-card:hover,.letter-card.active{border-color:var(--teal);background:var(--teal-pale);transform:translateY(-2px);}
+.lc-big{font-size:22px;font-weight:800;color:var(--navy);line-height:1;}
+.lc-small{font-size:13px;color:var(--muted);margin:2px 0;}
+.lc-sound{font-size:10px;color:var(--teal2);font-family:'DM Mono',monospace;font-weight:700;}
+
+/* Flashcard */
+.fc-wrap{perspective:1000px;margin-bottom:20px;}
+.fc{width:100%;min-height:160px;position:relative;transform-style:preserve-3d;transition:transform 0.5s ease;cursor:pointer;border-radius:20px;}
+.fc.flipped{transform:rotateY(180deg);}
+.fc-front,.fc-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;}
+.fc-front{background:linear-gradient(135deg,var(--navy),var(--navy2));border:2px solid rgba(255,255,255,0.08);}
+.fc-back{background:linear-gradient(135deg,var(--teal2),var(--teal));transform:rotateY(180deg);}
+.fc-letter{font-size:64px;font-weight:800;color:#fff;line-height:1;margin-bottom:6px;}
+.fc-hint{font-size:12px;color:rgba(255,255,255,0.4);}
+.fc-sound{font-size:28px;font-weight:800;color:#fff;font-family:'DM Mono',monospace;margin-bottom:6px;}
+.fc-word{font-size:16px;font-weight:700;color:rgba(255,255,255,0.9);margin-bottom:4px;}
+.fc-tr{font-size:13px;color:rgba(255,255,255,0.7);}
+.fc-nav{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:24px;}
+.fc-btn{background:#fff;border:2px solid var(--border);border-radius:10px;padding:10px 20px;font-size:13px;font-weight:700;font-family:'Sora',sans-serif;color:var(--text);cursor:pointer;transition:all 0.15s;}
+.fc-btn:hover{border-color:var(--teal);color:var(--teal);}
+.fc-count{font-family:'DM Mono',monospace;font-size:13px;color:var(--muted);min-width:50px;text-align:center;}
+
+/* Streak popup */
+.streak-popup{
+  position:fixed;top:80px;left:50%;transform:translateX(-50%) translateY(-20px);
+  background:linear-gradient(135deg,var(--gold),var(--orange));
+  color:#fff;border-radius:16px;padding:12px 24px;
+  font-size:15px;font-weight:800;text-align:center;
+  opacity:0;transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  pointer-events:none;z-index:500;box-shadow:0 8px 24px rgba(255,150,0,0.4);
+  white-space:nowrap;
+}
+.streak-popup.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+@media(max-width:500px){
+  .opts{grid-template-columns:1fr;}
+  .alpha-grid{grid-template-columns:repeat(5,1fr);}
+  .hero-inner{padding:36px 16px 24px;}
+  .content{padding:20px 16px;}
+}
+</style>
+
+
+</head>
+<body>
+<script>
+// Access guard
+if(localStorage.getItem('ielts_a0_access')!=='granted'){window.location.href='payment_a0.html';}
+</script>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-badge">AtoC</span>
+      <span class="logo-text">IELTS from Zero</span>
+    </div>
+    <div class="hdr-right">
+      <span class="streak-badge" id="streak-num">🔥 0</span>
+      <a href="index.html" class="back-link">← Все уроки</a>
+    </div>
+  </div>
+</header>
+
+<!-- Tiger mascot -->
+<div class="tiger-wrap">
+  <div class="tiger-bubble" id="tiger-bubble"><span id="tiger-text"></span></div>
+  <div class="tiger-avatar" onclick="tigerSay('correct')">🐯</div>
+</div>
+<!-- Streak popup -->
+<div class="streak-popup" id="streak-popup"></div>
+
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-shapes"><span></span><span></span></div>
+  <div class="hero-inner">
+    <div class="hero-top">
+      <span class="level-chip">A0 · Beginner</span>
+      <span class="lesson-chip">Урок 1 из 8</span>
+    </div>
+    <h1 class="hero-title">Алфавит и<br><span class="accent">звуки английского</span></h1>
+    <p class="hero-sub">Начинаем с самого начала — учим буквы и узнаём как они звучат. Без этого никуда!</p>
+    <div class="equiv-row">
+  <div class="eq-pill"><span class="eq-label">IELTS</span><span class="eq-val">0–2.0</span></div>
+  <div class="eq-pill"><span class="eq-label">TOEFL</span><span class="eq-val">0–30</span></div>
+  <div class="eq-pill"><span class="eq-label">Duolingo</span><span class="eq-val">10–50</span></div>
+  <div class="eq-pill"><span class="eq-label">CEFR</span><span class="eq-val">Pre-A1</span></div>
+</div>
+    <div class="goal-chip">
+      <div class="goal-icon">🎯</div>
+      <div class="goal-text"><strong>После урока ты сможешь: назвать все 26 букв, понять как они звучат, прочитать простые слова</strong></div>
+    </div>
+  </div>
+  <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progress-bar" style="width:8%"></div></div>
+</div>
+<div class="tabs-wrap"><div class="tabs"><div class="tab active" onclick="showTab('theory',this)">📖 Теория</div><div class="tab" onclick="showTab('alphabet',this)">🔤 Алфавит</div><div class="tab" onclick="showTab('sounds',this)">🔊 Звуки</div><div class="tab" onclick="showTab('flashcards',this)">🃏 Карточки</div><div class="tab" onclick="showTab('practice',this)">✏️ Практика</div><div class="tab" onclick="showTab('vocab',this)">📝 Словарь</div></div></div>
+<div class="content">
+
+<div class="section active" id="tab-theory">
+  <div style="font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.7">
+    Привет! Я Тигр 🐯 Буду с тобой на каждом уроке. Начнём с самого начала — алфавита. Без него никуда!
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon ci-teal">🌍</span>Почему английский такой странный?</div>
+    <p style="font-size:14px;line-height:1.8;color:var(--muted);margin-bottom:14px">
+      Английский собрал слова из <strong>латыни, французского, немецкого</strong> — у каждого свои правила чтения. Поэтому одна буква может звучать по-разному.
+    </p>
+    <div class="tip-box">
+      <div class="tip-label">💡 Пример — буква A</div>
+      [æ] в <strong>cat</strong> — «кэт» · [eɪ] в <strong>cake</strong> — «кейк» · [ɑː] в <strong>car</strong> — «каа»<br>
+      Это нормально! Со временем станет автоматически.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon ci-gold">📊</span>Факты об английском алфавите</div>
+    <div class="ex-row"><span class="ex-en">26 букв</span><span class="ex-ru">в английском (в русском — 33)</span></div>
+    <div class="ex-row"><span class="ex-en">5 гласных</span><span class="ex-ru">A, E, I, O, U</span></div>
+    <div class="ex-row"><span class="ex-en">21 согласная</span><span class="ex-ru">все остальные</span></div>
+    <div class="ex-row"><span class="ex-en">44 звука</span><span class="ex-ru">букв только 26, а звуков больше!</span></div>
+    <div class="warn-box">
+      <div class="warn-label">🐯 Главное правило</div>
+      Не читай английские слова по-русски («хелло», «гудбай»). Учи настоящее произношение сразу — потом переучиться намного сложнее!
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="card-icon ci-purple">🗣️</span>Звуки которых нет в русском</div>
+    <div class="ex-row"><span class="ex-en">[θ] — TH</span><span class="ex-ru">Язык между зубами, дуешь: <strong>think, this, that</strong></span></div>
+    <div class="ex-row"><span class="ex-en">[w] — W</span><span class="ex-ru">Губы трубочкой как свист: <strong>water, word, wow</strong></span></div>
+    <div class="ex-row"><span class="ex-en">[æ] — краткое A</span><span class="ex-ru">Между «э» и «а», рот широко: <strong>cat, man, bad</strong></span></div>
+    <div class="ex-row"><span class="ex-en">[h] — H</span><span class="ex-ru">Лёгкий выдох, сильнее чем «х»: <strong>hello, happy, help</strong></span></div>
+    <div class="warn-box">
+      <div class="warn-label">⚠️ Частая ошибка</div>
+      Буква H в английском всегда читается! <strong>Hello</strong> = «Хэлоу», а не «элоу».
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:24px">
+    <button onclick="showTab('alphabet',document.querySelectorAll('.tab')[1])" style="background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff;border:none;border-radius:14px;padding:14px 32px;font-size:14px;font-weight:800;font-family:'Sora',sans-serif;cursor:pointer;">
+      Смотреть алфавит 🔤
+    </button>
+  </div>
+</div>
+
+<div class="section" id="tab-alphabet">
+  <div class="card">
+    <div class="card-title"><span class="card-icon ci-teal">🔤</span>26 букв — нажми на любую!</div>
+    <div class="tip-box" style="margin-bottom:14px">
+      <div class="tip-label">🐯 Совет от Тигра</div>
+      Учи по 5-6 букв в день. Нажимай — запоминай — повторяй вслух!
+    </div>
+    <div class="alpha-grid" id="alpha-grid"></div>
+  </div>
+  <div id="letter-detail" style="display:none;animation:slideUp 0.3s ease">
+    <div class="card" id="letter-detail-card"></div>
+  </div>
+</div>
+
+<div class="section" id="tab-sounds">
+  <div class="card">
+    <div class="card-title"><span class="card-icon ci-teal">🔵</span>Гласные звуки (Vowels)</div>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:14px">Буквы A E I O U — но звуков намного больше!</p>
+    <div class="ex-row"><span class="ex-en">A</span><span class="ex-ru">[æ] cat · [eɪ] cake · [ɑː] car</span></div>
+    <div class="ex-row"><span class="ex-en">E</span><span class="ex-ru">[e] bed · [iː] he</span></div>
+    <div class="ex-row"><span class="ex-en">I</span><span class="ex-ru">[ɪ] sit · [aɪ] kite</span></div>
+    <div class="ex-row"><span class="ex-en">O</span><span class="ex-ru">[ɒ] hot · [əʊ] go</span></div>
+    <div class="ex-row"><span class="ex-en">U</span><span class="ex-ru">[ʌ] cup · [juː] use</span></div>
+    <div class="tip-box">
+      <div class="tip-label">🔑 Правило «немой E»</div>
+      Если слово кончается на <strong>E</strong>, она не читается — но меняет предыдущую гласную!<br>
+      kit → kite · cap → cape · hop → hope
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="card-icon ci-gold">⭐</span>Особые случаи</div>
+    <div class="ex-row"><span class="ex-en">C</span><span class="ex-ru">[k] cat · [s] city — перед E,I,Y читается как «с»</span></div>
+    <div class="ex-row"><span class="ex-en">G</span><span class="ex-ru">[g] go · [dʒ] gym — перед E,I,Y как «дж»</span></div>
+    <div class="ex-row"><span class="ex-en">TH</span><span class="ex-ru">[θ] think · [ð] this — язык между зубами</span></div>
+    <div class="ex-row"><span class="ex-en">SH</span><span class="ex-ru">[ʃ] she, shop — как «ш»</span></div>
+    <div class="ex-row"><span class="ex-en">CH</span><span class="ex-ru">[tʃ] chair, cheese — как «ч»</span></div>
+    <div class="ex-row"><span class="ex-en">W</span><span class="ex-ru">[w] water — губы трубочкой, нет в русском!</span></div>
+  </div>
+</div>
+
+<div class="section" id="tab-flashcards">
+  <div class="card">
+    <div class="card-title"><span class="card-icon ci-purple">🃏</span>Карточки — нажми чтобы перевернуть</div>
+    <div class="fc-wrap">
+      <div class="fc" id="flashcard" onclick="flipCard()">
+        <div class="fc-front">
+          <div class="fc-letter" id="fc-letter">A</div>
+          <div class="fc-hint">Нажми → узнай звук</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-sound" id="fc-sound">[æ]</div>
+          <div class="fc-word" id="fc-word">apple 🍎</div>
+          <div class="fc-tr" id="fc-tr">яблоко</div>
+        </div>
+      </div>
+    </div>
+    <div class="fc-nav">
+      <button class="fc-btn" onclick="prevCard()">← Назад</button>
+      <span class="fc-count" id="fc-count">1 / 26</span>
+      <button class="fc-btn" onclick="nextCard()">Вперёд →</button>
+    </div>
+    <div class="tip-box">
+      <div class="tip-label">🐯 Как заниматься</div>
+      Смотри на букву → вспомни звук → переверни → проверь. По 5-10 минут каждый день!
+    </div>
+  </div>
+</div>
+
+<div class="section" id="tab-practice">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;padding:14px 18px;background:linear-gradient(135deg,var(--gold-pale),#fff);border-radius:14px;border:1.5px solid rgba(255,184,48,0.25)">
+    <span style="font-size:24px">🐯</span>
+    <div>
+      <div style="font-weight:800;font-size:14px">Время проверить себя!</div>
+      <div style="font-size:12px;color:var(--muted)">6 вопросов · не торопись · думай!</div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+  <div class="q-header"><span class="q-num">Вопрос 1 из 6</span><span class="q-tag qt-v">Vocabulary</span></div>
+  <div class="q-text">Сколько букв в английском алфавите?</div>
+  <div class="opts" id="q1-opts"><button class="opt-btn" id="q1-A" onclick="handleAnswer(1,'A','B',6,'ielts_a0_lesson1',6)"><span class="opt-letter">A</span>24</button><button class="opt-btn" id="q1-B" onclick="handleAnswer(1,'B','B',6,'ielts_a0_lesson1',6)"><span class="opt-letter">B</span>26</button><button class="opt-btn" id="q1-C" onclick="handleAnswer(1,'C','B',6,'ielts_a0_lesson1',6)"><span class="opt-letter">C</span>28</button><button class="opt-btn" id="q1-D" onclick="handleAnswer(1,'D','B',6,'ielts_a0_lesson1',6)"><span class="opt-letter">D</span>33</button></div>
+  <div class="explain-box" id="q1-explain">✅ <strong>26 букв</strong>. В русском 33, но в английском меньше. Зато звуков целых 44!</div>
+</div><div class="quiz-card">
+  <div class="q-header"><span class="q-num">Вопрос 2 из 6</span><span class="q-tag qt-v">Vocabulary</span></div>
+  <div class="q-text">Как читается слово <strong>cake</strong>? (правило «немой E»)</div>
+  <div class="opts" id="q2-opts"><button class="opt-btn" id="q2-A" onclick="handleAnswer(2,'A','B',6,'ielts_a0_lesson1',6)"><span class="opt-letter">A</span>[кæк]</button><button class="opt-btn" id="q2-B" onclick="handleAnswer(2,'B','B',6,'ielts_a0_lesson1',6)"><span class="opt-letter">B</span>[кейк]</button><button class="opt-btn" id="q2-C" onclick="handleAnswer(2,'C','B',6,'ielts_a0_lesson1',6)"><span class="opt-letter">C</span>[какэ]</button><button class="opt-btn" id="q2-D" onclick="handleAnswer(2,'D','B',6,'ielts_a0_lesson1',6)"><span class="opt-letter">D</span>[кааке]</button></div>
+  <div class="explain-box" id="q2-explain">✅ <strong>[кейк]</strong> — буква E в конце не читается, но делает A длинной [eɪ]. Классическое правило!</div>
+</div><div class="quiz-card">
+  <div class="q-header"><span class="q-num">Вопрос 3 из 6</span><span class="q-tag qt-v">Vocabulary</span></div>
+  <div class="q-text">Буква W в слове water — как произносится?</div>
+  <div class="opts" id="q3-opts"><button class="opt-btn" id="q3-A" onclick="handleAnswer(3,'A','C',6,'ielts_a0_lesson1',6)"><span class="opt-letter">A</span>Как «в»</button><button class="opt-btn" id="q3-B" onclick="handleAnswer(3,'B','C',6,'ielts_a0_lesson1',6)"><span class="opt-letter">B</span>Не читается</button><button class="opt-btn" id="q3-C" onclick="handleAnswer(3,'C','C',6,'ielts_a0_lesson1',6)"><span class="opt-letter">C</span>Губы трубочкой [w]</button><button class="opt-btn" id="q3-D" onclick="handleAnswer(3,'D','C',6,'ielts_a0_lesson1',6)"><span class="opt-letter">D</span>Как «б»</button></div>
+  <div class="explain-box" id="q3-explain">✅ <strong>Губы трубочкой [w]</strong> — этого звука нет в русском! Это «уотэ», не «ватэ».</div>
+</div><div class="quiz-card">
+  <div class="q-header"><span class="q-num">Вопрос 4 из 6</span><span class="q-tag qt-v">Vocabulary</span></div>
+  <div class="q-text">Буквосочетание TH в слове think читается как...</div>
+  <div class="opts" id="q4-opts"><button class="opt-btn" id="q4-A" onclick="handleAnswer(4,'A','C',6,'ielts_a0_lesson1',6)"><span class="opt-letter">A</span>[т] — «тинк»</button><button class="opt-btn" id="q4-B" onclick="handleAnswer(4,'B','C',6,'ielts_a0_lesson1',6)"><span class="opt-letter">B</span>[с] — «синк»</button><button class="opt-btn" id="q4-C" onclick="handleAnswer(4,'C','C',6,'ielts_a0_lesson1',6)"><span class="opt-letter">C</span>[θ] — язык между зубами</button><button class="opt-btn" id="q4-D" onclick="handleAnswer(4,'D','C',6,'ielts_a0_lesson1',6)"><span class="opt-letter">D</span>[ч] — «чинк»</button></div>
+  <div class="explain-box" id="q4-explain">✅ <strong>[θ]</strong> — высуни кончик языка между зубами и дуй. Потренируй: think, three, thank.</div>
+</div><div class="quiz-card">
+  <div class="q-header"><span class="q-num">Вопрос 5 из 6</span><span class="q-tag qt-v">Vocabulary</span></div>
+  <div class="q-text">Сколько гласных букв в английском?</div>
+  <div class="opts" id="q5-opts"><button class="opt-btn" id="q5-A" onclick="handleAnswer(5,'A','B',6,'ielts_a0_lesson1',6)"><span class="opt-letter">A</span>3 (A, E, I)</button><button class="opt-btn" id="q5-B" onclick="handleAnswer(5,'B','B',6,'ielts_a0_lesson1',6)"><span class="opt-letter">B</span>5 (A, E, I, O, U)</button><button class="opt-btn" id="q5-C" onclick="handleAnswer(5,'C','B',6,'ielts_a0_lesson1',6)"><span class="opt-letter">C</span>6</button><button class="opt-btn" id="q5-D" onclick="handleAnswer(5,'D','B',6,'ielts_a0_lesson1',6)"><span class="opt-letter">D</span>7</button></div>
+  <div class="explain-box" id="q5-explain">✅ <strong>5 гласных: A, E, I, O, U</strong>. Буква Y иногда ведёт себя как гласная (gym), но официально гласных 5.</div>
+</div><div class="quiz-card">
+  <div class="q-header"><span class="q-num">Вопрос 6 из 6</span><span class="q-tag qt-v">Vocabulary</span></div>
+  <div class="q-text">Как правильно произносится hello?</div>
+  <div class="opts" id="q6-opts"><button class="opt-btn" id="q6-A" onclick="handleAnswer(6,'A','B',6,'ielts_a0_lesson1',6)"><span class="opt-letter">A</span>«элоу» (H не читается)</button><button class="opt-btn" id="q6-B" onclick="handleAnswer(6,'B','B',6,'ielts_a0_lesson1',6)"><span class="opt-letter">B</span>«хэлоу» (H читается)</button><button class="opt-btn" id="q6-C" onclick="handleAnswer(6,'C','B',6,'ielts_a0_lesson1',6)"><span class="opt-letter">C</span>«гелло»</button><button class="opt-btn" id="q6-D" onclick="handleAnswer(6,'D','B',6,'ielts_a0_lesson1',6)"><span class="opt-letter">D</span>«йелло»</button></div>
+  <div class="explain-box" id="q6-explain">✅ <strong>«хэлоу»</strong> — буква H в английском всегда читается как лёгкий выдох!</div>
+</div>
+
+  
+<div class="score-card" id="score-card">
+  <span class="score-tiger" id="sc-tiger">🐯</span>
+  <div class="score-num" id="sc-num">0/6</div>
+  <div class="score-label">правильных ответов</div>
+  <div class="score-bar-wrap"><div class="score-bar" id="sc-bar" style="width:0%"></div></div>
+  <div class="score-msg" id="sc-msg"></div>
+  <div class="score-badge-row">
+    <div class="score-badge"><span class="sb-icon">🔥</span><span class="sb-label">Дней подряд</span><span class="sb-val" id="sc-streak">0</span></div>
+    <div class="score-badge"><span class="sb-icon">⭐</span><span class="sb-label">Урок</span><span class="sb-val">A0</span></div>
+    <div class="score-badge"><span class="sb-icon">🐯</span><span class="sb-label">Тигр</span><span class="sb-val">Доволен</span></div>
+  </div>
+  <button class="score-next-btn" onclick="showTab('vocab',document.querySelectorAll('.tab')[5])">
+    Перейти к словарю →
+  </button>
+</div>
+</div>
+
+<div class="section" id="tab-vocab">
+  <div class="card">
+    <div class="card-title"><span class="card-icon ci-teal">📝</span>Слова урока</div>
+    <div class="vocab-grid">
+      <div class="vocab-item"><div class="vi-en">alphabet</div><div class="vi-ipa">[ˈælfəbet]</div><div class="vi-ru">алфавит</div></div>
+      <div class="vocab-item"><div class="vi-en">letter</div><div class="vi-ipa">[ˈletər]</div><div class="vi-ru">буква</div></div>
+      <div class="vocab-item"><div class="vi-en">sound</div><div class="vi-ipa">[saʊnd]</div><div class="vi-ru">звук</div></div>
+      <div class="vocab-item"><div class="vi-en">vowel</div><div class="vi-ipa">[ˈvaʊəl]</div><div class="vi-ru">гласная</div></div>
+      <div class="vocab-item"><div class="vi-en">consonant</div><div class="vi-ipa">[ˈkɒnsənənt]</div><div class="vi-ru">согласная</div></div>
+      <div class="vocab-item"><div class="vi-en">cat</div><div class="vi-ipa">[kæt]</div><div class="vi-ru">кошка</div></div>
+      <div class="vocab-item"><div class="vi-en">cake</div><div class="vi-ipa">[keɪk]</div><div class="vi-ru">торт</div></div>
+      <div class="vocab-item"><div class="vi-en">water</div><div class="vi-ipa">[ˈwɔːtər]</div><div class="vi-ru">вода</div></div>
+      <div class="vocab-item"><div class="vi-en">think</div><div class="vi-ipa">[θɪŋk]</div><div class="vi-ru">думать</div></div>
+      <div class="vocab-item"><div class="vi-en">hello</div><div class="vi-ipa">[həˈloʊ]</div><div class="vi-ru">привет</div></div>
+    </div>
+  </div>
+  <div class="tip-card"><h4>🏆 Урок 1 завершён!</h4><p>Ты знаешь алфавит и основные звуки. Урок 2 — глагол TO BE — уже ждёт тебя!</p></div>
+  <div class="tip-card gold"><h4>🐯 Совет от Тигра</h4><p>Читай вслух 5 английских слов каждый день. Просто произноси — мозг сам начнёт строить связи!</p></div>
+</div>
+
+</div>
+
+<script>
+// ── TIGER MESSAGES ──────────────────────────────────
+const TIGER_MSGS = {
+  correct:[
+    "Да-а-а! Вот это я понимаю! 🔥",
+    "БУМ! Точно в яблочко! 💥",
+    "Ррр! Тигр одобряет! 🐯✨",
+    "Легко! Ты реально крутой(ая)! 😎",
+    "Хах, я знал(а) что ты знаешь! 🐯",
+    "Мозг работает как зверь! 🧠🔥",
+    "Пфф, лёгкотня для тебя! Дальше! 😄",
+    "Ещё один правильный — ты машина! ⚡",
+  ],
+  wrong:[
+    "Эй, не переживай! Ошибки = топливо для мозга 🧠",
+    "Хм, интересный выбор 😄 Посмотри объяснение!",
+    "Почти! Теперь запомнишь навсегда 💡",
+    "Это была ловушка! Теперь не попадёшься 😏",
+    "Тигры тоже иногда ошибаются... нет, не ошибаются 🐯",
+    "Читай объяснение — и в следующий раз порвёшь! 💪",
+  ],
+  start:[
+    "Привет! Я Тигр 🐯 Буду помогать! Погнали!",
+    "О, новый урок! Давай покажем что умеем! 🔥",
+    "Тс-с, я тут! Готов(а)? Поехали! 🐯⚡",
+  ],
+  done:[
+    "УРОК ЗАВЕРШЁН! Ты абсолютный зверь! 🐯🏆",
+    "Вот это результат! Тигр гордится! 🐯❤️",
+    "Сделал(а) это! Следующий урок уже дрожит! 🚀",
+  ]
+};
+
+let tigerConsecutive = 0;
+
+function tigerSay(type, custom) {
+  const msgs = TIGER_MSGS[type] || TIGER_MSGS.correct;
+  const msg = custom || msgs[Math.floor(Math.random() * msgs.length)];
+  const bubble = document.getElementById('tiger-bubble');
+  const text = document.getElementById('tiger-text');
+  if(!bubble || !text) return;
+  text.textContent = msg;
+  bubble.classList.remove('show');
+  void bubble.offsetWidth;
+  bubble.classList.add('show');
+  clearTimeout(window._timerTiger);
+  window._timerTiger = setTimeout(() => bubble.classList.remove('show'), 4500);
+}
+
+// ── CONFETTI ──────────────────────────────────
+function confetti() {
+  const colors = ['#FFB830','#00C9A7','#FF6B35','#845EC2','#FF6B9D','#fff','#06D6A0'];
+  for(let i=0;i<70;i++){
+    setTimeout(()=>{
+      const el = document.createElement('div');
+      const size = 6 + Math.random()*9;
+      el.style.cssText = `position:fixed;top:-10px;left:${Math.random()*100}vw;width:${size}px;height:${size}px;background:${colors[Math.floor(Math.random()*colors.length)]};border-radius:${Math.random()>0.5?'50%':'3px'};pointer-events:none;z-index:9999;animation:confettiFall ${1.2+Math.random()*1.5}s ease-in forwards;transform:rotate(${Math.random()*360}deg);`;
+      document.body.appendChild(el);
+      setTimeout(()=>el.remove(),3000);
+    }, i*25);
+  }
+}
+
+// ── SOUND ──────────────────────────────────
+function playSound(type) {
+  try {
+    const ctx = new (window.AudioContext||window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain); gain.connect(ctx.destination);
+    if(type==='correct'){
+      osc.frequency.setValueAtTime(523,ctx.currentTime);
+      osc.frequency.setValueAtTime(659,ctx.currentTime+0.1);
+      osc.frequency.setValueAtTime(784,ctx.currentTime+0.2);
+      gain.gain.setValueAtTime(0.12,ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.4);
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime+0.4);
+    } else {
+      osc.frequency.setValueAtTime(330,ctx.currentTime);
+      osc.frequency.setValueAtTime(200,ctx.currentTime+0.15);
+      gain.gain.setValueAtTime(0.1,ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.3);
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime+0.3);
+    }
+  } catch(e){}
+}
+
+// ── STREAK ──────────────────────────────────
+function updateStreak(){
+  const today = new Date().toDateString();
+  let d = JSON.parse(localStorage.getItem('atoc_streak')||'{"count":0,"last":""}');
+  const yesterday = new Date(Date.now()-86400000).toDateString();
+  if(d.last===today) return d.count;
+  d.count = d.last===yesterday ? d.count+1 : 1;
+  d.last = today;
+  localStorage.setItem('atoc_streak', JSON.stringify(d));
+  showStreakPopup(d.count);
+  return d.count;
+}
+function getStreak(){
+  return (JSON.parse(localStorage.getItem('atoc_streak')||'{"count":0}')).count||0;
+}
+function showStreakPopup(n){
+  const el=document.getElementById('streak-popup');
+  if(!el) return;
+  el.textContent = `🔥 ${n} день подряд! Тигр в восторге!`;
+  el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'),3000);
+}
+function renderStreak(){
+  const el=document.getElementById('streak-num');
+  if(el) el.textContent='🔥 '+getStreak();
+}
+
+// ── ANSWER HANDLER ──────────────────────────────────
+function handleAnswer(q, choice, correctKey, total, lessonKey, maxScore) {
+  if(window._answered && window._answered[q]) return;
+  if(!window._answered) window._answered = {};
+  if(!window._score) window._score = 0;
+  window._answered[q] = choice;
+
+  const opts = document.querySelectorAll('#q'+q+'-opts .opt-btn');
+  opts.forEach(b=>b.disabled=true);
+  const chosen = document.getElementById('q'+q+'-'+choice);
+  const correctBtn = document.getElementById('q'+q+'-'+correctKey);
+  const isCorrect = choice===correctKey;
+
+  if(isCorrect){
+    chosen.classList.add('correct');
+    window._score++;
+    tigerConsecutive++;
+    playSound('correct');
+    if(tigerConsecutive>=3) tigerSay('correct', `${tigerConsecutive} подряд! Ты в зоне! 🔥`);
+    else tigerSay('correct');
+    if(window._score===maxScore) confetti();
+  } else {
+    chosen.classList.add('wrong');
+    correctBtn.classList.add('correct');
+    tigerConsecutive=0;
+    playSound('wrong');
+    tigerSay('wrong');
+  }
+  document.getElementById('q'+q+'-explain').classList.add('show');
+
+  const done = Object.keys(window._answered).length;
+  const pct = Math.round((10 + done/total*85));
+  const pb = document.getElementById('progress-bar');
+  if(pb) pb.style.width = pct+'%';
+
+  if(done===total){
+    setTimeout(()=>showScoreCard(lessonKey, maxScore), 500);
+  }
+}
+
+function showScoreCard(lessonKey, maxScore){
+  const score = window._score||0;
+  const pct = Math.round(score/maxScore*100);
+  const card = document.getElementById('score-card');
+  if(!card) return;
+  card.classList.add('show');
+
+  const emojis=['😿','🐱','🐯','🐯💪','🐯🔥','🐯🏆'];
+  const idx = Math.min(Math.floor(score/maxScore*5),5);
+  document.getElementById('sc-tiger').textContent = emojis[idx];
+  document.getElementById('sc-num').textContent = score+'/'+maxScore;
+  document.getElementById('sc-bar').style.width = pct+'%';
+
+  const msgs=[
+    'Не переживай! Перечитай теорию и попробуй снова 💪',
+    'Хорошее начало! Повтори слабые места 📚',
+    'Неплохо! Ещё чуть-чуть практики 🎯',
+    'Хорошо! Основы усвоены, едем дальше! 👍',
+    'Отлично! Тигр горд тобой! 🐯✨',
+    'ИДЕАЛЬНО! Тигр в восторге! 🐯🏆🎉'
+  ];
+  document.getElementById('sc-msg').textContent = msgs[idx];
+
+  document.getElementById('sc-streak').textContent = updateStreak();
+
+  // Save result
+  localStorage.setItem(lessonKey, JSON.stringify({score, max:maxScore, pct, date:new Date().toISOString()}));
+
+  tigerSay('done');
+  card.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+// ── TABS ──────────────────────────────────
+function showTab(id, el) {
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  const sec = document.getElementById('tab-'+id);
+  if(sec) sec.classList.add('active');
+  if(el) el.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// Init on page load
+window.addEventListener('load', ()=>{
+  renderStreak();
+  tigerSay('start');
+});
+</script>
+
+
+<script>
+const LETTERS=[
+  {l:'A',name:'эй',sound:'[æ]/[eɪ]',word:'apple 🍎',tr:'яблоко'},
+  {l:'B',name:'би',sound:'[b]',word:'book 📚',tr:'книга'},
+  {l:'C',name:'си',sound:'[k]/[s]',word:'cat 🐱',tr:'кошка'},
+  {l:'D',name:'ди',sound:'[d]',word:'dog 🐶',tr:'собака'},
+  {l:'E',name:'и',sound:'[e]/[iː]',word:'egg 🥚',tr:'яйцо'},
+  {l:'F',name:'эф',sound:'[f]',word:'fish 🐟',tr:'рыба'},
+  {l:'G',name:'джи',sound:'[g]/[dʒ]',word:'girl 👧',tr:'девочка'},
+  {l:'H',name:'эйч',sound:'[h]',word:'house 🏠',tr:'дом'},
+  {l:'I',name:'ай',sound:'[ɪ]/[aɪ]',word:'ice 🧊',tr:'лёд'},
+  {l:'J',name:'джей',sound:'[dʒ]',word:'juice 🧃',tr:'сок'},
+  {l:'K',name:'кей',sound:'[k]',word:'key 🔑',tr:'ключ'},
+  {l:'L',name:'эл',sound:'[l]',word:'lion 🦁',tr:'лев'},
+  {l:'M',name:'эм',sound:'[m]',word:'map 🗺️',tr:'карта'},
+  {l:'N',name:'эн',sound:'[n]',word:'night 🌙',tr:'ночь'},
+  {l:'O',name:'оу',sound:'[ɒ]/[əʊ]',word:'orange 🍊',tr:'апельсин'},
+  {l:'P',name:'пи',sound:'[p]',word:'pen 🖊️',tr:'ручка'},
+  {l:'Q',name:'кью',sound:'[kw]',word:'queen 👸',tr:'королева'},
+  {l:'R',name:'аа',sound:'[r]',word:'rose 🌹',tr:'роза'},
+  {l:'S',name:'эс',sound:'[s]/[z]',word:'sun ☀️',tr:'солнце'},
+  {l:'T',name:'ти',sound:'[t]',word:'tree 🌳',tr:'дерево'},
+  {l:'U',name:'ю',sound:'[ʌ]/[juː]',word:'umbrella ☂️',tr:'зонт'},
+  {l:'V',name:'ви',sound:'[v]',word:'voice 🎤',tr:'голос'},
+  {l:'W',name:'дабл-ю',sound:'[w]',word:'water 💧',tr:'вода'},
+  {l:'X',name:'экс',sound:'[ks]',word:'box 📦',tr:'коробка'},
+  {l:'Y',name:'вай',sound:'[j]',word:'year 📅',tr:'год'},
+  {l:'Z',name:'зед',sound:'[z]',word:'zebra 🦓',tr:'зебра'},
+];
+
+// Build alphabet grid
+const grid=document.getElementById('alpha-grid');
+if(grid){
+  LETTERS.forEach((lt,i)=>{
+    const d=document.createElement('div');
+    d.className='letter-card';
+    d.innerHTML=`<div class="lc-big">${lt.l}</div><div class="lc-small">${lt.l.toLowerCase()}</div><div class="lc-sound">${lt.name}</div>`;
+    d.onclick=()=>showLetter(i,d);
+    grid.appendChild(d);
+  });
+}
+
+function showLetter(i,el){
+  document.querySelectorAll('.letter-card').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  const lt=LETTERS[i];
+  const detail=document.getElementById('letter-detail');
+  const card=document.getElementById('letter-detail-card');
+  if(!detail||!card) return;
+  card.innerHTML=`
+    <div class="card-title" style="font-size:24px">${lt.l} <span style="font-size:16px;color:var(--muted);font-weight:500">/ ${lt.l.toLowerCase()} — называется «${lt.name}»</span></div>
+    <div class="ex-row"><span class="ex-en">Звук</span><span class="ex-ru" style="font-family:'DM Mono',monospace;color:var(--teal2)">${lt.sound}</span></div>
+    <div class="ex-row"><span class="ex-en">Пример</span><span style="font-size:20px">${lt.word}</span></div>
+    <div class="ex-row"><span class="ex-en">Перевод</span><span class="ex-ru">${lt.tr}</span></div>`;
+  detail.style.display='block';
+  detail.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+// Flashcards
+let fcIdx=0,fcFlipped=false;
+function updateFC(){
+  const lt=LETTERS[fcIdx];
+  document.getElementById('fc-letter').textContent=lt.l;
+  document.getElementById('fc-sound').textContent=lt.sound;
+  document.getElementById('fc-word').textContent=lt.word;
+  document.getElementById('fc-tr').textContent=lt.tr;
+  document.getElementById('fc-count').textContent=(fcIdx+1)+' / '+LETTERS.length;
+  const fc=document.getElementById('flashcard');
+  fc.classList.remove('flipped'); fcFlipped=false;
+}
+function flipCard(){
+  const fc=document.getElementById('flashcard');
+  fcFlipped=!fcFlipped; fc.classList.toggle('flipped',fcFlipped);
+}
+function nextCard(){fcIdx=(fcIdx+1)%LETTERS.length;updateFC();}
+function prevCard(){fcIdx=(fcIdx-1+LETTERS.length)%LETTERS.length;updateFC();}
+</script>
+
+</body>
+</html>
