@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#00c9a7">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="AtoC"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>AtoC · A0 Урок 8: Итоговый тест Уровень A0</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -304,20 +309,22 @@ body::after{content:'';position:fixed;inset:0;
 <div class="hero"><div class="hero-inner">
   <div class="chips"><span class="chip ct">A0 · Beginner</span><span class="chip cg">Урок 8 из 8</span></div>
   <h1 class="hero-h">Итоговый тест<br><span class="ac">Уровень A0</span></h1>
-  <p class="hero-s">Проверяем всё что ты выучил за 7 уроков. Покажи что умеешь!</p>
+  <p class="hero-s">Проверяем всё что ты выучил за 7 уроков!</p>
   <div class="eqs">
     <div class="eq"><span class="eq-l">IELTS</span><span class="eq-v">0–2.0</span></div>
     <div class="eq"><span class="eq-l">TOEFL</span><span class="eq-v">0–30</span></div>
     <div class="eq"><span class="eq-l">Duolingo</span><span class="eq-v">10–50</span></div>
     <div class="eq"><span class="eq-l">CEFR</span><span class="eq-v">Pre-A1</span></div>
   </div>
-  <div class="goal-box"><span style="font-size:17px;flex-shrink:0">🎯</span><p><strong>После урока:</strong> После теста: получаешь оценку уровня A0 и переходишь к A1</p></div>
+  <div class="goal-box"><span style="font-size:17px;flex-shrink:0">🎯</span><p><strong>После урока:</strong> получаешь оценку уровня A0 и переходишь к A1</p></div>
 </div><div class="pb-w"><div class="pb" id="pb"></div></div></div>
 
 <div class="tabs-w"><div class="tabs">
-  <div class="tab on" onclick="showTab('theory',this)">📖 Инструкция</div>
-  <div class="tab" onclick="showTab('alpha',this)">✏️ Тест</div>
-  <div class="tab" onclick="showTab('cards',this)">📝 Результаты</div>
+  <div class="tab on" onclick="showTab('theory',this)">📖 Теория</div>
+  <div class="tab" onclick="showTab('alpha',this)">🔤 Алфавит</div>
+  <div class="tab" onclick="showTab('cards',this)">🃏 Карточки</div>
+  <div class="tab" onclick="showTab('prac',this)">✏️ Практика</div>
+  <div class="tab" onclick="showTab('vocab',this)">📝 Словарь</div>
 </div></div>
 
 <div class="cnt">
@@ -390,26 +397,51 @@ body::after{content:'';position:fixed;inset:0;
     <div><div style="font-weight:800;font-size:13px;color:#fff;letter-spacing:-.01em">Покажи что умеешь</div><div style="font-size:11px;color:rgba(221,228,240,.35);margin-top:1px">10 вопросов · стрик с первого ответа · арфа громче</div></div>
   </div>
   <div class="hud" id="hud"></div>
+  <!-- Инструкция итогового теста -->
+  <div style="background:linear-gradient(135deg,rgba(255,184,48,.08),rgba(132,94,194,.08));border:1px solid rgba(255,184,48,.2);border-radius:14px;padding:18px;margin-bottom:14px;position:relative;overflow:hidden">
+    <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#ffb830,#845ec2)"></div>
+    <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#ffb830;margin-bottom:8px">📋 Итоговый тест A0</div>
+    <div style="font-size:15px;font-weight:900;color:#fff;margin-bottom:8px;letter-spacing:-.01em">Проверяем всё что ты выучил</div>
+    <div style="font-size:13px;color:rgba(221,228,240,.6);line-height:1.75;margin-bottom:14px">20 вопросов по всем 7 урокам — алфавит, TO BE, числа, цвета, артикли, HAVE и диалоги. Не торопись, думай внимательно!</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px;text-align:center">
+        <div style="font-size:18px;font-weight:900;color:#00c9a7">20</div>
+        <div style="font-size:9px;color:rgba(221,228,240,.35);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-top:2px">Вопросов</div>
+      </div>
+      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px;text-align:center">
+        <div style="font-size:18px;font-weight:900;color:#ffb830">7</div>
+        <div style="font-size:9px;color:rgba(221,228,240,.35);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-top:2px">Тем</div>
+      </div>
+      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px;text-align:center">
+        <div style="font-size:18px;font-weight:900;color:#845ec2">15с</div>
+        <div style="font-size:9px;color:rgba(221,228,240,.35);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-top:2px">На вопрос</div>
+      </div>
+      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px;text-align:center">
+        <div style="font-size:18px;font-weight:900;color:#06d6a0">🏆</div>
+        <div style="font-size:9px;color:rgba(221,228,240,.35);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-top:2px">Сертификат</div>
+      </div>
+    </div>
+  </div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 1 / 20</span><span class="q-t tv">Vocab</span></div><div class="q-tx">Сколько букв в английском?</div><div class="opts" id="q1-o"><button class="opt" id="q1-A" onclick="dlA(1,'A','B','v')"><span class="ol">A</span>24</button><button class="opt" id="q1-B" onclick="dlA(1,'B','B','v')"><span class="ol">B</span>26</button><button class="opt" id="q1-C" onclick="dlA(1,'C','B','v')"><span class="ol">C</span>28</button><button class="opt" id="q1-D" onclick="dlA(1,'D','B','v')"><span class="ol">D</span>33</button></div><div class="expl" id="q1-e">✅ <strong>26 букв</strong> в английском алфавите.</div></div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 2 / 20</span><span class="q-t tg">Grammar</span></div><div class="q-tx">She ___ a doctor.</div><div class="opts" id="q2-o"><button class="opt" id="q2-A" onclick="dlA(2,'A','B','g')"><span class="ol">A</span>am</button><button class="opt" id="q2-B" onclick="dlA(2,'B','B','g')"><span class="ol">B</span>is</button><button class="opt" id="q2-C" onclick="dlA(2,'C','B','g')"><span class="ol">C</span>are</button><button class="opt" id="q2-D" onclick="dlA(2,'D','B','g')"><span class="ol">D</span>be</button></div><div class="expl" id="q2-e">✅ <strong>is</strong> — с she используем is.</div></div>
-  <div class="qc"><div class="q-h"><span class="q-n">Вопрос 3 / 20</span><span class="q-t tv">Vocab</span></div><div class="q-tx">Как написать 40?</div><div class="opts" id="q3-o"><button class="opt" id="q3-A" onclick="dlA(3,'A','B','v')"><span class="ol">A</span>fourty</button><button class="opt" id="q3-B" onclick="dlA(3,'B','B','v')"><span class="ol">B</span>forty</button><button class="opt" id="q3-C" onclick="dlA(3,'C','B','v')"><span class="ol">C</span>forty-zero</button><button class="opt" id="q3-D" onclick="dlA(3,'D','B','v')"><span class="ol">D</span>four-ty</button></div><div class="expl" id="q3-e">✅ <strong>forty</strong> — без U! Исключение из правил.</div></div>
+  <div class="qc"><div class="q-h"><span class="q-n">Вопрос 3 / 20</span><span class="q-t tv">Vocab</span></div><div class="q-tx">Как написать 40?</div><div class="opts" id="q3-o"><button class="opt" id="q3-A" onclick="dlA(3,'A','B','v')"><span class="ol">A</span>fourty</button><button class="opt" id="q3-B" onclick="dlA(3,'B','B','v')"><span class="ol">B</span>forty</button><button class="opt" id="q3-C" onclick="dlA(3,'C','B','v')"><span class="ol">C</span>forty-zero</button><button class="opt" id="q3-D" onclick="dlA(3,'D','B','v')"><span class="ol">D</span>four-ty</button></div><div class="expl" id="q3-e">✅ <strong>forty</strong> — без U! Исключение.</div></div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 4 / 20</span><span class="q-t tv">Vocab</span></div><div class="q-tx">«Пятница» по-английски:</div><div class="opts" id="q4-o"><button class="opt" id="q4-A" onclick="dlA(4,'A','C','v')"><span class="ol">A</span>Thursday</button><button class="opt" id="q4-B" onclick="dlA(4,'B','C','v')"><span class="ol">B</span>Saturday</button><button class="opt" id="q4-C" onclick="dlA(4,'C','C','v')"><span class="ol">C</span>Friday</button><button class="opt" id="q4-D" onclick="dlA(4,'D','C','v')"><span class="ol">D</span>Wednesday</button></div><div class="expl" id="q4-e">✅ <strong>Friday</strong> — пятница.</div></div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 5 / 20</span><span class="q-t tg">Grammar</span></div><div class="q-tx">___ apple</div><div class="opts" id="q5-o"><button class="opt" id="q5-A" onclick="dlA(5,'A','B','g')"><span class="ol">A</span>a</button><button class="opt" id="q5-B" onclick="dlA(5,'B','B','g')"><span class="ol">B</span>an</button><button class="opt" id="q5-C" onclick="dlA(5,'C','B','g')"><span class="ol">C</span>the</button><button class="opt" id="q5-D" onclick="dlA(5,'D','B','g')"><span class="ol">D</span>—</button></div><div class="expl" id="q5-e">✅ <strong>an</strong> — перед гласным звуком.</div></div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 6 / 20</span><span class="q-t tg">Grammar</span></div><div class="q-tx">They ___ students.</div><div class="opts" id="q6-o"><button class="opt" id="q6-A" onclick="dlA(6,'A','B','g')"><span class="ol">A</span>has</button><button class="opt" id="q6-B" onclick="dlA(6,'B','B','g')"><span class="ol">B</span>have</button><button class="opt" id="q6-C" onclick="dlA(6,'C','B','g')"><span class="ol">C</span>is</button><button class="opt" id="q6-D" onclick="dlA(6,'D','B','g')"><span class="ol">D</span>am</button></div><div class="expl" id="q6-e">✅ <strong>have</strong> — с they используем have.</div></div>
-  <div class="qc"><div class="q-h"><span class="q-n">Вопрос 7 / 20</span><span class="q-t tv">Vocab</span></div><div class="q-tx">Ответ на «Nice to meet you»:</div><div class="opts" id="q7-o"><button class="opt" id="q7-A" onclick="dlA(7,'A','B','v')"><span class="ol">A</span>You're welcome.</button><button class="opt" id="q7-B" onclick="dlA(7,'B','B','v')"><span class="ol">B</span>Nice to meet you too.</button><button class="opt" id="q7-C" onclick="dlA(7,'C','B','v')"><span class="ol">C</span>Good to know.</button><button class="opt" id="q7-D" onclick="dlA(7,'D','B','v')"><span class="ol">D</span>I'm fine.</button></div><div class="expl" id="q7-e">✅ <strong>Nice to meet you too!</strong> — тоже приятно познакомиться.</div></div>
+  <div class="qc"><div class="q-h"><span class="q-n">Вопрос 7 / 20</span><span class="q-t tv">Vocab</span></div><div class="q-tx">Ответ на «Nice to meet you»:</div><div class="opts" id="q7-o"><button class="opt" id="q7-A" onclick="dlA(7,'A','B','v')"><span class="ol">A</span>You're welcome.</button><button class="opt" id="q7-B" onclick="dlA(7,'B','B','v')"><span class="ol">B</span>Nice to meet you too.</button><button class="opt" id="q7-C" onclick="dlA(7,'C','B','v')"><span class="ol">C</span>Good to know.</button><button class="opt" id="q7-D" onclick="dlA(7,'D','B','v')"><span class="ol">D</span>I'm fine.</button></div><div class="expl" id="q7-e">✅ <strong>Nice to meet you too!</strong></div></div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 8 / 20</span><span class="q-t tg">Grammar</span></div><div class="q-tx">«Они не студенты»:</div><div class="opts" id="q8-o"><button class="opt" id="q8-A" onclick="dlA(8,'A','B','g')"><span class="ol">A</span>They not are.</button><button class="opt" id="q8-B" onclick="dlA(8,'B','B','g')"><span class="ol">B</span>They aren't students.</button><button class="opt" id="q8-C" onclick="dlA(8,'C','B','g')"><span class="ol">C</span>They isn't students.</button><button class="opt" id="q8-D" onclick="dlA(8,'D','B','g')"><span class="ol">D</span>They not students.</button></div><div class="expl" id="q8-e">✅ <strong>They aren't students.</strong></div></div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 9 / 20</span><span class="q-t tv">Vocab</span></div><div class="q-tx">«У меня красная машина»:</div><div class="opts" id="q9-o"><button class="opt" id="q9-A" onclick="dlA(9,'A','B','v')"><span class="ol">A</span>I have a car red.</button><button class="opt" id="q9-B" onclick="dlA(9,'B','B','v')"><span class="ol">B</span>I have a red car.</button><button class="opt" id="q9-C" onclick="dlA(9,'C','B','v')"><span class="ol">C</span>I am have red car.</button><button class="opt" id="q9-D" onclick="dlA(9,'D','B','v')"><span class="ol">D</span>My car have red.</button></div><div class="expl" id="q9-e">✅ <strong>I have a red car.</strong> — прилагательное ПЕРЕД существительным.</div></div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 10 / 20</span><span class="q-t tg">Grammar</span></div><div class="q-tx">«Мне 25 лет»:</div><div class="opts" id="q10-o"><button class="opt" id="q10-A" onclick="dlA(10,'A','B','g')"><span class="ol">A</span>I have 25 years.</button><button class="opt" id="q10-B" onclick="dlA(10,'B','B','g')"><span class="ol">B</span>I am twenty-five years old.</button><button class="opt" id="q10-C" onclick="dlA(10,'C','B','g')"><span class="ol">C</span>My age have 25.</button><button class="opt" id="q10-D" onclick="dlA(10,'D','B','g')"><span class="ol">D</span>I got 25.</button></div><div class="expl" id="q10-e">✅ <strong>I am twenty-five years old.</strong></div></div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 11 / 20</span><span class="q-t tg">Grammar</span></div><div class="q-tx">Почему THE в «The moon is beautiful»?</div><div class="opts" id="q11-o"><button class="opt" id="q11-A" onclick="dlA(11,'A','B','g')"><span class="ol">A</span>Луна красивая</button><button class="opt" id="q11-B" onclick="dlA(11,'B','B','g')"><span class="ol">B</span>Луна одна в мире</button><button class="opt" id="q11-C" onclick="dlA(11,'C','B','g')"><span class="ol">C</span>Луна большая</button><button class="opt" id="q11-D" onclick="dlA(11,'D','B','g')"><span class="ol">D</span>Луна светит</button></div><div class="expl" id="q11-e">✅ <strong>Луна одна в мире</strong> — единственность → THE.</div></div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 12 / 20</span><span class="q-t tg">Grammar</span></div><div class="q-tx">«Есть ли у неё брат?»:</div><div class="opts" id="q12-o"><button class="opt" id="q12-A" onclick="dlA(12,'A','C','g')"><span class="ol">A</span>Has she a brother?</button><button class="opt" id="q12-B" onclick="dlA(12,'B','C','g')"><span class="ol">B</span>Does she has a brother?</button><button class="opt" id="q12-C" onclick="dlA(12,'C','C','g')"><span class="ol">C</span>Does she have a brother?</button><button class="opt" id="q12-D" onclick="dlA(12,'D','C','g')"><span class="ol">D</span>Is she have a brother?</button></div><div class="expl" id="q12-e">✅ <strong>Does she have a brother?</strong></div></div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 13 / 20</span><span class="q-t tv">Vocab</span></div><div class="q-tx">«half past seven» = ?</div><div class="opts" id="q13-o"><button class="opt" id="q13-A" onclick="dlA(13,'A','B','v')"><span class="ol">A</span>7:15</button><button class="opt" id="q13-B" onclick="dlA(13,'B','B','v')"><span class="ol">B</span>7:30</button><button class="opt" id="q13-C" onclick="dlA(13,'C','B','v')"><span class="ol">C</span>7:45</button><button class="opt" id="q13-D" onclick="dlA(13,'D','B','v')"><span class="ol">D</span>17:00</button></div><div class="expl" id="q13-e">✅ <strong>7:30</strong> — half past = половина.</div></div>
-  <div class="qc"><div class="q-h"><span class="q-n">Вопрос 14 / 20</span><span class="q-t tv">Vocab</span></div><div class="q-tx">Буква W произносится как:</div><div class="opts" id="q14-o"><button class="opt" id="q14-A" onclick="dlA(14,'A','C','v')"><span class="ol">A</span>как «в»</button><button class="opt" id="q14-B" onclick="dlA(14,'B','C','v')"><span class="ol">B</span>не читается</button><button class="opt" id="q14-C" onclick="dlA(14,'C','C','v')"><span class="ol">C</span>губы трубочкой [w]</button><button class="opt" id="q14-D" onclick="dlA(14,'D','C','v')"><span class="ol">D</span>как «б»</button></div><div class="expl" id="q14-e">✅ <strong>губы трубочкой [w]</strong> — звука нет в русском!</div></div>
+  <div class="qc"><div class="q-h"><span class="q-n">Вопрос 14 / 20</span><span class="q-t tv">Vocab</span></div><div class="q-tx">Буква W произносится как:</div><div class="opts" id="q14-o"><button class="opt" id="q14-A" onclick="dlA(14,'A','C','v')"><span class="ol">A</span>как «в»</button><button class="opt" id="q14-B" onclick="dlA(14,'B','C','v')"><span class="ol">B</span>не читается</button><button class="opt" id="q14-C" onclick="dlA(14,'C','C','v')"><span class="ol">C</span>губы трубочкой [w]</button><button class="opt" id="q14-D" onclick="dlA(14,'D','C','v')"><span class="ol">D</span>как «б»</button></div><div class="expl" id="q14-e">✅ <strong>губы трубочкой [w]</strong></div></div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 15 / 20</span><span class="q-t tv">Vocab</span></div><div class="q-tx">«Хорошего дня!»:</div><div class="opts" id="q15-o"><button class="opt" id="q15-A" onclick="dlA(15,'A','A','v')"><span class="ol">A</span>Have a good day!</button><button class="opt" id="q15-B" onclick="dlA(15,'B','A','v')"><span class="ol">B</span>Good day to you!</button><button class="opt" id="q15-C" onclick="dlA(15,'C','A','v')"><span class="ol">C</span>Be a good day!</button><button class="opt" id="q15-D" onclick="dlA(15,'D','A','v')"><span class="ol">D</span>Your day is good!</button></div><div class="expl" id="q15-e">✅ <strong>Have a good day!</strong></div></div>
-  <div class="qc"><div class="q-h"><span class="q-n">Вопрос 16 / 20</span><span class="q-t tg">Grammar</span></div><div class="q-tx">Ответ ДА на «Are you tired?»:</div><div class="opts" id="q16-o"><button class="opt" id="q16-A" onclick="dlA(16,'A','B','g')"><span class="ol">A</span>Yes, I'm.</button><button class="opt" id="q16-B" onclick="dlA(16,'B','B','g')"><span class="ol">B</span>Yes, I am.</button><button class="opt" id="q16-C" onclick="dlA(16,'C','B','g')"><span class="ol">C</span>Yes, I're.</button><button class="opt" id="q16-D" onclick="dlA(16,'D','B','g')"><span class="ol">D</span>Yes, am I.</button></div><div class="expl" id="q16-e">✅ <strong>Yes, I am.</strong> — нельзя заканчивать на сокращение I'm.</div></div>
+  <div class="qc"><div class="q-h"><span class="q-n">Вопрос 16 / 20</span><span class="q-t tg">Grammar</span></div><div class="q-tx">Ответ ДА на «Are you tired?»:</div><div class="opts" id="q16-o"><button class="opt" id="q16-A" onclick="dlA(16,'A','B','g')"><span class="ol">A</span>Yes, I'm.</button><button class="opt" id="q16-B" onclick="dlA(16,'B','B','g')"><span class="ol">B</span>Yes, I am.</button><button class="opt" id="q16-C" onclick="dlA(16,'C','B','g')"><span class="ol">C</span>Yes, I're.</button><button class="opt" id="q16-D" onclick="dlA(16,'D','B','g')"><span class="ol">D</span>Yes, am I.</button></div><div class="expl" id="q16-e">✅ <strong>Yes, I am.</strong> — нельзя заканчивать на сокращение.</div></div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 17 / 20</span><span class="q-t tv">Vocab</span></div><div class="q-tx">«Цвет» по-британски:</div><div class="opts" id="q17-o"><button class="opt" id="q17-A" onclick="dlA(17,'A','B','v')"><span class="ol">A</span>color</button><button class="opt" id="q17-B" onclick="dlA(17,'B','B','v')"><span class="ol">B</span>colour</button><button class="opt" id="q17-C" onclick="dlA(17,'C','B','v')"><span class="ol">C</span>colur</button><button class="opt" id="q17-D" onclick="dlA(17,'D','B','v')"><span class="ol">D</span>coulor</button></div><div class="expl" id="q17-e">✅ <strong>colour</strong> — британский вариант с U.</div></div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 18 / 20</span><span class="q-t tg">Grammar</span></div><div class="q-tx">«Я говорю по-английски»:</div><div class="opts" id="q18-o"><button class="opt" id="q18-A" onclick="dlA(18,'A','C','g')"><span class="ol">A</span>I speak the English.</button><button class="opt" id="q18-B" onclick="dlA(18,'B','C','g')"><span class="ol">B</span>I speak an English.</button><button class="opt" id="q18-C" onclick="dlA(18,'C','C','g')"><span class="ol">C</span>I speak English.</button><button class="opt" id="q18-D" onclick="dlA(18,'D','C','g')"><span class="ol">D</span>I speaking English.</button></div><div class="expl" id="q18-e">✅ <strong>I speak English.</strong> — с языками артикль не нужен.</div></div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 19 / 20</span><span class="q-t tg">Grammar</span></div><div class="q-tx">«У меня нет времени»:</div><div class="opts" id="q19-o"><button class="opt" id="q19-A" onclick="dlA(19,'A','C','g')"><span class="ol">A</span>I haven't time.</button><button class="opt" id="q19-B" onclick="dlA(19,'B','C','g')"><span class="ol">B</span>I not have time.</button><button class="opt" id="q19-C" onclick="dlA(19,'C','C','g')"><span class="ol">C</span>I don't have time.</button><button class="opt" id="q19-D" onclick="dlA(19,'D','C','g')"><span class="ol">D</span>I hasn't time.</button></div><div class="expl" id="q19-e">✅ <strong>I don't have time.</strong></div></div>
-  <div class="qc"><div class="q-h"><span class="q-n">Вопрос 20 / 20</span><span class="q-t tv">Vocab</span></div><div class="q-tx">Правильное представление:</div><div class="opts" id="q20-o"><button class="opt" id="q20-A" onclick="dlA(20,'A','C','v')"><span class="ol">A</span>My name Ali is.</button><button class="opt" id="q20-B" onclick="dlA(20,'B','C','v')"><span class="ol">B</span>I'm from Kazakhstan only.</button><button class="opt" id="q20-C" onclick="dlA(20,'C','C','v')"><span class="ol">C</span>My name is Ali. I'm from Kazakhstan.</button><button class="opt" id="q20-D" onclick="dlA(20,'D','C','v')"><span class="ol">D</span>I Kazakhstan and Ali.</button></div><div class="expl" id="q20-e">✅ <strong>My name is Ali. I'm from Kazakhstan.</strong> — полное представление.</div></div>
+  <div class="qc"><div class="q-h"><span class="q-n">Вопрос 20 / 20</span><span class="q-t tv">Vocab</span></div><div class="q-tx">Правильное представление:</div><div class="opts" id="q20-o"><button class="opt" id="q20-A" onclick="dlA(20,'A','C','v')"><span class="ol">A</span>My name Ali is.</button><button class="opt" id="q20-B" onclick="dlA(20,'B','C','v')"><span class="ol">B</span>I'm from Kazakhstan only.</button><button class="opt" id="q20-C" onclick="dlA(20,'C','C','v')"><span class="ol">C</span>My name is Ali. I'm from Kazakhstan.</button><button class="opt" id="q20-D" onclick="dlA(20,'D','C','v')"><span class="ol">D</span>I Kazakhstan and Ali.</button></div><div class="expl" id="q20-e">✅ <strong>My name is Ali. I'm from Kazakhstan.</strong></div></div>
 
   <div class="sc" id="sc">
     <span class="sc-em" id="sc-em">✨</span>
@@ -429,30 +461,43 @@ body::after{content:'';position:fixed;inset:0;
       <button class="sc-btn-vocab" onclick="showTab('vocab',document.querySelectorAll('.tab')[4])">Перейти к словарю</button>
     </div>
   </div>
+<div id="cert-screen" style="display:none;text-align:center;padding:32px 20px;background:linear-gradient(160deg,#0a1828,#04080f);border-radius:20px;border:1px solid rgba(255,184,48,.3);margin-top:14px;position:relative;overflow:hidden">
+  <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00c9a7,#ffb830)"></div>
+  <div style="font-size:52px;margin-bottom:14px">🏆</div>
+  <div style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#ffb830;margin-bottom:8px">AtoC · IELTS from Zero</div>
+  <div style="font-size:24px;font-weight:900;color:#fff;margin-bottom:6px;letter-spacing:-.02em">Сертификат A0</div>
+  <div style="font-size:14px;color:rgba(221,228,240,.5);margin-bottom:20px">Уровень Beginner успешно пройден</div>
+  <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px;margin-bottom:20px">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+      <div><div style="font-size:9px;font-weight:700;color:rgba(221,228,240,.3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Уроков</div><div style="font-size:22px;font-weight:900;color:#00c9a7">8</div></div>
+      <div><div style="font-size:9px;font-weight:700;color:rgba(221,228,240,.3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Вопросов</div><div style="font-size:22px;font-weight:900;color:#ffb830">100</div></div>
+      <div><div style="font-size:9px;font-weight:700;color:rgba(221,228,240,.3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Уровень</div><div style="font-size:22px;font-weight:900;color:#845ec2">A0 ✓</div></div>
+    </div>
+  </div>
+  <div style="font-size:13px;color:rgba(221,228,240,.45);margin-bottom:20px;line-height:1.7">Следующий шаг — уровень A1.<br>Present Simple, описание людей, 10 новых уроков!</div>
+  <a href="index.html" style="display:block;background:linear-gradient(135deg,#00c9a7,#00a98f);color:#fff;border-radius:13px;padding:15px;font-size:14px;font-weight:800;text-decoration:none;margin-bottom:9px;font-family:'Plus Jakarta Sans',sans-serif">На главную страницу →</a>
+  <button onclick="window.print()" style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(221,228,240,.6);border-radius:13px;padding:13px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">🖨️ Распечатать сертификат</button>
+</div>
+
 </div>
 
 <div class="sec" id="t-vocab">
-  <div class="card">
-    <div class="c-ti"><span class="ci ci-t">📝</span>Слова урока</div>
-    <div class="vg">
-      <div class="vi"><div class="vi-e">alphabet <button class="spk" onclick="spk('alphabet')">🔊</button></div><div class="vi-i">[ˈælfəbet]</div><div class="vi-r">алфавит</div></div>
-      <div class="vi"><div class="vi-e">letter <button class="spk" onclick="spk('letter')">🔊</button></div><div class="vi-i">[ˈletər]</div><div class="vi-r">буква</div></div>
-      <div class="vi"><div class="vi-e">sound <button class="spk" onclick="spk('sound')">🔊</button></div><div class="vi-i">[saʊnd]</div><div class="vi-r">звук</div></div>
-      <div class="vi"><div class="vi-e">vowel <button class="spk" onclick="spk('vowel')">🔊</button></div><div class="vi-i">[ˈvaʊəl]</div><div class="vi-r">гласная</div></div>
-      <div class="vi"><div class="vi-e">consonant <button class="spk" onclick="spk('consonant')">🔊</button></div><div class="vi-i">[ˈkɒnsənənt]</div><div class="vi-r">согласная</div></div>
-      <div class="vi"><div class="vi-e">cat <button class="spk" onclick="spk('cat')">🔊</button></div><div class="vi-i">[kæt]</div><div class="vi-r">кошка</div></div>
-      <div class="vi"><div class="vi-e">cake <button class="spk" onclick="spk('cake')">🔊</button></div><div class="vi-i">[keɪk]</div><div class="vi-r">торт</div></div>
-      <div class="vi"><div class="vi-e">water <button class="spk" onclick="spk('water')">🔊</button></div><div class="vi-i">[ˈwɔːtər]</div><div class="vi-r">вода</div></div>
-      <div class="vi"><div class="vi-e">think <button class="spk" onclick="spk('think')">🔊</button></div><div class="vi-i">[θɪŋk]</div><div class="vi-r">думать</div></div>
-      <div class="vi"><div class="vi-e">hello <button class="spk" onclick="spk('hello')">🔊</button></div><div class="vi-i">[həˈloʊ]</div><div class="vi-r">привет</div></div>
-    </div>
-  </div>
-  <div class="tc"><h4>🏆 Урок 8 завершён</h4><p>Отличная работа! Следующий шаг — На главную.</p></div>
+  <div class="card"><div class="c-ti"><span class="ci ci-t">📝</span>Ключевые слова A0</div><div class="vg">
+  <div class="vi"><div class="vi-e">alphabet <button class="spk" onclick="spk('alphabet')">🔊</button></div><div class="vi-i">[ˈælfəbet]</div><div class="vi-r">алфавит (L1)</div></div>
+  <div class="vi"><div class="vi-e">am / is / are <button class="spk" onclick="spk('am is are')">🔊</button></div><div class="vi-i">[æm / ɪz / ɑː]</div><div class="vi-r">TO BE (L2)</div></div>
+  <div class="vi"><div class="vi-e">forty <button class="spk" onclick="spk('forty')">🔊</button></div><div class="vi-i">[ˈfɔːti]</div><div class="vi-r">40 — не fourty! (L3)</div></div>
+  <div class="vi"><div class="vi-e">Wednesday <button class="spk" onclick="spk('Wednesday')">🔊</button></div><div class="vi-i">[ˈwenzdeɪ]</div><div class="vi-r">среда (L4)</div></div>
+  <div class="vi"><div class="vi-e">a / an / the <button class="spk" onclick="spk('a an the')">🔊</button></div><div class="vi-i">[ə / æn / ðə]</div><div class="vi-r">артикли (L5)</div></div>
+  <div class="vi"><div class="vi-e">have / has <button class="spk" onclick="spk('have has')">🔊</button></div><div class="vi-i">[hæv / hæz]</div><div class="vi-r">HAVE (L6)</div></div>
+  <div class="vi"><div class="vi-e">Nice to meet you <button class="spk" onclick="spk('Nice to meet you')">🔊</button></div><div class="vi-i">[naɪs tə miːt juː]</div><div class="vi-r">Приятно познакомиться (L7)</div></div>
+  <div class="vi"><div class="vi-e">I speak English <button class="spk" onclick="spk('I speak English')">🔊</button></div><div class="vi-i">[ˈɪŋɡlɪʃ]</div><div class="vi-r">без артикля! (L5)</div></div>
+</div></div>
+<div class="tc"><h4>🏆 Урок 8 завершён</h4><p>Отличная работа! Следующий шаг — На главную.</p></div>
   <div class="tc gd"><h4>✨ Совет дня</h4><p>Читай вслух 5 слов каждый день. Мозг сам строит нужные связи.</p></div>
   <a href="index.html" class="nb">Следующий урок: На главную →</a>
   <div class="tab-nav" style="margin-top:0">
+  <button onclick="showTab('prac',document.querySelectorAll('.tab')[3])" class="nb-prev">← Практика</button>
   <a href="IELTS_A0_Lesson7.html" class="nb-prev">← Урок 7: Диалоги</a>
-  <a href="index.html" class="nb-next">На главную →</a>
 </div>
 </div>
 </div>
@@ -498,93 +543,11 @@ let _ctx=null;
 function getCtx(){if(!_ctx){_ctx=new(window.AudioContext||window.webkitAudioContext)();}if(_ctx.state==='suspended')_ctx.resume();return _ctx;}
 
 // Текущая громкость фоновой музыки (растёт со стриком)
-let _bgVol=0.055;
-let _bgGain=null;
-
 // ── ФОНОВАЯ ПИАНИНО-МУЗЫКА ──
 // Мягкая петля: Am - F - C - G арпеджио
-// Японский лофи арфа — Am пентатоника, очень медленно
-// A C D E G — японская пятиступенчатая гамма
-// Темп ~52 BPM, ноты редкие с большими паузами
-const BG_NOTES=[
-  // Фраза 1 — нежный подъём Am
-  220.00, 0,0,0, 261.63, 0,0,0, 293.66, 0,0,0, 329.63, 0,0,0,
-  // Пауза — дыхание
-  0,0,0,0,0,0,0,0,
-  // Фраза 2 — вершина и спуск
-  440.00, 0,0,0, 392.00, 0,0,0, 329.63, 0,0,0, 261.63, 0,0,0,
-  // Долгая пауза — тишина
-  0,0,0,0,0,0,0,0,0,0,0,0,
-  // Фраза 3 — низкая задумчивая
-  164.81, 0,0,0, 196.00, 0,0,0, 220.00, 0,0,0, 0,0,0,0,
-  // Пауза
-  0,0,0,0,0,0,0,0,
-  // Фраза 4 — мягкое разрешение вверх
-  261.63, 0,0,0, 329.63, 0,0,0, 392.00, 0,0,0, 440.00, 0,0,0,
-  // Финальная долгая пауза перед повтором
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-];
-const BG_DUR=0.17; // каждый шаг 170мс, нота раз в ~680мс = ~88 BPM base, паузы замедляют до ~52
-let _bgActive=false,_bgLoop=null;
-
-function startBg(){
-  if(_bgActive)return;
-  _bgActive=true;
-  const ctx=getCtx();
-  _bgGain=ctx.createGain();
-  _bgGain.gain.value=_bgVol;
-  _bgGain.connect(ctx.destination);
-  let step=0;
-  function playNext(){
-    if(!_bgActive)return;
-    const freq=BG_NOTES[step%BG_NOTES.length];
-    step++;
-    if(freq===0){
-      _bgLoop=setTimeout(playNext,BG_DUR*1000);
-      return;
-    }
-    // ЯПОНСКАЯ ЛОФИ АРФА
-    // Основной тон — синус, тёплый
-    const o=ctx.createOscillator(),g=ctx.createGain();
-    o.type='sine'; o.frequency.value=freq;
-    // Октава тихая — мягкий блеск
-    const o2=ctx.createOscillator(),g2=ctx.createGain();
-    o2.type='sine'; o2.frequency.value=freq*2; g2.gain.value=0.15;
-    // Небольшой детюн для тепла (+1.5 Hz)
-    const o4=ctx.createOscillator(),g4=ctx.createGain();
-    o4.type='sine'; o4.frequency.value=freq+1.5; g4.gain.value=0.08;
-    o.connect(g); o2.connect(g2); o4.connect(g4);
-    g.connect(_bgGain); g2.connect(_bgGain); g4.connect(_bgGain);
-    const t=ctx.currentTime;
-    const tail=3.8; // лофи — нота долго висит в воздухе
-    // Быстрая атака арфы (8мс), очень плавное экспоненциальное затухание
-    g.gain.setValueAtTime(0,t);
-    g.gain.linearRampToValueAtTime(1,t+0.008);
-    g.gain.setValueAtTime(0.9,t+0.02);
-    g.gain.exponentialRampToValueAtTime(0.001,t+tail);
-    o.start(t); o.stop(t+tail+0.15);
-    o2.start(t); o2.stop(t+tail+0.15);
-    o4.start(t); o4.stop(t+tail+0.15);
-    _bgLoop=setTimeout(playNext,BG_DUR*1000);
-  }
-  playNext();
-}
-
-function setBgVol(v){
-  _bgVol=Math.min(v,0.08);
-  if(_bgGain){
-    const ctx=getCtx();
-    _bgGain.gain.setTargetAtTime(_bgVol,ctx.currentTime,0.3);
-  }
 }
 
 // Стрик → громче фон
-function rampBgByStreak(cons){
-  // базовая 0.032, каждые 3 правильных +0.028, макс 0.18
-  const vol=0.10+Math.floor(cons/3)*0.04;
-  setBgVol(vol);
-}
-
 // Правильный ответ — лёгкий монетный звон
 function playCoin(){
   try{
@@ -639,7 +602,7 @@ function playStreakMelody(cons){
                    cons>=5?[440.00,523.25,659.25]:
                    cons>=3?[392.00,493.88,587.33]:
                            [329.63,415.30,493.88];
-    const vol=0.038;
+    const vol=0.022;
     const tail=2.6;
     const t=ctx.currentTime+0.04;
 
@@ -729,7 +692,6 @@ function showBubble(txt,force){
   clearTimeout(_bt);_bt=setTimeout(()=>b.classList.remove('on'),4800);
 }
 function bubbleTap(){
-  startBg(); // на случай если ещё не стартовал
   playMascotTap();
   showBubble(INSPIRE[Math.floor(Math.random()*INSPIRE.length)],true);
 }
@@ -833,7 +795,7 @@ function lLife(q){
 function showGO(){_S.over=true;_inTest=false;document.getElementById('go').classList.add('on');}
 function restartLesson(){
   _S={lives:3,score:0,ans:{},wrong:[],cons:0,timer:null,tLeft:15,tStats:{},sXP:0,fast:0,total:20,lkey:'ielts_a0_lesson8',over:false,_ret:false};
-  _inTest=true;_bgVol=0.055;setBgVol(_bgVol);
+  _inTest=true;
   document.getElementById('go').classList.remove('on');
   document.querySelectorAll('.opt').forEach(b=>{b.disabled=false;b.classList.remove('ok','no','reveal');});
   document.querySelectorAll('.expl').forEach(e=>e.classList.remove('on'));
@@ -853,14 +815,13 @@ function dlA(q,ch,ck,tag){
     chosen.classList.add('ok');_S.score++;_S.cons++;_S.tStats[tag].ok++;
     aXP(10+(fast?5:0));if(fast)_S.fast++;
     playCoin();
-    if(_S.cons>=1)showStreakBanner(_S.cons);
+    if(_S.cons===3||_S.cons===5||_S.cons===7||_S.cons===10)showStreakBanner(_S.cons);
     
     if(_S.score===_S.total)boom();
   }else{
     chosen.classList.add('no');
     chosen.style.animation='shake .35s ease';setTimeout(()=>chosen.style.animation='',400);
     corBtn.classList.add('reveal');_S.cons=0;
-    setBgVol(0.055); // сбросить громкость при ошибке
     lLife(q);
   }
   const ep=document.getElementById('q'+q+'-e');
@@ -907,7 +868,7 @@ function showScore(){
   rTS();
   localStorage.setItem(_S.lkey,JSON.stringify({score:_S.score,max:_S.total,pct,date:new Date().toISOString()}));
   sc.scrollIntoView({behavior:'smooth',block:'center'});
-  if(pct===100){boom();setTimeout(()=>playStreakMelody(6),500);}
+  if(pct===100){boom();setTimeout(()=>playStreakMelody(6),500);setTimeout(()=>{document.getElementById("cert-screen").style.display="block";document.getElementById("cert-screen").scrollIntoView({behavior:"smooth",block:"center"});},1500);}
 }
 function rTS(){
   const el=document.getElementById('ts');if(!el)return;
@@ -937,34 +898,7 @@ function showTab(id,el){
 }
 
 // ── ALPHABET — только буква, без "Capital" ──
-const LT=[
-  {l:'A',n:'эй',s:'[æ]/[eɪ]',w:'apple',t:'яблоко'},
-  {l:'B',n:'би',s:'[b]',w:'book',t:'книга'},
-  {l:'C',n:'си',s:'[k]/[s]',w:'cat',t:'кошка'},
-  {l:'D',n:'ди',s:'[d]',w:'dog',t:'собака'},
-  {l:'E',n:'и',s:'[e]/[iː]',w:'egg',t:'яйцо'},
-  {l:'F',n:'эф',s:'[f]',w:'fish',t:'рыба'},
-  {l:'G',n:'джи',s:'[g]/[dʒ]',w:'girl',t:'девочка'},
-  {l:'H',n:'эйч',s:'[h]',w:'house',t:'дом'},
-  {l:'I',n:'ай',s:'[ɪ]/[aɪ]',w:'ice',t:'лёд'},
-  {l:'J',n:'джей',s:'[dʒ]',w:'juice',t:'сок'},
-  {l:'K',n:'кей',s:'[k]',w:'key',t:'ключ'},
-  {l:'L',n:'эл',s:'[l]',w:'lion',t:'лев'},
-  {l:'M',n:'эм',s:'[m]',w:'map',t:'карта'},
-  {l:'N',n:'эн',s:'[n]',w:'night',t:'ночь'},
-  {l:'O',n:'оу',s:'[ɒ]/[əʊ]',w:'orange',t:'апельсин'},
-  {l:'P',n:'пи',s:'[p]',w:'pen',t:'ручка'},
-  {l:'Q',n:'кью',s:'[kw]',w:'queen',t:'королева'},
-  {l:'R',n:'аа',s:'[r]',w:'rose',t:'роза'},
-  {l:'S',n:'эс',s:'[s]/[z]',w:'sun',t:'солнце'},
-  {l:'T',n:'ти',s:'[t]',w:'tree',t:'дерево'},
-  {l:'U',n:'ю',s:'[ʌ]/[juː]',w:'umbrella',t:'зонт'},
-  {l:'V',n:'ви',s:'[v]',w:'voice',t:'голос'},
-  {l:'W',n:'дабл-ю',s:'[w]',w:'water',t:'вода'},
-  {l:'X',n:'экс',s:'[ks]',w:'box',t:'коробка'},
-  {l:'Y',n:'вай',s:'[j]',w:'year',t:'год'},
-  {l:'Z',n:'зед',s:'[z]',w:'zebra',t:'зебра'},
-];
+const LT=[{'l':'L1','n':'L1','s':'[ˈælfəbet]','w':'alphabet','t':'алфавит'},{'l':'L2','n':'L2','s':'[æm/ɪz/ɑː]','w':'I am / is / are','t':'TO BE формы'},{'l':'L3','n':'L3','s':'[ˈfɔːti]','w':'forty','t':'сорок (не fourty!)'},{'l':'L4','n':'L4','s':'[ˈwenzdeɪ]','w':'Wednesday','t':'среда'},{'l':'L5','n':'L5','s':'[ə/æn/ðə]','w':'a / an / the','t':'артикли'},{'l':'L6','n':'L6','s':'[hæv/hæz]','w':'have / has','t':'иметь'},{'l':'L7','n':'L7','s':'[naɪs tə miːt juː]','w':'Nice to meet you','t':'Приятно познакомиться'},{'l':'L5','n':'L5','s':'[ˈɪŋɡlɪʃ]','w':'I speak English','t':'без артикля!'},{'l':'L7','n':'L7','s':'[frɒm]','w':'I\'m from Kazakhstan','t':'Я из Казахстана'},{'l':'L3','n':'L3','s':'[jɪəz əʊld]','w':'I am 20 years old','t':'Мне 20 лет'}];
 
 function showL(i,el){
   document.querySelectorAll('.lc').forEach(c=>c.classList.remove('on'));el.classList.add('on');
@@ -991,14 +925,14 @@ function showL(i,el){
 let fi=0,ff=false;
 function updFC(){
   const lt=LT[fi];
-  document.getElementById('fc-l').textContent=lt.l;
+  document.getElementById('fc-l').textContent=lt.w;
   document.getElementById('fc-s').textContent=lt.s;
   const fw=document.getElementById('fc-w');
-  fw.textContent=lt.w;
+  fw.textContent=lt.t;
   fw.ondblclick=e=>{e.stopPropagation();spk(lt.w);};
   fw.onclick=e=>e.stopPropagation();
-  document.getElementById('fc-t').textContent=lt.t;
-  document.getElementById('fcc').textContent=(fi+1)+'/26';
+  document.getElementById('fc-t').textContent=lt.n;
+  document.getElementById('fcc').textContent=(fi+1)+'/10';
   document.getElementById('fc').classList.remove('fl');ff=false;
 }
 function flipFC(){ff=!ff;document.getElementById('fc').classList.toggle('fl',ff);}
@@ -1016,16 +950,65 @@ window.addEventListener('load',()=>{
   updFC();
 });
 
-// Арфа стартует при первом касании/клике — обход autoplay-блокировки браузера
-function _tryStartBg(){
-  startBg();
-  document.removeEventListener('click',_tryStartBg);
-  document.removeEventListener('touchstart',_tryStartBg);
-  document.removeEventListener('keydown',_tryStartBg);
+</script>
+
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('sw.js').catch(()=>{});
+  });
 }
-document.addEventListener('click',_tryStartBg,{once:true});
-document.addEventListener('touchstart',_tryStartBg,{once:true});
-document.addEventListener('keydown',_tryStartBg,{once:true});
+</script>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="firebase_core.js"></script>
+<script>
+// Auth guard для уроков
+ATOC.AUTH.onStateChange(async user => {
+  if (!user) { window.location.href = 'auth.html'; return; }
+  const hasAccess = await ATOC.ACCESS.check('a0');
+  if (!hasAccess) { window.location.href = 'payment_a0.html'; return; }
+  // Загружаем XP и streak из Firebase
+  try {
+    const data = await ATOC.PROGRESS.load();
+    if (data) {
+      const xpEl = document.getElementById('xp-hdr');
+      const strEl = document.getElementById('str-n');
+      if (xpEl) xpEl.textContent = '💎 ' + (data.xp || 0);
+      if (strEl) strEl.textContent = '🔥 ' + (data.streak || 0);
+      // Синхронизируем localStorage с Firebase
+      localStorage.setItem('atoc_xp', JSON.stringify({xp: data.xp || 0}));
+    }
+  } catch(e) {}
+});
+
+// Перехватываем сохранение результата урока — пишем и в Firebase
+const _origShowScore = showScore;
+
+// Firebase save hook — вызывается после showScore
+(function(){
+  const orig = window.showScore;
+  if (!orig) return;
+  window.showScore = function() {
+    orig.call(this);
+    // Сохраняем в Firebase
+    try {
+      const xp = (JSON.parse(localStorage.getItem('atoc_xp')||'{"xp":0}')).xp || 0;
+      ATOC.PROGRESS.saveLesson(_S.lkey, {
+        score: _S.score,
+        max: _S.total,
+        pct: Math.round(_S.score/_S.total*100),
+        xpEarned: _S.sXP,
+        topicStats: _S.tStats,
+        date: new Date().toISOString()
+      }).catch(()=>{});
+      ATOC.PROGRESS.updateStreak().catch(()=>{});
+    } catch(e) {}
+  };
+})();
 </script>
 </body>
 </html>

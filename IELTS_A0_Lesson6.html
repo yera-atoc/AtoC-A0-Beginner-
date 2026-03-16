@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#00c9a7">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="AtoC"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>AtoC · A0 Урок 6: Глагол HAVE — «иметь»</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -304,19 +309,19 @@ body::after{content:'';position:fixed;inset:0;
 <div class="hero"><div class="hero-inner">
   <div class="chips"><span class="chip ct">A0 · Beginner</span><span class="chip cg">Урок 6 из 8</span></div>
   <h1 class="hero-h">Глагол<br><span class="ac">HAVE — «иметь»</span></h1>
-  <p class="hero-s">Говорим о том, что у нас есть — семья, вещи, ощущения!</p>
+  <p class="hero-s">Говорим о том, что у нас есть!</p>
   <div class="eqs">
     <div class="eq"><span class="eq-l">IELTS</span><span class="eq-v">0–2.0</span></div>
     <div class="eq"><span class="eq-l">TOEFL</span><span class="eq-v">0–30</span></div>
     <div class="eq"><span class="eq-l">Duolingo</span><span class="eq-v">10–50</span></div>
     <div class="eq"><span class="eq-l">CEFR</span><span class="eq-v">Pre-A1</span></div>
   </div>
-  <div class="goal-box"><span style="font-size:17px;flex-shrink:0">🎯</span><p><strong>После урока:</strong> После урока: используешь have/has в утверждениях и вопросах</p></div>
+  <div class="goal-box"><span style="font-size:17px;flex-shrink:0">🎯</span><p><strong>После урока:</strong> используешь have/has в утверждениях и вопросах</p></div>
 </div><div class="pb-w"><div class="pb" id="pb"></div></div></div>
 
 <div class="tabs-w"><div class="tabs">
   <div class="tab on" onclick="showTab('theory',this)">📖 Теория</div>
-  <div class="tab" onclick="showTab('alpha',this)">📋 Таблица</div>
+  <div class="tab" onclick="showTab('alpha',this)">🔤 Алфавит</div>
   <div class="tab" onclick="showTab('cards',this)">🃏 Карточки</div>
   <div class="tab" onclick="showTab('prac',this)">✏️ Практика</div>
   <div class="tab" onclick="showTab('vocab',this)">📝 Словарь</div>
@@ -324,27 +329,18 @@ body::after{content:'';position:fixed;inset:0;
 
 <div class="cnt">
 <div class="sec on" id="t-theory">
-  <div class="card">
-    <div class="c-ti"><span class="ci ci-t">🌍</span>Почему английский такой?</div>
-    <p style="font-size:13px;line-height:1.85;color:rgba(221,228,240,.55);margin-bottom:11px">Английский собрал слова из <strong style="color:#fff">латыни, французского, немецкого</strong>. Поэтому одна буква может звучать по-разному.</p>
-    <div class="tip"><div class="tl">💡 Пример — буква A</div>[æ] cat «кэт» · [eɪ] cake «кейк» · [ɑː] car «каа»</div>
-    <div class="warn"><div class="wl">⚡ Главное правило</div>Не читай по-русски. Учи настоящее произношение сразу — мозг привыкнет быстро.</div>
-  </div>
-  <div class="card">
-    <div class="c-ti"><span class="ci ci-g">📊</span>Факты об алфавите</div>
-    <div class="er"><span class="er-e">26 букв</span><span class="er-r">в английском (в русском — 33)</span></div>
-    <div class="er"><span class="er-e">5 гласных</span><span class="er-r">A E I O U</span></div>
-    <div class="er"><span class="er-e">44 звука</span><span class="er-r">букв 26, а звуков больше!</span></div>
-  </div>
-  <div class="card">
-    <div class="c-ti"><span class="ci ci-p">🗣️</span>Звуки которых нет в русском</div>
-    <div class="er"><span class="er-e">[θ] — TH <button class="spk" onclick="spk('think')">🔊</button></span><span class="er-r">Язык между зубами: think, this</span></div>
-    <div class="er"><span class="er-e">[w] — W <button class="spk" onclick="spk('water')">🔊</button></span><span class="er-r">Губы трубочкой: water, wow</span></div>
-    <div class="er"><span class="er-e">[h] — H <button class="spk" onclick="spk('hello')">🔊</button></span><span class="er-r">Лёгкий выдох: hello, happy</span></div>
-  </div>
-  <div class="tab-nav">
-  <button onclick="showTab('alpha',document.querySelectorAll('.tab')[1])" class="nb-next">Далее: Алфавит →</button>
+<div class="card">
+  <div class="c-ti"><span class="ci ci-t">📊</span>Формы HAVE</div>
+  <table class="tbl"><thead><tr><th>Подлежащее</th><th>Форма</th><th>Краткая</th></tr></thead><tbody>
+  <tr><td>I / You / We / They</td><td class="en">have</td><td class="sh">'ve</td></tr>
+  <tr><td>He / She / It</td><td class="en">has</td><td class="sh">'s</td></tr>
+  </tbody></table>
+  <div class="warn"><div class="wl">⚠️ Важно!</div>He/She/It → <strong>HAS</strong>! «She has a car» — не «She have a car».</div>
+  <div class="er" style="margin-top:11px"><span class="er-e">I have a car.</span><span class="er-r">У меня есть машина.</span></div>
+  <div class="er"><span class="er-e">She has two brothers.</span><span class="er-r">У неё два брата.</span></div>
 </div>
+<div class="tab-nav"><button class="nb-next" onclick="showTab('forms',document.querySelectorAll('.tab')[1])">Далее: Отрицание →</button></div>
+
 </div>
 
 <div class="sec" id="t-alpha">
@@ -392,16 +388,16 @@ body::after{content:'';position:fixed;inset:0;
     <div><div style="font-weight:800;font-size:13px;color:#fff;letter-spacing:-.01em">Покажи что умеешь</div><div style="font-size:11px;color:rgba(221,228,240,.35);margin-top:1px">10 вопросов · стрик с первого ответа · арфа громче</div></div>
   </div>
   <div class="hud" id="hud"></div>
-  <div class="qc"><div class="q-h"><span class="q-n">Вопрос 1 / 10</span><span class="q-t tg">Grammar</span></div><div class="q-tx">She ___ a dog.</div><div class="opts" id="q1-o"><button class="opt" id="q1-A" onclick="dlA(1,'A','B','g')"><span class="ol">A</span>have</button><button class="opt" id="q1-B" onclick="dlA(1,'B','B','g')"><span class="ol">B</span>has</button><button class="opt" id="q1-C" onclick="dlA(1,'C','B','g')"><span class="ol">C</span>is have</button><button class="opt" id="q1-D" onclick="dlA(1,'D','B','g')"><span class="ol">D</span>does have</button></div><div class="expl" id="q1-e">✅ <strong>has</strong> — с he/she/it используем has.</div></div>
+  <div class="qc"><div class="q-h"><span class="q-n">Вопрос 1 / 10</span><span class="q-t tg">Grammar</span></div><div class="q-tx">She ___ a dog.</div><div class="opts" id="q1-o"><button class="opt" id="q1-A" onclick="dlA(1,'A','B','g')"><span class="ol">A</span>have</button><button class="opt" id="q1-B" onclick="dlA(1,'B','B','g')"><span class="ol">B</span>has</button><button class="opt" id="q1-C" onclick="dlA(1,'C','B','g')"><span class="ol">C</span>is have</button><button class="opt" id="q1-D" onclick="dlA(1,'D','B','g')"><span class="ol">D</span>does have</button></div><div class="expl" id="q1-e">✅ <strong>has</strong> — с he/she/it используем has, не have!</div></div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 2 / 10</span><span class="q-t tg">Grammar</span></div><div class="q-tx">«У меня нет машины»:</div><div class="opts" id="q2-o"><button class="opt" id="q2-A" onclick="dlA(2,'A','C','g')"><span class="ol">A</span>I not have a car.</button><button class="opt" id="q2-B" onclick="dlA(2,'B','C','g')"><span class="ol">B</span>I haven't a car.</button><button class="opt" id="q2-C" onclick="dlA(2,'C','C','g')"><span class="ol">C</span>I don't have a car.</button><button class="opt" id="q2-D" onclick="dlA(2,'D','C','g')"><span class="ol">D</span>I hasn't a car.</button></div><div class="expl" id="q2-e">✅ <strong>I don't have a car.</strong> — отрицание с I: don't have.</div></div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 3 / 10</span><span class="q-t tg">Grammar</span></div><div class="q-tx">«У тебя есть сестра?»:</div><div class="opts" id="q3-o"><button class="opt" id="q3-A" onclick="dlA(3,'A','C','g')"><span class="ol">A</span>Have you a sister?</button><button class="opt" id="q3-B" onclick="dlA(3,'B','C','g')"><span class="ol">B</span>Are you have a sister?</button><button class="opt" id="q3-C" onclick="dlA(3,'C','C','g')"><span class="ol">C</span>Do you have a sister?</button><button class="opt" id="q3-D" onclick="dlA(3,'D','C','g')"><span class="ol">D</span>Does you have a sister?</button></div><div class="expl" id="q3-e">✅ <strong>Do you have a sister?</strong> — вопрос с you: Do you have...?</div></div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 4 / 10</span><span class="q-t tv">Vocab</span></div><div class="q-tx">«I have a headache» означает:</div><div class="opts" id="q4-o"><button class="opt" id="q4-A" onclick="dlA(4,'A','B','v')"><span class="ol">A</span>Я держу голову</button><button class="opt" id="q4-B" onclick="dlA(4,'B','B','v')"><span class="ol">B</span>У меня болит голова.</button><button class="opt" id="q4-C" onclick="dlA(4,'C','B','v')"><span class="ol">C</span>У меня есть голова.</button><button class="opt" id="q4-D" onclick="dlA(4,'D','B','v')"><span class="ol">D</span>Я потерял голову.</button></div><div class="expl" id="q4-e">✅ <strong>У меня болит голова.</strong> — have a headache = болит голова.</div></div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 5 / 10</span><span class="q-t tg">Grammar</span></div><div class="q-tx">They ___ time.</div><div class="opts" id="q5-o"><button class="opt" id="q5-A" onclick="dlA(5,'A','B','g')"><span class="ol">A</span>doesn't have</button><button class="opt" id="q5-B" onclick="dlA(5,'B','B','g')"><span class="ol">B</span>don't have</button><button class="opt" id="q5-C" onclick="dlA(5,'C','B','g')"><span class="ol">C</span>hasn't have</button><button class="opt" id="q5-D" onclick="dlA(5,'D','B','g')"><span class="ol">D</span>aren't have</button></div><div class="expl" id="q5-e">✅ <strong>don't have</strong> — с they: don't have.</div></div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 6 / 10</span><span class="q-t tv">Vocab</span></div><div class="q-tx">«Давай пообедаем»:</div><div class="opts" id="q6-o"><button class="opt" id="q6-A" onclick="dlA(6,'A','B','v')"><span class="ol">A</span>Let's eat lunch!</button><button class="opt" id="q6-B" onclick="dlA(6,'B','B','v')"><span class="ol">B</span>Let's have lunch!</button><button class="opt" id="q6-C" onclick="dlA(6,'C','B','v')"><span class="ol">C</span>We have lunch?</button><button class="opt" id="q6-D" onclick="dlA(6,'D','B','v')"><span class="ol">D</span>Shall lunch?</button></div><div class="expl" id="q6-e">✅ <strong>Let's have lunch!</strong> — have lunch = пообедать.</div></div>
-  <div class="qc"><div class="q-h"><span class="q-n">Вопрос 7 / 10</span><span class="q-t tg">Grammar</span></div><div class="q-tx">She ___ a car now.</div><div class="opts" id="q7-o"><button class="opt" id="q7-A" onclick="dlA(7,'A','C','g')"><span class="ol">A</span>don't have</button><button class="opt" id="q7-B" onclick="dlA(7,'B','C','g')"><span class="ol">B</span>hasn't</button><button class="opt" id="q7-C" onclick="dlA(7,'C','C','g')"><span class="ol">C</span>doesn't have</button><button class="opt" id="q7-D" onclick="dlA(7,'D','C','g')"><span class="ol">D</span>not have</button></div><div class="expl" id="q7-e">✅ <strong>doesn't have</strong> — отрицание с she: doesn't have.</div></div>
+  <div class="qc"><div class="q-h"><span class="q-n">Вопрос 7 / 10</span><span class="q-t tg">Grammar</span></div><div class="q-tx">She ___ a car.</div><div class="opts" id="q7-o"><button class="opt" id="q7-A" onclick="dlA(7,'A','C','g')"><span class="ol">A</span>don't have</button><button class="opt" id="q7-B" onclick="dlA(7,'B','C','g')"><span class="ol">B</span>hasn't</button><button class="opt" id="q7-C" onclick="dlA(7,'C','C','g')"><span class="ol">C</span>doesn't have</button><button class="opt" id="q7-D" onclick="dlA(7,'D','C','g')"><span class="ol">D</span>not have</button></div><div class="expl" id="q7-e">✅ <strong>doesn't have</strong> — отрицание с she: doesn't have.</div></div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 8 / 10</span><span class="q-t tg">Grammar</span></div><div class="q-tx">«У него есть брат»:</div><div class="opts" id="q8-o"><button class="opt" id="q8-A" onclick="dlA(8,'A','B','g')"><span class="ol">A</span>He have a brother.</button><button class="opt" id="q8-B" onclick="dlA(8,'B','B','g')"><span class="ol">B</span>He has a brother.</button><button class="opt" id="q8-C" onclick="dlA(8,'C','B','g')"><span class="ol">C</span>He is have a brother.</button><button class="opt" id="q8-D" onclick="dlA(8,'D','B','g')"><span class="ol">D</span>He does have a brother.</button></div><div class="expl" id="q8-e">✅ <strong>He has a brother.</strong> — с he всегда has.</div></div>
   <div class="qc"><div class="q-h"><span class="q-n">Вопрос 9 / 10</span><span class="q-t tv">Vocab</span></div><div class="q-tx">«I have a cold» означает:</div><div class="opts" id="q9-o"><button class="opt" id="q9-A" onclick="dlA(9,'A','B','v')"><span class="ol">A</span>Мне холодно.</button><button class="opt" id="q9-B" onclick="dlA(9,'B','B','v')"><span class="ol">B</span>У меня простуда.</button><button class="opt" id="q9-C" onclick="dlA(9,'C','B','v')"><span class="ol">C</span>Я ем холодное.</button><button class="opt" id="q9-D" onclick="dlA(9,'D','B','v')"><span class="ol">D</span>Я замёрз.</button></div><div class="expl" id="q9-e">✅ <strong>У меня простуда.</strong> — have a cold = быть простуженным.</div></div>
-  <div class="qc"><div class="q-h"><span class="q-n">Вопрос 10 / 10</span><span class="q-t tg">Grammar</span></div><div class="q-tx">«Есть ли у неё кошка?»:</div><div class="opts" id="q10-o"><button class="opt" id="q10-A" onclick="dlA(10,'A','C','g')"><span class="ol">A</span>Has she a cat?</button><button class="opt" id="q10-B" onclick="dlA(10,'B','C','g')"><span class="ol">B</span>Is she have a cat?</button><button class="opt" id="q10-C" onclick="dlA(10,'C','C','g')"><span class="ol">C</span>Does she have a cat?</button><button class="opt" id="q10-D" onclick="dlA(10,'D','C','g')"><span class="ol">D</span>Do she have a cat?</button></div><div class="expl" id="q10-e">✅ <strong>Does she have a cat?</strong> — вопрос с she: Does she have...?</div></div>
+  <div class="qc"><div class="q-h"><span class="q-n">Вопрос 10 / 10</span><span class="q-t tg">Grammar</span></div><div class="q-tx">«Есть ли у неё кошка?»:</div><div class="opts" id="q10-o"><button class="opt" id="q10-A" onclick="dlA(10,'A','C','g')"><span class="ol">A</span>Has she a cat?</button><button class="opt" id="q10-B" onclick="dlA(10,'B','C','g')"><span class="ol">B</span>Is she have a cat?</button><button class="opt" id="q10-C" onclick="dlA(10,'C','C','g')"><span class="ol">C</span>Does she have a cat?</button><button class="opt" id="q10-D" onclick="dlA(10,'D','C','g')"><span class="ol">D</span>Do she have a cat?</button></div><div class="expl" id="q10-e">✅ <strong>Does she have a cat?</strong></div></div>
 
   <div class="sc" id="sc">
     <span class="sc-em" id="sc-em">✨</span>
@@ -424,27 +420,24 @@ body::after{content:'';position:fixed;inset:0;
 </div>
 
 <div class="sec" id="t-vocab">
-  <div class="card">
-    <div class="c-ti"><span class="ci ci-t">📝</span>Слова урока</div>
-    <div class="vg">
-      <div class="vi"><div class="vi-e">alphabet <button class="spk" onclick="spk('alphabet')">🔊</button></div><div class="vi-i">[ˈælfəbet]</div><div class="vi-r">алфавит</div></div>
-      <div class="vi"><div class="vi-e">letter <button class="spk" onclick="spk('letter')">🔊</button></div><div class="vi-i">[ˈletər]</div><div class="vi-r">буква</div></div>
-      <div class="vi"><div class="vi-e">sound <button class="spk" onclick="spk('sound')">🔊</button></div><div class="vi-i">[saʊnd]</div><div class="vi-r">звук</div></div>
-      <div class="vi"><div class="vi-e">vowel <button class="spk" onclick="spk('vowel')">🔊</button></div><div class="vi-i">[ˈvaʊəl]</div><div class="vi-r">гласная</div></div>
-      <div class="vi"><div class="vi-e">consonant <button class="spk" onclick="spk('consonant')">🔊</button></div><div class="vi-i">[ˈkɒnsənənt]</div><div class="vi-r">согласная</div></div>
-      <div class="vi"><div class="vi-e">cat <button class="spk" onclick="spk('cat')">🔊</button></div><div class="vi-i">[kæt]</div><div class="vi-r">кошка</div></div>
-      <div class="vi"><div class="vi-e">cake <button class="spk" onclick="spk('cake')">🔊</button></div><div class="vi-i">[keɪk]</div><div class="vi-r">торт</div></div>
-      <div class="vi"><div class="vi-e">water <button class="spk" onclick="spk('water')">🔊</button></div><div class="vi-i">[ˈwɔːtər]</div><div class="vi-r">вода</div></div>
-      <div class="vi"><div class="vi-e">think <button class="spk" onclick="spk('think')">🔊</button></div><div class="vi-i">[θɪŋk]</div><div class="vi-r">думать</div></div>
-      <div class="vi"><div class="vi-e">hello <button class="spk" onclick="spk('hello')">🔊</button></div><div class="vi-i">[həˈloʊ]</div><div class="vi-r">привет</div></div>
-    </div>
-  </div>
-  <div class="tc"><h4>🏆 Урок 6 завершён</h4><p>Отличная работа! Следующий шаг — Урок 7: Диалоги.</p></div>
+  <div class="card"><div class="c-ti"><span class="ci ci-t">📝</span>Слова урока</div><div class="vg">
+  <div class="vi"><div class="vi-e">have / has <button class="spk" onclick="spk('have has')">🔊</button></div><div class="vi-i">[hæv / hæz]</div><div class="vi-r">иметь</div></div>
+  <div class="vi"><div class="vi-e">don't have <button class="spk" onclick="spk('do not have')">🔊</button></div><div class="vi-i">[dəʊnt hæv]</div><div class="vi-r">не иметь (I/you/we/they)</div></div>
+  <div class="vi"><div class="vi-e">doesn't have <button class="spk" onclick="spk('does not have')">🔊</button></div><div class="vi-i">[ˈdʌznt hæv]</div><div class="vi-r">не иметь (he/she/it)</div></div>
+  <div class="vi"><div class="vi-e">do you have? <button class="spk" onclick="spk('do you have')">🔊</button></div><div class="vi-i">[duː juː hæv]</div><div class="vi-r">у тебя есть?</div></div>
+  <div class="vi"><div class="vi-e">brother / sister <button class="spk" onclick="spk('brother sister')">🔊</button></div><div class="vi-i">[ˈbrʌðər / ˈsɪstər]</div><div class="vi-r">брат / сестра</div></div>
+  <div class="vi"><div class="vi-e">headache <button class="spk" onclick="spk('headache')">🔊</button></div><div class="vi-i">[ˈhedeɪk]</div><div class="vi-r">головная боль</div></div>
+  <div class="vi"><div class="vi-e">have lunch <button class="spk" onclick="spk('have lunch')">🔊</button></div><div class="vi-i">[hæv lʌntʃ]</div><div class="vi-r">пообедать</div></div>
+  <div class="vi"><div class="vi-e">have a cold <button class="spk" onclick="spk('have a cold')">🔊</button></div><div class="vi-i">[hæv ə kəʊld]</div><div class="vi-r">быть простуженным</div></div>
+  <div class="vi"><div class="vi-e">phone <button class="spk" onclick="spk('phone')">🔊</button></div><div class="vi-i">[fəʊn]</div><div class="vi-r">телефон</div></div>
+  <div class="vi"><div class="vi-e">time <button class="spk" onclick="spk('time')">🔊</button></div><div class="vi-i">[taɪm]</div><div class="vi-r">время</div></div>
+</div></div>
+<div class="tc"><h4>🏆 Урок 6 завершён</h4><p>Отличная работа! Следующий шаг — Урок 7: Диалоги.</p></div>
   <div class="tc gd"><h4>✨ Совет дня</h4><p>Читай вслух 5 слов каждый день. Мозг сам строит нужные связи.</p></div>
   <a href="IELTS_A0_Lesson7.html" class="nb">Следующий урок: Урок 7: Диалоги →</a>
   <div class="tab-nav" style="margin-top:0">
+  <button onclick="showTab('prac',document.querySelectorAll('.tab')[3])" class="nb-prev">← Практика</button>
   <a href="IELTS_A0_Lesson5.html" class="nb-prev">← Урок 5: Артикли</a>
-  <a href="IELTS_A0_Lesson7.html" class="nb-next">Урок 7: Диалоги →</a>
 </div>
 </div>
 </div>
@@ -490,93 +483,11 @@ let _ctx=null;
 function getCtx(){if(!_ctx){_ctx=new(window.AudioContext||window.webkitAudioContext)();}if(_ctx.state==='suspended')_ctx.resume();return _ctx;}
 
 // Текущая громкость фоновой музыки (растёт со стриком)
-let _bgVol=0.055;
-let _bgGain=null;
-
 // ── ФОНОВАЯ ПИАНИНО-МУЗЫКА ──
 // Мягкая петля: Am - F - C - G арпеджио
-// Японский лофи арфа — Am пентатоника, очень медленно
-// A C D E G — японская пятиступенчатая гамма
-// Темп ~52 BPM, ноты редкие с большими паузами
-const BG_NOTES=[
-  // Фраза 1 — нежный подъём Am
-  220.00, 0,0,0, 261.63, 0,0,0, 293.66, 0,0,0, 329.63, 0,0,0,
-  // Пауза — дыхание
-  0,0,0,0,0,0,0,0,
-  // Фраза 2 — вершина и спуск
-  440.00, 0,0,0, 392.00, 0,0,0, 329.63, 0,0,0, 261.63, 0,0,0,
-  // Долгая пауза — тишина
-  0,0,0,0,0,0,0,0,0,0,0,0,
-  // Фраза 3 — низкая задумчивая
-  164.81, 0,0,0, 196.00, 0,0,0, 220.00, 0,0,0, 0,0,0,0,
-  // Пауза
-  0,0,0,0,0,0,0,0,
-  // Фраза 4 — мягкое разрешение вверх
-  261.63, 0,0,0, 329.63, 0,0,0, 392.00, 0,0,0, 440.00, 0,0,0,
-  // Финальная долгая пауза перед повтором
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-];
-const BG_DUR=0.17; // каждый шаг 170мс, нота раз в ~680мс = ~88 BPM base, паузы замедляют до ~52
-let _bgActive=false,_bgLoop=null;
-
-function startBg(){
-  if(_bgActive)return;
-  _bgActive=true;
-  const ctx=getCtx();
-  _bgGain=ctx.createGain();
-  _bgGain.gain.value=_bgVol;
-  _bgGain.connect(ctx.destination);
-  let step=0;
-  function playNext(){
-    if(!_bgActive)return;
-    const freq=BG_NOTES[step%BG_NOTES.length];
-    step++;
-    if(freq===0){
-      _bgLoop=setTimeout(playNext,BG_DUR*1000);
-      return;
-    }
-    // ЯПОНСКАЯ ЛОФИ АРФА
-    // Основной тон — синус, тёплый
-    const o=ctx.createOscillator(),g=ctx.createGain();
-    o.type='sine'; o.frequency.value=freq;
-    // Октава тихая — мягкий блеск
-    const o2=ctx.createOscillator(),g2=ctx.createGain();
-    o2.type='sine'; o2.frequency.value=freq*2; g2.gain.value=0.15;
-    // Небольшой детюн для тепла (+1.5 Hz)
-    const o4=ctx.createOscillator(),g4=ctx.createGain();
-    o4.type='sine'; o4.frequency.value=freq+1.5; g4.gain.value=0.08;
-    o.connect(g); o2.connect(g2); o4.connect(g4);
-    g.connect(_bgGain); g2.connect(_bgGain); g4.connect(_bgGain);
-    const t=ctx.currentTime;
-    const tail=3.8; // лофи — нота долго висит в воздухе
-    // Быстрая атака арфы (8мс), очень плавное экспоненциальное затухание
-    g.gain.setValueAtTime(0,t);
-    g.gain.linearRampToValueAtTime(1,t+0.008);
-    g.gain.setValueAtTime(0.9,t+0.02);
-    g.gain.exponentialRampToValueAtTime(0.001,t+tail);
-    o.start(t); o.stop(t+tail+0.15);
-    o2.start(t); o2.stop(t+tail+0.15);
-    o4.start(t); o4.stop(t+tail+0.15);
-    _bgLoop=setTimeout(playNext,BG_DUR*1000);
-  }
-  playNext();
-}
-
-function setBgVol(v){
-  _bgVol=Math.min(v,0.08);
-  if(_bgGain){
-    const ctx=getCtx();
-    _bgGain.gain.setTargetAtTime(_bgVol,ctx.currentTime,0.3);
-  }
 }
 
 // Стрик → громче фон
-function rampBgByStreak(cons){
-  // базовая 0.032, каждые 3 правильных +0.028, макс 0.18
-  const vol=0.10+Math.floor(cons/3)*0.04;
-  setBgVol(vol);
-}
-
 // Правильный ответ — лёгкий монетный звон
 function playCoin(){
   try{
@@ -631,7 +542,7 @@ function playStreakMelody(cons){
                    cons>=5?[440.00,523.25,659.25]:
                    cons>=3?[392.00,493.88,587.33]:
                            [329.63,415.30,493.88];
-    const vol=0.038;
+    const vol=0.022;
     const tail=2.6;
     const t=ctx.currentTime+0.04;
 
@@ -721,7 +632,6 @@ function showBubble(txt,force){
   clearTimeout(_bt);_bt=setTimeout(()=>b.classList.remove('on'),4800);
 }
 function bubbleTap(){
-  startBg(); // на случай если ещё не стартовал
   playMascotTap();
   showBubble(INSPIRE[Math.floor(Math.random()*INSPIRE.length)],true);
 }
@@ -825,7 +735,7 @@ function lLife(q){
 function showGO(){_S.over=true;_inTest=false;document.getElementById('go').classList.add('on');}
 function restartLesson(){
   _S={lives:3,score:0,ans:{},wrong:[],cons:0,timer:null,tLeft:15,tStats:{},sXP:0,fast:0,total:10,lkey:'ielts_a0_lesson6',over:false,_ret:false};
-  _inTest=true;_bgVol=0.055;setBgVol(_bgVol);
+  _inTest=true;
   document.getElementById('go').classList.remove('on');
   document.querySelectorAll('.opt').forEach(b=>{b.disabled=false;b.classList.remove('ok','no','reveal');});
   document.querySelectorAll('.expl').forEach(e=>e.classList.remove('on'));
@@ -845,14 +755,13 @@ function dlA(q,ch,ck,tag){
     chosen.classList.add('ok');_S.score++;_S.cons++;_S.tStats[tag].ok++;
     aXP(10+(fast?5:0));if(fast)_S.fast++;
     playCoin();
-    if(_S.cons>=1)showStreakBanner(_S.cons);
+    if(_S.cons===3||_S.cons===5||_S.cons===7||_S.cons===10)showStreakBanner(_S.cons);
     
     if(_S.score===_S.total)boom();
   }else{
     chosen.classList.add('no');
     chosen.style.animation='shake .35s ease';setTimeout(()=>chosen.style.animation='',400);
     corBtn.classList.add('reveal');_S.cons=0;
-    setBgVol(0.055); // сбросить громкость при ошибке
     lLife(q);
   }
   const ep=document.getElementById('q'+q+'-e');
@@ -929,34 +838,7 @@ function showTab(id,el){
 }
 
 // ── ALPHABET — только буква, без "Capital" ──
-const LT=[
-  {l:'A',n:'эй',s:'[æ]/[eɪ]',w:'apple',t:'яблоко'},
-  {l:'B',n:'би',s:'[b]',w:'book',t:'книга'},
-  {l:'C',n:'си',s:'[k]/[s]',w:'cat',t:'кошка'},
-  {l:'D',n:'ди',s:'[d]',w:'dog',t:'собака'},
-  {l:'E',n:'и',s:'[e]/[iː]',w:'egg',t:'яйцо'},
-  {l:'F',n:'эф',s:'[f]',w:'fish',t:'рыба'},
-  {l:'G',n:'джи',s:'[g]/[dʒ]',w:'girl',t:'девочка'},
-  {l:'H',n:'эйч',s:'[h]',w:'house',t:'дом'},
-  {l:'I',n:'ай',s:'[ɪ]/[aɪ]',w:'ice',t:'лёд'},
-  {l:'J',n:'джей',s:'[dʒ]',w:'juice',t:'сок'},
-  {l:'K',n:'кей',s:'[k]',w:'key',t:'ключ'},
-  {l:'L',n:'эл',s:'[l]',w:'lion',t:'лев'},
-  {l:'M',n:'эм',s:'[m]',w:'map',t:'карта'},
-  {l:'N',n:'эн',s:'[n]',w:'night',t:'ночь'},
-  {l:'O',n:'оу',s:'[ɒ]/[əʊ]',w:'orange',t:'апельсин'},
-  {l:'P',n:'пи',s:'[p]',w:'pen',t:'ручка'},
-  {l:'Q',n:'кью',s:'[kw]',w:'queen',t:'королева'},
-  {l:'R',n:'аа',s:'[r]',w:'rose',t:'роза'},
-  {l:'S',n:'эс',s:'[s]/[z]',w:'sun',t:'солнце'},
-  {l:'T',n:'ти',s:'[t]',w:'tree',t:'дерево'},
-  {l:'U',n:'ю',s:'[ʌ]/[juː]',w:'umbrella',t:'зонт'},
-  {l:'V',n:'ви',s:'[v]',w:'voice',t:'голос'},
-  {l:'W',n:'дабл-ю',s:'[w]',w:'water',t:'вода'},
-  {l:'X',n:'экс',s:'[ks]',w:'box',t:'коробка'},
-  {l:'Y',n:'вай',s:'[j]',w:'year',t:'год'},
-  {l:'Z',n:'зед',s:'[z]',w:'zebra',t:'зебра'},
-];
+const LT=[{'l':'have','n':'have','s':'[aɪ hæv]','w':'I have','t':'у меня есть'},{'l':'has','n':'has','s':'[ʃiː hæz]','w':'she has','t':'у неё есть'},{'l':'отриц.','n':'отриц.','s':'[dəʊnt hæv]','w':'don\'t have','t':'нет у меня'},{'l':'отриц.','n':'отриц.','s':'[ˈdʌznt hæv]','w':'doesn\'t have','t':'нет у него/неё'},{'l':'вопрос','n':'вопрос','s':'[duː juː hæv]','w':'do you have?','t':'у тебя есть?'},{'l':'n','n':'n','s':'[ˈhedeɪk]','w':'headache','t':'головная боль'},{'l':'фраза','n':'фраза','s':'[hæv lʌntʃ]','w':'have lunch','t':'пообедать'},{'l':'n','n':'n','s':'[ˈbrʌðər]','w':'brother','t':'брат'},{'l':'n','n':'n','s':'[ˈsɪstər]','w':'sister','t':'сестра'},{'l':'фраза','n':'фраза','s':'[hæv ə kəʊld]','w':'have a cold','t':'быть простуженным'}];
 
 function showL(i,el){
   document.querySelectorAll('.lc').forEach(c=>c.classList.remove('on'));el.classList.add('on');
@@ -983,14 +865,14 @@ function showL(i,el){
 let fi=0,ff=false;
 function updFC(){
   const lt=LT[fi];
-  document.getElementById('fc-l').textContent=lt.l;
+  document.getElementById('fc-l').textContent=lt.w;
   document.getElementById('fc-s').textContent=lt.s;
   const fw=document.getElementById('fc-w');
-  fw.textContent=lt.w;
+  fw.textContent=lt.t;
   fw.ondblclick=e=>{e.stopPropagation();spk(lt.w);};
   fw.onclick=e=>e.stopPropagation();
-  document.getElementById('fc-t').textContent=lt.t;
-  document.getElementById('fcc').textContent=(fi+1)+'/26';
+  document.getElementById('fc-t').textContent=lt.n;
+  document.getElementById('fcc').textContent=(fi+1)+'/10';
   document.getElementById('fc').classList.remove('fl');ff=false;
 }
 function flipFC(){ff=!ff;document.getElementById('fc').classList.toggle('fl',ff);}
@@ -998,7 +880,7 @@ function nextFC(){fi=(fi+1)%LT.length;updFC();}
 function prevFC(){fi=(fi-1+LT.length)%LT.length;updFC();}
 
 // ── INIT ──
-window._cm={1:'B',2:'C',3:'C',4:'B',5:'B',6:'B',7:'C',8:'B',9:'A',10:'B'};
+window._cm={1:'B',2:'C',3:'C',4:'B',5:'B',6:'B',7:'C',8:'B',9:'B',10:'C'};
 window.addEventListener('load',()=>{
   if(window.speechSynthesis)_pv();
   document.getElementById('str-n').textContent='🔥 '+gStr();
@@ -1008,16 +890,65 @@ window.addEventListener('load',()=>{
   updFC();
 });
 
-// Арфа стартует при первом касании/клике — обход autoplay-блокировки браузера
-function _tryStartBg(){
-  startBg();
-  document.removeEventListener('click',_tryStartBg);
-  document.removeEventListener('touchstart',_tryStartBg);
-  document.removeEventListener('keydown',_tryStartBg);
+</script>
+
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('sw.js').catch(()=>{});
+  });
 }
-document.addEventListener('click',_tryStartBg,{once:true});
-document.addEventListener('touchstart',_tryStartBg,{once:true});
-document.addEventListener('keydown',_tryStartBg,{once:true});
+</script>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="firebase_core.js"></script>
+<script>
+// Auth guard для уроков
+ATOC.AUTH.onStateChange(async user => {
+  if (!user) { window.location.href = 'auth.html'; return; }
+  const hasAccess = await ATOC.ACCESS.check('a0');
+  if (!hasAccess) { window.location.href = 'payment_a0.html'; return; }
+  // Загружаем XP и streak из Firebase
+  try {
+    const data = await ATOC.PROGRESS.load();
+    if (data) {
+      const xpEl = document.getElementById('xp-hdr');
+      const strEl = document.getElementById('str-n');
+      if (xpEl) xpEl.textContent = '💎 ' + (data.xp || 0);
+      if (strEl) strEl.textContent = '🔥 ' + (data.streak || 0);
+      // Синхронизируем localStorage с Firebase
+      localStorage.setItem('atoc_xp', JSON.stringify({xp: data.xp || 0}));
+    }
+  } catch(e) {}
+});
+
+// Перехватываем сохранение результата урока — пишем и в Firebase
+const _origShowScore = showScore;
+
+// Firebase save hook — вызывается после showScore
+(function(){
+  const orig = window.showScore;
+  if (!orig) return;
+  window.showScore = function() {
+    orig.call(this);
+    // Сохраняем в Firebase
+    try {
+      const xp = (JSON.parse(localStorage.getItem('atoc_xp')||'{"xp":0}')).xp || 0;
+      ATOC.PROGRESS.saveLesson(_S.lkey, {
+        score: _S.score,
+        max: _S.total,
+        pct: Math.round(_S.score/_S.total*100),
+        xpEarned: _S.sXP,
+        topicStats: _S.tStats,
+        date: new Date().toISOString()
+      }).catch(()=>{});
+      ATOC.PROGRESS.updateStreak().catch(()=>{});
+    } catch(e) {}
+  };
+})();
 </script>
 </body>
 </html>
