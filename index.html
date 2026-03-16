@@ -204,6 +204,8 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
   .hero-in{padding:32px 15px 22px}
   .cnt{padding:18px 14px}
 }
+
+.xp-bar { display:flex;align-items:center;gap:4px;background:rgba(255,184,48,.12);border:1px solid rgba(255,184,48,.25);border-radius:20px;padding:4px 10px;font-size:12px;font-weight:700;color:#FFB830; }
 </style>
 <style>
 /* Extra styles for index */
@@ -255,6 +257,7 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
     <div class="logo"><span class="logo-b">AtoC</span><span class="logo-t">IELTS from Zero</span></div>
     <div class="hdr-r">
       <span class="streak" id="snum">🔥 0</span>
+      <span class="xp-bar" id="xp-display">💎 <span id="total-xp">0</span></span>
       <button onclick="if(confirm('Выйти?')){localStorage.removeItem('ielts_a0_access');window.location.href='payment_a0.html';}" style="color:rgba(255,255,255,.5);font-size:11px;font-weight:600;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;padding:5px 11px;cursor:pointer;font-family:'Sora',sans-serif">Выйти</button>
     </div>
   </div>
@@ -283,7 +286,8 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
     <div class="ob-wrap">
       <div class="ob-top"><span class="ob-label">Прогресс A0</span><span class="ob-pct" id="ob-pct">0%</span></div>
       <div class="ob-bar"><div class="ob-fill" id="ob-fill"></div></div>
-    </div>
+    <div id="portal-stats"></div>
+  </div>
   </div>
 </div>
 
@@ -450,6 +454,26 @@ function buildCard(l){
   </a>`;
 }
 
+
+function renderPortalStats(ts) {
+  const el = document.getElementById('portal-stats');
+  if(!el || Object.keys(ts).length === 0) return;
+  const colors = {grammar:'#845EC2',vocab:'#00C9A7',test:'#FFB830'};
+  const labels = {grammar:'Grammar',vocab:'Vocabulary',test:'Test'};
+  let html = '<div style="margin-top:12px"><div style="font-size:10px;font-weight:700;color:rgba(255,255,255,.45);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">Статистика по темам</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">';
+  for(const [type, data] of Object.entries(ts)) {
+    if(!data.total) continue;
+    const pct = Math.round(data.ok/data.total*100);
+    html += `<div style="background:rgba(255,255,255,.06);border-radius:10px;padding:10px;text-align:center">
+      <div style="font-size:18px;margin-bottom:4px">${type==='grammar'?'📝':type==='vocab'?'💬':'🏆'}</div>
+      <div style="font-size:10px;color:rgba(255,255,255,.5);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">${labels[type]||type}</div>
+      <div style="font-size:16px;font-weight:800;color:${colors[type]||'#fff'}">${pct}%</div>
+    </div>`;
+  }
+  html += '</div></div>';
+  el.innerHTML = html;
+}
+
 function init(){
   const results=LESSONS.map(l=>getR(l.k)).filter(Boolean);
   const done=results.length;
@@ -465,6 +489,13 @@ function init(){
   if(done>=8){document.getElementById('lvl').textContent='A0 ✓';document.getElementById('lvl-s').textContent='готов к A1!';}
   else if(done>=4){document.getElementById('lvl').textContent='A0';document.getElementById('lvl-s').textContent='в процессе';}
   document.getElementById('grid').innerHTML=LESSONS.map(buildCard).join('');
+  // Show total XP
+  const xpData = JSON.parse(localStorage.getItem('atoc_xp')||'{"xp":0}');
+  const xpEl = document.getElementById('total-xp');
+  if(xpEl) xpEl.textContent = xpData.xp || 0;
+  // Show topic stats if available
+  const ts = JSON.parse(localStorage.getItem('atoc_topic_stats')||'{}');
+  renderPortalStats(ts);
   renderStreak();
 }
 init();

@@ -241,6 +241,99 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
 }
 .speak-btn:hover { transform: scale(1.2); }
 
+
+/* ── DUOLINGO ENGINE CSS ── */
+.lives-bar {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(255,77,109,0.12); border: 1px solid rgba(255,77,109,0.25);
+  border-radius: 20px; padding: 5px 12px; font-size: 13px; font-weight: 700; color: #FF4D6D;
+}
+.lives-bar span { font-size: 16px; transition: all 0.3s; }
+.lives-bar span.lost { opacity: 0.2; filter: grayscale(1); transform: scale(0.8); }
+
+.xp-bar {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(255,184,48,0.12); border: 1px solid rgba(255,184,48,0.25);
+  border-radius: 20px; padding: 5px 12px; font-size: 13px; font-weight: 700; color: #FFB830;
+}
+
+.timer-ring {
+  position: relative; width: 44px; height: 44px; flex-shrink: 0;
+}
+.timer-ring svg { transform: rotate(-90deg); }
+.timer-ring .bg { fill: none; stroke: rgba(255,255,255,0.1); stroke-width: 3; }
+.timer-ring .fg { fill: none; stroke: var(--teal); stroke-width: 3;
+  stroke-linecap: round; stroke-dasharray: 113; stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s linear, stroke 0.3s; }
+.timer-ring .num { position: absolute; inset: 0; display: flex; align-items: center;
+  justify-content: center; font-size: 13px; font-weight: 800; color: #fff;
+  font-family: 'DM Mono', monospace; }
+
+.game-hdr {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 14px; background: rgba(0,0,0,0.15); border-radius: 12px;
+  margin-bottom: 16px; gap: 8px; flex-wrap: wrap;
+}
+
+/* Heart loss animation */
+@keyframes heartLost { 0%{transform:scale(1.5);opacity:1} 100%{transform:scale(0.5);opacity:0.2} }
+@keyframes xpGain { 0%{transform:translateY(0);opacity:1} 100%{transform:translateY(-30px);opacity:0} }
+@keyframes timerWarn { 0%,100%{background:rgba(255,77,109,0)} 50%{background:rgba(255,77,109,0.1)} }
+
+.xp-float {
+  position: fixed; font-size: 18px; font-weight: 800; color: #FFB830;
+  pointer-events: none; z-index: 9999; animation: xpGain 1.5s ease forwards;
+  font-family: 'DM Mono', monospace; text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* Game over overlay */
+.gameover {
+  position: fixed; inset: 0; background: rgba(13,27,42,0.92);
+  z-index: 500; display: none; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center; padding: 24px;
+  backdrop-filter: blur(8px);
+}
+.gameover.show { display: flex; animation: fadeIn 0.3s ease; }
+.go-icon { font-size: 72px; margin-bottom: 16px; }
+.go-title { font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+.go-sub { color: rgba(255,255,255,0.6); font-size: 15px; margin-bottom: 28px; line-height: 1.6; }
+.go-btn { background: linear-gradient(135deg,#FF4D6D,#FF6B35); color: #fff; border: none;
+  border-radius: 14px; padding: 16px 36px; font-size: 15px; font-weight: 800;
+  font-family: 'Sora',sans-serif; cursor: pointer; margin-bottom: 12px; width: 100%; max-width: 280px; }
+.go-btn2 { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 14px; padding: 12px 28px; font-size: 13px; font-weight: 600;
+  font-family: 'Sora',sans-serif; cursor: pointer; width: 100%; max-width: 280px; }
+
+/* Repeat wrong questions badge */
+.retry-badge {
+  background: linear-gradient(135deg,#FF4D6D,#FF6B35); color: #fff;
+  border-radius: 12px; padding: 12px 16px; font-size: 13px; font-weight: 700;
+  display: flex; align-items: center; gap: 8px; margin-bottom: 14px;
+  animation: sUp 0.3s ease;
+}
+
+/* Stats by topic */
+.topic-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+.ts-item { background: var(--bg); border: 1.5px solid var(--border); border-radius: 11px; padding: 12px; }
+.ts-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+.ts-bar { background: var(--border); border-radius: 100px; height: 6px; overflow: hidden; margin-bottom: 4px; }
+.ts-fill { height: 100%; border-radius: 100px; transition: width 0.8s ease; }
+.ts-num { font-size: 12px; font-weight: 700; color: var(--text); font-family: 'DM Mono', monospace; }
+
+/* Word builder */
+.word-bank { display: flex; flex-wrap: wrap; gap: 8px; min-height: 44px; padding: 10px;
+  background: var(--bg); border: 2px dashed var(--border); border-radius: 12px; margin-bottom: 12px; }
+.word-token { background: #fff; border: 2px solid var(--border); border-radius: 9px;
+  padding: 8px 14px; font-size: 13px; font-weight: 700; cursor: pointer;
+  transition: all 0.15s; user-select: none; }
+.word-token:hover { border-color: var(--teal); background: var(--tp); transform: translateY(-1px); }
+.word-token.selected { background: var(--teal); color: #fff; border-color: var(--teal2); }
+.word-token.wrong-order { animation: shake 0.4s ease; }
+.answer-slots { display: flex; flex-wrap: wrap; gap: 8px; min-height: 44px; padding: 10px;
+  background: var(--tp); border: 2px solid rgba(0,201,167,0.3); border-radius: 12px; margin-bottom: 16px; }
+.slot-filled { background: var(--teal); color: #fff; border: 2px solid var(--teal2);
+  border-radius: 9px; padding: 8px 14px; font-size: 13px; font-weight: 700; cursor: pointer; }
+
 </style>
 </head>
 <body>
@@ -360,32 +453,32 @@ body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);min-he
   <div class="qcard">
   <div class="q-hdr"><span class="q-num">Вопрос 1/6</span><span class="q-tag qt-v">Vocab</span></div>
   <div class="q-text">Сколько букв в английском алфавите?</div>
-  <div class="opts" id="q1-o"><button class="opt" id="q1-A" onclick="ans(1,'A','B',6,'LKEY')"><span class="opt-l">A</span>24</button><button class="opt" id="q1-B" onclick="ans(1,'B','B',6,'LKEY')"><span class="opt-l">B</span>26</button><button class="opt" id="q1-C" onclick="ans(1,'C','B',6,'LKEY')"><span class="opt-l">C</span>28</button><button class="opt" id="q1-D" onclick="ans(1,'D','B',6,'LKEY')"><span class="opt-l">D</span>33</button></div>
+  <div class="opts" id="q1-o"><button class="opt" id="q1-A" onclick="dlAnswer(1,'A','B','vocab')"><span class="opt-l">A</span>24</button><button class="opt" id="q1-B" onclick="dlAnswer(1,'B','B','vocab')"><span class="opt-l">B</span>26</button><button class="opt" id="q1-C" onclick="dlAnswer(1,'C','B','vocab')"><span class="opt-l">C</span>28</button><button class="opt" id="q1-D" onclick="dlAnswer(1,'D','B','vocab')"><span class="opt-l">D</span>33</button></div>
   <div class="expl" id="q1-e">✅ <strong>26 букв</strong>. В русском 33, в английском меньше. Зато звуков целых 44!</div>
 </div><div class="qcard">
   <div class="q-hdr"><span class="q-num">Вопрос 2/6</span><span class="q-tag qt-v">Vocab</span></div>
   <div class="q-text">Как читается слово <strong>cake</strong>? (правило «немой E»)</div>
-  <div class="opts" id="q2-o"><button class="opt" id="q2-A" onclick="ans(2,'A','B',6,'LKEY')"><span class="opt-l">A</span>[кæк]</button><button class="opt" id="q2-B" onclick="ans(2,'B','B',6,'LKEY')"><span class="opt-l">B</span>[кейк]</button><button class="opt" id="q2-C" onclick="ans(2,'C','B',6,'LKEY')"><span class="opt-l">C</span>[какэ]</button><button class="opt" id="q2-D" onclick="ans(2,'D','B',6,'LKEY')"><span class="opt-l">D</span>[кааке]</button></div>
+  <div class="opts" id="q2-o"><button class="opt" id="q2-A" onclick="dlAnswer(2,'A','B','vocab')"><span class="opt-l">A</span>[кæк]</button><button class="opt" id="q2-B" onclick="dlAnswer(2,'B','B','vocab')"><span class="opt-l">B</span>[кейк]</button><button class="opt" id="q2-C" onclick="dlAnswer(2,'C','B','vocab')"><span class="opt-l">C</span>[какэ]</button><button class="opt" id="q2-D" onclick="dlAnswer(2,'D','B','vocab')"><span class="opt-l">D</span>[кааке]</button></div>
   <div class="expl" id="q2-e">✅ <strong>[кейк]</strong> — буква E в конце не читается, но делает A длинной [eɪ]. Классика!</div>
 </div><div class="qcard">
   <div class="q-hdr"><span class="q-num">Вопрос 3/6</span><span class="q-tag qt-v">Vocab</span></div>
   <div class="q-text">Буква W в слове water произносится как...</div>
-  <div class="opts" id="q3-o"><button class="opt" id="q3-A" onclick="ans(3,'A','C',6,'LKEY')"><span class="opt-l">A</span>Как «в» — вотер</button><button class="opt" id="q3-B" onclick="ans(3,'B','C',6,'LKEY')"><span class="opt-l">B</span>Не читается</button><button class="opt" id="q3-C" onclick="ans(3,'C','C',6,'LKEY')"><span class="opt-l">C</span>Губы трубочкой [w]</button><button class="opt" id="q3-D" onclick="ans(3,'D','C',6,'LKEY')"><span class="opt-l">D</span>Как «б»</button></div>
+  <div class="opts" id="q3-o"><button class="opt" id="q3-A" onclick="dlAnswer(3,'A','C','vocab')"><span class="opt-l">A</span>Как «в» — вотер</button><button class="opt" id="q3-B" onclick="dlAnswer(3,'B','C','vocab')"><span class="opt-l">B</span>Не читается</button><button class="opt" id="q3-C" onclick="dlAnswer(3,'C','C','vocab')"><span class="opt-l">C</span>Губы трубочкой [w]</button><button class="opt" id="q3-D" onclick="dlAnswer(3,'D','C','vocab')"><span class="opt-l">D</span>Как «б»</button></div>
   <div class="expl" id="q3-e">✅ <strong>Губы трубочкой [w]</strong> — этого звука нет в русском. Это «уотэ», не «ватэ»!</div>
 </div><div class="qcard">
   <div class="q-hdr"><span class="q-num">Вопрос 4/6</span><span class="q-tag qt-v">Vocab</span></div>
   <div class="q-text">TH в слове think читается как...</div>
-  <div class="opts" id="q4-o"><button class="opt" id="q4-A" onclick="ans(4,'A','C',6,'LKEY')"><span class="opt-l">A</span>[т] — «тинк»</button><button class="opt" id="q4-B" onclick="ans(4,'B','C',6,'LKEY')"><span class="opt-l">B</span>[с] — «синк»</button><button class="opt" id="q4-C" onclick="ans(4,'C','C',6,'LKEY')"><span class="opt-l">C</span>[θ] — язык между зубами</button><button class="opt" id="q4-D" onclick="ans(4,'D','C',6,'LKEY')"><span class="opt-l">D</span>[ч] — «чинк»</button></div>
+  <div class="opts" id="q4-o"><button class="opt" id="q4-A" onclick="dlAnswer(4,'A','C','vocab')"><span class="opt-l">A</span>[т] — «тинк»</button><button class="opt" id="q4-B" onclick="dlAnswer(4,'B','C','vocab')"><span class="opt-l">B</span>[с] — «синк»</button><button class="opt" id="q4-C" onclick="dlAnswer(4,'C','C','vocab')"><span class="opt-l">C</span>[θ] — язык между зубами</button><button class="opt" id="q4-D" onclick="dlAnswer(4,'D','C','vocab')"><span class="opt-l">D</span>[ч] — «чинк»</button></div>
   <div class="expl" id="q4-e">✅ <strong>[θ]</strong> — высуни кончик языка между зубами и дуй. Тренируй: think, three, thank.</div>
 </div><div class="qcard">
   <div class="q-hdr"><span class="q-num">Вопрос 5/6</span><span class="q-tag qt-v">Vocab</span></div>
   <div class="q-text">Сколько гласных букв в английском?</div>
-  <div class="opts" id="q5-o"><button class="opt" id="q5-A" onclick="ans(5,'A','B',6,'LKEY')"><span class="opt-l">A</span>3 (A, E, I)</button><button class="opt" id="q5-B" onclick="ans(5,'B','B',6,'LKEY')"><span class="opt-l">B</span>5 (A, E, I, O, U)</button><button class="opt" id="q5-C" onclick="ans(5,'C','B',6,'LKEY')"><span class="opt-l">C</span>6 букв</button><button class="opt" id="q5-D" onclick="ans(5,'D','B',6,'LKEY')"><span class="opt-l">D</span>7 букв</button></div>
+  <div class="opts" id="q5-o"><button class="opt" id="q5-A" onclick="dlAnswer(5,'A','B','vocab')"><span class="opt-l">A</span>3 (A, E, I)</button><button class="opt" id="q5-B" onclick="dlAnswer(5,'B','B','vocab')"><span class="opt-l">B</span>5 (A, E, I, O, U)</button><button class="opt" id="q5-C" onclick="dlAnswer(5,'C','B','vocab')"><span class="opt-l">C</span>6 букв</button><button class="opt" id="q5-D" onclick="dlAnswer(5,'D','B','vocab')"><span class="opt-l">D</span>7 букв</button></div>
   <div class="expl" id="q5-e">✅ <strong>5 гласных: A E I O U</strong>. Буква Y иногда ведёт себя как гласная, но официально их 5.</div>
 </div><div class="qcard">
   <div class="q-hdr"><span class="q-num">Вопрос 6/6</span><span class="q-tag qt-v">Vocab</span></div>
   <div class="q-text">Как правильно произносится hello?</div>
-  <div class="opts" id="q6-o"><button class="opt" id="q6-A" onclick="ans(6,'A','B',6,'LKEY')"><span class="opt-l">A</span>«элоу» (H не читается)</button><button class="opt" id="q6-B" onclick="ans(6,'B','B',6,'LKEY')"><span class="opt-l">B</span>«хэлоу» (H читается)</button><button class="opt" id="q6-C" onclick="ans(6,'C','B',6,'LKEY')"><span class="opt-l">C</span>«гелло»</button><button class="opt" id="q6-D" onclick="ans(6,'D','B',6,'LKEY')"><span class="opt-l">D</span>«йелло»</button></div>
+  <div class="opts" id="q6-o"><button class="opt" id="q6-A" onclick="dlAnswer(6,'A','B','vocab')"><span class="opt-l">A</span>«элоу» (H не читается)</button><button class="opt" id="q6-B" onclick="dlAnswer(6,'B','B','vocab')"><span class="opt-l">B</span>«хэлоу» (H читается)</button><button class="opt" id="q6-C" onclick="dlAnswer(6,'C','B','vocab')"><span class="opt-l">C</span>«гелло»</button><button class="opt" id="q6-D" onclick="dlAnswer(6,'D','B','vocab')"><span class="opt-l">D</span>«йелло»</button></div>
   <div class="expl" id="q6-e">✅ <strong>«хэлоу»</strong> — буква H в английском всегда читается как лёгкий выдох!</div>
 </div>
   <div class="scard" id="scard">
@@ -537,6 +630,33 @@ if(window.speechSynthesis) {
 }
 
 window.addEventListener('load',()=>{renderStreak();tsay('start');});
+</script>
+
+<script>
+window._correctMap = {};
+window._currentLKey = 'ielts_a0_lesson1';
+window._DL = window._DL || {};
+window._DL.totalQs = 6;
+window._correctMap[1] = 'D';
+window._correctMap[2] = 'D';
+window._correctMap[3] = 'D';
+window._correctMap[4] = 'D';
+window._correctMap[5] = 'D';
+window._correctMap[6] = 'D';
+
+function restartLesson() {
+  window._ans = {}; window._sc = 0;
+  window._DL.lives = 3; window._DL.wrongQs = [];
+  window._DL.gameOver = false; window._DL.sessionXP = 0;
+  window._DL.topicStats = {};
+  document.getElementById('gameover').classList.remove('show');
+  document.querySelectorAll('.opt').forEach(b => { b.disabled=false; b.classList.remove('ok','no'); });
+  document.querySelectorAll('.expl').forEach(e => e.classList.remove('on'));
+  document.getElementById('scard').classList.remove('on');
+  renderHUD();
+  window.scrollTo({top:0,behavior:'smooth'});
+  setTimeout(()=>startTimer(1),500);
+}
 </script>
 </body></html>
 <script>
