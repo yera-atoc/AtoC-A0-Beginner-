@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок | AtoC IELTS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="lesson-title">Загрузка...</h1>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+            </div>
+        </header>
+
+        <main>
+            <div id="lesson-content" class="lesson-content">
+                <p>Загрузка урока...</p>
+            </div>
+            
+            <div id="test-section" style="display: none;">
+                <h3>Проверьте себя:</h3>
+                <div id="test-question"></div>
+                <div id="test-options"></div>
+                <button id="submit-test" class="btn">Проверить</button>
+                <div id="test-result"></div>
+            </div>
+
+            <div class="lesson-navigation">
+                <button id="prev-lesson" class="btn" disabled>← Предыдущий</button>
+                <button id="next-lesson" class="btn" disabled>Следующий →</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="firebase-config.js"></script>
+    <script>
+        // Получаем ID урока из URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const lessonId = urlParams.get('id') || 'lesson1';
+        
+        // Проверка авторизации
+        firebase.auth().onAuthStateChanged(async (user) => {
+            if (!user) {
+                window.location.href = 'auth.html';
+                return;
+            }
+
+            // Загружаем урок из Firestore
+            const lessonRef = firebase.firestore().collection('lessons').doc(lessonId);
+            const lessonDoc = await lessonRef.get();
+            
+            if (lessonDoc.exists) {
+                const lesson = lessonDoc.data();
+                document.getElementById('lesson-title').textContent = lesson.title;
+                document.getElementById('lesson-content').innerHTML = lesson.content;
+                
+                // Проверяем доступ (если урок платный)
+                if (lesson.isPaid) {
+                    const progressRef = firebase.firestore()
+                        .collection('progress')
+                        .doc(`${user.uid}_${lessonId}`);
+                    const progressDoc = await progressRef.get();
+                    
+                    if (!progressDoc.exists || !progressDoc.data().hasAccess) {
+                        document.getElementById('lesson-content').innerHTML = `
+                            <div class="paid-lock">
+                                <h2>Это платный урок</h2>
+                                <p>Чтобы продолжить, оплатите доступ</p>
+                                <a href="payment.html" class="btn">Оплатить</a>
+                            </div>
+                        `;
+                        return;
+                    }
+                }
+                
+                // Показываем тест, если есть
+                if (lesson.test) {
+                    document.getElementById('test-section').style.display = 'block';
+                    document.getElementById('test-question').textContent = lesson.test.question;
+                    
+                    const optionsDiv = document.getElementById('test-options');
+                    optionsDiv.innerHTML = '';
+                    lesson.test.options.forEach((option, index) => {
+                        optionsDiv.innerHTML += `
+                            <label>
+                                <input type="radio" name="test" value="${index}">
+                                ${option}
+                            </label><br>
+                        `;
+                    });
+                }
+                
+                // Сохраняем прогресс просмотра
+                await firebase.firestore().collection('progress').doc(`${user.uid}_${lessonId}`).set({
+                    userId: user.uid,
+                    lessonId: lessonId,
+                    viewedAt: new Date(),
+                    completed: false
+                }, { merge: true });
+                
+            } else {
+                document.getElementById('lesson-content').innerHTML = '<p>Урок не найден</p>';
+            }
+        });
+
+        // Обработка теста
+        document.getElementById('submit-test').addEventListener('click', async () => {
+            const selected = document.querySelector('input[name="test"]:checked');
+            if (!selected) {
+                alert('Выберите ответ');
+                return;
+            }
+            
+            const user = firebase.auth().currentUser;
+            const lessonRef = firebase.firestore().collection('lessons').doc(lessonId);
+            const lessonDoc = await lessonRef.get();
+            const correct = lessonDoc.data().test.correct;
+            
+            const resultDiv = document.getElementById('test-result');
+            if (parseInt(selected.value) === correct) {
+                resultDiv.innerHTML = '<p style="color: green">✓ Правильно!</p>';
+                
+                // Отмечаем урок как пройденный
+                await firebase.firestore().collection('progress').doc(`${user.uid}_${lessonId}`).update({
+                    completed: true,
+                    completedAt: new Date(),
+                    score: 100
+                });
+                
+                // Разблокируем следующий урок
+                const nextLessonId = 'lesson' + (parseInt(lessonId.replace('lesson', '')) + 1);
+                await firebase.firestore().collection('progress').doc(`${user.uid}_${nextLessonId}`).set({
+                    userId: user.uid,
+                    lessonId: nextLessonId,
+                    hasAccess: true,
+                    unlockedAt: new Date()
+                }, { merge: true });
+                
+                document.getElementById('next-lesson').disabled = false;
+            } else {
+                resultDiv.innerHTML = '<p style="color: red">✗ Неправильно, попробуйте еще</p>';
+            }
+        });
+    </script>
+</body>
+</html>
