@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00c9a7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AtoC">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>AtoC · A1 Урок 1: Личные местоимения и глагол to be</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --nv:#04080f;--nv2:#080e1a;--nv3:#0c1422;
+            --tl:#00c9a7;--tl2:#00a98f;
+            --gd:#ffb830;--gd2:#e09a00;
+            --rd:#ff4d6d;--gr:#06d6a0;
+            --pu:#845ec2;
+            --bg:#04080f;--tx:#dde4f0;
+            --mu:rgba(221,228,240,.4);--br:rgba(255,255,255,.07)
+        }
+        *{box-sizing:border-box;margin:0;padding:0}
+        html{scroll-behavior:smooth}
+        body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;padding-bottom:110px;overflow-x:hidden}
+        
+        body::before{content:'';position:fixed;inset:0;
+            background:radial-gradient(ellipse at 5% 10%,rgba(0,201,167,.06) 0%,transparent 45%),
+                       radial-gradient(ellipse at 95% 90%,rgba(255,184,48,.05) 0%,transparent 45%);
+            pointer-events:none;z-index:0}
+        body::after{content:'';position:fixed;inset:0;
+            background-image:linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),
+                              linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);
+            background-size:48px 48px;pointer-events:none;z-index:0;opacity:.6}
+        
+        .hdr{background:rgba(4,8,15,.97);border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:0;z-index:200;padding:0 18px;backdrop-filter:blur(16px)}
+        .hdr-in{max-width:720px;margin:0 auto;height:54px;display:flex;align-items:center;justify-content:space-between}
+        .logo{display:flex;align-items:center;gap:9px}
+        .logo-b{background:linear-gradient(135deg,#ffb830,#f0a010);color:#04080f;font-weight:900;font-size:12px;padding:5px 11px;border-radius:7px;letter-spacing:.04em}
+        .logo-t{color:rgba(255,255,255,.6);font-weight:600;font-size:13px;letter-spacing:.02em}
+        .hdr-r{display:flex;align-items:center;gap:8px}
+        .streak-pill{background:rgba(255,184,48,.1);border:1px solid rgba(255,184,48,.22);border-radius:20px;padding:4px 11px;font-size:12px;font-weight:800;color:#ffb830}
+        .xp-pill{background:rgba(132,94,194,.1);border:1px solid rgba(132,94,194,.22);border-radius:20px;padding:4px 11px;font-size:12px;font-weight:800;color:#c4aaff}
+        .back-btn{color:rgba(255,255,255,.35);font-size:11px;font-weight:600;padding:5px 11px;border:1px solid rgba(255,255,255,.1);border-radius:7px;background:none;cursor:pointer;text-decoration:none}
+        
+        .hero{background:linear-gradient(175deg,#0a1220 0%,#04080f 100%);padding:28px 18px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+        .hero-inner{max-width:720px;margin:0 auto;padding-bottom:20px}
+        .chips{display:flex;gap:7px;margin-bottom:14px}
+        .chip{font-size:10px;font-weight:700;padding:3px 11px;border-radius:20px;letter-spacing:.06em;text-transform:uppercase}
+        .ct{background:rgba(0,201,167,.1);border:1px solid rgba(0,201,167,.25);color:#4de8c8}
+        .cg{background:rgba(255,184,48,.1);border:1px solid rgba(255,184,48,.25);color:#ffb830}
+        .hero-h{font-size:clamp(22px,4.5vw,32px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:8px}
+        .hero-h .ac{background:linear-gradient(90deg,#ffb830,#00c9a7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .hero-s{font-size:13px;color:rgba(221,228,240,.4);line-height:1.75;margin-bottom:16px}
+        .eqs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+        .eq{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:6px 11px}
+        .eq-l{color:rgba(255,255,255,.25);font-size:9px;font-weight:700;text-transform:uppercase}
+        .eq-v{color:#fff;font-weight:800;font-size:11px;font-family:'DM Mono',monospace}
+        .goal-box{background:rgba(0,201,167,.06);border:1px solid rgba(0,201,167,.15);border-radius:10px;padding:12px 15px}
+        .goal-box p{font-size:12px;color:rgba(221,228,240,.65);line-height:1.65}
+        .goal-box strong{color:#4de8c8}
+        .pb-w{height:3px;background:rgba(255,255,255,.05)}
+        .pb{height:3px;background:linear-gradient(90deg,#00c9a7,#ffb830);width:8%}
+        
+        .tabs-w{background:rgba(4,8,15,.98);border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:54px;z-index:100;backdrop-filter:blur(12px)}
+        .tabs{display:flex;overflow-x:auto;max-width:720px;margin:0 auto}
+        .tab{padding:13px 15px;font-size:11px;font-weight:700;color:rgba(221,228,240,.3);cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent}
+        .tab.on{color:#00c9a7;border-bottom-color:#00c9a7}
+        
+        .cnt{max-width:720px;margin:0 auto;padding:20px 16px;position:relative;z-index:1}
+        .sec{display:none}.sec.on{display:block;animation:fadeUp .3s ease}
+        @keyframes fadeUp{from{transform:translateY(16px);opacity:0}to{transform:none;opacity:1}}
+        
+        .card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:20px;margin-bottom:13px}
+        .c-ti{font-size:14px;font-weight:800;margin-bottom:13px;display:flex;align-items:center;gap:9px;color:#fff}
+        .ci{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px}
+        .ci-t{background:rgba(0,201,167,.12)}.ci-g{background:rgba(255,184,48,.12)}.ci-p{background:rgba(132,94,194,.12)}
+        
+        .tip{background:rgba(0,201,167,.06);border:1px solid rgba(0,201,167,.13);border-radius:10px;padding:12px 14px;margin:11px 0;font-size:13px;line-height:1.75}
+        .tip .tl{font-weight:800;color:#009e82;font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+        .warn{background:rgba(255,184,48,.06);border:1px solid rgba(255,184,48,.15);border-radius:10px;padding:12px 14px;margin:11px 0;font-size:13px}
+        .warn .wl{font-weight:800;color:#c08800;font-size:9px;text-transform:uppercase}
+        
+        .table{display:grid;grid-template-columns:1fr 2fr 2fr;gap:8px;margin:15px 0}
+        .table-header{color:rgba(221,228,240,.4);font-size:10px;font-weight:700;text-transform:uppercase;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+        .table-item{font-size:14px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+        .table-item strong{color:#fff}
+        
+        .pronoun-table{background:rgba(255,255,255,.02);border-radius:12px;padding:15px;margin:10px 0}
+        .pronoun-row{display:grid;grid-template-columns:1fr 1fr 1fr;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+        .pronoun-row:last-child{border-bottom:none}
+        .pronoun-eng{font-weight:700;color:#fff}
+        .pronoun-ru{color:rgba(221,228,240,.6)}
+        .pronoun-example{color:#00c9a7;font-size:13px}
+        
+        .er{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px}
+        .er:last-child{border-bottom:none}
+        .er-e{font-weight:700;color:#fff;min-width:120px}
+        .er-r{color:var(--mu)}
+        
+        .spk{background:none;border:none;cursor:pointer;font-size:13px;padding:1px 3px;opacity:.5}
+        .spk:hover{opacity:.9}
+        
+        .qc{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:20px;margin-bottom:13px}
+        .q-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px}
+        .q-n{font-size:10px;font-weight:700;color:rgba(221,228,240,.28)}
+        .q-t{font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;background:rgba(0,201,167,.1);color:#4de8c8}
+        .q-tx{font-size:15px;font-weight:800;color:#fff;margin-bottom:14px}
+        .opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+        .opt{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);border-radius:11px;padding:13px 14px;font-size:13px;font-weight:700;color:rgba(221,228,240,.78);cursor:pointer;text-align:left;display:flex;align-items:center;gap:8px}
+        .opt:hover:not(:disabled){border-color:#00c9a7;background:rgba(0,201,167,.08);color:#fff}
+        .opt.ok{border-color:#06d6a0!important;background:rgba(6,214,160,.1)!important;color:#06d6a0!important}
+        .opt.no{border-color:#ff4d6d!important;background:rgba(255,77,109,.08)!important;color:#ff4d6d!important}
+        .opt.reveal{border-color:#06d6a0!important;background:rgba(6,214,160,.07)!important}
+        .ol{width:22px;height:22px;border-radius:6px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:rgba(221,228,240,.35)}
+        .expl{background:rgba(0,201,167,.06);border:1px solid rgba(0,201,167,.15);border-radius:10px;padding:12px 14px;margin-top:11px;font-size:13px;display:none}
+        .expl.on{display:block}
+        
+        .vg{display:grid;grid-template-columns:repeat(auto-fill,minmax(162px,1fr));gap:9px;margin-top:12px}
+        .vi{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:11px;padding:11px 13px}
+        .vi:hover{border-color:rgba(0,201,167,.22)}
+        .vi-e{font-weight:700;font-size:13px;color:#fff}
+        .vi-i{font-size:10px;color:#4de8c8;font-family:'DM Mono',monospace}
+        .vi-r{font-size:11px;color:rgba(221,228,240,.38)}
+        
+        .tab-nav{display:flex;gap:9px;margin-top:14px}
+        .nb-prev{flex:0 0 auto;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);color:rgba(221,228,240,.5);border-radius:13px;padding:15px 18px;font-size:14px;font-weight:700;cursor:pointer}
+        .nb-next{flex:1;background:linear-gradient(135deg,#00c9a7,#00a98f);color:#fff;border:none;border-radius:13px;padding:15px;font-size:14px;font-weight:800;cursor:pointer;text-align:center}
+        
+        .sc{background:linear-gradient(170deg,#080e1a,#04080f);border:1px solid rgba(255,184,48,.18);border-radius:20px;padding:36px 22px;text-align:center;display:none}
+        .sc.on{display:block}
+        .sc-em{font-size:50px}
+        .sc-n{font-size:48px;font-weight:900;color:#ffb830;font-family:'DM Mono',monospace}
+        .sc-bar-w{background:rgba(255,255,255,.07);border-radius:100px;height:6px;max-width:260px;margin:14px auto;overflow:hidden}
+        .sc-bar{height:100%;background:linear-gradient(90deg,#00c9a7,#ffb830);width:0%}
+        
+        @media(max-width:480px){.opts{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+
+<header class="hdr"><div class="hdr-in">
+    <div class="logo"><span class="logo-b">AtoC</span><span class="logo-t">IELTS from Zero</span></div>
+    <div class="hdr-r">
+        <span class="streak-pill" id="str-n">🔥 0</span>
+        <span class="xp-pill" id="xp-hdr">💎 0</span>
+        <a href="index.html" class="back-btn">← Уроки</a>
+    </div>
+</div></header>
+
+<div class="hero"><div class="hero-inner">
+    <div class="chips">
+        <span class="chip ct">A1 · Elementary</span>
+        <span class="chip cg">Урок 1 из 12</span>
+    </div>
+    <h1 class="hero-h">Личные местоимения и<br><span class="ac">глагол to be</span></h1>
+    <p class="hero-s">Научись говорить «я есть», «ты есть», «он есть» — основа любого английского предложения.</p>
+    <div class="eqs">
+        <div class="eq"><span class="eq-l">IELTS</span><span class="eq-v">2–3</span></div>
+        <div class="eq"><span class="eq-l">TOEFL</span><span class="eq-v">30–45</span></div>
+        <div class="eq"><span class="eq-l">Duolingo</span><span class="eq-v">50–80</span></div>
+        <div class="eq"><span class="eq-l">CEFR</span><span class="eq-v">A1</span></div>
+    </div>
+    <div class="goal-box">
+        <p><strong>После урока:</strong> сможешь рассказать о себе, спросить «кто ты?», представить других</p>
+    </div>
+</div><div class="pb-w"><div class="pb" id="pb"></div></div></div>
+
+<div class="tabs-w"><div class="tabs">
+    <div class="tab on" onclick="showTab('theory',this)">📖 Теория</div>
+    <div class="tab" onclick="showTab('table',this)">📊 Таблица</div>
+    <div class="tab" onclick="showTab('cards',this)">🃏 Карточки</div>
+    <div class="tab" onclick="showTab('prac',this)">✏️ Практика</div>
+    <div class="tab" onclick="showTab('vocab',this)">📝 Словарь</div>
+</div></div>
+
+<div class="cnt">
+    <!-- ТЕОРИЯ -->
+    <div class="sec on" id="t-theory">
+        <div class="card">
+            <div class="c-ti"><span class="ci ci-t">👤</span>Что такое местоимения?</div>
+            <p style="font-size:13px;line-height:1.85;color:rgba(221,228,240,.55);margin-bottom:11px">
+                Местоимения заменяют имена людей или предметов. Вместо того чтобы повторять «Анна», мы говорим «она».
+            </p>
+            <div class="tip">
+                <div class="tl">💡 В русском и английском</div>
+                В русском: я, ты, он, она, оно, мы, вы, они<br>
+                В английском: I, you, he, she, it, we, they
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="c-ti"><span class="ci ci-g">⚡</span>Глагол to be — самый главный глагол</div>
+            <p style="font-size:13px;line-height:1.85;color:rgba(221,228,240,.55);margin-bottom:11px">
+                В английском нельзя просто сказать «я врач». Нужно сказать «я ЕСТЬ врач» — I am a doctor.
+            </p>
+            <div class="warn">
+                <div class="wl">⚠️ Важно!</div>
+                В русском мы часто опускаем «есть» (я — учитель), но в английском глагол to be ОБЯЗАТЕЛЕН всегда.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="c-ti"><span class="ci ci-p">🔤</span>Три формы to be</div>
+            <div class="er"><span class="er-e">am</span><span class="er-r">только с I (я)</span></div>
+            <div class="er"><span class="er-e">is</span><span class="er-r">с he, she, it (он, она, оно)</span></div>
+            <div class="er"><span class="er-e">are</span><span class="er-r">с you, we, they (ты, мы, они)</span></div>
+        </div>
+        
+        <div class="tab-nav">
+            <button onclick="showTab('table',document.querySelectorAll('.tab')[1])" class="nb-next">Далее: Таблица →</button>
+        </div>
+    </div>
+    
+    <!-- ТАБЛИЦА -->
+    <div class="sec" id="t-table">
+        <div class="card">
+            <div class="c-ti"><span class="ci ci-t">📋</span>Полная таблица спряжения</div>
+            
+            <div class="pronoun-table">
+                <div class="pronoun-row" style="color:rgba(221,228,240,.4);font-size:10px;border-bottom:2px solid rgba(255,255,255,.1)">
+                    <div>Местоимение</div>
+                    <div>Форма to be</div>
+                    <div>Пример</div>
+                </div>
+                <div class="pronoun-row">
+                    <div class="pronoun-eng">I</div>
+                    <div class="pronoun-ru">am</div>
+                    <div class="pronoun-example">I am a student</div>
+                </div>
+                <div class="pronoun-row">
+                    <div class="pronoun-eng">You</div>
+                    <div class="pronoun-ru">are</div>
+                    <div class="pronoun-example">You are my friend</div>
+                </div>
+                <div class="pronoun-row">
+                    <div class="pronoun-eng">He</div>
+                    <div class="pronoun-ru">is</div>
+                    <div class="pronoun-example">He is a teacher</div>
+                </div>
+                <div class="pronoun-row">
+                    <div class="pronoun-eng">She</div>
+                    <div class="pronoun-ru">is</div>
+                    <div class="pronoun-example">She is beautiful</div>
+                </div>
+                <div class="pronoun-row">
+                    <div class="pronoun-eng">It</div>
+                    <div class="pronoun-ru">is</div>
+                    <div class="pronoun-example">It is a cat</div>
+                </div>
+                <div class="pronoun-row">
+                    <div class="pronoun-eng">We</div>
+                    <div class="pronoun-ru">are</div>
+                    <div class="pronoun-example">We are happy</div>
+                </div>
+                <div class="pronoun-row">
+                    <div class="pronoun-eng">They</div>
+                    <div class="pronoun-ru">are</div>
+                    <div class="pronoun-example">They are at home</div>
+                </div>
+            </div>
+            
+            <div class="tip" style="margin-top:15px">
+                <div class="tl">🎯 Запомни рифмовку</div>
+                Я — am, ты — are, он/она/оно — is,<br>
+                Мы — are, вы — are, они — are, не кисни!
+            </div>
+        </div>
+        
+        <div class="tab-nav">
+            <button onclick="showTab('theory',document.querySelectorAll('.tab')[0])" class="nb-prev">← Назад</button>
+            <button onclick="showTab('cards',document.querySelectorAll('.tab')[2])" class="nb-next">Далее: Карточки →</button>
+        </div>
+    </div>
+    
+    <!-- КАРТОЧКИ -->
+    <div class="sec" id="t-cards">
+        <div class="card">
+            <div class="c-ti"><span class="ci ci-p">🃏</span>Карточки — переворачивай и запоминай</div>
+            <div class="vg">
+                <div class="vi"><div class="vi-e">I am</div><div class="vi-i">ай эм</div><div class="vi-r">я есть</div></div>
+                <div class="vi"><div class="vi-e">You are</div><div class="vi-i">ю а:</div><div class="vi-r">ты есть</div></div>
+                <div class="vi"><div class="vi-e">He is</div><div class="vi-i">хи из</div><div class="vi-r">он есть</div></div>
+                <div class="vi"><div class="vi-e">She is</div><div class="vi-i">ши из</div><div class="vi-r">она есть</div></div>
+                <div class="vi"><div class="vi-e">It is</div><div class="vi-i">ит из</div><div class="vi-r">оно есть</div></div>
+                <div class="vi"><div class="vi-e">We are</div><div class="vi-i">ви а:</div><div class="vi-r">мы есть</div></div>
+                <div class="vi"><div class="vi-e">They are</div><div class="vi-i">ðей а:</div><div class="vi-r">они есть</div></div>
+            </div>
+            <div class="tip">
+                <div class="tl">✨ Совет</div>
+                Читай вслух каждую карточку 3 раза. Мозг запоминает через движение губ и звук.
+            </div>
+        </div>
+        <div class="tab-nav">
+            <button onclick="showTab('table',document.querySelectorAll('.tab')[1])" class="nb-prev">← Назад</button>
+            <button onclick="showTab('prac',document.querySelectorAll('.tab')[3])" class="nb-next">Далее: Практика →</button>
+        </div>
+    </div>
+    
+    <!-- ПРАКТИКА -->
+    <div class="sec" id="t-prac">
+        <div class="qc">
+            <div class="q-h"><span class="q-n">Вопрос 1 / 5</span><span class="q-t">Grammar</span></div>
+            <div class="q-tx">Как правильно: "I ___ a student"?</div>
+            <div class="opts" id="q1-o">
+                <button class="opt" id="q1-A" onclick="dlA(1,'A','B')"><span class="ol">A</span>are</button>
+                <button class="opt" id="q1-B" onclick="dlA(1,'B','B')"><span class="ol">B</span>am</button>
+                <button class="opt" id="q1-C" onclick="dlA(1,'C','B')"><span class="ol">C</span>is</button>
+                <button class="opt" id="q1-D" onclick="dlA(1,'D','B')"><span class="ol">D</span>be</button>
+            </div>
+            <div class="expl" id="q1-e">✅ <strong>I am</strong> — всегда только с I.</div>
+        </div>
+        
+        <div class="qc">
+            <div class="q-h"><span class="q-n">Вопрос 2 / 5</span><span class="q-t">Grammar</span></div>
+            <div class="q-tx">"She ___ a doctor"</div>
+            <div class="opts" id="q2-o">
+                <button class="opt" id="q2-A" onclick="dlA(2,'A','B')"><span class="ol">A</span>are</button>
+                <button class="opt" id="q2-B" onclick="dlA(2,'B','B')"><span class="ol">B</span>is</button>
+                <button class="opt" id="q2-C" onclick="dlA(2,'C','B')"><span class="ol">C</span>am</button>
+                <button class="opt" id="q2-D" onclick="dlA(2,'D','B')"><span class="ol">D</span>they</button>
+            </div>
+            <div class="expl" id="q2-e">✅ <strong>She is</strong> — для она используем is.</div>
+        </div>
+        
+        <div class="qc">
+            <div class="q-h"><span class="q-n">Вопрос 3 / 5</span><span class="q-t">Grammar</span></div>
+            <div class="q-tx">"We ___ from Kazakhstan"</div>
+            <div class="opts" id="q3-o">
+                <button class="opt" id="q3-A" onclick="dlA(3,'A','B')"><span class="ol">A</span>is</button>
+                <button class="opt" id="q3-B" onclick="dlA(3,'B','B')"><span class="ol">B</span>are</button>
+                <button class="opt" id="q3-C" onclick="dlA(3,'C','B')"><span class="ol">C</span>am</button>
+                <button class="opt" id="q3-D" onclick="dlA(3,'D','B')"><span class="ol">D</span>be</button>
+            </div>
+            <div class="expl" id="q3-e">✅ <strong>We are</strong> — мы есть.</div>
+        </div>
+        
+        <div class="qc">
+            <div class="q-h"><span class="q-n">Вопрос 4 / 5</span><span class="q-t">Grammar</span></div>
+            <div class="q-tx">"They ___ at home"</div>
+            <div class="opts" id="q4-o">
+                <button class="opt" id="q4-A" onclick="dlA(4,'A','C')"><span class="ol">A</span>is</button>
+                <button class="opt" id="q4-B" onclick="dlA(4,'B','C')"><span class="ol">B</span>am</button>
+                <button class="opt" id="q4-C" onclick="dlA(4,'C','C')"><span class="ol">C</span>are</button>
+                <button class="opt" id="q4-D" onclick="dlA(4,'D','C')"><span class="ol">D</span>be</button>
+            </div>
+            <div class="expl" id="q4-e">✅ <strong>They are</strong> — они есть.</div>
+        </div>
+        
+        <div class="qc">
+            <div class="q-h"><span class="q-n">Вопрос 5 / 5</span><span class="q-t">Grammar</span></div>
+            <div class="q-tx">"It ___ a cat"</div>
+            <div class="opts" id="q5-o">
+                <button class="opt" id="q5-A" onclick="dlA(5,'A','B')"><span class="ol">A</span>are</button>
+                <button class="opt" id="q5-B" onclick="dlA(5,'B','B')"><span class="ol">B</span>is</button>
+                <button class="opt" id="q5-C" onclick="dlA(5,'C','B')"><span class="ol">C</span>am</button>
+                <button class="opt" id="q5-D" onclick="dlA(5,'D','B')"><span class="ol">D</span>they</button>
+            </div>
+            <div class="expl" id="q5-e">✅ <strong>It is</strong> — для животных и предметов.</div>
+        </div>
+        
+        <div class="sc" id="sc">
+            <span class="sc-em" id="sc-em">✨</span>
+            <div class="sc-n" id="sc-n">0/5</div>
+            <div class="sc-sub">правильных ответов</div>
+            <div class="sc-bar-w"><div class="sc-bar" id="sc-b"></div></div>
+            <div class="sc-btns">
+                <button class="sc-btn-next" onclick="window.location.href='IELTS_A1_Lesson2.html'">Урок 2: Have got / Has got →</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- СЛОВАРЬ -->
+    <div class="sec" id="t-vocab">
+        <div class="card">
+            <div class="c-ti"><span class="ci ci-t">📝</span>Слова урока</div>
+            <div class="vg">
+                <div class="vi"><div class="vi-e">I</div><div class="vi-i">ай</div><div class="vi-r">я</div></div>
+                <div class="vi"><div class="vi-e">you</div><div class="vi-i">ю</div><div class="vi-r">ты, вы</div></div>
+                <div class="vi"><div class="vi-e">he</div><div class="vi-i">хи</div><div class="vi-r">он</div></div>
+                <div class="vi"><div class="vi-e">she</div><div class="vi-i">ши</div><div class="vi-r">она</div></div>
+                <div class="vi"><div class="vi-e">it</div><div class="vi-i">ит</div><div class="vi-r">оно</div></div>
+                <div class="vi"><div class="vi-e">we</div><div class="vi-i">ви</div><div class="vi-r">мы</div></div>
+                <div class="vi"><div class="vi-e">they</div><div class="vi-i">ðей</div><div class="vi-r">они</div></div>
+                <div class="vi"><div class="vi-e">am</div><div class="vi-i">эм</div><div class="vi-r">есть (я)</div></div>
+                <div class="vi"><div class="vi-e">are</div><div class="vi-i">а:</div><div class="vi-r">есть (ты/мы/они)</div></div>
+                <div class="vi"><div class="vi-e">is</div><div class="vi-i">из</div><div class="vi-r">есть (он/она/оно)</div></div>
+            </div>
+        </div>
+        
+        <div class="tab-nav">
+            <button onclick="showTab('prac',document.querySelectorAll('.tab')[3])" class="nb-prev">← Практика</button>
+            <a href="index.html" class="nb-prev">← На главную</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    window._cm = {1:'B',2:'B',3:'B',4:'C',5:'B'};
+    let _S = {score:0, ans:{}, total:5, lkey:'ielts_a1_lesson1'};
+    
+    function showTab(id, el) {
+        document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+        document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+        document.getElementById('t-'+id).classList.add('on');
+        if(el) el.classList.add('on');
+        document.getElementById('pb').style.width = (8 + Object.keys(_S.ans).length/_S.total*87) + '%';
+    }
+    
+    function dlA(q,ch,ck) {
+        if(_S.ans[q]) return;
+        _S.ans[q] = ch;
+        document.querySelectorAll('#q'+q+'-o .opt').forEach(b=>b.disabled=true);
+        
+        const chosen = document.getElementById('q'+q+'-'+ch);
+        const corBtn = document.getElementById('q'+q+'-'+ck);
+        
+        if(ch === ck) {
+            chosen.classList.add('ok');
+            _S.score++;
+            playCoin();
+        } else {
+            chosen.classList.add('no');
+            corBtn.classList.add('reveal');
+            playWrong();
+        }
+        
+        document.getElementById('q'+q+'-e').classList.add('on');
+        document.getElementById('pb').style.width = (8 + Object.keys(_S.ans).length/_S.total*87) + '%';
+        
+        if(Object.keys(_S.ans).length === _S.total) {
+            setTimeout(showScore, 700);
+        }
+    }
+    
+    function showScore() {
+        const sc = document.getElementById('sc');
+        sc.classList.add('on');
+        document.getElementById('sc-n').textContent = _S.score+'/'+_S.total;
+        setTimeout(()=>document.getElementById('sc-b').style.width = (_S.score/_S.total*100)+'%',100);
+        localStorage.setItem(_S.lkey, JSON.stringify({score:_S.score, date:new Date()}));
+    }
+    
+    function playCoin() {
+        try {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            const t = ctx.currentTime;
+            [1046.5, 1318.5].forEach((f,i) => {
+                const o = ctx.createOscillator(), g = ctx.createGain();
+                o.type = 'sine'; o.frequency.value = f;
+                g.gain.setValueAtTime(0, t+i*0.07);
+                g.gain.linearRampToValueAtTime(0.07, t+i*0.07+0.01);
+                g.gain.exponentialRampToValueAtTime(0.001, t+i*0.07+0.22);
+                o.connect(g); g.connect(ctx.destination);
+                o.start(t+i*0.07); o.stop(t+i*0.07+0.25);
+            });
+        } catch(e) {}
+    }
+    
+    function playWrong() {
+        try {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            const t = ctx.currentTime;
+            const o = ctx.createOscillator(), g = ctx.createGain();
+            o.type = 'sine'; o.frequency.setValueAtTime(200,t);
+            o.frequency.exponentialRampToValueAtTime(100,t+0.22);
+            g.gain.setValueAtTime(0.09,t); g.gain.exponentialRampToValueAtTime(0.001,t+0.28);
+            o.connect(g); g.connect(ctx.destination);
+            o.start(t); o.stop(t+0.3);
+        } catch(e) {}
+    }
+</script>
+</body>
+</html>
