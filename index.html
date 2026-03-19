@@ -2,253 +2,83 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#00c9a7">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="AtoC"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <title>AtoC · IELTS from Zero</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-:root{--nv:#04080f;--nv2:#080e1a;--tl:#00c9a7;--tl2:#00a98f;--gd:#ffb830;--rd:#ff4d6d;--gr:#06d6a0;--pu:#845ec2;--bg:#04080f;--tx:#dde4f0;--mu:rgba(221,228,240,.4);--br:rgba(255,255,255,.07)}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;padding-bottom:100px;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 5% 10%,rgba(0,201,167,.06) 0%,transparent 45%),radial-gradient(ellipse at 95% 90%,rgba(255,184,48,.05) 0%,transparent 45%);pointer-events:none;z-index:0}
-body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0;opacity:.6}
-
-/* HEADER */
-.hdr{background:rgba(4,8,15,.97);border-bottom:1px solid rgba(255,255,255,.06);position:sticky;top:0;z-index:200;padding:0 18px;backdrop-filter:blur(16px)}
-.hdr::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,201,167,.4),rgba(255,184,48,.4),transparent)}
-.hdr-in{max-width:720px;margin:0 auto;height:54px;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:9px}
-.logo-b{background:linear-gradient(135deg,#ffb830,#f0a010);color:#04080f;font-weight:900;font-size:12px;padding:5px 11px;border-radius:7px;letter-spacing:.04em}
-.logo-t{color:rgba(255,255,255,.6);font-weight:600;font-size:13px}
-.hdr-r{display:flex;align-items:center;gap:8px}
-.streak-pill{background:rgba(255,184,48,.1);border:1px solid rgba(255,184,48,.22);border-radius:20px;padding:4px 11px;font-size:12px;font-weight:800;color:#ffb830}
-.xp-pill{background:rgba(132,94,194,.1);border:1px solid rgba(132,94,194,.22);border-radius:20px;padding:4px 11px;font-size:12px;font-weight:800;color:#c4aaff}
-.exit-btn{color:rgba(255,255,255,.35);font-size:11px;font-weight:600;padding:5px 11px;border:1px solid rgba(255,255,255,.1);border-radius:7px;background:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s}
-.exit-btn:hover{color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.25)}
-
-/* HERO */
-.hero{background:linear-gradient(175deg,#0a1220 0%,#04080f 100%);padding:28px 18px 22px;position:relative;overflow:hidden;z-index:1;border-bottom:1px solid rgba(255,255,255,.05)}
-.hero::before{content:'';position:absolute;top:-40px;right:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(0,201,167,.09) 0%,transparent 70%);pointer-events:none}
-.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent 0%,#00c9a7 30%,#ffb830 70%,transparent 100%)}
-.hero-in{max-width:720px;margin:0 auto}
-.hero-label{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#ffb830;margin-bottom:10px}
-.hero-h{font-size:clamp(22px,4.5vw,32px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:8px;letter-spacing:-.03em}
-.hero-h .ac{background:linear-gradient(90deg,#ffb830,#00c9a7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{font-size:13px;color:rgba(221,228,240,.4);line-height:1.75;margin-bottom:20px}
-
-/* STATS */
-.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:9px;margin-bottom:16px}
-.stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:13px 15px}
-.stat-l{color:rgba(221,228,240,.32);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
-.stat-v{font-size:24px;font-weight:900;line-height:1;margin-bottom:2px}
-.stat-s{color:rgba(221,228,240,.28);font-size:10px}
-
-/* PROGRESS */
-.prog-w{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:14px 18px}
-.prog-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.prog-l{color:rgba(221,228,240,.38);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.prog-pct{color:#ffb830;font-family:'DM Mono',monospace;font-weight:900;font-size:13px}
-.prog-bar{background:rgba(255,255,255,.08);border-radius:100px;height:7px;overflow:hidden}
-.prog-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,#00c9a7,#ffb830);transition:width 1s ease;width:0%}
-
-/* CONTENT */
-.cnt{max-width:720px;margin:0 auto;padding:22px 16px 60px;position:relative;z-index:1}
-.sec-h{display:flex;align-items:center;gap:9px;margin-bottom:14px;margin-top:32px}
-.sec-h:first-child{margin-top:0}
-.sec-pill{font-size:10px;font-weight:900;padding:3px 11px;border-radius:100px;color:#fff;letter-spacing:.06em;text-transform:uppercase}
-.sec-h h2{font-size:15px;font-weight:900;letter-spacing:-.01em;color:#fff}
-.sec-cnt{margin-left:auto;color:rgba(221,228,240,.32);font-size:12px;font-family:'DM Mono',monospace}
-
-/* LESSON CARDS */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:11px}
-.lcard{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:18px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;transition:all .2s;position:relative;overflow:hidden;cursor:pointer}
-.lcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--cc,rgba(255,255,255,.1));transition:all .2s}
-.lcard:hover:not(.locked){transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3);border-color:rgba(0,201,167,.2)}
-.lcard.done{background:rgba(6,214,160,.04);border-color:rgba(6,214,160,.15)}
-.lcard.done::before{background:var(--gr);height:4px}
-.lcard.locked{opacity:.38;cursor:not-allowed}
-.lcard.locked::before{background:#4a4a4a}
-.ln{font-size:10px;font-weight:900;font-family:'DM Mono',monospace;padding:3px 8px;border-radius:6px;letter-spacing:.05em;display:inline-block}
-.ln-d{background:rgba(255,255,255,.07);color:rgba(221,228,240,.45)}
-.ln-ok{background:rgba(6,214,160,.15);color:#06d6a0}
-.ln-lk{background:rgba(255,255,255,.05);color:rgba(221,228,240,.25)}
-.ltit{font-size:14px;font-weight:900;color:#fff;line-height:1.35;letter-spacing:-.01em}
-.ltag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px}
-.tg{background:rgba(132,94,194,.15);color:#c4aaff}
-.tv{background:rgba(0,201,167,.12);color:#4de8c8}
-.tt{background:rgba(255,184,48,.12);color:#ffb830}
-.lbar{background:rgba(255,255,255,.07);border-radius:100px;height:3px;overflow:hidden;margin-top:2px}
-.lbar-f{height:100%;border-radius:100px;transition:width .8s ease}
-.lcta{font-size:12px;font-weight:600;color:rgba(221,228,240,.38);margin-top:auto}
-.done .lcta{color:#4de8c8}
-.locked .lcta{color:rgba(221,228,240,.2)}
-.score-badge{background:rgba(6,214,160,.12);border:1px solid rgba(6,214,160,.2);border-radius:20px;padding:2px 9px;font-size:10px;font-weight:900;color:#06d6a0}
-
-/* COMING SOON */
-.soon-c{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:11px;margin-top:4px}
-.soon{background:rgba(255,255,255,.02);border:1px dashed rgba(255,255,255,.07);border-radius:14px;padding:16px;display:flex;align-items:center;gap:11px;opacity:.45}
-.soon-icon{font-size:24px;flex-shrink:0}
-.soon-title{font-weight:800;font-size:13px;color:#fff}
-.soon-sub{font-size:11px;color:rgba(221,228,240,.35);margin-top:2px}
-
-/* MASCOT */
-@keyframes spin-border{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-@keyframes pulse-ring{0%{transform:scale(1);opacity:.5}70%{transform:scale(1.6);opacity:0}100%{transform:scale(1.6);opacity:0}}
-@keyframes gem-glow{0%,100%{box-shadow:0 0 8px 2px rgba(255,184,48,.3),0 0 20px 4px rgba(0,201,167,.1)}50%{box-shadow:0 0 18px 6px rgba(255,184,48,.5),0 0 40px 10px rgba(0,201,167,.2)}}
-.mascot-wrap{position:fixed;bottom:20px;right:20px;z-index:300;width:52px;height:52px}
-.mascot-spin{position:absolute;inset:-3px;border-radius:50%;background:conic-gradient(#ffb830 0%,#00c9a7 40%,#845ec2 70%,#ffb830 100%);animation:spin-border 4s linear infinite;opacity:.8}
-.mascot-spin::after{content:'';position:absolute;inset:2px;border-radius:50%;background:#04080f}
-.mascot-pulse{position:absolute;inset:0;border-radius:50%;background:rgba(255,184,48,.25);animation:pulse-ring 2.8s ease-out infinite}
-.mascot-btn{position:relative;width:52px;height:52px;border-radius:50%;background:linear-gradient(145deg,#0e1a2e,#080e1a);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:22px;animation:gem-glow 3s ease-in-out infinite;transition:transform .2s;z-index:1}
-.mascot-btn:hover{transform:scale(1.13)}
-.mascot-bubble{position:fixed;bottom:80px;right:16px;background:#0a1220;border:1px solid rgba(255,184,48,.35);border-radius:16px 16px 4px 16px;padding:12px 16px;font-size:13px;font-weight:600;color:#dde4f0;line-height:1.65;max-width:215px;box-shadow:0 8px 32px rgba(0,0,0,.6);opacity:0;pointer-events:none;z-index:999;transform:scale(.82) translateY(6px);transition:opacity .28s,transform .3s cubic-bezier(.34,1.56,.64,1)}
-.mascot-bubble.on{opacity:1;transform:scale(1) translateY(0)}
-.mascot-bubble::after{content:'';position:absolute;right:18px;bottom:-9px;border:8px solid transparent;border-top-color:rgba(255,184,48,.35);border-bottom:0}
-
-@keyframes fadeUp{from{transform:translateY(14px);opacity:0}to{transform:none;opacity:1}}
+body {
+  visibility: hidden; /* 👈 скрываем до проверки */
+  font-family: sans-serif;
+  background: #04080f;
+  color: white;
+}
 </style>
 </head>
+
 <body>
-<script>// Firebase Auth guard — ждём инициализацию
-window.__authReady = false;</script>
 
-<header class="hdr"><div class="hdr-in">
-  <div class="logo"><span class="logo-b">AtoC</span><span class="logo-t">IELTS from Zero</span></div>
-  <div class="hdr-r">
-    <span class="streak-pill" id="str-n">🔥 0</span>
-    <span class="xp-pill">💎 <span id="xp-d">0</span></span>
-    <button class="exit-btn" onclick="if(confirm('Выйти из курса?')){localStorage.removeItem('ielts_a0_access');window.location.href='payment_a0.html';}">Выйти</button>
-  </div>
-</div></header>
+<h1>AtoC · IELTS from Zero</h1>
+<p id="status">Загрузка...</p>
 
-<div class="mascot-bubble" id="mb">Выбери урок и начнём! ✨</div>
-<div class="mascot-wrap">
-  <div class="mascot-spin"></div>
-  <div class="mascot-pulse"></div>
-  <button class="mascot-btn" onclick="mascotTap()">✨</button>
-</div>
+<button id="logout">Выйти</button>
 
-<div class="hero"><div class="hero-in">
-  <div class="hero-label">AtoC · IELTS from Zero</div>
-  <h1 class="hero-h">Английский с нуля<br><span class="ac">до IELTS</span></h1>
-  <p class="hero-sub">От A0 до C2 — пошагово, на русском, с объяснениями.</p>
-  <div class="stats">
-    <div class="stat"><div class="stat-l">Средний балл</div><div class="stat-v" id="avg" style="color:#ffb830;font-size:18px;margin-top:3px">—</div><div class="stat-s">по урокам</div></div>
-    <div class="stat"><div class="stat-l">Пройдено</div><div class="stat-v" id="done-c" style="color:#00c9a7">0</div><div class="stat-s">из 8 уроков A0</div></div>
-    <div class="stat"><div class="stat-l">Уровень</div><div class="stat-v" id="lvl" style="font-size:15px;margin-top:4px;color:#fff">Pre-A1</div><div class="stat-s" id="lvl-s">начало пути</div></div>
-    <div class="stat"><div class="stat-l">IELTS после A0</div><div class="stat-v" style="font-size:16px;margin-top:3px;color:rgba(221,228,240,.6)">0–2.0</div><div class="stat-s">эквивалент</div></div>
-  </div>
-  <div class="prog-w">
-    <div class="prog-top"><span class="prog-l">Прогресс A0</span><span class="prog-pct" id="prog-pct">0%</span></div>
-    <div class="prog-bar"><div class="prog-fill" id="prog-fill"></div></div>
-  </div>
-</div></div>
-
-<div class="cnt">
-  <div class="sec-h">
-    <span class="sec-pill" style="background:#00a98f">A0</span>
-    <h2>Beginner — Начинающий</h2>
-    <span class="sec-cnt" id="a0-cnt">0/8</span>
-  </div>
-  <div class="grid" id="grid"></div>
-
-  <div class="sec-h"><span class="sec-pill" style="background:#4a4a4a">Скоро</span><h2>Следующие уровни</h2></div>
-  <div class="soon-c">
-    <div class="soon"><div class="soon-icon">🔵</div><div><div class="soon-title">A1 — Elementary</div><div class="soon-sub">Present Simple, описание людей, 10 уроков</div></div></div>
-    <div class="soon"><div class="soon-icon">🟢</div><div><div class="soon-title">A2 — Pre-Intermediate</div><div class="soon-sub">Past Simple, путешествия, 12 уроков</div></div></div>
-    <div class="soon"><div class="soon-icon">🏆</div><div><div class="soon-title">IELTS подготовка</div><div class="soon-sub">Reading, Writing, Listening, Speaking</div></div></div>
-  </div>
-</div>
-
-<script>
-const LESSONS=[
-  {n:1,f:'IELTS_A0_Lesson1.html',t:'Алфавит и звуки',tags:['v'],k:'ielts_a0_lesson1',c:'#00c9a7'},
-  {n:2,f:'IELTS_A0_Lesson2.html',t:'Глагол TO BE',tags:['g'],k:'ielts_a0_lesson2',c:'#845ec2'},
-  {n:3,f:'IELTS_A0_Lesson3.html',t:'Числа, возраст, цены',tags:['v'],k:'ielts_a0_lesson3',c:'#00c9a7'},
-  {n:4,f:'IELTS_A0_Lesson4.html',t:'Цвета, дни, время',tags:['v'],k:'ielts_a0_lesson4',c:'#ffb830'},
-  {n:5,f:'IELTS_A0_Lesson5.html',t:'Артикли A / AN / THE',tags:['g'],k:'ielts_a0_lesson5',c:'#845ec2'},
-  {n:6,f:'IELTS_A0_Lesson6.html',t:'Глагол HAVE',tags:['g'],k:'ielts_a0_lesson6',c:'#845ec2'},
-  {n:7,f:'IELTS_A0_Lesson7.html',t:'Первые диалоги',tags:['v'],k:'ielts_a0_lesson7',c:'#06d6a0'},
-  {n:8,f:'IELTS_A0_Lesson8.html',t:'Итоговый тест A0',tags:['t'],k:'ielts_a0_lesson8',c:'#ffb830'},
-];
-const A0O=LESSONS.map(l=>l.k);
-function gR(k){try{return JSON.parse(localStorage.getItem(k));}catch{return null;}}
-function isUL(k){const i=A0O.indexOf(k);if(i<=0)return true;return!!gR(A0O[i-1]);}
-function buildCard(l){
-  const r=gR(l.k),done=!!r,ul=isUL(l.k),locked=!ul&&!done;
-  const pct=done?r.pct:null;
-  const tags=l.tags.map(t=>`<span class="ltag ${t==='g'?'tg':t==='t'?'tt':'tv'}">${t==='g'?'Grammar':t==='t'?'Тест':'Vocab'}</span>`).join(' ');
-  const score=done?`<span class="score-badge">✓ ${r.score}/${r.max}</span>`:'';
-  if(locked)return `<div class="lcard locked" style="--cc:#4a4a4a"><div style="display:flex;align-items:center;justify-content:space-between"><span class="ln ln-lk">Урок 0${l.n}</span><span style="font-size:16px;opacity:.5">🔒</span></div><div class="ltit" style="color:rgba(221,228,240,.3)">${l.t}</div><div>${tags}</div><div class="lcta">Заверши предыдущий урок</div></div>`;
-  const bar=done?`<div class="lbar"><div class="lbar-f" style="width:${pct}%;background:${pct>=70?'#06d6a0':pct>=50?'#ffb830':'#ff4d6d'}"></div></div>`:'';
-  const cta=done?`✓ Пройден · ${pct}% — Повторить`:'Начать урок →';
-  return `<a href="${l.f}" class="lcard${done?' done':''}" style="--cc:${l.c}"><div style="display:flex;align-items:center;justify-content:space-between"><span class="ln ${done?'ln-ok':'ln-d'}">Урок 0${l.n}</span>${score}</div><div class="ltit">${l.t}</div><div>${tags}</div>${bar}<div class="lcta">${cta}</div></a>`;
-}
-function gStr(){return(JSON.parse(localStorage.getItem('atoc_streak')||'{"c":0}')).c||0;}
-function gXP(){return(JSON.parse(localStorage.getItem('atoc_xp')||'{"xp":0}')).xp||0;}
-function init(){
-  const rs=LESSONS.map(l=>gR(l.k)).filter(Boolean);
-  const done=rs.length;
-  document.getElementById('done-c').textContent=done;
-  document.getElementById('a0-cnt').textContent=done+'/8';
-  document.getElementById('xp-d').textContent=gXP();
-  const pct=Math.round(done/8*100);
-  document.getElementById('prog-pct').textContent=pct+'%';
-  setTimeout(()=>document.getElementById('prog-fill').style.width=pct+'%',200);
-  if(done>0){const avg=Math.round(rs.reduce((s,r)=>s+r.pct,0)/done);document.getElementById('avg').textContent=avg+'%';}
-  if(done>=8){document.getElementById('lvl').textContent='A0 ✓';document.getElementById('lvl-s').textContent='готов к A1!';}
-  else if(done>=4){document.getElementById('lvl').textContent='A0';document.getElementById('lvl-s').textContent='в процессе';}
-  document.getElementById('grid').innerHTML=LESSONS.map(buildCard).join('');
-  document.getElementById('str-n').textContent='🔥 '+gStr();
-}
-const INSPIRE=['Выбери урок и начнём ✨','Каждый день — шаг к цели 🎯','Знание — твоя сила 💎','Ты уже лучше, чем вчера 🌟','Элита учится каждый день 👑'];
-let _bt;
-function mascotTap(){
-  const b=document.getElementById('mb');
-  b.textContent=INSPIRE[Math.floor(Math.random()*INSPIRE.length)];
-  b.classList.add('on');clearTimeout(_bt);_bt=setTimeout(()=>b.classList.remove('on'),4500);
-}
-window.addEventListener('load',()=>{init();setTimeout(()=>{document.getElementById('mb').classList.add('on');_bt=setTimeout(()=>document.getElementById('mb').classList.remove('on'),4500);},1200);});
-document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')init();});
-</script>
-
-<script>
-if('serviceWorker' in navigator){
-  window.addEventListener('load',()=>{
-    navigator.serviceWorker.register('sw.js').catch(()=>{});
-  });
-}
-</script>
-
-<!-- Firebase Auth guard -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
 <script src="firebase_core.js"></script>
+
 <script>
-ATOC.AUTH.onStateChange(async user => {
-  if (!user) { window.location.href = 'auth.html'; return; }
-  const hasAccess = await ATOC.ACCESS.check('a0');
-  if (!hasAccess) { window.location.href = 'payment_a0.html'; return; }
-  // Обновляем streak и XP из Firebase
+// 🔥 ГЛАВНАЯ ЛОГИКА (НОВАЯ АРХИТЕКТУРА)
+
+async function startApp() {
   try {
-    const data = await ATOC.PROGRESS.load();
-    if (data) {
-      document.getElementById('xp-d').textContent = data.xp || 0;
-      document.getElementById('str-n').textContent = '🔥 ' + (data.streak || 0);
+    const user = await ATOC.AUTH.getCurrentUser();
+
+    if (!user) {
+      window.location.href = 'auth.html';
+      return;
     }
+
+    const hasAccess = await ATOC.ACCESS.check('a0');
+
+    if (!hasAccess) {
+      window.location.href = 'payment_a0.html';
+      return;
+    }
+
+    // загрузка данных
+    const data = await ATOC.PROGRESS.load();
+
+    if (data) {
+      document.getElementById('status').textContent =
+        "XP: " + (data.xp || 0) + " | Streak: " + (data.streak || 0);
+    }
+
     await ATOC.PROGRESS.updateStreak();
-  } catch(e) {}
-  // Обновить кнопку выхода
-  const exitBtn = document.querySelector('.exit-btn');
-  if (exitBtn) exitBtn.onclick = () => {
-    if(confirm('Выйти из аккаунта?')) ATOC.AUTH.logout().then(()=>window.location.href='auth.html');
-  };
-});
+
+    // показываем сайт
+    document.body.style.visibility = 'visible';
+
+  } catch (e) {
+    console.error(e);
+    document.getElementById('status').textContent = "Ошибка загрузки";
+    document.body.style.visibility = 'visible';
+  }
+}
+
+// logout
+document.getElementById('logout').onclick = () => {
+  if (confirm('Выйти из аккаунта?')) {
+    ATOC.AUTH.logout().then(() => {
+      window.location.href = 'auth.html';
+    });
+  }
+};
+
+window.addEventListener('load', startApp);
 </script>
+
 </body>
 </html>
