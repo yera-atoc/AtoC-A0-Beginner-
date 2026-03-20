@@ -1,5 +1,4 @@
 // ── FIREBASE CORE MODULE ──
-// Вставь свой firebaseConfig сюда
 const firebaseConfig = {
   apiKey: "AIzaSyBXQMRDe_Is1U0UsjqGKK_eUi03qP5Gg1w",
   authDomain: "atoc-ielts.firebaseapp.com",
@@ -15,47 +14,43 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.firestore();
 
+// Бесплатные уровни — доступ всем авторизованным пользователям
+const FREE_LEVELS = ['a0', 'a1'];
+
 // ── AUTH ──
 const AUTH = {
-  // Вход через Google
   async loginGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();
     provider.setCustomParameters({ prompt: 'select_account' });
     return auth.signInWithPopup(provider);
   },
 
-  // Вход через email
   async loginEmail(email, password) {
     return auth.signInWithEmailAndPassword(email, password);
   },
 
-  // Регистрация
   async register(email, password, name) {
     const cred = await auth.createUserWithEmailAndPassword(email, password);
     await cred.user.updateProfile({ displayName: name });
-    // Создаём профиль в Firestore
+    // A0 и A1 бесплатны — даём сразу
     await db.collection('users').doc(cred.user.uid).set({
       name, email,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       level: 'A0', xp: 0, streak: 0, lastActive: null,
-      access: { a0: false }, // доступ к уровням
+      access: { a0: true, a1: true }, // ← бесплатные уровни
     });
     return cred;
   },
 
-  // Выход
   logout() { return auth.signOut(); },
 
-  // Текущий пользователь
   get current() { return auth.currentUser; },
 
-  // Слушать изменения авторизации
   onStateChange(cb) { return auth.onAuthStateChanged(cb); }
 };
 
 // ── PROGRESS ──
 const PROGRESS = {
-  // Сохранить результат урока
   async saveLesson(lessonKey, data) {
     const uid = auth.currentUser?.uid;
     if (!uid) return;
@@ -70,7 +65,6 @@ const PROGRESS = {
     });
   },
 
-  // Загрузить весь прогресс
   async load() {
     const uid = auth.currentUser?.uid;
     if (!uid) return null;
@@ -78,7 +72,6 @@ const PROGRESS = {
     return doc.exists ? doc.data() : null;
   },
 
-  // Обновить streak
   async updateStreak() {
     const uid = auth.currentUser?.uid;
     if (!uid) return;
@@ -98,15 +91,18 @@ const PROGRESS = {
 
 // ── ACCESS CONTROL ──
 const ACCESS = {
-  // Проверить доступ к уровню
   async check(level = 'a0') {
     const uid = auth.currentUser?.uid;
     if (!uid) return false;
+
+    // Бесплатные уровни — доступны всем авторизованным
+    if (FREE_LEVELS.includes(level.toLowerCase())) return true;
+
+    // Платные уровни — проверяем Firestore
     const doc = await db.collection('users').doc(uid).get();
     return doc.data()?.access?.[level] === true;
   },
 
-  // Выдать доступ (только из admin панели или через Cloud Function)
   async grant(uid, level = 'a0') {
     return db.collection('users').doc(uid).update({
       [`access.${level}`]: true,
@@ -117,11 +113,9 @@ const ACCESS = {
 
 // ── ADAPTIVE QUESTIONS ──
 const ADAPTIVE = {
-  // Получить слабые темы студента
   async getWeakTopics() {
     const data = await PROGRESS.load();
     if (!data?.progress) return [];
-    
     const topicStats = {};
     Object.values(data.progress).forEach(lesson => {
       if (!lesson.topicStats) return;
@@ -131,16 +125,14 @@ const ADAPTIVE = {
         topicStats[topic].total += stats.total;
       });
     });
-    
     return Object.entries(topicStats)
       .filter(([, s]) => s.total >= 3)
       .map(([topic, s]) => ({ topic, pct: Math.round(s.ok / s.total * 100) }))
-      .sort((a, b) => a.pct - b.pct) // слабейшие первые
+      .sort((a, b) => a.pct - b.pct)
       .slice(0, 3)
       .map(t => t.topic);
   },
 
-  // Приоритизировать вопросы по слабым темам
   prioritize(questions, weakTopics) {
     if (!weakTopics?.length) return questions;
     const weak = questions.filter(q => weakTopics.includes(q.tag));
@@ -173,25 +165,21 @@ const REWARDS = {
 
 // ── ADMIN / ANALYTICS ──
 const ADMIN = {
-  // Получить всех студентов (только для учителя)
   async getStudents() {
     const snap = await db.collection('users').orderBy('lastActive', 'desc').get();
     return snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
   },
 
-  // Статистика по уроку
   async getLessonStats(lessonKey) {
     const snap = await db.collection('users').get();
     const results = snap.docs
       .map(doc => doc.data().progress?.[lessonKey])
       .filter(Boolean);
-    
     if (!results.length) return null;
     const avg = Math.round(results.reduce((s, r) => s + r.pct, 0) / results.length);
     return { count: results.length, avgScore: avg };
   },
 
-  // Выдать доступ по email
   async grantByEmail(email, level = 'a0') {
     const snap = await db.collection('users').where('email', '==', email).get();
     if (snap.empty) throw new Error('Пользователь не найден');
