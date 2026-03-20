@@ -545,7 +545,7 @@ function getCtx(){if(!_ctx){_ctx=new(window.AudioContext||window.webkitAudioCont
 // Текущая громкость фоновой музыки (растёт со стриком)
 // ── ФОНОВАЯ ПИАНИНО-МУЗЫКА ──
 // Мягкая петля: Am - F - C - G арпеджио
-}
+
 
 // Стрик → громче фон
 // Правильный ответ — лёгкий монетный звон
@@ -748,7 +748,6 @@ function showStreakBanner(cons){
   document.getElementById('strk-sub').textContent=sub[cons]||'Не останавливайся! ⚡';
   b.className='streak-banner in';
   playStreakMelody(cons);
-  rampBgByStreak(cons); // громче фон!
   clearTimeout(_sbt);
   _sbt=setTimeout(()=>{b.className='streak-banner out';setTimeout(()=>b.className='streak-banner',400);},2000);
 }
