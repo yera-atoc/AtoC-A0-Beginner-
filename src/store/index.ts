@@ -17,8 +17,8 @@ export const useAuthStore = create<AuthState>((set) => ({
 
 interface LearningState {
   stats: UserStats | null;
-  subscriptions: Map<string, UserSubscription>;
-  progress: Map<string, UserProgress>;
+  subscriptions: Record<string, UserSubscription>;
+  progress: Record<string, UserProgress>;
   setStats: (stats: UserStats) => void;
   addSubscription: (subscription: UserSubscription) => void;
   addProgress: (progress: UserProgress) => void;
@@ -27,21 +27,30 @@ interface LearningState {
 
 export const useLearningStore = create<LearningState>((set, get) => ({
   stats: null,
-  subscriptions: new Map(),
-  progress: new Map(),
+  subscriptions: {},
+  progress: {},
+
   setStats: (stats) => set({ stats }),
+
   addSubscription: (subscription) => {
-    const subs = new Map(get().subscriptions);
-    subs.set(subscription.course_id, subscription);
-    set({ subscriptions: subs });
+    set((state) => ({
+      subscriptions: {
+        ...state.subscriptions,
+        [subscription.course_id]: subscription,
+      },
+    }));
   },
+
   addProgress: (progress) => {
-    const prg = new Map(get().progress);
-    prg.set(progress.lesson_id, progress);
-    set({ progress: prg });
+    set((state) => ({
+      progress: {
+        ...state.progress,
+        [progress.lesson_id]: progress,
+      },
+    }));
   },
+
   hasAccessToCourse: (courseId) => {
-    const sub = get().subscriptions.get(courseId);
-    return sub ? sub.is_active : false;
+    return !!get().subscriptions[courseId]?.is_active;
   },
 }));
