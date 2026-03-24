@@ -14,7 +14,7 @@ export default function LessonCard({ lesson, course }: LessonCardProps) {
   const [lessonProgress, setLessonProgress] = useState<UserProgress | null>(null);
 
   useEffect(() => {
-    const prog = progress.get(lesson.id);
+    const prog = progress[lesson.id];
     setLessonProgress(prog || null);
   }, [progress, lesson.id]);
 

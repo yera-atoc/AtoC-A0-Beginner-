@@ -7,6 +7,7 @@ import LessonCard from '../components/LessonCard';
 import StatsPanel from '../components/StatsPanel';
 
 export default function Dashboard() {
+  const navigate = useNavigate();
   const { user, setUser } = useAuthStore();
   const { stats } = useLearningStore();
   const [courses, setCourses] = useState<Course[]>([]);
