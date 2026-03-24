@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuthStore, useLearningStore } from '../store';
 import { supabase } from '../lib/supabase';
 import { Course, Lesson } from '../types';
@@ -6,11 +7,17 @@ import LessonCard from '../components/LessonCard';
 import StatsPanel from '../components/StatsPanel';
 
 export default function Dashboard() {
-  const { user } = useAuthStore();
+  const { user, setUser } = useAuthStore();
   const { stats } = useLearningStore();
   const [courses, setCourses] = useState<Course[]>([]);
   const [lessons, setLessons] = useState<Map<string, Lesson[]>>(new Map());
   const [loading, setLoading] = useState(true);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    setUser(null);
+    navigate('/');
+  };
 
   useEffect(() => {
     if (!user) return;
@@ -64,18 +71,26 @@ export default function Dashboard() {
               <p className="text-xs text-slate-400">От A0 до C2</p>
             </div>
           </div>
-          {stats && (
-            <div className="flex gap-4">
-              <div className="text-right">
-                <div className="text-2xl font-bold text-emerald-400">{stats.total_xp}</div>
-                <div className="text-xs text-slate-400">XP</div>
+          <div className="flex gap-6 items-center">
+            {stats && (
+              <div className="flex gap-4">
+                <div className="text-right">
+                  <div className="text-2xl font-bold text-emerald-400">{stats.total_xp}</div>
+                  <div className="text-xs text-slate-400">XP</div>
+                </div>
+                <div className="text-right">
+                  <div className="text-2xl font-bold text-amber-400">{stats.current_streak}</div>
+                  <div className="text-xs text-slate-400">дней</div>
+                </div>
               </div>
-              <div className="text-right">
-                <div className="text-2xl font-bold text-amber-400">🔥 {stats.current_streak}</div>
-                <div className="text-xs text-slate-400">дней</div>
-              </div>
-            </div>
-          )}
+            )}
+            <button
+              onClick={handleLogout}
+              className="px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-sm font-medium text-slate-200 transition-colors"
+            >
+              Выход
+            </button>
+          </div>
         </div>
       </header>
 
