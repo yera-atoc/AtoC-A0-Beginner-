@@ -11,7 +11,7 @@ export default function Dashboard() {
   const { user, setUser } = useAuthStore();
   const { stats } = useLearningStore();
   const [courses, setCourses] = useState<Course[]>([]);
-  const [lessons, setLessons] = useState<Map<string, Lesson[]>>(new Map());
+  const [lessons, setLessons] = useState<Record<string, Lesson[]>>({});
   const [loading, setLoading] = useState(true);
 
   const handleLogout = async () => {
@@ -44,7 +44,10 @@ export default function Dashboard() {
             .order('lesson_number', { ascending: true });
 
           if (lessonsData) {
-            setLessons((prev) => new Map(prev).set(course.id, lessonsData));
+            setLessons((prev) => ({
+              ...prev,
+              [course.id]: lessonsData,
+            }));
           }
         }
       }
@@ -108,13 +111,13 @@ export default function Dashboard() {
               </span>
               <h2 className="text-2xl font-bold">{course.name}</h2>
               <span className="ml-auto text-sm text-slate-400">
-                {lessons.get(course.id)?.length || 0} уроков
+                {lessons[course.id]?.length || 0} уроков
               </span>
             </div>
             <p className="text-slate-400 mb-6">{course.description}</p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {(lessons.get(course.id) || []).map((lesson) => (
+              {(lessons[course.id] || []).map((lesson) => (
                 <LessonCard key={lesson.id} lesson={lesson} course={course} />
               ))}
             </div>
